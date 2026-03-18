@@ -1,0 +1,19 @@
+// Abstracts — Variables Sass
+// Les CSS custom properties (tokens design) sont dans base/_reset.scss (:root)
+// Ces variables Sass sont réservées aux mixins et calculs SCSS
+
+// Breakpoints
+$bp-sm:  640px;
+$bp-md:  768px;
+$bp-lg:  1024px;
+$bp-xl:  1280px;
+
+// Couleurs (miroir des CSS vars — pour usage dans des calculs Sass si besoin)
+$primary:          #667eea;
+$primary-dark:     #764ba2;
+$primary-light:    #8b9bef;
+$accent:           #FFD700;
+$text:             #1a1a2e;
+$text-secondary:   #4a4a6a;
+$surface:          #F7F8FC;
+$surface-dark:     #EDEEF5;

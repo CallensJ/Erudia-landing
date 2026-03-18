@@ -1,0 +1,32 @@
+// Components — Pills / badges tags
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-weight: 700;
+
+  &--primary {
+    background: rgba(102, 126, 234, 0.12);
+    color: var(--color-primary);
+  }
+
+  &--accent {
+    background: rgba(255, 215, 0, 0.18);
+    color: #b8860b;
+  }
+
+  &--success {
+    background: rgba(16, 185, 129, 0.12);
+    color: #059669;
+  }
+
+  &--white {
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+  }
+}

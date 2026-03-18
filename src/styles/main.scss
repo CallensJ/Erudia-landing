@@ -1,0 +1,15 @@
+// main.scss — Point d'entrée SCSS global (architecture 7-1)
+// Importé une seule fois dans main.ts
+// N'importe que les partials qui produisent du CSS global.
+// Les styles spécifiques aux composants sont dans leur <style scoped>.
+
+// 1. Base
+@use 'base/reset';
+@use 'base/typography';
+
+// 2. Components (utilitaires globaux)
+@use 'components/buttons';
+@use 'components/pills';
+
+// 3. Layout
+@use 'layout/containers';

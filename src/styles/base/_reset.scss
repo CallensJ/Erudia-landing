@@ -1,0 +1,73 @@
+// Base — Reset + Design tokens (:root CSS custom properties)
+// Source unique des tokens couleur, typo, espacement pour toute la landing
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  // Couleurs
+  --color-primary:        #667eea;
+  --color-primary-dark:   #764ba2;
+  --color-primary-light:  #8b9bef;
+  --color-secondary:      #4CAF50;
+  --color-accent:         #FFD700;
+  --color-accent-orange:  #FF9800;
+  --color-bg:             #ffffff;
+  --color-surface:        #F7F8FC;
+  --color-surface-dark:   #EDEEF5;
+  --color-text:           #1a1a2e;
+  --color-text-secondary: #4a4a6a;
+  --color-text-light:     #8888aa;
+  --color-success:        #10B981;
+  --color-error:          #EF4444;
+
+  // Gradients
+  --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --gradient-hero:    linear-gradient(160deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+  --gradient-accent:  linear-gradient(135deg, #FFD700, #FFA500);
+
+  // Ombres
+  --shadow-sm:   0 2px 8px rgba(102, 126, 234, 0.10);
+  --shadow-md:   0 4px 20px rgba(102, 126, 234, 0.18);
+  --shadow-lg:   0 12px 40px rgba(102, 126, 234, 0.25);
+  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.07);
+
+  // Border-radius
+  --radius-sm:   8px;
+  --radius-md:   14px;
+  --radius-lg:   20px;
+  --radius-xl:   28px;
+  --radius-full: 9999px;
+
+  // Typographie
+  --font-display: 'Sora', sans-serif;    // Titres / display
+  --font-body:    'Nunito', sans-serif;  // Corps de texte
+
+  // Layout
+  --container:  1200px;
+  --header-h:   68px;
+
+  // Transitions
+  --transition: 0.25s ease;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+img     { max-width: 100%; display: block; }
+a       { text-decoration: none; color: inherit; }
+button  { cursor: pointer; border: none; background: none; font-family: inherit; }
+ul, ol  { list-style: none; }

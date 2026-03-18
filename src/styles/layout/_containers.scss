@@ -1,0 +1,29 @@
+// Layout — Container + Section helpers
+@use '../abstracts/mixins' as m;
+
+// Conteneur centré avec padding responsive
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 20px;
+
+  @include m.respond-to(md) { padding: 0 32px; }
+  @include m.respond-to(lg) { padding: 0 48px; }
+}
+
+// Section générique avec padding vertical
+.section {
+  padding: 64px 0;
+
+  @include m.respond-to(md) { padding: 96px 0; }
+
+  // Variantes de fond
+  &--surface { background: var(--color-surface); }
+  &--dark    { background: var(--gradient-hero); color: white; }
+}
+
+// Header spacer — évite que le contenu passe sous le header fixe
+.header-spacer {
+  height: var(--header-h);
+}
