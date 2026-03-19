@@ -34,7 +34,7 @@ const proofItems = [
   { icon: '📡', label: 'Mode hors ligne' },
   { icon: '🔒', label: 'COPPA compliant' },
   { icon: '🌍', label: 'FR / EN' },
-  { icon: '✨', label: 'Gratuit pour commencer' },
+  { icon: '✨', label: '100% gratuit' },
 ]
 </script>
 
@@ -81,7 +81,7 @@ const proofItems = [
               target="_blank"
               rel="noopener"
             >
-              🚀 Essayer gratuitement
+              🚀 Jouer maintenant — c'est gratuit
             </a>
             <RouterLink to="/how-it-works" class="btn btn--ghost btn--lg">
               Voir comment ça marche
