@@ -1,125 +1,106 @@
-<!-- PricingTeaser.vue — Aperçu tarifaire de la home page
-     Deux plans : Free (toujours gratuit) + Erudia+ (premium).
-     Objectif : transparence immédiate, curiosité pour le premium.
-     Le détail complet est sur /pricing — ici on reste concis.
-     Angle enfant : le premium = plus de catégories, plus de badges, plus d'aventures. -->
+<!-- PricingTeaser.vue — Section tarifs home page
+     2 cartes côte à côte : Gratuit + Erudia+ (highlighted, fond gradient).
+     Fidèle à la maquette documentations/landing/maquettes/index.html.
+     Max-width 800px centré, fond surface légèrement gris. -->
 
 <script setup lang="ts">
-const plans = [
-  {
-    name: 'Gratuit',
-    price: '0€',
-    period: 'pour toujours',
-    description: 'Pour découvrir Erudia et s\'y installer tranquillement.',
-    features: [
-      '3 catégories : Sciences, Histoire, Héros',
-      'Badges & profil enfant complet',
-      'Mode hors ligne',
-      'Tableau de bord parental',
-      'FR / EN',
-    ],
-    cta: 'Commencer gratuitement',
-    ctaLink: 'https://app.erudia.app',
-    ctaExternal: true,
-    highlight: false,
-  },
-  {
-    name: 'Erudia+',
-    price: '4,99€',
-    period: 'par mois',
-    pricingAlt: 'ou 39,99€ / an',
-    description: 'Pour les enfants qui veulent aller plus loin — et les parents qui les accompagnent.',
-    features: [
-      'Toutes les catégories disponibles',
-      'Avatars & badges exclusifs ✨',
-      'Défis spéciaux & collections secrètes',
-      'Rapports de progression par email',
-      'Multi-profils (jusqu\'à 3 enfants)',
-    ],
-    cta: 'Voir le détail',
-    ctaLink: '/pricing',
-    ctaExternal: false,
-    highlight: true,
-  },
-]
+import { RouterLink } from 'vue-router'
+
+const freePlan = {
+  label: 'Gratuit',
+  price: '0€',
+  sub: 'Pour toujours',
+  features: [
+    '3 catégories de quiz',
+    'Badges & défi quotidien',
+    'Mode duel asynchrone',
+    'Mode hors ligne (PWA)',
+    'Bilingue FR / EN',
+    '1 profil enfant',
+  ],
+  cta: 'Commencer gratuitement',
+  href: 'https://app.erudia.app',
+}
+
+const premiumPlan = {
+  badge: 'Le plus populaire',
+  label: 'Erudia+',
+  price: '4,99€',
+  sub: '/ mois · ou 39,99€/an',
+  features: [
+    'Toutes les catégories (9)',
+    'Avatars premium DiceBear',
+    'Dashboard parent avancé',
+    'Rapports PDF par email',
+    'Profils enfants illimités',
+    'Support prioritaire',
+  ],
+  cta: 'Essayer 7 jours gratuits',
+  href: 'https://app.erudia.app',
+}
 </script>
 
 <template>
-  <section class="pricing-teaser section" aria-labelledby="pricing-teaser-title">
+  <section class="pricing section section--surface" aria-labelledby="pricing-title">
     <div class="container">
 
-      <!-- En-tête -->
-      <div class="pricing-teaser__header">
-        <div class="pill pill--primary pricing-teaser__pill">Tarifs</div>
-        <h2 id="pricing-teaser-title" class="pricing-teaser__title heading-lg">
-          Simple et transparent
-        </h2>
-        <p class="pricing-teaser__subline subline">
-          Le plan gratuit est complet. Le premium, c'est pour ceux qui veulent explorer davantage.
+      <!-- En-tête centré -->
+      <div class="pricing__header">
+        <div class="pill pill--primary pricing__pill">Tarifs</div>
+        <h2 id="pricing-title" class="heading-lg pricing__title">Simple et transparent</h2>
+        <p class="pricing__subline">
+          Le plan gratuit est pleinement jouable. Le premium débloque davantage de contenu.
         </p>
       </div>
 
-      <!-- Plans -->
-      <div class="pricing-teaser__grid">
-        <div
-          v-for="plan in plans"
-          :key="plan.name"
-          class="pricing-teaser__card"
-          :class="{ 'pricing-teaser__card--highlight': plan.highlight }"
-        >
-          <!-- Badge populaire -->
-          <div v-if="plan.highlight" class="pricing-teaser__badge">
-            ⭐ Le plus choisi
-          </div>
+      <!-- Grille 2 cartes -->
+      <div class="pricing__grid">
 
-          <!-- Nom du plan -->
-          <div class="pricing-teaser__plan-name">{{ plan.name }}</div>
-
-          <!-- Prix -->
-          <div class="pricing-teaser__price">
-            <span class="pricing-teaser__price-amount">{{ plan.price }}</span>
-            <span class="pricing-teaser__price-period">{{ plan.period }}</span>
-          </div>
-          <div v-if="plan.pricingAlt" class="pricing-teaser__price-alt">
-            {{ plan.pricingAlt }}
-          </div>
-
-          <!-- Description -->
-          <p class="pricing-teaser__desc">{{ plan.description }}</p>
-
-          <div class="pricing-teaser__divider"></div>
-
-          <!-- Features -->
-          <ul class="pricing-teaser__features">
-            <li
-              v-for="feature in plan.features"
-              :key="feature"
-              class="pricing-teaser__feature"
-            >
-              {{ feature }}
+        <!-- Carte gratuit -->
+        <div class="pricing__card">
+          <div class="pricing__plan-label">{{ freePlan.label }}</div>
+          <div class="pricing__price">{{ freePlan.price }}</div>
+          <div class="pricing__price-sub">{{ freePlan.sub }}</div>
+          <ul class="pricing__features">
+            <li v-for="f in freePlan.features" :key="f" class="pricing__feature">
+              <span class="pricing__check" aria-hidden="true">✓</span>
+              <span>{{ f }}</span>
             </li>
           </ul>
-
-          <!-- CTA -->
-          <a
-            v-if="plan.ctaExternal"
-            :href="plan.ctaLink"
-            class="btn pricing-teaser__cta"
-            :class="plan.highlight ? 'btn--primary' : 'btn--secondary'"
-            target="_blank"
-            rel="noopener"
-          >
-            {{ plan.cta }}
+          <a :href="freePlan.href" class="btn btn-secondary pricing__cta" target="_blank" rel="noopener">
+            {{ freePlan.cta }}
           </a>
-          <RouterLink
-            v-else
-            :to="plan.ctaLink"
-            class="btn pricing-teaser__cta"
-            :class="plan.highlight ? 'btn--primary' : 'btn--secondary'"
-          >
-            {{ plan.cta }}
-          </RouterLink>
         </div>
+
+        <!-- Carte premium (highlighted) -->
+        <div class="pricing__card pricing__card--highlighted">
+          <div class="pricing__badge">{{ premiumPlan.badge }}</div>
+          <div class="pricing__plan-label">{{ premiumPlan.label }}</div>
+          <div class="pricing__price">{{ premiumPlan.price }}</div>
+          <div class="pricing__price-sub">{{ premiumPlan.sub }}</div>
+          <ul class="pricing__features">
+            <li v-for="f in premiumPlan.features" :key="f" class="pricing__feature">
+              <span class="pricing__check" aria-hidden="true">✓</span>
+              <span>{{ f }}</span>
+            </li>
+          </ul>
+          <a :href="premiumPlan.href" class="btn btn-primary pricing__cta" target="_blank" rel="noopener">
+            {{ premiumPlan.cta }}
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Note rassurante -->
+      <p class="pricing__note">
+        Pas de carte de crédit requise · Annulation à tout moment · Remboursement 14 jours
+      </p>
+
+      <!-- CTA vers page tarifs complète -->
+      <div class="pricing__more">
+        <RouterLink to="/pricing" class="pricing__ghost-btn">
+          Voir le détail des plans →
+        </RouterLink>
       </div>
 
     </div>
@@ -129,161 +110,183 @@ const plans = [
 <style lang="scss" scoped>
 @use '@/styles/abstracts/mixins' as m;
 
-.pricing-teaser {
-  background: var(--color-bg);
-
-  // ── En-tête ──────────────────────────────────────────────
+.pricing {
+  // ── En-tête ───────────────────────────────────────────────
   &__header {
     text-align: center;
-    margin-bottom: 56px;
+    margin-bottom: 48px;
   }
 
-  &__pill { margin-bottom: 16px; }
-
-  &__title {
-    color: var(--color-text);
+  &__pill {
     margin-bottom: 16px;
   }
 
+  &__title {
+    margin-bottom: 12px;
+  }
+
   &__subline {
-    max-width: 460px;
+    font-size: 1rem;
+    color: var(--color-text-secondary);
+    max-width: 480px;
     margin: 0 auto;
   }
 
-  // ── Grille 2 plans ────────────────────────────────────────
+  // ── Grille 2 colonnes centrée ─────────────────────────────
   &__grid {
     display: grid;
-    gap: 24px;
-    max-width: 720px;
+    gap: 20px;
+    max-width: 800px;
     margin: 0 auto;
 
-    @include m.respond-to(md) {
-      grid-template-columns: repeat(2, 1fr);
-      align-items: start;
+    @include m.respond-to(sm) {
+      grid-template-columns: 1fr 1fr;
     }
   }
 
-  // ── Carte ─────────────────────────────────────────────────
+  // ── Cartes ───────────────────────────────────────────────
   &__card {
-    position: relative;
-    background: white;
     border-radius: var(--radius-xl);
-    padding: 36px 28px 32px;
+    padding: 36px 28px;
     border: 1.5px solid var(--color-surface-dark);
+    background: white;
+    transition: all var(--transition);
 
-    // Plan premium — border gradient + légèrement surélevé
-    &--highlight {
-      border-color: transparent;
-      background:
-        linear-gradient(white, white) padding-box,
-        var(--gradient-primary) border-box;
+    &:hover:not(&--highlighted) {
+      border-color: var(--color-primary-light);
       box-shadow: var(--shadow-md);
+    }
 
-      @include m.respond-to(md) {
-        margin-top: -12px;
-        margin-bottom: -12px;
+    // Carte premium — fond gradient violet
+    &--highlighted {
+      background: var(--gradient-primary);
+      color: white;
+      border-color: transparent;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+
+      .pricing__plan-label {
+        color: rgba(255, 255, 255, 0.65);
+      }
+
+      .pricing__price-sub {
+        color: rgba(255, 255, 255, 0.6);
+      }
+
+      // Icône check adaptée au fond sombre
+      .pricing__check {
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
       }
     }
   }
 
-  // Badge "Le plus choisi"
+  // ── Badge "Le plus populaire" ─────────────────────────────
   &__badge {
-    position: absolute;
-    top: -14px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--gradient-primary);
-    color: white;
-    font-size: 0.75rem;
+    display: inline-block;
+    background: var(--color-accent);
+    color: #333;
+    font-size: 0.72rem;
     font-weight: 800;
-    padding: 5px 16px;
+    padding: 4px 12px;
     border-radius: var(--radius-full);
-    white-space: nowrap;
-  }
-
-  // Nom du plan
-  &__plan-name {
-    font-family: var(--font-display);
-    font-weight: 800;
-    font-size: 1rem;
-    color: var(--color-text-secondary);
+    margin-bottom: 20px;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
-    margin-bottom: 16px;
+    letter-spacing: 0.06em;
   }
 
-  // Prix
+  // ── Étiquette plan ────────────────────────────────────────
+  &__plan-label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-text-light);
+    margin-bottom: 8px;
+  }
+
+  // ── Prix ──────────────────────────────────────────────────
   &__price {
-    display: flex;
-    align-items: baseline;
-    gap: 6px;
+    font-family: var(--font-display);
+    font-size: 2.8rem;
+    font-weight: 800;
+    line-height: 1;
     margin-bottom: 4px;
   }
 
-  &__price-amount {
-    font-family: var(--font-display);
-    font-size: 2.6rem;
-    font-weight: 800;
-    color: var(--color-text);
-    line-height: 1;
-  }
-
-  &__price-period {
-    font-size: 0.9rem;
+  &__price-sub {
+    font-size: 0.82rem;
     color: var(--color-text-light);
-    font-weight: 600;
+    margin-bottom: 24px;
   }
 
-  &__price-alt {
-    font-size: 0.8rem;
-    color: var(--color-text-light);
-    margin-bottom: 16px;
-  }
-
-  // Description
-  &__desc {
-    font-size: 0.88rem;
-    color: var(--color-text-secondary);
-    line-height: 1.6;
-    margin-top: 12px;
-  }
-
-  // Séparateur
-  &__divider {
-    height: 1px;
-    background: var(--color-surface-dark);
-    margin: 20px 0;
-  }
-
-  // Liste features
+  // ── Features ─────────────────────────────────────────────
   &__features {
     display: flex;
     flex-direction: column;
     gap: 10px;
     margin-bottom: 28px;
+    list-style: none;
   }
 
   &__feature {
+    display: flex;
+    align-items: center;
+    gap: 10px;
     font-size: 0.88rem;
-    color: var(--color-text);
-    font-weight: 600;
-    padding-left: 22px;
-    position: relative;
-    line-height: 1.5;
-
-    &::before {
-      content: '✓';
-      position: absolute;
-      left: 0;
-      color: var(--color-primary);
-      font-weight: 800;
-    }
+    font-weight: 500;
   }
 
-  // CTA
+  // Icône check circulaire
+  &__check {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.65rem;
+    font-weight: 800;
+    flex-shrink: 0;
+    background: rgba(16, 185, 129, 0.12);
+    color: #059669;
+  }
+
+  // CTA pleine largeur
   &__cta {
     width: 100%;
-    justify-content: center;
+    text-align: center;
+    display: block;
+  }
+
+  // ── Note + CTA bas ────────────────────────────────────────
+  &__note {
+    text-align: center;
+    margin-top: 28px;
+    font-size: 0.85rem;
+    color: var(--color-text-light);
+  }
+
+  &__more {
+    text-align: center;
+    margin-top: 24px;
+  }
+
+  &__ghost-btn {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    border: 1.5px solid var(--color-surface-dark);
+    padding: 10px 24px;
+    border-radius: var(--radius-full);
+    display: inline-block;
+    transition: all var(--transition);
+
+    &:hover {
+      background: var(--color-surface-dark);
+      color: var(--color-text);
+    }
   }
 }
 </style>
