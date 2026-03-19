@@ -5,6 +5,8 @@
 import HeroSection from '@/components/sections/home/HeroSection.vue'
 import ProblemSection from '@/components/sections/home/ProblemSection.vue'
 import FeaturesSection from '@/components/sections/home/FeaturesSection.vue'
+import MomentsSection from '@/components/sections/home/MomentsSection.vue'
+import PricingTeaser from '@/components/sections/home/PricingTeaser.vue'
 </script>
 
 <template>
@@ -12,6 +14,8 @@ import FeaturesSection from '@/components/sections/home/FeaturesSection.vue'
     <HeroSection />
     <ProblemSection />
     <FeaturesSection />
-    <!-- Sections à venir : Testimonials, PricingTeaser, CtaSection, FaqMini -->
+    <MomentsSection />
+    <PricingTeaser />
+    <!-- Sections à venir : CtaSection, FaqMini -->
   </main>
 </template>
