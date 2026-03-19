@@ -7,6 +7,8 @@ import ProblemSection from '@/components/sections/home/ProblemSection.vue'
 import FeaturesSection from '@/components/sections/home/FeaturesSection.vue'
 import MomentsSection from '@/components/sections/home/MomentsSection.vue'
 import PricingTeaser from '@/components/sections/home/PricingTeaser.vue'
+import CtaSection from '@/components/sections/home/CtaSection.vue'
+import FaqMini from '@/components/sections/home/FaqMini.vue'
 </script>
 
 <template>
@@ -16,6 +18,7 @@ import PricingTeaser from '@/components/sections/home/PricingTeaser.vue'
     <FeaturesSection />
     <MomentsSection />
     <PricingTeaser />
-    <!-- Sections à venir : CtaSection, FaqMini -->
+    <CtaSection />
+    <FaqMini />
   </main>
 </template>
