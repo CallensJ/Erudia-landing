@@ -4,6 +4,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import PricingHero from '@/components/sections/pricing/PricingHero.vue'
+import PricingCards from '@/components/sections/pricing/PricingCards.vue'
 
 // État du toggle mensuel/annuel — partagé entre PricingHero et PricingCards
 const isAnnual = ref(false)
@@ -13,6 +14,9 @@ const isAnnual = ref(false)
   <main>
     <!-- 1. Hero + billing toggle -->
     <PricingHero @billing-change="isAnnual = $event" />
+
+    <!-- 2. Cards Gratuit vs Erudia+ -->
+    <PricingCards :is-annual="isAnnual" />
 
     <!-- Sections à venir section par section -->
   </main>
