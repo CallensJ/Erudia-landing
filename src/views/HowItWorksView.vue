@@ -7,6 +7,7 @@ import HowItWorksHero from '@/components/sections/how-it-works/HowItWorksHero.vu
 import ChildStepsSection from '@/components/sections/how-it-works/ChildStepsSection.vue'
 import ParentJourneySection from '@/components/sections/how-it-works/ParentJourneySection.vue'
 import TipsSection from '@/components/sections/how-it-works/TipsSection.vue'
+import OfflineSection from '@/components/sections/how-it-works/OfflineSection.vue'
 
 // Contrôle quel parcours est affiché (enfant ou parent)
 // Piloté par le switcher dans HowItWorksHero via événement
@@ -26,8 +27,10 @@ const audience = ref<'child' | 'parent'>('child')
     <!-- Section 4 : conseils (visible pour les deux audiences) -->
     <TipsSection />
 
+    <!-- Section 5 : mode hors ligne PWA -->
+    <OfflineSection />
+
     <!-- Sections à venir (section par section) -->
-    <!-- <OfflineSection /> -->
     <!-- <HowItWorksCtaSection /> -->
   </main>
 </template>
