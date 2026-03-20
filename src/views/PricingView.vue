@@ -7,6 +7,7 @@ import PricingHero from '@/components/sections/pricing/PricingHero.vue'
 import PricingCards from '@/components/sections/pricing/PricingCards.vue'
 import ValueSection from '@/components/sections/pricing/ValueSection.vue'
 import FaqBillingSection from '@/components/sections/pricing/FaqBillingSection.vue'
+import GuaranteeSection from '@/components/sections/pricing/GuaranteeSection.vue'
 
 // État du toggle mensuel/annuel — partagé entre PricingHero et PricingCards
 const isAnnual = ref(false)
@@ -25,6 +26,9 @@ const isAnnual = ref(false)
 
     <!-- 4. FAQ facturation -->
     <FaqBillingSection />
+
+    <!-- 5. Garanties (fond sombre — rupture visuelle avant CTA) -->
+    <GuaranteeSection />
 
     <!-- Sections à venir section par section -->
   </main>
