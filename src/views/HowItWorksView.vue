@@ -4,6 +4,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import HowItWorksHero from '@/components/sections/how-it-works/HowItWorksHero.vue'
+import ChildStepsSection from '@/components/sections/how-it-works/ChildStepsSection.vue'
 
 // Contrôle quel parcours est affiché (enfant ou parent)
 // Piloté par le switcher dans HowItWorksHero via événement
@@ -14,8 +15,10 @@ const audience = ref<'child' | 'parent'>('child')
   <main>
     <HowItWorksHero @audience-change="audience = $event" />
 
+    <!-- Section 2 : parcours enfant (visible quand audience = child) -->
+    <ChildStepsSection v-show="audience === 'child'" />
+
     <!-- Sections à venir (section par section) -->
-    <!-- <ChildStepsSection v-show="audience === 'child'" /> -->
     <!-- <ParentJourneySection v-show="audience === 'parent'" /> -->
     <!-- <TipsSection /> -->
     <!-- <OfflineSection /> -->
