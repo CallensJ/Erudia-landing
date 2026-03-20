@@ -6,6 +6,7 @@ import { ref } from 'vue'
 import PricingHero from '@/components/sections/pricing/PricingHero.vue'
 import PricingCards from '@/components/sections/pricing/PricingCards.vue'
 import ValueSection from '@/components/sections/pricing/ValueSection.vue'
+import FaqBillingSection from '@/components/sections/pricing/FaqBillingSection.vue'
 
 // État du toggle mensuel/annuel — partagé entre PricingHero et PricingCards
 const isAnnual = ref(false)
@@ -21,6 +22,9 @@ const isAnnual = ref(false)
 
     <!-- 3. Justification de valeur + analogies -->
     <ValueSection />
+
+    <!-- 4. FAQ facturation -->
+    <FaqBillingSection />
 
     <!-- Sections à venir section par section -->
   </main>
