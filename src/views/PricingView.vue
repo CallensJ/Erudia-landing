@@ -1,6 +1,19 @@
-<!-- PricingView.vue — À implémenter -->
+<!-- PricingView.vue — Page Tarifs
+     Assemble les 6 sections. L'état isAnnual (toggle billing) est géré ici
+     et transmis en prop aux sections qui en ont besoin (PricingCards). -->
+<script setup lang="ts">
+import { ref } from 'vue'
+import PricingHero from '@/components/sections/pricing/PricingHero.vue'
+
+// État du toggle mensuel/annuel — partagé entre PricingHero et PricingCards
+const isAnnual = ref(false)
+</script>
+
 <template>
-  <main style="padding: 120px 20px; text-align: center; color: white; background: var(--gradient-hero); min-height: 100vh;">
-    <h1 style="font-family: var(--font-display); font-size: 2rem;">{{ 'PricingView' }} — À venir</h1>
+  <main>
+    <!-- 1. Hero + billing toggle -->
+    <PricingHero @billing-change="isAnnual = $event" />
+
+    <!-- Sections à venir section par section -->
   </main>
 </template>
