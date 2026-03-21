@@ -6,6 +6,9 @@
      - Reveal au scroll via IntersectionObserver -->
 <script setup lang="ts">
 import { onMounted, onUnmounted } from 'vue'
+import { useLocale } from '@/composables/useLocale'
+
+const { t } = useLocale()
 
 // ── Reveal au scroll ──────────────────────────────────────────
 let observer: IntersectionObserver | null = null
@@ -44,16 +47,12 @@ onUnmounted(() => observer?.disconnect())
 
         <!-- Titre -->
         <h2 id="pricing-cta-title" class="pricing-cta__title">
-          Votre enfant mérite<br>
-          <span class="pricing-cta__title-accent">le meilleur départ</span>
+          {{ t('pricing.cta.title') }}<br>
+          <span class="pricing-cta__title-accent">{{ t('pricing.cta.titleAccent') }}</span>
         </h2>
 
         <!-- Sous-titre -->
-        <p class="pricing-cta__sub">
-          Commencez gratuitement dès aujourd'hui — sans carte bancaire, sans engagement.
-          <br class="pricing-cta__sub-break">
-          Passez à Erudia+ quand vous êtes prêt.
-        </p>
+        <p class="pricing-cta__sub">{{ t('pricing.cta.sub') }}</p>
 
         <!-- Boutons -->
         <div class="pricing-cta__actions">
@@ -63,7 +62,7 @@ onUnmounted(() => observer?.disconnect())
             target="_blank"
             rel="noopener noreferrer"
           >
-            Essayer gratuitement
+            {{ t('pricing.cta.btnPrimary') }}
           </a>
           <a
             href="https://app.erudia.app"
@@ -71,28 +70,16 @@ onUnmounted(() => observer?.disconnect())
             target="_blank"
             rel="noopener noreferrer"
           >
-            Démarrer Erudia+ — 4,99€/mois
+            {{ t('pricing.cta.btnSecondary') }}
           </a>
         </div>
 
         <!-- Réassurance -->
         <ul class="pricing-cta__reassurance" aria-label="Garanties">
-          <li>
-            <span aria-hidden="true">✓</span>
-            7 jours d'essai gratuits
-          </li>
-          <li>
-            <span aria-hidden="true">✓</span>
-            Remboursement 14 jours
-          </li>
-          <li>
-            <span aria-hidden="true">✓</span>
-            Annulation en 2 clics
-          </li>
-          <li>
-            <span aria-hidden="true">✓</span>
-            Zéro publicité
-          </li>
+          <li><span aria-hidden="true">✓</span> {{ t('pricing.cta.reassure1') }}</li>
+          <li><span aria-hidden="true">✓</span> {{ t('pricing.cta.reassure2') }}</li>
+          <li><span aria-hidden="true">✓</span> {{ t('pricing.cta.reassure3') }}</li>
+          <li><span aria-hidden="true">✓</span> {{ t('pricing.cta.reassure4') }}</li>
         </ul>
 
       </div>

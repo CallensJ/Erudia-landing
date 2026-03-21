@@ -4,40 +4,44 @@
      Max-width 800px centré, fond surface légèrement gris. -->
 
 <script setup lang="ts">
+import { computed } from 'vue'
 import { RouterLink } from 'vue-router'
+import { useLocale } from '@/composables/useLocale'
 
-const freePlan = {
-  label: 'Gratuit',
-  price: '0€',
-  sub: 'Pour toujours',
-  features: [
-    '3 catégories de quiz',
-    'Badges & défi quotidien',
-    'Mode duel asynchrone',
-    'Mode hors ligne (PWA)',
-    'Bilingue FR / EN',
-    '1 profil enfant',
-  ],
-  cta: 'Commencer gratuitement',
-  href: 'https://app.erudia.app',
-}
+const { t } = useLocale()
 
-const premiumPlan = {
-  badge: 'Le plus populaire',
-  label: 'Erudia+',
-  price: '4,99€',
-  sub: '/ mois · ou 39,99€/an',
+const freePlan = computed(() => ({
+  label: t('home.pricingTeaser.freeLabel'),
+  price: t('home.pricingTeaser.freePrice'),
+  sub:   t('home.pricingTeaser.freePeriod'),
   features: [
-    'Toutes les catégories (9)',
-    'Avatars premium DiceBear',
-    'Dashboard parent avancé',
-    'Rapports PDF par email',
-    'Profils enfants illimités',
-    'Support prioritaire',
+    t('home.pricingTeaser.freeF1'),
+    t('home.pricingTeaser.freeF2'),
+    t('home.pricingTeaser.freeF3'),
+    t('home.pricingTeaser.freeF4'),
+    t('home.pricingTeaser.freeF5'),
+    t('home.pricingTeaser.freeF6'),
   ],
-  cta: 'Essayer 7 jours gratuits',
+  cta:  t('home.pricingTeaser.freeCta'),
   href: 'https://app.erudia.app',
-}
+}))
+
+const premiumPlan = computed(() => ({
+  badge: t('home.pricingTeaser.premiumBadge'),
+  label: t('home.pricingTeaser.premiumLabel'),
+  price: t('home.pricingTeaser.premiumPrice'),
+  sub:   t('home.pricingTeaser.premiumPeriod'),
+  features: [
+    t('home.pricingTeaser.premiumF1'),
+    t('home.pricingTeaser.premiumF2'),
+    t('home.pricingTeaser.premiumF3'),
+    t('home.pricingTeaser.premiumF4'),
+    t('home.pricingTeaser.premiumF5'),
+    t('home.pricingTeaser.premiumF6'),
+  ],
+  cta:  t('home.pricingTeaser.premiumCta'),
+  href: 'https://app.erudia.app',
+}))
 </script>
 
 <template>
@@ -46,11 +50,9 @@ const premiumPlan = {
 
       <!-- En-tête centré -->
       <div class="pricing__header">
-        <div class="pill pill--primary pricing__pill">Tarifs</div>
-        <h2 id="pricing-title" class="heading-lg pricing__title">Simple et transparent</h2>
-        <p class="pricing__subline">
-          Le plan gratuit est pleinement jouable. Le premium débloque davantage de contenu.
-        </p>
+        <div class="pill pill--primary pricing__pill">{{ t('home.pricingTeaser.pill') }}</div>
+        <h2 id="pricing-title" class="heading-lg pricing__title">{{ t('home.pricingTeaser.title') }}</h2>
+        <p class="pricing__subline">{{ t('home.pricingTeaser.subline') }}</p>
       </div>
 
       <!-- Grille 2 cartes -->
@@ -92,14 +94,12 @@ const premiumPlan = {
       </div>
 
       <!-- Note rassurante -->
-      <p class="pricing__note">
-        Pas de carte de crédit requise · Annulation à tout moment · Remboursement 14 jours
-      </p>
+      <p class="pricing__note">{{ t('home.pricingTeaser.note') }}</p>
 
       <!-- CTA vers page tarifs complète -->
       <div class="pricing__more">
         <RouterLink to="/pricing" class="pricing__ghost-btn">
-          Voir le détail des plans →
+          {{ t('home.pricingTeaser.moreLink') }}
         </RouterLink>
       </div>
 

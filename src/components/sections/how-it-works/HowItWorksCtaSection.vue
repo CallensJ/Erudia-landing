@@ -6,6 +6,9 @@
 <script setup lang="ts">
 import { onMounted, onUnmounted } from 'vue'
 import { RouterLink } from 'vue-router'
+import { useLocale } from '@/composables/useLocale'
+
+const { t } = useLocale()
 
 // ── Reveal au scroll ──────────────────────────────────────────
 let observer: IntersectionObserver | null = null
@@ -45,15 +48,12 @@ onUnmounted(() => observer?.disconnect())
 
         <!-- Titre -->
         <h2 id="hiw-cta-title" class="hiw-cta__title">
-          Vous savez tout.<br />
-          <span class="hiw-cta__title-accent">Lancez-vous.</span>
+          {{ t('howItWorks.cta.title') }}<br />
+          <span class="hiw-cta__title-accent">{{ t('howItWorks.cta.titleAccent') }}</span>
         </h2>
 
         <!-- Sous-titre -->
-        <p class="hiw-cta__subline">
-          30 secondes pour créer un profil. Pas de carte de crédit.<br />
-          Pas de compte parent compliqué. Juste un enfant qui apprend en s'amusant.
-        </p>
+        <p class="hiw-cta__subline">{{ t('howItWorks.cta.subline') }}</p>
 
         <!-- CTAs -->
         <div class="hiw-cta__actions">
@@ -63,23 +63,15 @@ onUnmounted(() => observer?.disconnect())
             target="_blank"
             rel="noopener noreferrer"
           >
-            🚀 Créer un profil enfant
+            {{ t('howItWorks.cta.btnPrimary') }}
           </a>
           <RouterLink to="/pricing" class="hiw-cta__btn hiw-cta__btn--ghost">
-            Voir les tarifs
+            {{ t('howItWorks.cta.btnSecondary') }}
           </RouterLink>
         </div>
 
         <!-- Ligne de réassurance -->
-        <p class="hiw-cta__reassure">
-          <span>✓ Gratuit</span>
-          <span aria-hidden="true">·</span>
-          <span>✓ Sans publicité</span>
-          <span aria-hidden="true">·</span>
-          <span>✓ COPPA compliant</span>
-          <span aria-hidden="true">·</span>
-          <span>✓ Hors ligne</span>
-        </p>
+        <p class="hiw-cta__reassure">{{ t('howItWorks.cta.reassure') }}</p>
 
       </div>
     </div>

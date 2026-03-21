@@ -4,27 +4,17 @@
      - Icône dans un cercle glassmorphisme, titre, description
      - Reveal au scroll via IntersectionObserver -->
 <script setup lang="ts">
-import { onMounted, onUnmounted } from 'vue'
+import { computed, onMounted, onUnmounted } from 'vue'
+import { useLocale } from '@/composables/useLocale'
 
-// ── Données des garanties ──────────────────────────────────────
-// Ton rassurante : lever les dernières objections avant le CTA final
-const guarantees = [
-  {
-    icon: '🔒',
-    title: 'Paiement sécurisé',
-    desc: 'Stripe gère tous les paiements. Erudia ne stocke jamais vos données bancaires — ni votre numéro de carte, ni votre RIB.',
-  },
-  {
-    icon: '↩️',
-    title: 'Remboursement 14 jours',
-    desc: "Pas satisfait dans les 14 jours ? Remboursement intégral, sans question, sans formulaire compliqué. Un email suffit.",
-  },
-  {
-    icon: '🚫',
-    title: 'Annulation simple',
-    desc: "Annulez à tout moment depuis votre espace admin. Pas de formulaire, pas d'email à envoyer. Deux clics, c'est tout.",
-  },
-]
+const { t } = useLocale()
+
+// ── Données des garanties (réactives à la locale) ──────────────
+const guarantees = computed(() => [
+  { icon: '🔒', title: t('pricing.guarantee.g1Title'), desc: t('pricing.guarantee.g1Desc') },
+  { icon: '↩️', title: t('pricing.guarantee.g2Title'), desc: t('pricing.guarantee.g2Desc') },
+  { icon: '🚫', title: t('pricing.guarantee.g3Title'), desc: t('pricing.guarantee.g3Desc') },
+])
 
 // ── Reveal au scroll ──────────────────────────────────────────
 let observer: IntersectionObserver | null = null

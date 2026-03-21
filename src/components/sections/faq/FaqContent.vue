@@ -7,6 +7,7 @@
      - 33 Q&R réparties en 7 catégories -->
 <script setup lang="ts">
 import { ref, computed, watch } from 'vue'
+import { useLocale } from '@/composables/useLocale'
 
 // ── Types ──────────────────────────────────────────────────────
 interface FaqItem {
@@ -22,6 +23,9 @@ interface Category {
   label: string
 }
 
+// ── Locale ─────────────────────────────────────────────────────
+const { t, td } = useLocale()
+
 // ── Props ──────────────────────────────────────────────────────
 const props = defineProps<{
   searchQuery: string
@@ -31,209 +35,9 @@ const emit = defineEmits<{
   (e: 'result-count', n: number): void
 }>()
 
-// ── Données : Catégories ───────────────────────────────────────
-const categories: Category[] = [
-  { id: 'all',       emoji: '🔍', label: 'Toutes les questions' },
-  { id: 'safety',    emoji: '🔒', label: 'Sécurité & vie privée' },
-  { id: 'content',   emoji: '📚', label: 'Contenu pédagogique' },
-  { id: 'offline',   emoji: '📡', label: 'Mode hors ligne' },
-  { id: 'account',   emoji: '👤', label: 'Compte & profil' },
-  { id: 'parent',    emoji: '👨‍👩‍👧', label: 'Espace parent' },
-  { id: 'billing',   emoji: '💳', label: 'Abonnement & paiement' },
-  { id: 'technical', emoji: '⚙️', label: 'Technique' },
-]
-
-// ── Données : Q&R ─────────────────────────────────────────────
-const items: FaqItem[] = [
-
-  // ── Sécurité ──────────────────────────────────────────────
-  {
-    id: 'safety-1',
-    category: 'safety',
-    question: "Est-ce que l'app est sûre pour mon enfant ?",
-    answer:   "Oui. Erudia ne collecte aucune donnée personnelle sur votre enfant — pas de nom réel, pas d'email, pas de photo. L'enfant joue avec un pseudonyme et un avatar choisis par lui. L'app est conçue dans le respect du RGPD et du standard COPPA (États-Unis). Aucune publicité, aucun tracker tiers.",
-  },
-  {
-    id: 'safety-2',
-    category: 'safety',
-    question: "Erudia collecte-t-il des données sur mon enfant ?",
-    answer:   "Non. Le profil enfant contient uniquement un pseudonyme, un avatar (image générée, pas une vraie photo), et les scores/badges en local. Aucun email enfant. L'email adulte n'est utilisé que dans l'espace parent, protégé par authentification Supabase.",
-  },
-  {
-    id: 'safety-3',
-    category: 'safety',
-    question: "Y a-t-il des publicités dans l'app ?",
-    answer:   "Aucune. Zéro pub, zéro tracker, zéro revente de données. Le modèle économique d'Erudia repose uniquement sur l'abonnement Erudia+ — pas sur la publicité.",
-  },
-  {
-    id: 'safety-4',
-    category: 'safety',
-    question: "Mon enfant peut-il interagir avec d'autres utilisateurs ?",
-    answer:   "Erudia propose un mode duel asynchrone (Erudia+) : votre enfant peut partager un code à 6 caractères avec un proche pour jouer les mêmes questions et comparer les scores. Il n'y a aucun chat, aucune messagerie, aucun réseau social. L'activation de ce mode nécessite la validation d'un parent depuis l'espace admin.",
-  },
-
-  // ── Contenu ────────────────────────────────────────────────
-  {
-    id: 'content-1',
-    category: 'content',
-    question: "Quelles matières sont couvertes ?",
-    answer:   "En version gratuite : Sciences (300 questions), Histoire (500 questions), Héros (75 questions). Erudia+ ajoute Sport, Géographie, Culture et Art — soit 7 catégories au total. Toutes les questions sont disponibles en français et en anglais.",
-  },
-  {
-    id: 'content-2',
-    category: 'content',
-    question: "Le contenu est-il adapté à l'âge de mon enfant ?",
-    answer:   "L'interface est conçue pour les 6–11 ans : gros boutons, icônes, lisibilité maximale. Le contenu propose 3 niveaux (Facile, Moyen, Difficile) — le niveau Hard dépasse volontairement le primaire pour proposer un vrai défi sur le long terme.",
-  },
-  {
-    id: 'content-3',
-    category: 'content',
-    question: "Les questions sont-elles alignées sur les programmes scolaires ?",
-    answer:   "Oui. Les questions sont validées pédagogiquement sur les programmes français (CP → 6e) et le curriculum international (Grade 1 → 6). Le niveau Difficile couvre jusqu'en 4e pour offrir un challenge progressif.",
-  },
-  {
-    id: 'content-4',
-    category: 'content',
-    question: "Combien de questions sont disponibles ?",
-    answer:   "Plus de 800 questions au lancement, réparties sur 3 catégories gratuites en FR et EN. Le catalogue est enrichi régulièrement. Erudia+ ajoute plusieurs centaines de questions supplémentaires.",
-  },
-  {
-    id: 'content-5',
-    category: 'content',
-    question: "Les questions sont-elles disponibles en anglais ?",
-    answer:   "Oui, toutes les questions et l'interface complète sont disponibles en français et en anglais dès le lancement. Idéal pour les familles bilingues ou pour l'immersion linguistique.",
-  },
-
-  // ── Hors ligne ────────────────────────────────────────────
-  {
-    id: 'offline-1',
-    category: 'offline',
-    question: "Peut-on vraiment jouer sans internet ?",
-    answer:   "Oui. Erudia est une PWA (Progressive Web App) qui met en cache les questions et l'interface dès la première visite. En mode avion, dans un tunnel ou en zone blanche — l'app fonctionne normalement.",
-  },
-  {
-    id: 'offline-2',
-    category: 'offline',
-    question: "Comment installer l'app hors ligne ?",
-    answer:   "Sur mobile iOS : ouvrez Erudia dans Safari → « Partager » → « Sur l'écran d'accueil ». Sur Android : Chrome → menu (⋮) → « Ajouter à l'écran d'accueil ». Sur desktop : Chrome affiche une icône d'installation dans la barre d'adresse. Après installation, l'app fonctionne comme une app native.",
-  },
-  {
-    id: 'offline-3',
-    category: 'offline',
-    question: "Les scores sont-ils perdus si je joue hors ligne ?",
-    answer:   "Non. Les scores et badges sont sauvegardés en local (localStorage). Dès que la connexion est rétablie, la synchronisation avec Supabase se fait automatiquement en arrière-plan — aucune action de votre part.",
-  },
-  {
-    id: 'offline-4',
-    category: 'offline',
-    question: "Faut-il être connecté pour débloquer Erudia+ ?",
-    answer:   "La connexion internet est nécessaire pour l'achat et la vérification du statut premium. Une fois Erudia+ activé, vous pouvez jouer hors ligne avec toutes les fonctionnalités débloquées.",
-  },
-
-  // ── Compte ────────────────────────────────────────────────
-  {
-    id: 'account-1',
-    category: 'account',
-    question: "Faut-il créer un compte pour jouer ?",
-    answer:   "Non. Il suffit de choisir un pseudonyme et un avatar — pas d'email, pas de mot de passe pour l'enfant. Le profil est stocké localement et synchronisé en arrière-plan avec Supabase si vous êtes connecté.",
-  },
-  {
-    id: 'account-2',
-    category: 'account',
-    question: "Peut-on avoir plusieurs profils enfants ?",
-    answer:   "En version gratuite : 1 profil par appareil. Avec Erudia+ : nombre de profils illimité, idéal pour les familles avec plusieurs enfants ou pour jouer sur plusieurs appareils.",
-  },
-  {
-    id: 'account-3',
-    category: 'account',
-    question: "Comment modifier l'avatar ou le pseudo de l'enfant ?",
-    answer:   "Depuis l'écran Profil de l'enfant, un bouton d'édition permet de changer le pseudonyme et de choisir un nouvel avatar dans la galerie. Le changement est immédiat et sauvegardé localement.",
-  },
-  {
-    id: 'account-4',
-    category: 'account',
-    question: "Que se passe-t-il si je change d'appareil ?",
-    answer:   "Si la synchronisation Supabase est active (compte adulte créé), tous les scores, badges et le profil sont accessibles depuis n'importe quel appareil. Sans sync, les données restent sur l'appareil d'origine.",
-  },
-
-  // ── Espace parent ─────────────────────────────────────────
-  {
-    id: 'parent-1',
-    category: 'parent',
-    question: "Comment accéder à l'espace parent ?",
-    answer:   "Un bouton discret « Espace parent » en bas de l'écran Profil permet d'accéder à l'admin. L'accès nécessite une authentification Supabase (email + mot de passe ou Google). Pas besoin de créer un compte parent séparé.",
-  },
-  {
-    id: 'parent-2',
-    category: 'parent',
-    question: "Que puis-je voir dans l'espace parent ?",
-    answer:   "Scores par catégorie, streaks, badges obtenus, nombre de parties jouées, objectif journalier et son statut. Avec Erudia+, accédez aussi aux graphiques de progression et aux recommandations pédagogiques.",
-  },
-  {
-    id: 'parent-3',
-    category: 'parent',
-    question: "Puis-je recevoir des rapports par email ?",
-    answer:   "Oui, avec Erudia+. Depuis l'espace admin, vous pouvez configurer l'envoi automatique hebdomadaire ou mensuel d'un rapport PDF, ou le télécharger/envoyer manuellement à tout moment.",
-  },
-  {
-    id: 'parent-4',
-    category: 'parent',
-    question: "Comment définir un objectif journalier ?",
-    answer:   "Dans l'espace admin, vous choisissez un objectif (ex : 20 bonnes réponses par jour). L'app suit cet objectif et peut envoyer une notification email en fin de journée si l'objectif n'est pas atteint.",
-  },
-
-  // ── Facturation ───────────────────────────────────────────
-  {
-    id: 'billing-1',
-    category: 'billing',
-    question: "L'abonnement se renouvelle-t-il automatiquement ?",
-    answer:   "Oui, mensuel ou annuel selon votre choix. Un email de rappel est envoyé 7 jours avant le renouvellement. Vous pouvez annuler à tout moment — vous gardez l'accès Erudia+ jusqu'à la fin de la période payée.",
-  },
-  {
-    id: 'billing-2',
-    category: 'billing',
-    question: "Comment annuler mon abonnement ?",
-    answer:   "Dans l'espace admin → section Abonnement → bouton Annuler. L'annulation est instantanée, sans formulaire ni email. Vous conservez l'accès aux fonctionnalités premium jusqu'à la fin du cycle en cours.",
-  },
-  {
-    id: 'billing-3',
-    category: 'billing',
-    question: "Puis-je obtenir un remboursement ?",
-    answer:   "Oui, remboursement intégral dans les 14 jours suivant l'achat, sans condition. Envoyez l'email de confirmation de commande Stripe à support@erudia.app — traitement sous 5 jours ouvrés.",
-  },
-  {
-    id: 'billing-4',
-    category: 'billing',
-    question: "Mes données de paiement sont-elles sécurisées ?",
-    answer:   "Erudia utilise Stripe, leader mondial du paiement en ligne. Erudia ne stocke jamais vos coordonnées bancaires. Toutes les transactions sont chiffrées et conformes à la norme PCI DSS.",
-  },
-
-  // ── Technique ─────────────────────────────────────────────
-  {
-    id: 'technical-1',
-    category: 'technical',
-    question: "Sur quels appareils fonctionne Erudia ?",
-    answer:   "Tous les navigateurs modernes (Chrome, Safari, Firefox, Edge), mobile iOS 14+, Android 8+, tablette, desktop. Erudia est une PWA — pas besoin de passer par l'App Store ou le Play Store.",
-  },
-  {
-    id: 'technical-2',
-    category: 'technical',
-    question: "Quelle est la taille de l'app ?",
-    answer:   "2 à 4 Mo de cache initial (questions + interface). Contrairement à une app native, l'espace de stockage est minimal et aucune installation via boutique n'est nécessaire.",
-  },
-  {
-    id: 'technical-3',
-    category: 'technical',
-    question: "L'app fonctionne-t-elle sur iPhone/iPad ?",
-    answer:   "Oui, Erudia est optimisée pour Safari iOS 14+. Pour la meilleure expérience, ajoutez l'app à votre écran d'accueil via Safari. Note : iOS a quelques limitations vs Android (notamment les notifications push).",
-  },
-  {
-    id: 'technical-4',
-    category: 'technical',
-    question: "Mes données sont-elles hébergées en Europe ?",
-    answer:   "Oui. Supabase est configuré sur la région Europe (Frankfurt). Vos données ne quittent pas l'Union européenne. Erudia est conforme au RGPD.",
-  },
-]
+// ── Données réactives (locale) ─────────────────────────────────
+const categories = computed(() => td<Category[]>('faq.categories'))
+const items      = computed(() => td<FaqItem[]>('faq.items'))
 
 // ── État ───────────────────────────────────────────────────────
 const activeCategory = ref<string>('all')
@@ -257,8 +61,8 @@ function toggleItem(id: string) {
 // ── Filtrage ──────────────────────────────────────────────────
 const filteredItems = computed<FaqItem[]>(() => {
   let list = activeCategory.value === 'all'
-    ? items
-    : items.filter((i) => i.category === activeCategory.value)
+    ? items.value
+    : items.value.filter((i) => i.category === activeCategory.value)
 
   const q = props.searchQuery.toLowerCase()
   if (q) {
@@ -278,8 +82,8 @@ const groupedItems = computed(() => {
   if (activeCategory.value !== 'all' || props.searchQuery) return null
 
   const groups: { cat: Category; items: FaqItem[] }[] = []
-  for (const cat of categories.slice(1)) {
-    const catItems = items.filter((i) => i.category === cat.id)
+  for (const cat of categories.value.slice(1)) {
+    const catItems = items.value.filter((i) => i.category === cat.id)
     if (catItems.length) groups.push({ cat, items: catItems })
   }
   return groups
@@ -287,7 +91,7 @@ const groupedItems = computed(() => {
 
 // Compteur par catégorie dans la sidebar
 function catCount(id: string): number {
-  return id === 'all' ? items.length : items.filter((i) => i.category === id).length
+  return id === 'all' ? items.value.length : items.value.filter((i) => i.category === id).length
 }
 
 // ── Surbrillance ──────────────────────────────────────────────
@@ -423,9 +227,9 @@ function highlight(text: string): string {
           <div v-else class="faq-empty" role="alert" aria-live="polite">
             <div class="faq-empty__icon" aria-hidden="true">🤔</div>
             <p class="faq-empty__text">
-              Aucune question ne correspond à votre recherche.<br>
-              Essayez un autre terme ou
-              <RouterLink to="/contact" class="faq-empty__link">contactez-nous</RouterLink>.
+              {{ t('faq.empty.noMatch') }}<br>
+              {{ t('faq.empty.tryOther') }}
+              <RouterLink to="/contact" class="faq-empty__link">{{ t('faq.empty.contactLink') }}</RouterLink>.
             </p>
           </div>
 

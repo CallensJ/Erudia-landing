@@ -5,7 +5,10 @@
      - Étoiles générées dynamiquement (onMounted)
      - Layout 1 col mobile → 2 cols desktop (≥1024px) -->
 <script setup lang="ts">
-import { onMounted } from 'vue'
+import { onMounted, computed } from 'vue'
+import { useLocale } from '@/composables/useLocale'
+
+const { t } = useLocale()
 
 // Génération des étoiles en JS pour éviter le HTML statique répétitif
 onMounted(() => {
@@ -29,13 +32,13 @@ onMounted(() => {
   }
 })
 
-// Preuve sociale sous les CTAs
-const proofItems = [
-  { icon: '📡', label: 'Mode hors ligne' },
-  { icon: '🔒', label: 'COPPA compliant' },
-  { icon: '🌍', label: 'FR / EN' },
-  { icon: '✨', label: '100% gratuit' },
-]
+// Preuve sociale — réactive à la locale
+const proofItems = computed(() => [
+  { icon: '📡', label: t('home.hero.proofOffline') },
+  { icon: '🔒', label: t('home.hero.proofCoppa') },
+  { icon: '🌍', label: t('home.hero.proofBilingual') },
+  { icon: '✨', label: t('home.hero.proofFree') },
+])
 </script>
 
 <template>
@@ -58,20 +61,17 @@ const proofItems = [
           <!-- Tag "bientôt disponible" avec dot pulsant -->
           <div class="hero__tag">
             <div class="hero__tag-dot"></div>
-            <span>MVP 4 en cours · Bientôt disponible</span>
+            <span>{{ t('home.hero.tag') }}</span>
           </div>
 
           <!-- Titre H1 avec mot accent gradient or -->
           <h1 class="hero__title">
-            Apprendre en jouant,<br />
-            <span class="hero__title-accent">vraiment.</span>
+            {{ t('home.hero.title1') }}<br />
+            <span class="hero__title-accent">{{ t('home.hero.title2') }}</span>
           </h1>
 
           <!-- Sous-titre -->
-          <p class="hero__subline">
-            Erudia est le quiz éducatif conçu pour les enfants de 6 à 11 ans.
-            Mode hors ligne, bilingue FR/EN, suivi parental intégré — et sans publicité.
-          </p>
+          <p class="hero__subline">{{ t('home.hero.subline') }}</p>
 
           <!-- CTAs -->
           <div class="hero__actions">
@@ -81,10 +81,10 @@ const proofItems = [
               target="_blank"
               rel="noopener"
             >
-              🚀 Jouer maintenant — c'est gratuit
+              {{ t('home.hero.ctaPrimary') }}
             </a>
             <RouterLink to="/how-it-works" class="btn btn--ghost btn--lg">
-              Voir comment ça marche
+              {{ t('home.hero.ctaSecondary') }}
             </RouterLink>
           </div>
 
@@ -106,9 +106,9 @@ const proofItems = [
           <div class="hero__mockup-wrapper">
 
             <!-- Badges flottants autour du mockup -->
-            <div class="hero__badge hero__badge--1">🏆 Badge débloqué !</div>
-            <div class="hero__badge hero__badge--2">🔥 Série de 5 jours</div>
-            <div class="hero__badge hero__badge--3">⚔️ Duel en cours…</div>
+            <div class="hero__badge hero__badge--1">{{ t('home.hero.badge1') }}</div>
+            <div class="hero__badge hero__badge--2">{{ t('home.hero.badge2') }}</div>
+            <div class="hero__badge hero__badge--3">{{ t('home.hero.badge3') }}</div>
 
             <!-- Téléphone mockup -->
             <div class="hero__phone">
@@ -118,34 +118,32 @@ const proofItems = [
                 <div class="hero__screen-header">
                   <div class="hero__screen-avatar">🦊</div>
                   <div class="hero__screen-score">
-                    <div class="hero__screen-score-label">Score</div>
+                    <div class="hero__screen-score-label">{{ t('home.hero.score') }}</div>
                     <span class="hero__screen-score-value">8 / 20</span>
                   </div>
                 </div>
 
                 <!-- Corps quiz simulé -->
                 <div class="hero__screen-body">
-                  <div class="hero__screen-counter">Question 12 / 20</div>
-                  <div class="hero__screen-question">
-                    Quel est l'organe qui pompe le sang dans le corps humain ?
-                  </div>
+                  <div class="hero__screen-counter">{{ t('home.hero.question') }}</div>
+                  <div class="hero__screen-question">{{ t('home.hero.questionText') }}</div>
 
                   <div class="hero__screen-options">
                     <div class="hero__screen-option hero__screen-option--wrong">
                       <div class="hero__screen-letter">A</div>
-                      <span>Le poumon</span>
+                      <span>{{ t('home.hero.answerA') }}</span>
                     </div>
                     <div class="hero__screen-option hero__screen-option--correct">
                       <div class="hero__screen-letter">B</div>
-                      <span>Le cœur</span>
+                      <span>{{ t('home.hero.answerB') }}</span>
                     </div>
                     <div class="hero__screen-option">
                       <div class="hero__screen-letter">C</div>
-                      <span>Le foie</span>
+                      <span>{{ t('home.hero.answerC') }}</span>
                     </div>
                     <div class="hero__screen-option">
                       <div class="hero__screen-letter">D</div>
-                      <span>Le cerveau</span>
+                      <span>{{ t('home.hero.answerD') }}</span>
                     </div>
                   </div>
 

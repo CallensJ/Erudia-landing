@@ -4,32 +4,18 @@
      - Orbe décoratif en arrière-plan
      - Reveal au scroll via IntersectionObserver -->
 <script setup lang="ts">
-import { onMounted, onUnmounted } from 'vue'
+import { computed, onMounted, onUnmounted } from 'vue'
+import { useLocale } from '@/composables/useLocale'
 
-// ── Données des conseils ───────────────────────────────────────
-// Ton storyteller parent-to-parent : conseils pratiques, pas de jargon
-const tips = [
-  {
-    icon: '🎯',
-    title: 'Commencez par Facile',
-    desc: "Même les enfants qui se croient forts seront surpris. Construire la confiance en Facile avant de passer au Moyen — c'est la recette d'un apprentissage durable.",
-  },
-  {
-    icon: '📅',
-    title: 'Le défi quotidien d\'abord',
-    desc: "Faites-en une habitude du matin ou du soir. 20 questions = 5 minutes max. La régularité crée la progression — bien plus que les longues sessions.",
-  },
-  {
-    icon: '⚔️',
-    title: 'Défiez en famille',
-    desc: "Le mode duel fonctionne entre enfant et parent. Un moyen ludique de jouer ensemble depuis des appareils séparés — et de montrer qu'apprendre, c'est fun à tout âge.",
-  },
-  {
-    icon: '📲',
-    title: 'Installez l\'app en PWA',
-    desc: "Sur mobile, utilisez « Ajouter à l'écran d'accueil » pour une expérience native — et le mode hors ligne garanti. Fonctionne aussi bien sur iOS que sur Android.",
-  },
-]
+const { t } = useLocale()
+
+// ── Données des conseils (réactives à la locale) ───────────────
+const tips = computed(() => [
+  { icon: '🎯', title: t('howItWorks.tips.tip1Title'), desc: t('howItWorks.tips.tip1Desc') },
+  { icon: '📅', title: t('howItWorks.tips.tip2Title'), desc: t('howItWorks.tips.tip2Desc') },
+  { icon: '⚔️', title: t('howItWorks.tips.tip3Title'), desc: t('howItWorks.tips.tip3Desc') },
+  { icon: '📲', title: t('howItWorks.tips.tip4Title'), desc: t('howItWorks.tips.tip4Desc') },
+])
 
 // ── Reveal au scroll ──────────────────────────────────────────
 let observer: IntersectionObserver | null = null
@@ -64,12 +50,12 @@ onUnmounted(() => observer?.disconnect())
 
         <!-- En-tête -->
         <div class="tips__header">
-          <div class="pill pill--white label">💡 Conseils</div>
+          <div class="pill pill--white label">{{ t('howItWorks.tips.pill') }}</div>
           <h2 id="tips-title" class="tips__heading">
-            Pour bien démarrer
+            {{ t('howItWorks.tips.title') }}
           </h2>
           <p class="tips__subline">
-            Quatre habitudes simples pour que votre enfant tire le meilleur d'Erudia dès la première semaine.
+            {{ t('howItWorks.tips.subline') }}
           </p>
         </div>
 

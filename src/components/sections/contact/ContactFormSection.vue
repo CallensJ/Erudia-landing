@@ -5,7 +5,13 @@
      - Success state animé après envoi (simulation — backend à brancher)
      - Reveal au scroll via IntersectionObserver -->
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, computed, onMounted, onUnmounted } from 'vue'
+import { useLocale } from '@/composables/useLocale'
+
+const { t, td } = useLocale()
+
+// ── Types ──────────────────────────────────────────────────────
+interface Subject { value: string; label: string }
 
 // ── État du formulaire ─────────────────────────────────────────
 const form = ref({
@@ -19,20 +25,11 @@ const isSubmitting = ref(false)
 const isSuccess    = ref(false)
 const hasError     = ref(false)
 
-// ── Sujets disponibles ─────────────────────────────────────────
-const subjects = [
-  { value: '',         label: '— Choisir un sujet —' },
-  { value: 'bug',      label: '🐞 Bug ou problème technique' },
-  { value: 'billing',  label: '💳 Question sur l\'abonnement' },
-  { value: 'account',  label: '👤 Mon compte ou mon profil' },
-  { value: 'content',  label: '📚 Contenu des questions' },
-  { value: 'partner',  label: '🤝 Partenariat ou presse' },
-  { value: 'studio',   label: '🛠️ Projet web / app (johanwebstudio.fr)' },
-  { value: 'other',    label: '💬 Autre' },
-]
+// ── Sujets disponibles (réactifs à la locale) ──────────────────
+const subjects = computed(() => td<Subject[]>('contact.subjects'))
 
 // Topics affichés dans la sidebar (les 7 items sans le placeholder vide)
-const topics = subjects.slice(1)
+const topics = computed(() => subjects.value.slice(1))
 
 // Clic sur un topic → auto-fill le select
 function selectTopic(value: string) {
@@ -87,8 +84,8 @@ onUnmounted(() => observer?.disconnect())
         <!-- ── Colonne gauche : Formulaire ── -->
         <div class="contact-form-col cf-reveal" data-delay="0">
 
-          <h2 id="contact-form-title" class="contact-form-col__heading">Écrivez-moi</h2>
-          <p class="contact-form-col__sub">Je lis tout. Vraiment.</p>
+          <h2 id="contact-form-title" class="contact-form-col__heading">{{ t('contact.form.heading') }}</h2>
+          <p class="contact-form-col__sub">{{ t('contact.form.sub') }}</p>
 
           <!-- Formulaire -->
           <form
@@ -102,26 +99,26 @@ onUnmounted(() => observer?.disconnect())
             <!-- Prénom + Email (2 colonnes sur md+) -->
             <div class="cf__row">
               <div class="cf__field">
-                <label for="cf-name" class="cf__label">Prénom *</label>
+                <label for="cf-name" class="cf__label">{{ t('contact.form.nameLabel') }}</label>
                 <input
                   id="cf-name"
                   v-model="form.name"
                   type="text"
                   class="cf__input"
-                  placeholder="Marie"
+                  :placeholder="t('contact.form.namePh')"
                   required
                   autocomplete="given-name"
                 />
               </div>
 
               <div class="cf__field">
-                <label for="cf-email" class="cf__label">Email *</label>
+                <label for="cf-email" class="cf__label">{{ t('contact.form.emailLabel') }}</label>
                 <input
                   id="cf-email"
                   v-model="form.email"
                   type="email"
                   class="cf__input"
-                  placeholder="marie@email.com"
+                  :placeholder="t('contact.form.emailPh')"
                   required
                   autocomplete="email"
                 />
@@ -130,7 +127,7 @@ onUnmounted(() => observer?.disconnect())
 
             <!-- Sujet -->
             <div class="cf__field">
-              <label for="cf-subject" class="cf__label">Sujet *</label>
+              <label for="cf-subject" class="cf__label">{{ t('contact.form.subjectLabel') }}</label>
               <div class="cf__select-wrap">
                 <select
                   id="cf-subject"
@@ -157,12 +154,12 @@ onUnmounted(() => observer?.disconnect())
 
             <!-- Message -->
             <div class="cf__field">
-              <label for="cf-message" class="cf__label">Message *</label>
+              <label for="cf-message" class="cf__label">{{ t('contact.form.messageLabel') }}</label>
               <textarea
                 id="cf-message"
                 v-model="form.message"
                 class="cf__textarea"
-                placeholder="Bonjour Johan…"
+                :placeholder="t('contact.form.messagePh')"
                 rows="5"
                 required
               ></textarea>
@@ -170,7 +167,7 @@ onUnmounted(() => observer?.disconnect())
 
             <!-- Erreur -->
             <p v-if="hasError" class="cf__error" role="alert">
-              Une erreur s'est produite. Écrivez directement à
+              {{ t('contact.form.errorText') }}
               <a href="mailto:contact@johanwebstudio.fr">contact@johanwebstudio.fr</a>.
             </p>
 
@@ -182,14 +179,11 @@ onUnmounted(() => observer?.disconnect())
               :aria-busy="isSubmitting"
             >
               <span v-if="isSubmitting" class="cf__spinner" aria-hidden="true"></span>
-              <span>{{ isSubmitting ? 'Envoi en cours…' : 'Envoyer le message ✈️' }}</span>
+              <span>{{ isSubmitting ? t('contact.form.submitting') : t('contact.form.submit') }}</span>
             </button>
 
             <!-- Note RGPD -->
-            <p class="cf__privacy">
-              Vos données ne sont utilisées que pour répondre à votre message.
-              Aucune revente, aucun spam.
-            </p>
+            <p class="cf__privacy">{{ t('contact.form.privacy') }}</p>
 
           </form>
 
@@ -197,12 +191,10 @@ onUnmounted(() => observer?.disconnect())
           <Transition name="success-fade" appear>
             <div v-if="isSuccess" class="cf-success" role="alert" aria-live="polite">
               <div class="cf-success__icon" aria-hidden="true">✅</div>
-              <h3 class="cf-success__title">Message envoyé !</h3>
-              <p class="cf-success__text">
-                Merci — je vous réponds personnellement dans les 48h. À très vite !
-              </p>
+              <h3 class="cf-success__title">{{ t('contact.form.successTitle') }}</h3>
+              <p class="cf-success__text">{{ t('contact.form.successText') }}</p>
               <button class="cf-success__again" @click="isSuccess = false">
-                Envoyer un autre message
+                {{ t('contact.form.successAgain') }}
               </button>
             </div>
           </Transition>
@@ -213,7 +205,7 @@ onUnmounted(() => observer?.disconnect())
         <aside class="contact-topics-col cf-reveal" data-delay="1" aria-label="Sujets fréquents">
 
           <div class="contact-topics">
-            <div class="contact-topics__heading">Sujets fréquents</div>
+            <div class="contact-topics__heading">{{ t('contact.topicsHeading') }}</div>
 
             <ul class="contact-topics__list" role="list">
               <li
@@ -237,11 +229,11 @@ onUnmounted(() => observer?.disconnect())
 
           <!-- Email direct -->
           <div class="contact-direct">
-            <div class="contact-direct__title">Préférez l'email direct ?</div>
+            <div class="contact-direct__title">{{ t('contact.directTitle') }}</div>
             <a href="mailto:contact@johanwebstudio.fr" class="contact-direct__email">
               contact@johanwebstudio.fr
             </a>
-            <p class="contact-direct__note">Même résultat — je lis tout.</p>
+            <p class="contact-direct__note">{{ t('contact.directNote') }}</p>
           </div>
 
         </aside>

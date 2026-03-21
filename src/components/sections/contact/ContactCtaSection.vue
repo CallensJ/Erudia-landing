@@ -5,6 +5,9 @@
 <script setup lang="ts">
 import { onMounted, onUnmounted } from 'vue'
 import { RouterLink } from 'vue-router'
+import { useLocale } from '@/composables/useLocale'
+
+const { t } = useLocale()
 
 let observer: IntersectionObserver | null = null
 
@@ -36,12 +39,8 @@ onUnmounted(() => observer?.disconnect())
     <div class="container">
       <div class="contact-cta__inner contact-cta-reveal">
 
-        <h2 id="contact-cta-title" class="contact-cta__title">
-          Prêt à essayer Erudia ?
-        </h2>
-        <p class="contact-cta__sub">
-          Gratuit pour commencer. 30 secondes pour créer un profil.
-        </p>
+        <h2 id="contact-cta-title" class="contact-cta__title">{{ t('contact.cta.title') }}</h2>
+        <p class="contact-cta__sub">{{ t('contact.cta.subline') }}</p>
 
         <div class="contact-cta__actions">
           <a
@@ -50,16 +49,14 @@ onUnmounted(() => observer?.disconnect())
             target="_blank"
             rel="noopener noreferrer"
           >
-            🚀 Essayer gratuitement
+            {{ t('contact.cta.btnPrimary') }}
           </a>
           <RouterLink to="/pricing" class="contact-cta__btn contact-cta__btn--ghost">
-            Voir les tarifs
+            {{ t('contact.cta.btnSecondary') }}
           </RouterLink>
         </div>
 
-        <p class="contact-cta__reassure" aria-label="Garanties">
-          ✓ Gratuit &nbsp;·&nbsp; ✓ Sans pub &nbsp;·&nbsp; ✓ COPPA &nbsp;·&nbsp; ✓ Hors ligne
-        </p>
+        <p class="contact-cta__reassure" aria-label="Garanties">{{ t('contact.cta.reassure') }}</p>
 
       </div>
     </div>

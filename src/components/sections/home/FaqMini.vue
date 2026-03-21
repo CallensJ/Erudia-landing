@@ -4,26 +4,17 @@
      CTA vers /faq pour ceux qui veulent aller plus loin. -->
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
+import { useLocale } from '@/composables/useLocale'
 
-const faqs = [
-  {
-    q: "C'est sûr pour mes enfants ?",
-    a: "Aucune collecte de données personnelles, aucune publicité, conforme COPPA et RGPD. Erudia ne connaît ni le nom, ni l'âge réel, ni l'email de votre enfant. Juste un pseudo et un avatar.",
-  },
-  {
-    q: "Peut-on jouer sans internet ?",
-    a: "Oui — c'est même l'un des principes fondateurs d'Erudia. L'app fonctionne entièrement hors ligne une fois téléchargée. Les progrès se synchronisent automatiquement au retour de la connexion.",
-  },
-  {
-    q: "Comment je suis les progrès de mon enfant ?",
-    a: "Un code PIN discret dans l'app vous donne accès au tableau de bord parental : scores par catégorie, régularité, badges obtenus. Pas de compte séparé à créer.",
-  },
-  {
-    q: "La version gratuite est-elle vraiment complète ?",
-    a: "Oui. Trois catégories de quiz, les badges, le mode hors ligne, le suivi parental — tout est disponible gratuitement, sans limite de temps. Erudia+ débloque des catégories et contenus supplémentaires pour les enfants qui veulent aller encore plus loin.",
-  },
-]
+const { t } = useLocale()
+
+const faqs = computed(() => [
+  { q: t('home.faqMini.q1'), a: t('home.faqMini.a1') },
+  { q: t('home.faqMini.q2'), a: t('home.faqMini.a2') },
+  { q: t('home.faqMini.q3'), a: t('home.faqMini.a3') },
+  { q: t('home.faqMini.q4'), a: t('home.faqMini.a4') },
+])
 
 // Index de la question ouverte (null = toutes fermées)
 const openIndex = ref<number | null>(0)
@@ -41,15 +32,13 @@ function toggle(index: number) {
 
         <!-- Côté gauche : titre + CTA -->
         <div class="faq-mini__aside">
-          <div class="pill pill--primary faq-mini__pill">Questions fréquentes</div>
+          <div class="pill pill--primary faq-mini__pill">{{ t('home.faqMini.pill') }}</div>
           <h2 id="faq-mini-title" class="faq-mini__title heading-lg">
-            Vous avez des questions ?
+            {{ t('home.faqMini.title') }}
           </h2>
-          <p class="faq-mini__subline subline">
-            On a essayé d'y répondre honnêtement.
-          </p>
+          <p class="faq-mini__subline subline">{{ t('home.faqMini.subline') }}</p>
           <RouterLink to="/faq" class="btn btn--secondary faq-mini__cta">
-            Lire la FAQ complète
+            {{ t('home.faqMini.cta') }}
           </RouterLink>
         </div>
 

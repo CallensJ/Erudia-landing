@@ -5,46 +5,27 @@
      - Analogy strip (fond sombre) : comparaison prix avec la vie quotidienne
      - Reveal au scroll via IntersectionObserver -->
 <script setup lang="ts">
-import { onMounted, onUnmounted } from 'vue'
+import { computed, onMounted, onUnmounted } from 'vue'
+import { useLocale } from '@/composables/useLocale'
 
-// ── Cards de valeur ────────────────────────────────────────────
-// Ton parent-to-parent : ce que représente concrètement l'abonnement
-const valueCards = [
-  {
-    icon: '🎮',
-    title: 'Illimité dans le temps',
-    desc: "Pas de sessions limitées, pas de questions épuisées. L'enfant joue autant qu'il veut, chaque jour. Le contenu se renouvelle avec les défis quotidiens.",
-    stat: '∞ parties',
-  },
-  {
-    icon: '👨‍👩‍👧',
-    title: 'Toute la famille',
-    desc: "Erudia+ couvre des profils enfants illimités. Frères, sœurs, cousins — un seul abonnement suffit pour tout le monde, sans supplément.",
-    stat: '∞ profils',
-  },
-  {
-    icon: '📡',
-    title: 'Partout, toujours',
-    desc: "Mode hors ligne inclus dès le plan gratuit — pas réservé au premium. Voitures, trains, campings : l'apprentissage ne s'arrête jamais.",
-    stat: '0 coupure',
-  },
-  {
-    icon: '🚫',
-    title: 'Zéro publicité',
-    desc: "Pas de pub, ni en gratuit ni en premium. Pas de tracking, pas de données enfants revendues. Erudia, c'est juste le jeu — rien d'autre.",
-    stat: '0 pub',
-  },
-]
+const { t } = useLocale()
 
-// ── Analogies de prix ──────────────────────────────────────────
-// Mise en perspective du prix mensuel avec des achats courants
-const analogies = [
-  { emoji: '🍕', name: 'Une pizza',         price: '~8–12€',  duration: 'une soirée' },
-  { emoji: '☕', name: 'Deux cafés',         price: '~5–6€',   duration: 'un matin' },
-  { emoji: '📚', name: 'Un livre de poche', price: '~6–9€',   duration: 'quelques heures' },
-  { emoji: '🎬', name: 'Un film en VOD',    price: '~4–6€',   duration: 'une fois' },
-  { emoji: '🦉', name: 'Erudia+',           price: '4,99€',   duration: 'tout le mois ✨', isErudia: true },
-]
+// ── Cards de valeur (réactives à la locale) ───────────────────
+const valueCards = computed(() => [
+  { icon: '🎮', title: t('pricing.value.c1Title'), desc: t('pricing.value.c1Desc'), stat: t('pricing.value.c1Stat') },
+  { icon: '👨‍👩‍👧', title: t('pricing.value.c2Title'), desc: t('pricing.value.c2Desc'), stat: t('pricing.value.c2Stat') },
+  { icon: '📡', title: t('pricing.value.c3Title'), desc: t('pricing.value.c3Desc'), stat: t('pricing.value.c3Stat') },
+  { icon: '🚫', title: t('pricing.value.c4Title'), desc: t('pricing.value.c4Desc'), stat: t('pricing.value.c4Stat') },
+])
+
+// ── Analogies de prix (réactives à la locale) ─────────────────
+const analogies = computed(() => [
+  { emoji: '🍕', name: t('pricing.value.pizzaLabel'),  price: t('pricing.value.pizzaPrice'),  duration: t('pricing.value.pizzaDuration'),  isErudia: false },
+  { emoji: '☕', name: t('pricing.value.coffeeLabel'), price: t('pricing.value.coffeePrice'), duration: t('pricing.value.coffeeDuration'), isErudia: false },
+  { emoji: '📚', name: t('pricing.value.bookLabel'),   price: t('pricing.value.bookPrice'),   duration: t('pricing.value.bookDuration'),   isErudia: false },
+  { emoji: '🎬', name: t('pricing.value.movieLabel'),  price: t('pricing.value.moviePrice'),  duration: t('pricing.value.movieDuration'),  isErudia: false },
+  { emoji: '🦉', name: t('pricing.value.erudiaLabel'), price: t('pricing.value.erudiaPrice'), duration: t('pricing.value.erudiaDuration'), isErudia: true },
+])
 
 // ── Reveal au scroll ──────────────────────────────────────────
 let observer: IntersectionObserver | null = null
@@ -74,14 +55,11 @@ onUnmounted(() => observer?.disconnect())
 
       <!-- En-tête ──────────────────────────────────── -->
       <div class="value-section__header value-reveal" data-delay="0">
-        <div class="pill pill--primary label">💎 Ce que vous obtenez</div>
+        <div class="pill pill--primary label">{{ t('pricing.value.pill') }}</div>
         <h2 id="value-title" class="value-section__heading">
-          Un abonnement qui vaut vraiment le coup
+          {{ t('pricing.value.title') }}
         </h2>
-        <p class="value-section__subline">
-          Pas de fonctionnalités bridées. Pas de surprise.
-          Juste du contenu qui grandit avec votre enfant.
-        </p>
+        <p class="value-section__subline">{{ t('pricing.value.subline') }}</p>
       </div>
 
       <!-- 4 cards de valeur ──────────────────────── -->
@@ -103,12 +81,8 @@ onUnmounted(() => observer?.disconnect())
       <div class="analogy-strip value-reveal" data-delay="0" aria-label="Comparaison de prix">
         <div class="analogy-strip__orb" aria-hidden="true"></div>
 
-        <h3 class="analogy-strip__title">
-          Un mois d'Erudia+, c'est moins cher que…
-        </h3>
-        <p class="analogy-strip__sub">
-          Et ça dure tout le mois — pas juste le temps d'un goûter 😄
-        </p>
+        <h3 class="analogy-strip__title">{{ t('pricing.value.analogyTitle') }}</h3>
+        <p class="analogy-strip__sub">{{ t('pricing.value.analogySub') }}</p>
 
         <div class="analogy-strip__items">
           <div

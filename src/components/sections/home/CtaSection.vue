@@ -4,6 +4,9 @@
 
 <script setup lang="ts">
 import { RouterLink } from 'vue-router'
+import { useLocale } from '@/composables/useLocale'
+
+const { t } = useLocale()
 </script>
 
 <template>
@@ -15,11 +18,9 @@ import { RouterLink } from 'vue-router'
     <div class="container">
       <div class="cta__inner">
 
-        <h2 class="cta__title heading-lg">Prêt à commencer l'aventure ?</h2>
+        <h2 class="cta__title heading-lg">{{ t('home.cta.title') }}</h2>
 
-        <p class="cta__subline">
-          Créez un profil en 30 secondes. Pas de carte de crédit, pas de compte parent compliqué.
-        </p>
+        <p class="cta__subline">{{ t('home.cta.subline') }}</p>
 
         <div class="cta__actions">
           <a
@@ -28,16 +29,14 @@ import { RouterLink } from 'vue-router'
             target="_blank"
             rel="noopener"
           >
-            🚀 Créer un profil enfant
+            {{ t('home.cta.btnPrimary') }}
           </a>
           <RouterLink to="/how-it-works" class="btn cta__btn-ghost">
-            Voir comment ça marche
+            {{ t('home.cta.btnSecondary') }}
           </RouterLink>
         </div>
 
-        <p class="cta__reassure">
-          ✓ Gratuit · ✓ Sans pub · ✓ COPPA compliant · ✓ Hors ligne
-        </p>
+        <p class="cta__reassure">{{ t('home.cta.reassure') }}</p>
 
       </div>
     </div>

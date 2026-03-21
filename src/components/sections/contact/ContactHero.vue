@@ -2,6 +2,11 @@
      - Layout 2 colonnes sur desktop : titre à gauche, carte contact à droite
      - Carte contact glassmorphisme : email, studio, localisation + délai réponse
      - Wave SVG de transition vers le fond blanc -->
+<script setup lang="ts">
+import { useLocale } from '@/composables/useLocale'
+const { t } = useLocale()
+</script>
+
 <template>
   <section class="contact-hero" aria-labelledby="contact-hero-title">
 
@@ -14,17 +19,14 @@
 
         <!-- Colonne gauche : titre + sous-titre -->
         <div class="contact-hero__content">
-          <div class="pill pill--white label">Contact</div>
+          <div class="pill pill--white label">{{ t('contact.hero.pill') }}</div>
 
           <h1 id="contact-hero-title" class="contact-hero__title">
-            Une question ?<br>
-            <span class="contact-hero__title-accent">Je vous réponds.</span>
+            {{ t('contact.hero.title') }}<br>
+            <span class="contact-hero__title-accent">{{ t('contact.hero.titleAccent') }}</span>
           </h1>
 
-          <p class="contact-hero__sub">
-            Vous parlez directement à Johan — créateur, développeur et designer d'Erudia.
-            Pas un bot, pas un formulaire automatique.
-          </p>
+          <p class="contact-hero__sub">{{ t('contact.hero.subline') }}</p>
         </div>
 
         <!-- Colonne droite : carte contact -->
@@ -33,7 +35,7 @@
           <div class="contact-method">
             <span class="contact-method__icon" aria-hidden="true">📧</span>
             <div class="contact-method__body">
-              <div class="contact-method__label">Email</div>
+              <div class="contact-method__label">{{ t('contact.hero.emailLabel') }}</div>
               <a href="mailto:contact@johanwebstudio.fr" class="contact-method__value">
                 contact@johanwebstudio.fr
               </a>
@@ -43,7 +45,7 @@
           <div class="contact-method">
             <span class="contact-method__icon" aria-hidden="true">🛠️</span>
             <div class="contact-method__body">
-              <div class="contact-method__label">Studio</div>
+              <div class="contact-method__label">{{ t('contact.hero.studioLabel') }}</div>
               <a
                 href="https://johanwebstudio.fr"
                 class="contact-method__value"
@@ -58,14 +60,12 @@
           <div class="contact-method">
             <span class="contact-method__icon" aria-hidden="true">🌞</span>
             <div class="contact-method__body">
-              <div class="contact-method__label">Localisation</div>
-              <div class="contact-method__value">Sud de la France</div>
+              <div class="contact-method__label">{{ t('contact.hero.locationLabel') }}</div>
+              <div class="contact-method__value">{{ t('contact.hero.locationValue') }}</div>
             </div>
           </div>
 
-          <p class="contact-hero__card-note">
-            Je réponds en moins de 48h — en français ou en anglais.
-          </p>
+          <p class="contact-hero__card-note">{{ t('contact.hero.responseNote') }}</p>
 
         </div>
 

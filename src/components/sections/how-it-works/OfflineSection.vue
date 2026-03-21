@@ -5,61 +5,25 @@
      - Colonne visuelle : 4 cards scénarios avec badge de statut coloré
      - Reveal au scroll via IntersectionObserver -->
 <script setup lang="ts">
-import { onMounted, onUnmounted } from 'vue'
+import { computed, onMounted, onUnmounted } from 'vue'
+import { useLocale } from '@/composables/useLocale'
 
-// ── Étapes de fonctionnement offline ──────────────────────────
-const offlineSteps = [
-  {
-    icon: '📲',
-    bg: 'rgba(102, 126, 234, 0.1)',
-    title: 'Première visite avec connexion',
-    desc: "L'app met en cache les questions et l'interface automatiquement.",
-  },
-  {
-    icon: '✈️',
-    bg: 'rgba(76, 175, 80, 0.1)',
-    title: 'Mode avion, pas de panique',
-    desc: "L'enfant joue normalement. Scores et badges sauvegardés localement.",
-  },
-  {
-    icon: '🔄',
-    bg: 'rgba(59, 130, 246, 0.1)',
-    title: 'Retour en ligne → synchronisation',
-    desc: 'Les données se synchronisent automatiquement. Rien n\'est perdu.',
-  },
-]
+const { t } = useLocale()
 
-// ── Cartes scénarios (colonne droite) ─────────────────────────
-const scenarios = [
-  {
-    icon: '🏖️',
-    title: 'À la plage',
-    desc: 'Pas de 4G, pas de WiFi — l\'app tourne parfaitement',
-    status: 'ok',
-    statusLabel: '✓ OK',
-  },
-  {
-    icon: '🚂',
-    title: 'Dans le train',
-    desc: 'Tunnel ou zone blanche — le quiz continue sans interruption',
-    status: 'ok',
-    statusLabel: '✓ OK',
-  },
-  {
-    icon: '🏕️',
-    title: 'En camping',
-    desc: 'Scores sauvegardés localement, synchronisés au retour',
-    status: 'sync',
-    statusLabel: '⟳ Sync dès connexion',
-  },
-  {
-    icon: '✈️',
-    title: 'Mode avion',
-    desc: 'Questions mises en cache — disponibles immédiatement',
-    status: 'cached',
-    statusLabel: '📦 Mis en cache',
-  },
-]
+// ── Étapes de fonctionnement offline (réactives à la locale) ──
+const offlineSteps = computed(() => [
+  { icon: '📲', bg: 'rgba(102, 126, 234, 0.1)', title: t('howItWorks.offline.step1Title'), desc: t('howItWorks.offline.step1Desc') },
+  { icon: '✈️', bg: 'rgba(76, 175, 80, 0.1)',   title: t('howItWorks.offline.step2Title'), desc: t('howItWorks.offline.step2Desc') },
+  { icon: '🔄', bg: 'rgba(59, 130, 246, 0.1)',  title: t('howItWorks.offline.step3Title'), desc: t('howItWorks.offline.step3Desc') },
+])
+
+// ── Cartes scénarios (réactives à la locale) ──────────────────
+const scenarios = computed(() => [
+  { icon: '🏖️', title: t('howItWorks.offline.sc1Title'), desc: t('howItWorks.offline.sc1Desc'), status: 'ok',     statusLabel: t('howItWorks.offline.sc1Status') },
+  { icon: '🚂', title: t('howItWorks.offline.sc2Title'), desc: t('howItWorks.offline.sc2Desc'), status: 'ok',     statusLabel: t('howItWorks.offline.sc2Status') },
+  { icon: '🏕️', title: t('howItWorks.offline.sc3Title'), desc: t('howItWorks.offline.sc3Desc'), status: 'sync',   statusLabel: t('howItWorks.offline.sc3Status') },
+  { icon: '✈️', title: t('howItWorks.offline.sc4Title'), desc: t('howItWorks.offline.sc4Desc'), status: 'cached', statusLabel: t('howItWorks.offline.sc4Status') },
+])
 
 // ── Reveal au scroll ──────────────────────────────────────────
 let observer: IntersectionObserver | null = null
@@ -91,23 +55,15 @@ onUnmounted(() => observer?.disconnect())
         <!-- ── Colonne texte ── -->
         <div class="offline__text offline-reveal" data-delay="0">
 
-          <div class="pill pill--primary label">📡 Mode hors ligne</div>
+          <div class="pill pill--primary label">{{ t('howItWorks.offline.pill') }}</div>
 
           <h2 id="offline-title" class="offline__heading">
-            Ça marche partout.<br />
-            <span class="offline__heading-accent">Vraiment partout.</span>
+            {{ t('howItWorks.offline.title') }}<br />
+            <span class="offline__heading-accent">{{ t('howItWorks.offline.titleAccent') }}</span>
           </h2>
 
-          <p class="offline__para">
-            Erudia est une PWA (Progressive Web App). Une fois visitée,
-            l'app met en cache tout le nécessaire pour fonctionner sans connexion —
-            questions, interface, sons.
-          </p>
-          <p class="offline__para">
-            Dans le métro, en voiture, à la montagne, chez des amis sans WiFi —
-            les quiz fonctionnent toujours. Aucune frustration pour votre enfant,
-            aucune interruption.
-          </p>
+          <p class="offline__para">{{ t('howItWorks.offline.para1') }}</p>
+          <p class="offline__para">{{ t('howItWorks.offline.para2') }}</p>
 
           <!-- 3 étapes de fonctionnement -->
           <div class="offline__steps">

@@ -6,6 +6,9 @@
      - Wave SVG de transition vers le blanc -->
 <script setup lang="ts">
 import { ref, watch } from 'vue'
+import { useLocale } from '@/composables/useLocale'
+
+const { t } = useLocale()
 
 const props = defineProps<{
   resultCount: number | null
@@ -40,16 +43,14 @@ function clearSearch() {
     <div class="container">
       <div class="faq-hero__inner">
 
-        <div class="pill pill--white label">FAQ</div>
+        <div class="pill pill--white label">{{ t('faq.hero.pill') }}</div>
 
         <h1 id="faq-hero-title" class="faq-hero__title">
-          Vous avez des questions,<br>
-          <span class="faq-hero__title-accent">on a les réponses.</span>
+          {{ t('faq.hero.title') }}<br>
+          <span class="faq-hero__title-accent">{{ t('faq.hero.titleAccent') }}</span>
         </h1>
 
-        <p class="faq-hero__sub">
-          Sécurité, contenu, hors ligne, facturation — tout ce que vous voulez savoir sur Erudia.
-        </p>
+        <p class="faq-hero__sub">{{ t('faq.hero.subline') }}</p>
 
         <!-- Barre de recherche -->
         <div class="faq-search" role="search">
@@ -64,7 +65,7 @@ function clearSearch() {
               v-model="query"
               type="search"
               class="faq-search__input"
-              placeholder="Rechercher une question…"
+              :placeholder="t('faq.hero.searchPlaceholder')"
               aria-label="Rechercher dans la FAQ"
               autocomplete="off"
               @input="onInput"

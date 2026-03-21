@@ -5,17 +5,20 @@
      - Droite : pill, titre "Une app de papa.", 2 §, citation, photo avec fille + caption overlay
      - Reveal au scroll via IntersectionObserver -->
 <script setup lang="ts">
-import { onMounted, onUnmounted } from 'vue'
+import { computed, onMounted, onUnmounted } from 'vue'
+import { useLocale } from '@/composables/useLocale'
 import founderImg  from '@/assets/johan-portrait.jpg'
 import filleImg    from '@/assets/johan-fille.jpg'
 
-// ── Tags identité ──────────────────────────────────────────────
-const tags = [
-  { emoji: '👨‍👧', label: 'Papa' },
-  { emoji: '💻', label: 'Full-stack dev' },
-  { emoji: '🎨', label: 'Designer' },
-  { emoji: '🌞', label: 'Sud de France' },
-]
+const { t } = useLocale()
+
+// ── Tags identité (réactifs à la locale) ───────────────────────
+const tags = computed(() => [
+  { emoji: '👨‍👧', label: t('contact.bio.tag1') },
+  { emoji: '💻', label: t('contact.bio.tag2') },
+  { emoji: '🎨', label: t('contact.bio.tag3') },
+  { emoji: '🌞', label: t('contact.bio.tag4') },
+])
 
 // ── Reveal au scroll ──────────────────────────────────────────
 let observer: IntersectionObserver | null = null
@@ -46,13 +49,13 @@ onUnmounted(() => observer?.disconnect())
       <div class="behind-erudia__grid">
 
         <!-- ── Colonne gauche : Identité ── -->
-        <aside class="be-identity be-reveal" data-delay="0" aria-label="Johan, fondateur d'Erudia">
+        <aside class="be-identity be-reveal" data-delay="0" :aria-label="t('contact.bio.founderAlt')">
 
           <!-- Photo + flag -->
           <div class="be-identity__photo-wrap">
             <img
               :src="founderImg"
-              alt="Johan, fondateur d'Erudia"
+              :alt="t('contact.bio.founderAlt')"
               class="be-identity__photo"
               loading="lazy"
               width="120"
@@ -63,13 +66,13 @@ onUnmounted(() => observer?.disconnect())
 
           <!-- Nom + rôle -->
           <div class="be-identity__name">Johan</div>
-          <div class="be-identity__role">Créateur d'Erudia · Dev freelance</div>
+          <div class="be-identity__role">{{ t('contact.bio.role') }}</div>
 
           <!-- Tags -->
           <div class="be-identity__tags" aria-label="À propos de Johan">
             <span
               v-for="tag in tags"
-              :key="tag.label"
+              :key="tag.emoji"
               class="be-identity__tag"
             >
               <span aria-hidden="true">{{ tag.emoji }}</span>
@@ -88,7 +91,7 @@ onUnmounted(() => observer?.disconnect())
             <div class="be-identity__studio-inner">
               <span class="be-identity__studio-icon" aria-hidden="true">🛠️</span>
               <div>
-                <div class="be-identity__studio-label">Studio freelance</div>
+                <div class="be-identity__studio-label">{{ t('contact.bio.studioLabel') }}</div>
                 <div class="be-identity__studio-url">johanwebstudio.fr</div>
               </div>
             </div>
@@ -100,50 +103,33 @@ onUnmounted(() => observer?.disconnect())
         <!-- ── Colonne droite : Histoire ── -->
         <div class="be-story be-reveal" data-delay="1">
 
-          <div class="pill pill--primary label">Qui se cache derrière Erudia ?</div>
+          <div class="pill pill--primary label">{{ t('contact.bio.pill') }}</div>
 
-          <h2 id="behind-erudia-title" class="be-story__title">
-            Une app de papa.
-          </h2>
+          <h2 id="behind-erudia-title" class="be-story__title">{{ t('contact.bio.title') }}</h2>
 
-          <p class="be-story__text">
-            Ma fille a grandi aux Philippines. Elle parle anglais, tagalog — et le français,
-            c'est encore un peu flou pour elle. On vit entre deux cultures, deux langues,
-            deux façons de voir le monde. Et quand j'ai essayé de lui faire découvrir
-            l'histoire de France, la géo de l'Europe, les sciences… les apps que je trouvais
-            étaient soit en anglais uniquement, soit coupées à la moindre absence de wifi,
-            soit bourrées de pubs. Pas terrible pour une gamine de 6 ans.
-          </p>
+          <p class="be-story__text">{{ t('contact.bio.p1') }}</p>
 
           <!-- Citation -->
           <blockquote class="be-story__quote">
-            <p>
-              "Alors j'ai fait ce que font les devs quand ils trouvent pas ce qu'ils cherchent.
-              J'ai ouvert VS Code."
-            </p>
-            <footer>— Johan</footer>
+            <p>{{ t('contact.bio.quote') }}</p>
+            <footer>{{ t('contact.bio.quoteAuthor') }}</footer>
           </blockquote>
 
           <!-- Photo avec fille + caption overlay -->
-          <div class="be-story__photo-wrap" aria-label="Johan et sa fille">
+          <div class="be-story__photo-wrap" :aria-label="t('contact.bio.filleAlt')">
             <img
               :src="filleImg"
-              alt="Johan et sa fille"
+              :alt="t('contact.bio.filleAlt')"
               class="be-story__photo"
               loading="lazy"
             />
             <div class="be-story__photo-caption" aria-hidden="true">
-              On est comme ça, nous deux. 🇵🇭
+              {{ t('contact.bio.photoCaption') }}
             </div>
           </div>
 
-          <p class="be-story__text">
-            Erudia, c'est ce projet-là. Commencé pour elle, fini pour vous aussi — enfin
-            j'espère. Je suis seul derrière&nbsp;: le code, le design, les questions, le
-            support. <a href="https://johanwebstudio.fr" target="_blank" rel="noopener noreferrer">Johanwebstudio</a>,
-            c'est mon studio freelance dans le sud de la France. Si vous avez un projet web
-            ou app, vous savez où me trouver.
-          </p>
+          <!-- eslint-disable vue/no-v-html -->
+          <p class="be-story__text" v-html="t('contact.bio.p2')"></p>
 
         </div>
 

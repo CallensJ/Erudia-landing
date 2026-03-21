@@ -5,22 +5,24 @@
      - Reveal au scroll via IntersectionObserver
      - Mockups inline Vue (pas de v-html) pour la sécurité -->
 <script setup lang="ts">
-import { onMounted, onUnmounted } from 'vue'
+import { computed, onMounted, onUnmounted } from 'vue'
+import { useLocale } from '@/composables/useLocale'
 
-// ── Données des étapes (contenu statique FR uniquement pour MVP landing) ──
-// Note : tranche d'âge supprimée de l'app (MVP 4) — pas mentionnée dans les détails
-const steps = [
+const { t } = useLocale()
+
+// ── Données des étapes (réactives à la locale) ──
+const steps = computed(() => [
   {
     num: '1',
     gradient: 'linear-gradient(135deg, #667eea, #764ba2)',
     colorFlat: '#667eea',
-    label: 'Étape 1',
-    title: 'Créer son profil',
-    desc: "L'enfant choisit un pseudonyme fun et sélectionne son avatar parmi des dizaines de personnages DiceBear. En 30 secondes, il est prêt à jouer — sans email, sans mot de passe.",
+    label: t('howItWorks.childSteps.step1Label'),
+    title: t('howItWorks.childSteps.step1Title'),
+    desc:  t('howItWorks.childSteps.step1Desc'),
     details: [
-      'Pseudonyme unique (suggestions fun si pris)',
-      '5 styles d\'avatars, des centaines de combinaisons',
-      'Aucune donnée personnelle collectée (COPPA)',
+      t('howItWorks.childSteps.step1D1'),
+      t('howItWorks.childSteps.step1D2'),
+      t('howItWorks.childSteps.step1D3'),
     ],
     visual: 'onboarding',
   },
@@ -28,13 +30,13 @@ const steps = [
     num: '2',
     gradient: 'linear-gradient(135deg, #4CAF50, #45a049)',
     colorFlat: '#4CAF50',
-    label: 'Étape 2',
-    title: 'Choisir sa catégorie & difficulté',
-    desc: "Sur l'écran Home, l'enfant choisit parmi les catégories disponibles et son niveau : Facile, Moyen ou Difficile. Le bouton Jouer s'active dès que les deux choix sont faits.",
+    label: t('howItWorks.childSteps.step2Label'),
+    title: t('howItWorks.childSteps.step2Title'),
+    desc:  t('howItWorks.childSteps.step2Desc'),
     details: [
-      '3 catégories gratuites : Sciences, Histoire, Héros',
-      '3 niveaux de difficulté',
-      'Bouton Jouer actif dès sélection complète',
+      t('howItWorks.childSteps.step2D1'),
+      t('howItWorks.childSteps.step2D2'),
+      t('howItWorks.childSteps.step2D3'),
     ],
     visual: 'category',
   },
@@ -42,13 +44,13 @@ const steps = [
     num: '3',
     gradient: 'linear-gradient(135deg, #FF9800, #F57C00)',
     colorFlat: '#FF9800',
-    label: 'Étape 3',
-    title: 'Jouer les 20 questions',
-    desc: '20 questions par partie, filtrées par catégorie et difficulté. Feedback immédiat après chaque réponse : vert pour correcte, rouge pour incorrecte avec la bonne réponse affichée. La mascotte Nova accompagne l\'enfant tout au long.',
+    label: t('howItWorks.childSteps.step3Label'),
+    title: t('howItWorks.childSteps.step3Title'),
+    desc:  t('howItWorks.childSteps.step3Desc'),
     details: [
-      '20 questions par session',
-      'Feedback visuel immédiat (vert / rouge)',
-      'Nova affiche la bonne réponse après une erreur',
+      t('howItWorks.childSteps.step3D1'),
+      t('howItWorks.childSteps.step3D2'),
+      t('howItWorks.childSteps.step3D3'),
     ],
     visual: 'quiz',
   },
@@ -56,13 +58,13 @@ const steps = [
     num: '4',
     gradient: 'linear-gradient(135deg, #FFD700, #FFA500)',
     colorFlat: '#b8860b',
-    label: 'Étape 4',
-    title: 'Voir ses résultats & badges',
-    desc: 'Score final affiché avec un message de Nova adapté à la performance. Un badge est attribué si le score atteint 4/20. Des confettis célèbrent chaque réussite — même les petites.',
+    label: t('howItWorks.childSteps.step4Label'),
+    title: t('howItWorks.childSteps.step4Title'),
+    desc:  t('howItWorks.childSteps.step4Desc'),
     details: [
-      'Score X / 20 avec message encourageant de Nova',
-      'Badge attribué dès 4 / 20 bonnes réponses',
-      'Confettis + célébration animée',
+      t('howItWorks.childSteps.step4D1'),
+      t('howItWorks.childSteps.step4D2'),
+      t('howItWorks.childSteps.step4D3'),
     ],
     visual: 'results',
   },
@@ -70,17 +72,17 @@ const steps = [
     num: '5',
     gradient: 'linear-gradient(135deg, #9C27B0, #7B1FA2)',
     colorFlat: '#9C27B0',
-    label: 'Étape 5',
-    title: 'Consulter son profil',
-    desc: 'Le profil affiche l\'avatar, le pseudo, les statistiques globales et les badges gagnés. Le défi quotidien et le mode duel sont accessibles depuis la navigation. Tout est sauvegardé localement — même hors ligne.',
+    label: t('howItWorks.childSteps.step5Label'),
+    title: t('howItWorks.childSteps.step5Title'),
+    desc:  t('howItWorks.childSteps.step5Desc'),
     details: [
-      'Avatar + pseudo + badges visibles en un coup d\'œil',
-      'Statistiques détaillées par catégorie (Erudia+)',
-      'Défi quotidien & mode duel accessibles',
+      t('howItWorks.childSteps.step5D1'),
+      t('howItWorks.childSteps.step5D2'),
+      t('howItWorks.childSteps.step5D3'),
     ],
     visual: 'profile',
   },
-]
+])
 
 // ── Reveal au scroll (IntersectionObserver) ──
 let observer: IntersectionObserver | null = null
@@ -110,12 +112,12 @@ onUnmounted(() => observer?.disconnect())
 
       <!-- En-tête de section -->
       <div class="child-steps__header">
-        <div class="pill pill--primary label">🎮 Parcours enfant</div>
+        <div class="pill pill--primary label">{{ t('howItWorks.childSteps.pill') }}</div>
         <h2 id="child-steps-title" class="child-steps__heading">
-          5 étapes pour jouer
+          {{ t('howItWorks.childSteps.title') }}
         </h2>
         <p class="child-steps__subline">
-          De l'ouverture de l'app au premier badge — en moins de 5 minutes.
+          {{ t('howItWorks.childSteps.subline') }}
         </p>
       </div>
 
@@ -179,11 +181,11 @@ onUnmounted(() => observer?.disconnect())
                   <div class="mock-dots">
                     <span></span><span></span><span></span>
                   </div>
-                  <div class="mock-title-bar">Crée ton profil</div>
+                  <div class="mock-title-bar">{{ t('howItWorks.childSteps.mockOnboardingTitle') }}</div>
                 </div>
                 <div class="mock-body">
                   <div class="mock-input mock-input--filled">🦊 Lucas</div>
-                  <div class="mock-avatar-label">Choisis ton avatar</div>
+                  <div class="mock-avatar-label">{{ t('howItWorks.childSteps.mockOnboardingAvatar') }}</div>
                   <div class="mock-avatar-grid">
                     <div class="mock-avatar mock-avatar--selected">🦊</div>
                     <div class="mock-avatar">🐨</div>
@@ -203,28 +205,28 @@ onUnmounted(() => observer?.disconnect())
                   <div class="mock-dots">
                     <span></span><span></span><span></span>
                   </div>
-                  <div class="mock-title-bar">Erudia</div>
+                  <div class="mock-title-bar">{{ t('howItWorks.childSteps.mockCategoryTitle') }}</div>
                 </div>
                 <div class="mock-body">
                   <div class="mock-cat mock-cat--selected">
                     <span class="mock-cat-icon">🔬</span>
                     <div>
-                      <div class="mock-cat-name">Sciences</div>
-                      <div class="mock-cat-count">300 questions</div>
+                      <div class="mock-cat-name">{{ t('howItWorks.childSteps.mockCategorySci') }}</div>
+                      <div class="mock-cat-count">{{ t('howItWorks.childSteps.mockCategorySciCount') }}</div>
                     </div>
                   </div>
                   <div class="mock-cat">
                     <span class="mock-cat-icon">📜</span>
                     <div>
-                      <div class="mock-cat-name">Histoire</div>
-                      <div class="mock-cat-count">500 questions</div>
+                      <div class="mock-cat-name">{{ t('howItWorks.childSteps.mockCategoryHist') }}</div>
+                      <div class="mock-cat-count">{{ t('howItWorks.childSteps.mockCategoryHistCount') }}</div>
                     </div>
                   </div>
-                  <div class="mock-diff-label">Difficulté</div>
+                  <div class="mock-diff-label">{{ t('howItWorks.childSteps.mockCategoryDiff') }}</div>
                   <div class="mock-diff-row">
-                    <div class="mock-diff mock-diff--easy-active">Facile</div>
-                    <div class="mock-diff">Moyen</div>
-                    <div class="mock-diff">Difficile</div>
+                    <div class="mock-diff mock-diff--easy-active">{{ t('howItWorks.childSteps.mockDiffEasy') }}</div>
+                    <div class="mock-diff">{{ t('howItWorks.childSteps.mockDiffMedium') }}</div>
+                    <div class="mock-diff">{{ t('howItWorks.childSteps.mockDiffHard') }}</div>
                   </div>
                 </div>
               </template>
@@ -235,26 +237,26 @@ onUnmounted(() => observer?.disconnect())
                   <div class="mock-dots">
                     <span></span><span></span><span></span>
                   </div>
-                  <div class="mock-title-bar">Question 9 / 20</div>
+                  <div class="mock-title-bar">{{ t('howItWorks.childSteps.mockQuizCounter') }}</div>
                 </div>
                 <div class="mock-body">
                   <div class="mock-progress">
                     <div class="mock-progress-fill" style="width: 45%"></div>
                   </div>
                   <div class="mock-question">
-                    Quelle planète est la plus proche du Soleil ?
+                    {{ t('howItWorks.childSteps.mockQuizQuestion') }}
                   </div>
                   <div class="mock-option mock-option--wrong">
-                    <div class="mock-letter">A</div>Vénus
+                    <div class="mock-letter">A</div>{{ t('howItWorks.childSteps.mockQuizA') }}
                   </div>
                   <div class="mock-option mock-option--correct">
-                    <div class="mock-letter">B</div>Mercure ✓
+                    <div class="mock-letter">B</div>{{ t('howItWorks.childSteps.mockQuizB') }}
                   </div>
                   <div class="mock-option">
-                    <div class="mock-letter">C</div>La Terre
+                    <div class="mock-letter">C</div>{{ t('howItWorks.childSteps.mockQuizC') }}
                   </div>
                   <div class="mock-option">
-                    <div class="mock-letter">D</div>Mars
+                    <div class="mock-letter">D</div>{{ t('howItWorks.childSteps.mockQuizD') }}
                   </div>
                 </div>
               </template>
@@ -265,7 +267,7 @@ onUnmounted(() => observer?.disconnect())
                   <div class="mock-dots">
                     <span></span><span></span><span></span>
                   </div>
-                  <div class="mock-title-bar" style="color: #333">Résultats 🎉</div>
+                  <div class="mock-title-bar" style="color: #333">{{ t('howItWorks.childSteps.mockResultsTitle') }}</div>
                 </div>
                 <div class="mock-body">
                   <div class="mock-results-score">
@@ -273,15 +275,15 @@ onUnmounted(() => observer?.disconnect())
                       <div class="mock-score-num">14</div>
                       <div class="mock-score-denom">/ 20</div>
                     </div>
-                    <div class="mock-score-label">Excellent ! 🦉</div>
+                    <div class="mock-score-label">{{ t('howItWorks.childSteps.mockResultsScore') }}</div>
                   </div>
                   <div class="mock-badge-earned">
                     <span class="mock-badge-icon">🏆</span>
-                    <span class="mock-badge-text">Badge Explorateur Sciences !</span>
+                    <span class="mock-badge-text">{{ t('howItWorks.childSteps.mockResultsBadge') }}</span>
                   </div>
                   <div class="mock-result-actions">
-                    <div class="mock-result-btn mock-result-btn--primary">Rejouer</div>
-                    <div class="mock-result-btn">Accueil</div>
+                    <div class="mock-result-btn mock-result-btn--primary">{{ t('howItWorks.childSteps.mockResultsReplay') }}</div>
+                    <div class="mock-result-btn">{{ t('howItWorks.childSteps.mockResultsHome') }}</div>
                   </div>
                 </div>
               </template>
@@ -292,7 +294,7 @@ onUnmounted(() => observer?.disconnect())
                   <div class="mock-dots">
                     <span></span><span></span><span></span>
                   </div>
-                  <div class="mock-title-bar">Mon profil</div>
+                  <div class="mock-title-bar">{{ t('howItWorks.childSteps.mockProfileTitle') }}</div>
                 </div>
                 <div class="mock-body">
                   <div class="mock-profile-header">
@@ -302,15 +304,15 @@ onUnmounted(() => observer?.disconnect())
                   <div class="mock-stats-row">
                     <div class="mock-stat">
                       <div class="mock-stat-val">47</div>
-                      <div class="mock-stat-label">Parties</div>
+                      <div class="mock-stat-label">{{ t('howItWorks.childSteps.mockProfileGames') }}</div>
                     </div>
                     <div class="mock-stat">
                       <div class="mock-stat-val">68%</div>
-                      <div class="mock-stat-label">Moy.</div>
+                      <div class="mock-stat-label">{{ t('howItWorks.childSteps.mockProfileAvg') }}</div>
                     </div>
                     <div class="mock-stat">
                       <div class="mock-stat-val">5🔥</div>
-                      <div class="mock-stat-label">Série</div>
+                      <div class="mock-stat-label">{{ t('howItWorks.childSteps.mockProfileStreak') }}</div>
                     </div>
                   </div>
                   <div class="mock-badges-row">

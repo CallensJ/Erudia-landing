@@ -5,33 +5,38 @@
      Background blanc — alterne avec la ProblemSection (surface). -->
 
 <script setup lang="ts">
-const features = [
+import { computed } from 'vue'
+import { useLocale } from '@/composables/useLocale'
+
+const { t } = useLocale()
+
+const features = computed(() => [
   {
     icon: '📡',
-    tag: 'Disponible partout',
-    title: 'Même sans WiFi',
-    description: "Dans le train, au chalet, en vacances — Erudia fonctionne hors ligne. Toujours là, quand vous en avez besoin.",
+    tag: t('home.features.card1Tag'),
+    title: t('home.features.card1Title'),
+    description: t('home.features.card1Desc'),
     accent: 'blue',
     deco: '🚗',
   },
   {
     icon: '🏆',
-    tag: 'Ils vont adorer',
-    title: 'Apprendre en gagnant',
-    description: "Badges, défis quotidiens, collections secrètes à débloquer… Chaque bonne réponse est une victoire. Et il y a encore plus à découvrir.",
+    tag: t('home.features.card2Tag'),
+    title: t('home.features.card2Title'),
+    description: t('home.features.card2Desc'),
     accent: 'gold',
     deco: '🌟',
-    highlight: true, // carte mise en avant — angle premium enfant
+    highlight: true,
   },
   {
     icon: '🛡️',
-    tag: 'Pour les parents',
-    title: 'Vous restez aux commandes',
-    description: "Un code PIN, et vous accédez aux progrès de votre enfant. Scores, régularité, objectifs — en un coup d'œil, sans friction.",
+    tag: t('home.features.card3Tag'),
+    title: t('home.features.card3Title'),
+    description: t('home.features.card3Desc'),
     accent: 'purple',
     deco: '📊',
   },
-]
+])
 </script>
 
 <template>
@@ -40,13 +45,11 @@ const features = [
 
       <!-- En-tête -->
       <div class="features__header">
-        <div class="pill pill--primary features__pill">Ce qui fait la différence</div>
+        <div class="pill pill--primary features__pill">{{ t('home.features.pill') }}</div>
         <h2 id="features-title" class="features__title heading-lg">
-          Conçu pour s'intégrer dans votre vie
+          {{ t('home.features.title') }}
         </h2>
-        <p class="features__subline subline">
-          Pas une app de plus à gérer. Une habitude douce, qui grandit avec votre enfant.
-        </p>
+        <p class="features__subline subline">{{ t('home.features.subline') }}</p>
       </div>
 
       <!-- Grille 3 cartes -->
@@ -62,7 +65,7 @@ const features = [
         >
           <!-- Badge "highlight" pour la carte premium -->
           <div v-if="item.highlight" class="features__card-badge">
-            ✨ Favori des enfants
+            {{ t('home.features.card2Badge') }}
           </div>
 
           <!-- Icône principale -->
@@ -87,7 +90,7 @@ const features = [
       <!-- CTA secondaire -->
       <div class="features__cta">
         <RouterLink to="/features" class="btn btn--secondary">
-          Voir toutes les fonctionnalités
+          {{ t('home.features.cta') }}
         </RouterLink>
       </div>
 

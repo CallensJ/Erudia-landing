@@ -6,50 +6,48 @@
      - Note de réassurance Stripe en bas de section -->
 <script setup lang="ts">
 import { computed } from 'vue'
+import { useLocale } from '@/composables/useLocale'
+
+const { t } = useLocale()
 
 const props = defineProps<{
   isAnnual: boolean
 }>()
 
 // ── Prix selon le mode de facturation ─────────────────────────
-const premiumPrice = computed(() => props.isAnnual ? '3,33€' : '4,99€')
-const premiumPeriod = computed(() =>
-  props.isAnnual ? '/ mois (facturé annuellement)' : '/ mois'
-)
-const annualSavings = computed(() =>
-  props.isAnnual ? '→ soit 39,99€/an — économisez 19,89€' : null
-)
+const premiumPrice = computed(() => props.isAnnual ? t('pricing.cards.premiumPriceA') : t('pricing.cards.premiumPriceM'))
+const premiumPeriod = computed(() => props.isAnnual ? t('pricing.cards.premiumPeriodA') : t('pricing.cards.premiumPeriodM'))
+const annualSavings = computed(() => props.isAnnual ? t('pricing.cards.premiumSavings') : null)
 
-// ── Features plan gratuit ──────────────────────────────────────
-// Les items avec yes:false sont grisés et préfixés d'un tiret
-const freeFeatures = [
-  { text: '3 catégories de quiz (Sciences, Histoire, Héros)', yes: true },
-  { text: '20 questions par session', yes: true },
-  { text: 'Badges & système de récompenses complet', yes: true },
-  { text: 'Défi quotidien (XP, titres, Streak Shields)', yes: true },
-  { text: 'Mode duel asynchrone', yes: true },
-  { text: 'Mode hors ligne (PWA)', yes: true },
-  { text: 'Bilingue FR / EN', yes: true },
-  { text: '1 profil enfant', yes: true },
-  { text: 'Historique cloud : 10 dernières sessions', yes: true },
-  { text: 'Contrôles parentaux basiques', yes: true },
-  { text: 'Catégories supplémentaires (6)', yes: false },
-  { text: 'Dashboard parent avancé', yes: false },
-]
+// ── Features plan gratuit (réactives à la locale) ─────────────
+const freeFeatures = computed(() => [
+  { text: t('pricing.cards.freeF1'),  yes: true },
+  { text: t('pricing.cards.freeF2'),  yes: true },
+  { text: t('pricing.cards.freeF3'),  yes: true },
+  { text: t('pricing.cards.freeF4'),  yes: true },
+  { text: t('pricing.cards.freeF5'),  yes: true },
+  { text: t('pricing.cards.freeF6'),  yes: true },
+  { text: t('pricing.cards.freeF7'),  yes: true },
+  { text: t('pricing.cards.freeF8'),  yes: true },
+  { text: t('pricing.cards.freeF9'),  yes: true },
+  { text: t('pricing.cards.freeF10'), yes: true },
+  { text: t('pricing.cards.freeDis1'), yes: false },
+  { text: t('pricing.cards.freeDis2'), yes: false },
+])
 
-// ── Features plan premium (tout du gratuit + ces extras) ───────
-const premiumFeatures = [
-  { text: 'Toutes les catégories — 9 au total' },
-  { text: 'Packs thématiques exclusifs (Espace, Mythologie…)' },
-  { text: 'Avatars premium DiceBear (4 styles supplémentaires)' },
-  { text: 'Profils enfants illimités' },
-  { text: 'Historique cloud illimité' },
-  { text: 'Dashboard parent avancé (graphiques, tendances)' },
-  { text: 'Objectifs avancés par catégorie / semaine' },
-  { text: 'Rapports PDF — envoi hebdo / mensuel automatique' },
-  { text: 'Recommandations pédagogiques personnalisées' },
-  { text: 'Support prioritaire' },
-]
+// ── Features plan premium (réactives à la locale) ─────────────
+const premiumFeatures = computed(() => [
+  { text: t('pricing.cards.premiumF1') },
+  { text: t('pricing.cards.premiumF2') },
+  { text: t('pricing.cards.premiumF3') },
+  { text: t('pricing.cards.premiumF4') },
+  { text: t('pricing.cards.premiumF5') },
+  { text: t('pricing.cards.premiumF6') },
+  { text: t('pricing.cards.premiumF7') },
+  { text: t('pricing.cards.premiumF8') },
+  { text: t('pricing.cards.premiumF9') },
+  { text: t('pricing.cards.premiumF10') },
+])
 </script>
 
 <template>
@@ -57,19 +55,19 @@ const premiumFeatures = [
     <div class="container">
 
       <!-- Titre accessible masqué visuellement -->
-      <h2 id="pricing-cards-title" class="sr-only">Nos plans tarifaires</h2>
+      <h2 id="pricing-cards-title" class="sr-only">{{ t('pricing.cards.title') }}</h2>
 
       <div class="pricing-cards__grid">
 
         <!-- ── Plan Gratuit ── -->
         <article class="plan-card plan-card--free">
 
-          <div class="plan-card__label">Gratuit</div>
+          <div class="plan-card__label">{{ t('pricing.cards.freeLabel') }}</div>
 
           <div class="plan-card__price-wrap">
-            <span class="plan-card__price">0€</span>
+            <span class="plan-card__price">{{ t('pricing.cards.freePrice') }}</span>
           </div>
-          <div class="plan-card__period">Pour toujours</div>
+          <div class="plan-card__period">{{ t('pricing.cards.freePeriod') }}</div>
           <div class="plan-card__annual-note">&nbsp;</div>
 
           <a
@@ -78,12 +76,12 @@ const premiumFeatures = [
             target="_blank"
             rel="noopener noreferrer"
           >
-            Commencer gratuitement
+            {{ t('pricing.cards.freeCta') }}
           </a>
-          <p class="plan-card__reassure">Pas de carte de crédit requise</p>
+          <p class="plan-card__reassure">{{ t('pricing.cards.freeReassure') }}</p>
 
           <hr class="plan-card__divider" />
-          <div class="plan-card__features-title">Inclus dans le plan gratuit</div>
+          <div class="plan-card__features-title">{{ t('pricing.cards.freeFeaturesTitle') }}</div>
 
           <ul class="plan-card__features" aria-label="Fonctionnalités du plan gratuit">
             <li
@@ -109,9 +107,9 @@ const premiumFeatures = [
         <article class="plan-card plan-card--premium" aria-label="Plan Erudia+ — recommandé">
 
           <!-- Badge "Le plus populaire" -->
-          <div class="plan-card__popular-badge">⭐ Le plus populaire</div>
+          <div class="plan-card__popular-badge">{{ t('pricing.cards.premiumBadge') }}</div>
 
-          <div class="plan-card__label plan-card__label--light">Erudia+</div>
+          <div class="plan-card__label plan-card__label--light">{{ t('pricing.cards.premiumLabel') }}</div>
 
           <div class="plan-card__price-wrap">
             <!-- Transition du prix lors du changement de période -->
@@ -136,7 +134,7 @@ const premiumFeatures = [
               class="plan-card__annual-note plan-card__annual-note--light"
             >
               {{ annualSavings }}
-              <span class="plan-card__savings">19,89€ économisés</span>
+              <span class="plan-card__savings">{{ t('pricing.cards.premiumSavingsAmount') }}</span>
             </div>
             <div v-else class="plan-card__annual-note">&nbsp;</div>
           </Transition>
@@ -147,15 +145,15 @@ const premiumFeatures = [
             target="_blank"
             rel="noopener noreferrer"
           >
-            Essayer 7 jours gratuits
+            {{ t('pricing.cards.premiumCta') }}
           </a>
           <p class="plan-card__reassure plan-card__reassure--light">
-            Pas de CB · Annulation à tout moment
+            {{ t('pricing.cards.premiumReassure') }}
           </p>
 
           <hr class="plan-card__divider plan-card__divider--light" />
           <div class="plan-card__features-title plan-card__features-title--light">
-            Tout du plan gratuit, plus :
+            {{ t('pricing.cards.premiumFeaturesTitle') }}
           </div>
 
           <ul class="plan-card__features" aria-label="Fonctionnalités supplémentaires Erudia+">
@@ -174,9 +172,7 @@ const premiumFeatures = [
       </div>
 
       <!-- Note Stripe en bas de section -->
-      <p class="pricing-cards__stripe-note">
-        🔒 Paiement sécurisé via Stripe · Remboursement intégral dans les 14 jours · Données hébergées en Europe
-      </p>
+      <p class="pricing-cards__stripe-note">{{ t('pricing.cards.stripe') }}</p>
 
     </div>
   </section>

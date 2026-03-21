@@ -5,30 +5,35 @@
      Background surface (#F7F8FC) — alterne avec le hero blanc. -->
 
 <script setup lang="ts">
+import { computed } from 'vue'
+import { useLocale } from '@/composables/useLocale'
+
+const { t } = useLocale()
+
 // Chaque item : un défi du quotidien parent + comment Erudia y répond naturellement
-const problems = [
+const problems = computed(() => [
   {
     icon: '🚗',
-    label: 'En route, en vacances…',
-    problem: "Le trajet de 40 minutes, la semaine sans WiFi au chalet, la salle d'attente — autant de moments où l'on voudrait que l'apprentissage continue, naturellement.",
+    label: t('home.problem.item1Title'),
+    problem: t('home.problem.item1Problem'),
     solutionIcon: '📡',
-    solution: "Erudia fonctionne sans connexion. On télécharge les contenus une fois, et c'est parti — peu importe où se trouve votre enfant.",
+    solution: t('home.problem.item1Solution'),
   },
   {
     icon: '💛',
-    label: 'Garder le goût d\'apprendre',
-    problem: "Maintenir la curiosité d'un enfant, c'est délicat. Trop facile, il s'ennuie. Trop difficile, il décroche. Le bon équilibre change selon les jours.",
+    label: t('home.problem.item2Title'),
+    problem: t('home.problem.item2Problem'),
     solutionIcon: '🎯',
-    solution: "Trois niveaux de difficulté, des encouragements à chaque étape, et des défis quotidiens calibrés — pour que chaque session se termine sur une victoire.",
+    solution: t('home.problem.item2Solution'),
   },
   {
     icon: '🔍',
-    label: 'Savoir où en est son enfant',
-    problem: "On sent bien que notre enfant progresse — mais avoir une vision claire de ses points forts, de ce qu'il maîtrise vraiment, c'est souvent flou.",
+    label: t('home.problem.item3Title'),
+    problem: t('home.problem.item3Problem'),
     solutionIcon: '📊',
-    solution: "Le tableau de bord parental d'Erudia donne une vue honnête et simple : scores par catégorie, régularité, badges obtenus. Pas de jargon, juste l'essentiel.",
+    solution: t('home.problem.item3Solution'),
   },
-]
+])
 </script>
 
 <template>
@@ -37,13 +42,11 @@ const problems = [
 
       <!-- En-tête de section -->
       <div class="problem__header">
-        <div class="pill pill--primary problem__pill">Conçu pour le quotidien</div>
+        <div class="pill pill--primary problem__pill">{{ t('home.problem.pill') }}</div>
         <h2 id="problem-title" class="problem__title heading-lg">
-          Des situations que tout parent connaît
+          {{ t('home.problem.title') }}
         </h2>
-        <p class="problem__subline subline">
-          Erudia est né de ces petits moments du quotidien — et de l'envie de les transformer en occasions d'apprendre.
-        </p>
+        <p class="problem__subline subline">{{ t('home.problem.subline') }}</p>
       </div>
 
       <!-- Grille 3 cartes -->
@@ -76,9 +79,7 @@ const problems = [
       </div>
 
       <!-- Accroche finale -->
-      <p class="problem__closing">
-        Erudia a été pensé par des parents, pour des parents — et surtout pour les enfants.
-      </p>
+      <p class="problem__closing">{{ t('home.problem.closing') }}</p>
 
     </div>
   </section>

@@ -4,34 +4,36 @@
      Global à toutes les pages via App.vue. -->
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import { RouterLink } from 'vue-router'
+import { useLocale } from '@/composables/useLocale'
+
+const { t } = useLocale()
 
 const email = ref('')
 const submitted = ref(false)
 
 function handleNewsletter() {
   // TODO MVP 2 : brancher sur un service email (Mailchimp, Resend, etc.)
-  // Pour l'instant : feedback visuel uniquement
   if (email.value) {
     submitted.value = true
     email.value = ''
   }
 }
 
-const navLinks = [
-  { label: 'Fonctionnalités', to: '/features' },
-  { label: 'Comment ça marche', to: '/how-it-works' },
-  { label: 'Tarifs', to: '/pricing' },
-  { label: 'FAQ', to: '/faq' },
-  { label: 'Contact', to: '/contact' },
-]
+const navLinks = computed(() => [
+  { label: t('nav.features'),   to: '/features' },
+  { label: t('nav.howItWorks'), to: '/how-it-works' },
+  { label: t('nav.pricing'),    to: '/pricing' },
+  { label: t('nav.faq'),        to: '/faq' },
+  { label: t('nav.contact'),    to: '/contact' },
+])
 
-const legalLinks = [
-  { label: 'Mentions légales', to: '/legal/mentions' },
-  { label: 'Politique de confidentialité', to: '/legal/privacy' },
-  { label: 'CGU', to: '/legal/terms' },
-]
+const legalLinks = computed(() => [
+  { label: t('footer.links.mentions'), to: '/legal/mentions' },
+  { label: t('footer.links.privacy'),  to: '/legal/privacy' },
+  { label: t('footer.links.terms'),    to: '/legal/terms' },
+])
 
 const currentYear = new Date().getFullYear()
 </script>
@@ -49,9 +51,7 @@ const currentYear = new Date().getFullYear()
             <div class="footer__logo-icon">🦉</div>
             <span>Erudia</span>
           </RouterLink>
-          <p class="footer__tagline">
-            Le quiz éducatif que les enfants aiment — et les parents approuvent.
-          </p>
+          <p class="footer__tagline">{{ t('footer.tagline') }}</p>
           <!-- Réseaux sociaux -->
           <div class="footer__socials">
             <a
@@ -73,7 +73,7 @@ const currentYear = new Date().getFullYear()
 
         <!-- Colonne navigation -->
         <nav class="footer__nav" aria-label="Navigation footer">
-          <div class="footer__col-title">Application</div>
+          <div class="footer__col-title">{{ t('footer.navTitle') }}</div>
           <ul class="footer__links">
             <li v-for="link in navLinks" :key="link.to">
               <RouterLink :to="link.to" class="footer__link">{{ link.label }}</RouterLink>
@@ -83,7 +83,7 @@ const currentYear = new Date().getFullYear()
 
         <!-- Colonne légal -->
         <nav class="footer__legal-nav" aria-label="Liens légaux">
-          <div class="footer__col-title">Légal</div>
+          <div class="footer__col-title">{{ t('footer.legalTitle') }}</div>
           <ul class="footer__links">
             <li v-for="link in legalLinks" :key="link.to">
               <RouterLink :to="link.to" class="footer__link">{{ link.label }}</RouterLink>
@@ -93,32 +93,28 @@ const currentYear = new Date().getFullYear()
 
         <!-- Colonne newsletter -->
         <div class="footer__newsletter">
-          <div class="footer__col-title">Restez informés</div>
-          <p class="footer__newsletter-desc">
-            Nouveautés, conseils pédagogiques, mises à jour — sans spam.
-          </p>
+          <div class="footer__col-title">{{ t('footer.newsletter.title') }}</div>
+          <p class="footer__newsletter-desc">{{ t('footer.newsletter.description') }}</p>
 
           <div v-if="!submitted" class="footer__newsletter-form">
             <input
               v-model="email"
               type="email"
-              placeholder="votre@email.com"
+              :placeholder="t('footer.newsletter.placeholder')"
               class="footer__newsletter-input"
-              aria-label="Votre adresse email"
+              :aria-label="t('footer.newsletter.ariaInput')"
               @keyup.enter="handleNewsletter"
             />
             <button
               class="footer__newsletter-btn"
               @click="handleNewsletter"
-              aria-label="S'inscrire à la newsletter"
+              :aria-label="t('footer.newsletter.subscribe')"
             >
               →
             </button>
           </div>
 
-          <p v-else class="footer__newsletter-success">
-            ✓ Merci ! On vous tiendra au courant.
-          </p>
+          <p v-else class="footer__newsletter-success">{{ t('footer.newsletter.success') }}</p>
         </div>
 
       </div>
@@ -126,12 +122,12 @@ const currentYear = new Date().getFullYear()
       <!-- Bas de footer -->
       <div class="footer__bottom">
         <p class="footer__copyright">
-          © {{ currentYear }} Erudia — Conçu avec ❤️ pour les curieux de 6 à 11 ans.
+          {{ t('footer.copyright').replace('{year}', String(currentYear)) }}
         </p>
         <div class="footer__badges">
-          <span class="footer__badge">🔒 COPPA compliant</span>
-          <span class="footer__badge">📡 Offline-first</span>
-          <span class="footer__badge">🌍 FR / EN</span>
+          <span class="footer__badge">{{ t('footer.badgeCoppa') }}</span>
+          <span class="footer__badge">{{ t('footer.badgeOffline') }}</span>
+          <span class="footer__badge">{{ t('footer.badgeLangs') }}</span>
         </div>
       </div>
 

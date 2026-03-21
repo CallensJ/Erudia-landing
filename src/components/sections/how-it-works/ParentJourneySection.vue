@@ -5,47 +5,50 @@
      - Mini mockup "admin screen" sur la première card (desktop)
      - Reveal au scroll via IntersectionObserver -->
 <script setup lang="ts">
-import { onMounted, onUnmounted } from 'vue'
+import { computed, onMounted, onUnmounted } from 'vue'
+import { useLocale } from '@/composables/useLocale'
 
-// ── Données des étapes parent ──────────────────────────────────
-const steps = [
+const { t } = useLocale()
+
+// ── Données des étapes parent (réactives à la locale) ──────────
+const steps = computed(() => [
   {
-    num: '01',
+    num: t('howItWorks.parentJourney.step1Num'),
     icon: '🛡️',
     barColor: 'linear-gradient(90deg, #667eea, #764ba2)',
-    title: 'Accéder au mode admin',
-    desc: "Un bouton discret en bas du profil enfant. Un clic — une authentification Supabase (email ou Google) est requise. Pas de compte parent séparé à créer au préalable.",
+    title: t('howItWorks.parentJourney.step1Title'),
+    desc:  t('howItWorks.parentJourney.step1Desc'),
     details: [
-      'Connexion email ou Google en un clic',
-      'PIN 4 chiffres pour les accès rapides suivants',
-      'Accessible en 2 clics depuis le profil enfant',
+      t('howItWorks.parentJourney.step1D1'),
+      t('howItWorks.parentJourney.step1D2'),
+      t('howItWorks.parentJourney.step1D3'),
     ],
   },
   {
-    num: '02',
+    num: t('howItWorks.parentJourney.step2Num'),
     icon: '📊',
     barColor: 'linear-gradient(90deg, #4CAF50, #45a049)',
-    title: 'Consulter les statistiques',
-    desc: "Graphiques de progression par catégorie, scores détaillés, série de jours consécutifs, badges gagnés. Définissez un objectif journalier et recevez un email si l'enfant ne l'atteint pas.",
+    title: t('howItWorks.parentJourney.step2Title'),
+    desc:  t('howItWorks.parentJourney.step2Desc'),
     details: [
-      'Graphiques par catégorie (Recharts)',
-      'Objectif journalier personnalisable',
-      'Alerte email si l\'objectif n\'est pas atteint',
+      t('howItWorks.parentJourney.step2D1'),
+      t('howItWorks.parentJourney.step2D2'),
+      t('howItWorks.parentJourney.step2D3'),
     ],
   },
   {
-    num: '03',
+    num: t('howItWorks.parentJourney.step3Num'),
     icon: '📄',
     barColor: 'linear-gradient(90deg, #FF9800, #F57C00)',
-    title: 'Recevoir des rapports PDF',
-    desc: "Planifiez un envoi hebdomadaire ou mensuel, ou déclenchez un envoi manuel à tout moment. Le rapport PDF inclut tous les graphiques et statistiques de progression.",
+    title: t('howItWorks.parentJourney.step3Title'),
+    desc:  t('howItWorks.parentJourney.step3Desc'),
     details: [
-      'Rapport PDF avec tous les graphiques',
-      'Envoi automatique hebdo ou mensuel',
-      'Déclenchement manuel à tout moment',
+      t('howItWorks.parentJourney.step3D1'),
+      t('howItWorks.parentJourney.step3D2'),
+      t('howItWorks.parentJourney.step3D3'),
     ],
   },
-]
+])
 
 // ── Reveal au scroll ──────────────────────────────────────────
 let observer: IntersectionObserver | null = null
@@ -75,13 +78,12 @@ onUnmounted(() => observer?.disconnect())
 
       <!-- En-tête -->
       <div class="parent-journey__header">
-        <div class="pill pill--primary label">👨‍👩‍👧 Parcours parent</div>
+        <div class="pill pill--primary label">{{ t('howItWorks.parentJourney.pill') }}</div>
         <h2 id="parent-journey-title" class="parent-journey__heading">
-          3 étapes pour suivre
+          {{ t('howItWorks.parentJourney.title') }}
         </h2>
         <p class="parent-journey__subline">
-          Pas de compte séparé. Le mode admin est intégré dans l'app —
-          accès en 2 clics, sécurisé par votre compte Supabase.
+          {{ t('howItWorks.parentJourney.subline') }}
         </p>
       </div>
 
@@ -133,8 +135,7 @@ onUnmounted(() => observer?.disconnect())
 
       <!-- Note rassurante en bas -->
       <p class="parent-journey__note" aria-label="Note de confidentialité">
-        🔒 Vos données adultes et les données enfant sont strictement séparées.
-        Aucune donnée personnelle enfant n'est transmise à des tiers.
+        {{ t('howItWorks.parentJourney.note') }}
       </p>
 
     </div>

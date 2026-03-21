@@ -6,6 +6,9 @@
      - Wave SVG de transition vers fond blanc -->
 <script setup lang="ts">
 import { ref } from 'vue'
+import { useLocale } from '@/composables/useLocale'
+
+const { t } = useLocale()
 
 // ── Toggle mensuel / annuel ────────────────────────────────────
 // L'état est local mais émis vers PricingView pour être partagé avec PricingCards
@@ -33,21 +36,16 @@ function toggle() {
 
         <!-- Pill étiquette -->
         <div class="pill pill--white label pricing-hero__pill">
-          💳 Tarifs
+          {{ t('pricing.hero.pill') }}
         </div>
 
         <!-- Titre -->
         <h1 class="pricing-hero__title">
-          Simple.
-          <span class="pricing-hero__accent"> Transparent.</span><br />
-          Sans surprise.
+          {{ t('pricing.hero.title') }}
         </h1>
 
         <!-- Sous-titre -->
-        <p class="pricing-hero__subline">
-          Un plan gratuit pleinement jouable. Un seul plan premium.<br />
-          Pas de niveaux cachés, pas de renouvellement surprise.
-        </p>
+        <p class="pricing-hero__subline">{{ t('pricing.hero.subline') }}</p>
 
         <!-- Toggle mensuel / annuel -->
         <div class="pricing-hero__billing" aria-label="Choix de la période de facturation">
@@ -56,7 +54,7 @@ function toggle() {
             class="pricing-hero__billing-label"
             :class="{ 'pricing-hero__billing-label--active': !isAnnual }"
           >
-            Mensuel
+            {{ t('pricing.hero.billingMonthly') }}
           </span>
 
           <!-- Switch accessible au clavier -->
@@ -77,13 +75,13 @@ function toggle() {
             class="pricing-hero__billing-label"
             :class="{ 'pricing-hero__billing-label--active': isAnnual }"
           >
-            Annuel
+            {{ t('pricing.hero.billingAnnual') }}
           </span>
 
           <!-- Badge "Économisez 33%" animé -->
           <Transition name="save-badge">
             <span v-if="isAnnual" class="pricing-hero__save-badge">
-              🎉 Économisez 33%
+              {{ t('pricing.hero.billingSavings') }}
             </span>
           </Transition>
 

@@ -2,10 +2,11 @@
      - Fixed, glassmorphism, shadow au scroll
      - Desktop (≥768px) : liens nav + toggle langue + CTA
      - Mobile (<768px) : hamburger + menu slide-down
-     - Pas de vue-i18n pour l'instant — textes FR en dur, EN à brancher -->
+     - i18n via useLocale() -->
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from "vue";
+import { ref, computed, onMounted, onUnmounted } from "vue";
 import { RouterLink, useRoute } from "vue-router";
+import { useLocale } from "@/composables/useLocale";
 
 const route = useRoute();
 
@@ -15,8 +16,7 @@ const isMenuOpen = ref(false);
 // Ombre au scroll
 const isScrolled = ref(false);
 
-// Langue active (UI only pour l'instant)
-const lang = ref<"fr" | "en">("fr");
+const { locale, t, setLocale } = useLocale();
 
 function toggleMenu() {
     isMenuOpen.value = !isMenuOpen.value;
@@ -24,10 +24,6 @@ function toggleMenu() {
 
 function closeMenu() {
     isMenuOpen.value = false;
-}
-
-function setLang(l: "fr" | "en") {
-    lang.value = l;
 }
 
 function handleScroll() {
@@ -43,13 +39,13 @@ onUnmounted(() => {
 });
 
 // Liens de navigation
-const navLinks = [
-    { label: "Fonctionnalités", to: "/features" },
-    { label: "Comment ça marche", to: "/how-it-works" },
-    { label: "Tarifs", to: "/pricing" },
-    { label: "FAQ", to: "/faq" },
-    { label: "Contact", to: "/contact" },
-];
+const navLinks = computed(() => [
+    { label: t("nav.features"),   to: "/features" },
+    { label: t("nav.howItWorks"), to: "/how-it-works" },
+    { label: t("nav.pricing"),    to: "/pricing" },
+    { label: t("nav.faq"),        to: "/faq" },
+    { label: t("nav.contact"),    to: "/contact" },
+]);
 </script>
 
 <template>
@@ -84,18 +80,18 @@ const navLinks = [
                         <button
                             class="header__lang-btn"
                             :class="{
-                                'header__lang-btn--active': lang === 'fr',
+                                'header__lang-btn--active': locale === 'fr',
                             }"
-                            @click="setLang('fr')"
+                            @click="setLocale('fr')"
                         >
                             FR
                         </button>
                         <button
                             class="header__lang-btn"
                             :class="{
-                                'header__lang-btn--active': lang === 'en',
+                                'header__lang-btn--active': locale === 'en',
                             }"
-                            @click="setLang('en')"
+                            @click="setLocale('en')"
                         >
                             EN
                         </button>
@@ -108,7 +104,7 @@ const navLinks = [
                         target="_blank"
                         rel="noopener"
                     >
-                        Jouer maintenant
+                        {{ t('nav.cta') }}
                     </a>
 
                     <!-- Hamburger mobile -->
@@ -116,7 +112,7 @@ const navLinks = [
                         class="header__hamburger"
                         :class="{ 'header__hamburger--open': isMenuOpen }"
                         @click="toggleMenu"
-                        aria-label="Menu"
+                        :aria-label="t('nav.menu')"
                         :aria-expanded="isMenuOpen"
                     >
                         <span></span>
@@ -150,7 +146,7 @@ const navLinks = [
             rel="noopener"
             @click="closeMenu"
         >
-            Jouer maintenant
+            {{ t('nav.cta') }}
         </a>
     </nav>
 </template>

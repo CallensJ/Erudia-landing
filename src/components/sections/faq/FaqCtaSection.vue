@@ -7,6 +7,9 @@
 <script setup lang="ts">
 import { onMounted, onUnmounted } from 'vue'
 import { RouterLink } from 'vue-router'
+import { useLocale } from '@/composables/useLocale'
+
+const { t } = useLocale()
 
 let observer: IntersectionObserver | null = null
 
@@ -37,12 +40,8 @@ onUnmounted(() => observer?.disconnect())
     <div class="container">
       <div class="faq-cta__inner faq-cta-reveal">
 
-        <h2 id="faq-cta-title" class="faq-cta__title">
-          Convaincu ? Lancez-vous.
-        </h2>
-        <p class="faq-cta__sub">
-          Gratuit pour commencer. 30 secondes pour créer un profil enfant.
-        </p>
+        <h2 id="faq-cta-title" class="faq-cta__title">{{ t('faq.cta.title') }}</h2>
+        <p class="faq-cta__sub">{{ t('faq.cta.subline') }}</p>
 
         <div class="faq-cta__actions">
           <a
@@ -51,16 +50,14 @@ onUnmounted(() => observer?.disconnect())
             target="_blank"
             rel="noopener noreferrer"
           >
-            🚀 Commencer gratuitement
+            {{ t('faq.cta.btnPrimary') }}
           </a>
           <RouterLink to="/pricing" class="faq-cta__btn faq-cta__btn--ghost">
-            Voir les tarifs
+            {{ t('faq.cta.btnSecondary') }}
           </RouterLink>
         </div>
 
-        <p class="faq-cta__reassure" aria-label="Garanties">
-          ✓ Gratuit &nbsp;·&nbsp; ✓ Sans pub &nbsp;·&nbsp; ✓ COPPA &nbsp;·&nbsp; ✓ Hors ligne
-        </p>
+        <p class="faq-cta__reassure" aria-label="Garanties">{{ t('faq.cta.reassure') }}</p>
 
       </div>
     </div>

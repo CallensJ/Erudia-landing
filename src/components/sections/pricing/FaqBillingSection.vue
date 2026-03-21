@@ -5,41 +5,20 @@
      - Animation max-height CSS pour l'ouverture/fermeture
      - Reveal au scroll via IntersectionObserver -->
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, computed, onMounted, onUnmounted } from 'vue'
+import { useLocale } from '@/composables/useLocale'
 
-// ── Questions FAQ facturation ──────────────────────────────────
-const faqs = [
-  {
-    id: 'faq-1',
-    q: 'Puis-je changer de plan à tout moment ?',
-    a: "Oui, à tout moment. Vous pouvez passer de Gratuit à Erudia+ ou annuler votre abonnement depuis votre espace admin. Le changement prend effet immédiatement ou à la fin du cycle de facturation selon le cas.",
-  },
-  {
-    id: 'faq-2',
-    q: 'Comment fonctionne la facturation ?',
-    a: "Mensuelle ou annuelle selon votre choix, avec renouvellement automatique. Vous recevez un email de rappel 7 jours avant chaque renouvellement. Vous pouvez annuler à tout moment avant la date de renouvellement.",
-  },
-  {
-    id: 'faq-3',
-    q: 'Et si je ne suis pas satisfait ?',
-    a: "Remboursement intégral dans les 14 jours suivant votre abonnement — sans question et sans formulaire compliqué. Envoyez simplement un email à support@erudia.app avec votre identifiant de commande Stripe.",
-  },
-  {
-    id: 'faq-4',
-    q: 'Une carte de crédit est-elle requise pour le plan gratuit ?',
-    a: "Non, absolument pas. Le plan gratuit ne nécessite aucune donnée bancaire. Vous créez un profil enfant directement dans l'app sans aucun engagement.",
-  },
-  {
-    id: 'faq-5',
-    q: 'Le plan Erudia+ couvre combien d\'enfants ?',
-    a: "Erudia+ permet des profils enfants illimités sous un même compte admin. Idéal pour les familles avec plusieurs enfants — un seul abonnement pour tous.",
-  },
-  {
-    id: 'faq-6',
-    q: 'Y a-t-il une période d\'essai pour Erudia+ ?',
-    a: "Oui — 7 jours d'essai gratuits sur Erudia+, sans carte de crédit requise. À la fin de l'essai, vous choisissez de continuer ou non. Aucun prélèvement automatique sans votre accord explicite.",
-  },
-]
+const { t } = useLocale()
+
+// ── Questions FAQ facturation (réactives à la locale) ──────────
+const faqs = computed(() => [
+  { id: 'faq-1', q: t('pricing.faqBilling.q1'), a: t('pricing.faqBilling.a1') },
+  { id: 'faq-2', q: t('pricing.faqBilling.q2'), a: t('pricing.faqBilling.a2') },
+  { id: 'faq-3', q: t('pricing.faqBilling.q3'), a: t('pricing.faqBilling.a3') },
+  { id: 'faq-4', q: t('pricing.faqBilling.q4'), a: t('pricing.faqBilling.a4') },
+  { id: 'faq-5', q: t('pricing.faqBilling.q5'), a: t('pricing.faqBilling.a5') },
+  { id: 'faq-6', q: t('pricing.faqBilling.q6'), a: t('pricing.faqBilling.a6') },
+])
 
 // ── Gestion de l'accordéon ─────────────────────────────────────
 // Une seule question ouverte à la fois (null = toutes fermées)
@@ -77,9 +56,9 @@ onUnmounted(() => observer?.disconnect())
 
       <!-- En-tête -->
       <div class="faq-billing__header faq-reveal">
-        <div class="pill pill--primary label">❓ FAQ Facturation</div>
+        <div class="pill pill--primary label">{{ t('pricing.faqBilling.pill') }}</div>
         <h2 id="faq-billing-title" class="faq-billing__heading">
-          Questions sur les tarifs
+          {{ t('pricing.faqBilling.title') }}
         </h2>
       </div>
 

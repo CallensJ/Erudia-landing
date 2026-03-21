@@ -4,51 +4,25 @@
      Remplace MomentsSection — fidèle à la maquette documentations/landing/maquettes/index.html. -->
 
 <script setup lang="ts">
+import { computed } from 'vue'
+import { useLocale } from '@/composables/useLocale'
+
+const { t } = useLocale()
+
 // Niveaux de difficulté avec couleurs du design system
-const levels = [
-  {
-    color: '#4CAF50',
-    name: 'Facile — Notions fondamentales',
-    desc: 'Programme primaire, accessible dès 6 ans',
-    fill: 55,
-  },
-  {
-    color: '#FF9800',
-    name: 'Moyen — Approfondissement',
-    desc: 'CM1–CM2, culture générale élargie',
-    fill: 75,
-  },
-  {
-    color: '#EF4444',
-    name: 'Difficile — Niveau collège',
-    desc: 'Culture internationale, programme 6e–4e',
-    fill: 90,
-  },
-]
+const levels = computed(() => [
+  { color: '#4CAF50', name: t('home.pedago.level1Name'), desc: t('home.pedago.level1Desc'), fill: 55 },
+  { color: '#FF9800', name: t('home.pedago.level2Name'), desc: t('home.pedago.level2Desc'), fill: 75 },
+  { color: '#EF4444', name: t('home.pedago.level3Name'), desc: t('home.pedago.level3Desc'), fill: 90 },
+])
 
 // Statistiques clés — 4 chiffres en grille 2×2
-const stats = [
-  {
-    num: '800+',
-    title: 'Questions validées',
-    desc: 'Alignées sur les programmes FR et international, vérifiées pédagogiquement',
-  },
-  {
-    num: '9',
-    title: 'Catégories',
-    desc: 'Sciences, Histoire, Héros, Géographie, Espace, Mythologie et plus',
-  },
-  {
-    num: '3×',
-    title: 'Niveaux de difficulté',
-    desc: 'Easy → Medium → Hard pour progresser à son propre rythme',
-  },
-  {
-    num: 'FR\nEN',
-    title: 'Bilingue',
-    desc: 'Questions et interface disponibles dans les deux langues dès le lancement',
-  },
-]
+const stats = computed(() => [
+  { num: t('home.pedago.stat1Num'), title: t('home.pedago.stat1Title'), desc: t('home.pedago.stat1Desc') },
+  { num: t('home.pedago.stat2Num'), title: t('home.pedago.stat2Title'), desc: t('home.pedago.stat2Desc') },
+  { num: t('home.pedago.stat3Num'), title: t('home.pedago.stat3Title'), desc: t('home.pedago.stat3Desc') },
+  { num: t('home.pedago.stat4Num'), title: t('home.pedago.stat4Title'), desc: t('home.pedago.stat4Desc') },
+])
 </script>
 
 <template>
@@ -61,22 +35,16 @@ const stats = [
 
         <!-- ── Colonne texte ─────────────────────────── -->
         <div class="pedago__text">
-          <div class="pill pill--ghost pedago__pill">Philosophie pédagogique</div>
+          <div class="pill pill--ghost pedago__pill">{{ t('home.pedago.pill') }}</div>
 
           <h2 id="pedago-title" class="pedago__title heading-lg">
-            Conçu pour 6–11 ans.<br/>
-            <span class="pedago__accent">Challengé jusqu'au collège.</span>
+            {{ t('home.pedago.title') }}<br/>
+            <span class="pedago__accent">{{ t('home.pedago.titleAccent') }}</span>
           </h2>
 
-          <p class="pedago__p">
-            L'interface d'Erudia est pensée pour les enfants : boutons larges, icônes expressives, mascotte Nova. Un enfant de 6 ans peut naviguer seul.
-          </p>
-          <p class="pedago__p">
-            Mais le contenu des questions s'étend jusqu'au niveau collège. Ce n'est pas un accident — c'est un choix pédagogique assumé. Erudia vise à ce que votre enfant apprenne quelque chose à chaque partie, pas seulement confirmer ce qu'il sait déjà.
-          </p>
-          <p class="pedago__note">
-            💡 Un score de 8/20 n'est pas un échec — c'est une invitation à grandir.
-          </p>
+          <p class="pedago__p">{{ t('home.pedago.p1') }}</p>
+          <p class="pedago__p">{{ t('home.pedago.p2') }}</p>
+          <p class="pedago__note">{{ t('home.pedago.note') }}</p>
 
           <!-- Barres de niveaux -->
           <div class="pedago__levels">

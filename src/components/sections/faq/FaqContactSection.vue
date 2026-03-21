@@ -6,6 +6,9 @@
 <script setup lang="ts">
 import { onMounted, onUnmounted } from 'vue'
 import { RouterLink } from 'vue-router'
+import { useLocale } from '@/composables/useLocale'
+
+const { t } = useLocale()
 
 let observer: IntersectionObserver | null = null
 
@@ -38,16 +41,14 @@ onUnmounted(() => observer?.disconnect())
 
         <div class="faq-contact__text">
           <h2 id="faq-contact-title" class="faq-contact__title">
-            Une question sans réponse ici ?
+            {{ t('faq.contact.title') }}
           </h2>
-          <p class="faq-contact__desc">
-            Je suis Johan, créateur d'Erudia — je vous réponds personnellement en moins de 48h.
-          </p>
+          <p class="faq-contact__desc">{{ t('faq.contact.subline') }}</p>
         </div>
 
         <div class="faq-contact__actions">
           <RouterLink to="/contact" class="faq-contact__btn faq-contact__btn--white">
-            ✉️ Écrire à Johan
+            {{ t('faq.contact.cta') }}
           </RouterLink>
           <a
             href="https://app.erudia.app"
@@ -55,7 +56,7 @@ onUnmounted(() => observer?.disconnect())
             target="_blank"
             rel="noopener noreferrer"
           >
-            Essayer l'app
+            {{ t('faq.cta.btnPrimary') }}
           </a>
         </div>
 

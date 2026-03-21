@@ -6,6 +6,9 @@
      - Wave SVG de transition vers fond blanc -->
 <script setup lang="ts">
 import { ref } from 'vue'
+import { useLocale } from '@/composables/useLocale'
+
+const { t } = useLocale()
 
 // audience contrôle quel parcours est affiché en dessous
 const audience = ref<'child' | 'parent'>('child')
@@ -32,19 +35,17 @@ function setAudience(value: 'child' | 'parent') {
 
         <!-- Pill étiquette -->
         <div class="pill pill--white label hiw-hero__pill">
-          ✨ Comment ça marche
+          {{ t('howItWorks.hero.pill') }}
         </div>
 
         <!-- Titre principal -->
         <h1 class="hiw-hero__title">
-          Prêt en <span class="hiw-hero__accent">30 secondes.</span><br />
-          Simple comme bonjour.
+          {{ t('howItWorks.hero.title') }}
         </h1>
 
         <!-- Sous-titre ton parent-to-parent -->
         <p class="hiw-hero__subline">
-          Pas de compte email pour l'enfant, pas d'inscription interminable.<br />
-          Un pseudo, un avatar — et c'est parti pour apprendre en s'amusant.
+          {{ t('howItWorks.hero.subline') }}
         </p>
 
         <!-- Audience switcher : enfant / parent -->
@@ -55,7 +56,7 @@ function setAudience(value: 'child' | 'parent') {
             @click="setAudience('child')"
             :aria-pressed="audience === 'child'"
           >
-            🎮 Parcours enfant
+            {{ t('howItWorks.hero.switcherChild') }}
           </button>
           <button
             class="hiw-hero__aud-btn"
@@ -63,7 +64,7 @@ function setAudience(value: 'child' | 'parent') {
             @click="setAudience('parent')"
             :aria-pressed="audience === 'parent'"
           >
-            👨‍👩‍👧 Parcours parent
+            {{ t('howItWorks.hero.switcherParent') }}
           </button>
         </div>
 
