@@ -551,4 +551,185 @@ export const en = {
       reassure:     '✓ Free · ✓ No ads · ✓ COPPA · ✓ Offline',
     },
   },
+
+  // ── Legal ──────────────────────────────────────────────────────
+  legal: {
+    lastUpdated:  'Last updated: March 26, 2026',
+    backLink:     '← Back to home',
+
+    mentions: {
+      title:    'Legal Notice',
+      subtitle: 'Mandatory legal information for the erudia.app website and the app.erudia.app application.',
+      sections: [
+        {
+          heading: 'Publisher',
+          paragraphs: [
+            'The erudia.app website and app.erudia.app application are published by Johan Barbier, freelance developer — Johanwebstudio, based in the south of France.',
+            'Contact: support@erudia.app',
+          ],
+        },
+        {
+          heading: 'Publication Director',
+          paragraphs: [
+            'Johan Barbier — support@erudia.app',
+          ],
+        },
+        {
+          heading: 'Hosting',
+          paragraphs: [
+            'The application is hosted by Vercel Inc., 340 Pine Street Suite 603, San Francisco, CA 94104, USA — vercel.com.',
+            'Database and authentication are handled by Supabase Inc., Europe infrastructure (Frankfurt, Germany).',
+          ],
+        },
+        {
+          heading: 'Intellectual Property',
+          paragraphs: [
+            'All content on Erudia (texts, visuals, questions, logo, Nova mascot) is the exclusive property of Johan Barbier, unless otherwise stated.',
+            'Any reproduction, distribution or modification without prior written authorisation is strictly prohibited.',
+          ],
+        },
+        {
+          heading: 'Personal Data',
+          paragraphs: [
+            "Erudia only collects adults' email addresses for account management and subscription purposes. No identifying data related to children is collected.",
+            'For more information, please see our Privacy Policy.',
+          ],
+        },
+        {
+          heading: 'Cookies',
+          paragraphs: [
+            'Erudia does not use tracking or advertising cookies. Only browser-local storage (localStorage, IndexedDB) is used for game progress and language preferences.',
+          ],
+        },
+      ],
+    },
+
+    privacy: {
+      title:    'Privacy Policy',
+      subtitle: "Erudia is committed to protecting users' privacy, especially children's. This policy details the data we collect and your rights.",
+      sections: [
+        {
+          heading: 'Data Controller',
+          paragraphs: [
+            'Johan Barbier — Johanwebstudio — South of France',
+            'DPO contact: support@erudia.app',
+          ],
+        },
+        {
+          heading: 'Data Collected',
+          paragraphs: [
+            "Adult data (parent or guardian account): email address, login history, subscription information managed via Stripe (no bank card number is stored by Erudia).",
+            "Child data: username only (freely chosen by the adult), game progress (scores, badges, streaks). No real name, no child email, no data directly identifying the child is collected.",
+          ],
+        },
+        {
+          heading: 'Purpose and Legal Basis (GDPR)',
+          paragraphs: [
+            "Account authentication and management — legal basis: contract performance.",
+            "Erudia+ subscription management — legal basis: contract performance.",
+            "Service improvement and aggregated statistics — legal basis: legitimate interest.",
+            "No data is used for advertising purposes or sold to third parties.",
+          ],
+        },
+        {
+          heading: 'Retention Period',
+          paragraphs: [
+            "Data is retained for the duration of the active account. Upon account deletion, personal data is deleted within 30 days.",
+          ],
+        },
+        {
+          heading: 'Sub-processors',
+          paragraphs: [
+            'Supabase Inc. — database and authentication — Europe infrastructure (Frankfurt, Germany).',
+            "Vercel Inc. — application hosting — covered by standard contractual clauses approved by the European Commission.",
+            'Stripe Inc. — payment processing — PCI DSS level 1 certified.',
+          ],
+        },
+        {
+          heading: 'Your Rights (GDPR)',
+          paragraphs: [
+            "Under the General Data Protection Regulation (GDPR), you have the following rights: access, rectification, erasure, portability, objection and restriction of processing.",
+            "To exercise these rights, contact us at support@erudia.app. Response time: maximum 30 days. If no response, you may contact the relevant data protection authority.",
+          ],
+        },
+        {
+          heading: 'Cookies and Local Storage',
+          paragraphs: [
+            "Erudia uses no tracking, advertising or third-party analytics cookies.",
+            "Browser-local storage (localStorage, IndexedDB) is used exclusively for: offline game progress, language preferences and session maintenance.",
+          ],
+        },
+      ],
+    },
+
+    terms: {
+      title:    'Terms of Service',
+      subtitle: 'By using Erudia, you agree to these terms. Please read them carefully.',
+      sections: [
+        {
+          heading: '1. Purpose and Acceptance',
+          paragraphs: [
+            'These Terms of Service govern access to and use of the Erudia application, available at app.erudia.app, developed and published by Johan Barbier.',
+            "By creating a profile or subscribing to Erudia+, you unconditionally accept these Terms. If you do not accept, please do not use the application.",
+          ],
+        },
+        {
+          heading: '2. Service Description',
+          paragraphs: [
+            "Erudia is a Progressive Web App (PWA) educational quiz for children aged 6–11. It is accessible from any modern browser with no mandatory installation.",
+            "The service has two tiers: a free plan including 3 question categories, and a premium Erudia+ subscription giving access to all categories and advanced features.",
+          ],
+        },
+        {
+          heading: '3. Account and Access',
+          paragraphs: [
+            "Creating a child profile (username + avatar) is free. Creating an adult account (email + password or Google sign-in) is required to access the parent panel and subscribe to Erudia+.",
+            "Users are responsible for keeping their credentials confidential. Any fraudulent account use must be reported to support@erudia.app.",
+          ],
+        },
+        {
+          heading: '4. Erudia+ Subscription',
+          paragraphs: [
+            "Erudia+ is available monthly (€4.99/month) or annually (€39.99/year). Payment is processed securely by Stripe.",
+            "The subscription renews automatically. A reminder email is sent 7 days before renewal. Users can cancel at any time from the admin panel — premium access is maintained until the end of the paid period.",
+            "Erudia guarantees a full refund within 14 days of purchase, no questions asked. Send your Stripe order confirmation to support@erudia.app.",
+          ],
+        },
+        {
+          heading: '5. Intellectual Property',
+          paragraphs: [
+            "All Erudia content (questions, texts, visuals, Nova mascot, interface, source code) is protected by copyright and intellectual property law, for the benefit of Johan Barbier.",
+            'Any unauthorised reproduction, modification, distribution or commercial exploitation is prohibited.',
+          ],
+        },
+        {
+          heading: '6. Limitation of Liability',
+          paragraphs: [
+            'Erudia is provided "as is". Johan Barbier strives to keep the service available but cannot guarantee uninterrupted availability.',
+            "Johan Barbier shall not be liable for loss of progress data stored locally. Creating an adult account is recommended to enable sync and protect progress.",
+          ],
+        },
+        {
+          heading: '7. Termination',
+          paragraphs: [
+            "Users can delete their account at any time from the admin panel. Deletion results in permanent loss of the profile and progress. Personal data is erased within 30 days.",
+          ],
+        },
+        {
+          heading: '8. Changes to Terms',
+          paragraphs: [
+            'Johan Barbier reserves the right to modify these Terms at any time. Users will be notified by email of any substantial changes.',
+            "Continued use of the service after notification constitutes acceptance of the updated Terms.",
+          ],
+        },
+        {
+          heading: '9. Governing Law',
+          paragraphs: [
+            "These Terms are governed by French law. In the event of a dispute, and failing amicable resolution, the competent courts shall be those of the publisher's place of domicile.",
+            'For any claim or question: support@erudia.app.',
+          ],
+        },
+      ],
+    },
+  },
 }
