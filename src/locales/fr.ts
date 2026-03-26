@@ -191,6 +191,19 @@ export const fr = {
     },
   },
 
+  // ── Fonctionnalités ──────────────────────────────────────────
+  features: {
+    hero: {
+      pill:    'Fonctionnalités',
+      title1:  "Tout ce qu'Erudia",
+      title2:  'fait pour votre enfant',
+      subline: 'Explorez chaque fonctionnalité — conçue pour l\'enfant qui apprend, et pour le parent qui suit.',
+      tabChild:   '🎮 Pour l\'enfant',
+      tabParent:  '👨‍👩‍👧 Pour le parent',
+      tabContent: '📚 Le contenu',
+    },
+  },
+
   // ── Comment ça marche ────────────────────────────────────────
   howItWorks: {
     hero: {

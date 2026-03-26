@@ -170,6 +170,19 @@ export const en = {
     },
   },
 
+  // ── Features ──────────────────────────────────────────────────
+  features: {
+    hero: {
+      pill:    'Features',
+      title1:  'Everything Erudia',
+      title2:  'does for your child',
+      subline: 'Explore every feature — designed for the child who learns, and the parent who follows along.',
+      tabChild:   '🎮 For the child',
+      tabParent:  '👨‍👩‍👧 For the parent',
+      tabContent: '📚 The content',
+    },
+  },
+
   // ── How it works ─────────────────────────────────────────────
   howItWorks: {
     hero: {
