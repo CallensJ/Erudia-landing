@@ -27,13 +27,13 @@ const activeIndex = ref(0)
 </script>
 
 <template>
-  <section class="nova section section--surface" aria-labelledby="nova-title">
+  <section class="nova section section--dark" aria-labelledby="nova-title">
     <div class="container">
       <div class="nova__inner">
 
         <!-- Texte gauche -->
         <div class="nova__text">
-          <div class="pill pill--primary label nova__pill">
+          <div class="pill pill--white label nova__pill">
             {{ t('features.nova.pill') }}
           </div>
 
@@ -118,12 +118,12 @@ const activeIndex = ref(0)
     font-weight:    700;
     line-height:    1.2;
     letter-spacing: -0.015em;
-    color:          var(--color-text);
+    color:          white;
     margin-bottom:  24px;
   }
 
   &__accent {
-    background:              var(--gradient-primary);
+    background:              var(--gradient-accent);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip:         text;
@@ -131,7 +131,7 @@ const activeIndex = ref(0)
 
   &__para {
     font-size:     0.9375rem;
-    color:         var(--color-text-secondary);
+    color:         rgba(255, 255, 255, 0.7);
     line-height:   1.75;
     margin-bottom: 14px;
 
@@ -149,12 +149,12 @@ const activeIndex = ref(0)
     display:       inline-flex;
     align-items:   center;
     gap:           5px;
-    background:    white;
-    border:        1px solid var(--color-surface-dark);
+    background:    rgba(255, 255, 255, 0.08);
+    border:        1px solid rgba(255, 255, 255, 0.15);
     border-radius: var(--radius-full);
     font-size:     0.8rem;
     font-weight:   600;
-    color:         var(--color-text-secondary);
+    color:         rgba(255, 255, 255, 0.8);
     padding:       5px 12px;
   }
 
@@ -168,8 +168,8 @@ const activeIndex = ref(0)
   }
 
   &__pose-card {
-    background:    white;
-    border:        2px solid var(--color-surface-dark);
+    background:    rgba(255, 255, 255, 0.08);
+    border:        2px solid rgba(255, 255, 255, 0.15);
     border-radius: var(--radius-lg);
     padding:       20px 16px;
     display:       flex;
@@ -181,14 +181,14 @@ const activeIndex = ref(0)
     text-align:    center;
 
     &:hover {
-      border-color: var(--color-primary-light);
-      box-shadow:   var(--shadow-sm);
+      border-color: rgba(255, 255, 255, 0.35);
+      background:   rgba(255, 255, 255, 0.12);
     }
 
     &--active {
-      border-color: var(--color-primary);
-      background:   rgba(102, 126, 234, 0.04);
-      box-shadow:   var(--shadow-md);
+      border-color: var(--color-primary-light);
+      background:   rgba(102, 126, 234, 0.25);
+      box-shadow:   0 4px 20px rgba(0, 0, 0, 0.3);
     }
   }
 
@@ -202,12 +202,12 @@ const activeIndex = ref(0)
     font-family: var(--font-display);
     font-size:   0.875rem;
     font-weight: 700;
-    color:       var(--color-text);
+    color:       white;
   }
 
   &__pose-emotion {
     font-size:  0.75rem;
-    color:      var(--color-text-light);
+    color:      rgba(255, 255, 255, 0.6);
     line-height: 1.4;
   }
 }
