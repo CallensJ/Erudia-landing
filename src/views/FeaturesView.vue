@@ -5,8 +5,8 @@
      3. NovaShowcase           — mascotte Nova, 4 poses interactives [tab: child]
      4. ParentFeaturesSection     — 6 items + mockup admin [tab: parent]
      5. ContentPhilosophySection  — philosophie + tableau curriculum + 9 catégories [tab: content]
-     [à venir] ComparisonSection, FeaturesCtaSection
-               ContentPhilosophySection, ComparisonSection, FeaturesCtaSection
+     6. ComparisonSection         — tableau Erudia vs concurrents (toujours visible)
+     7. FeaturesCtaSection        — CTA finale (toujours visible)
 
      activeTab : état partagé entre FeaturesHero et les sections ongletées -->
 <script setup lang="ts">
@@ -16,6 +16,8 @@ import ChildFeaturesGrid from '@/components/sections/features/ChildFeaturesGrid.
 import NovaShowcase           from '@/components/sections/features/NovaShowcase.vue'
 import ParentFeaturesSection   from '@/components/sections/features/ParentFeaturesSection.vue'
 import ContentPhilosophySection from '@/components/sections/features/ContentPhilosophySection.vue'
+import ComparisonSection        from '@/components/sections/features/ComparisonSection.vue'
+import FeaturesCtaSection      from '@/components/sections/features/FeaturesCtaSection.vue'
 
 type Tab = 'child' | 'parent' | 'content'
 
@@ -42,6 +44,10 @@ const activeTab = ref<Tab>('child')
       <ContentPhilosophySection />
     </div>
 
-    <!-- [à venir] comparatif, CTA -->
+    <!-- Comparatif — toujours visible -->
+    <ComparisonSection />
+
+    <!-- CTA finale — toujours visible -->
+    <FeaturesCtaSection />
   </main>
 </template>
