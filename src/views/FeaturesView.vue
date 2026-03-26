@@ -6,8 +6,7 @@
      4. ParentFeaturesSection     — 6 items + mockup admin [tab: parent]
      5. ContentPhilosophySection  — philosophie + tableau curriculum + 9 catégories [tab: content]
      6. ConvictionsSection        — 6 convictions techniques & pédagogiques (toujours visible)
-     7. ComparisonSection         — tableau Erudia vs concurrents (toujours visible)
-     8. FeaturesCtaSection        — CTA finale (toujours visible)
+     7. FeaturesCtaSection        — CTA finale (toujours visible)
 
      activeTab : état partagé entre FeaturesHero et les sections ongletées -->
 <script setup lang="ts">
@@ -17,7 +16,6 @@ import ChildFeaturesGrid from '@/components/sections/features/ChildFeaturesGrid.
 import NovaShowcase           from '@/components/sections/features/NovaShowcase.vue'
 import ParentFeaturesSection   from '@/components/sections/features/ParentFeaturesSection.vue'
 import ContentPhilosophySection from '@/components/sections/features/ContentPhilosophySection.vue'
-import ComparisonSection        from '@/components/sections/features/ComparisonSection.vue'
 import ConvictionsSection      from '@/components/sections/features/ConvictionsSection.vue'
 import FeaturesCtaSection      from '@/components/sections/features/FeaturesCtaSection.vue'
 
@@ -48,9 +46,6 @@ const activeTab = ref<Tab>('child')
 
     <!-- Convictions — toujours visible -->
     <ConvictionsSection />
-
-    <!-- Comparatif — toujours visible -->
-    <ComparisonSection />
 
     <!-- CTA finale — toujours visible -->
     <FeaturesCtaSection />
