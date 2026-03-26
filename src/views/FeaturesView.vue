@@ -2,8 +2,9 @@
      Sections :
      1. FeaturesHero        — hero + 3 onglets (enfant / parent / contenu)
      2. ChildFeaturesGrid   — 6 cartes fonctionnalités enfant [tab: child]
-     3. NovaShowcase        — mascotte Nova, 4 poses interactives [tab: child]
-     [à venir] ParentFeaturesSection,
+     3. NovaShowcase           — mascotte Nova, 4 poses interactives [tab: child]
+     4. ParentFeaturesSection  — 6 items + mockup admin [tab: parent]
+     [à venir] ContentPhilosophySection, ComparisonSection, FeaturesCtaSection
                ContentPhilosophySection, ComparisonSection, FeaturesCtaSection
 
      activeTab : état partagé entre FeaturesHero et les sections ongletées -->
@@ -11,7 +12,8 @@
 import { ref } from 'vue'
 import FeaturesHero      from '@/components/sections/features/FeaturesHero.vue'
 import ChildFeaturesGrid from '@/components/sections/features/ChildFeaturesGrid.vue'
-import NovaShowcase      from '@/components/sections/features/NovaShowcase.vue'
+import NovaShowcase           from '@/components/sections/features/NovaShowcase.vue'
+import ParentFeaturesSection from '@/components/sections/features/ParentFeaturesSection.vue'
 
 type Tab = 'child' | 'parent' | 'content'
 
@@ -28,6 +30,11 @@ const activeTab = ref<Tab>('child')
       <NovaShowcase />
     </div>
 
-    <!-- [à venir] onglet parent, onglet contenu, comparatif, CTA -->
+    <!-- Onglet : Pour le parent -->
+    <div v-show="activeTab === 'parent'">
+      <ParentFeaturesSection />
+    </div>
+
+    <!-- [à venir] onglet contenu, comparatif, CTA -->
   </main>
 </template>
