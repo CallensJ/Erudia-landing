@@ -3,8 +3,9 @@
      1. FeaturesHero        — hero + 3 onglets (enfant / parent / contenu)
      2. ChildFeaturesGrid   — 6 cartes fonctionnalités enfant [tab: child]
      3. NovaShowcase           — mascotte Nova, 4 poses interactives [tab: child]
-     4. ParentFeaturesSection  — 6 items + mockup admin [tab: parent]
-     [à venir] ContentPhilosophySection, ComparisonSection, FeaturesCtaSection
+     4. ParentFeaturesSection     — 6 items + mockup admin [tab: parent]
+     5. ContentPhilosophySection  — philosophie + tableau curriculum + 9 catégories [tab: content]
+     [à venir] ComparisonSection, FeaturesCtaSection
                ContentPhilosophySection, ComparisonSection, FeaturesCtaSection
 
      activeTab : état partagé entre FeaturesHero et les sections ongletées -->
@@ -13,7 +14,8 @@ import { ref } from 'vue'
 import FeaturesHero      from '@/components/sections/features/FeaturesHero.vue'
 import ChildFeaturesGrid from '@/components/sections/features/ChildFeaturesGrid.vue'
 import NovaShowcase           from '@/components/sections/features/NovaShowcase.vue'
-import ParentFeaturesSection from '@/components/sections/features/ParentFeaturesSection.vue'
+import ParentFeaturesSection   from '@/components/sections/features/ParentFeaturesSection.vue'
+import ContentPhilosophySection from '@/components/sections/features/ContentPhilosophySection.vue'
 
 type Tab = 'child' | 'parent' | 'content'
 
@@ -35,6 +37,11 @@ const activeTab = ref<Tab>('child')
       <ParentFeaturesSection />
     </div>
 
-    <!-- [à venir] onglet contenu, comparatif, CTA -->
+    <!-- Onglet : Le contenu -->
+    <div v-show="activeTab === 'content'">
+      <ContentPhilosophySection />
+    </div>
+
+    <!-- [à venir] comparatif, CTA -->
   </main>
 </template>
