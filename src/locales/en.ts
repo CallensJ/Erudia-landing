@@ -181,6 +181,49 @@ export const en = {
       tabParent:  '👨‍👩‍👧 For the parent',
       tabContent: '📚 The content',
     },
+    child: {
+      pill:    '🎮 For the child',
+      title:   'An experience built for them',
+      subline: 'Intuitive interface, motivating rewards, progressive challenge.',
+      cards: [
+        {
+          icon:  '🎭',
+          title: 'Personalised DiceBear avatars',
+          desc:  '5 avatar styles (adventurer, fun-emoji, bottts, pixel-art, micah) with hundreds of combinations. The child picks their visual identity during onboarding — and can change it anytime from their profile.',
+          tag:   'Onboarding',
+        },
+        {
+          icon:  '🏆',
+          title: '14 badges to collect',
+          desc:  'Perfect score, first games, mastering a category, max difficulty, daily streak… Each badge recognises a real effort and is displayed on the profile.',
+          tag:   'Gamification',
+        },
+        {
+          icon:  '📅',
+          title: 'Daily challenge',
+          desc:  'Every day, the same quiz for all players (deterministic seed). Rewards: XP, progressive titles, Streak Shields to protect streaks. The habit builds itself naturally.',
+          tag:   'Retention',
+        },
+        {
+          icon:  '⚔️',
+          title: 'Async duel mode',
+          desc:  'A 6-character code is all it takes to challenge a friend or a parent. Each plays when they want — scoring factors in response time. Last 20 duels visible in-app.',
+          tag:   'Social',
+        },
+        {
+          icon:  '📊',
+          title: 'Personal statistics',
+          desc:  'BarChart and PieChart of scores by category, CSS progress bars, trend over time. The child sees concrete progress — no external leaderboard, privacy first.',
+          tag:   'Progress',
+        },
+        {
+          icon:  '🌍',
+          title: 'Built-in FR / EN bilingual',
+          desc:  'Interface and questions are available in French and English. The toggle is accessible from onboarding and the profile — for a fun and natural language immersion.',
+          tag:   'Multilingual',
+        },
+      ],
+    },
   },
 
   // ── How it works ─────────────────────────────────────────────

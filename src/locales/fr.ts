@@ -202,6 +202,49 @@ export const fr = {
       tabParent:  '👨‍👩‍👧 Pour le parent',
       tabContent: '📚 Le contenu',
     },
+    child: {
+      pill:    '🎮 Pour l\'enfant',
+      title:   'Une expérience pensée pour eux',
+      subline: 'Interface intuitive, récompenses motivantes, challenge progressif.',
+      cards: [
+        {
+          icon:  '🎭',
+          title: 'Avatars DiceBear personnalisés',
+          desc:  '5 styles d\'avatars (adventurer, fun-emoji, bottts, pixel-art, micah) avec des centaines de combinaisons. L\'enfant choisit son identité visuelle dès l\'onboarding — et peut la modifier à tout moment depuis le profil.',
+          tag:   'Onboarding',
+        },
+        {
+          icon:  '🏆',
+          title: '14 badges à collectionner',
+          desc:  'Score parfait, premières parties, maîtrise d\'une catégorie, difficulté maximale, série de jours consécutifs… Chaque badge est une reconnaissance d\'un effort réel, visible dans le profil.',
+          tag:   'Gamification',
+        },
+        {
+          icon:  '📅',
+          title: 'Défi quotidien',
+          desc:  'Chaque jour, un quiz identique pour tous les joueurs (seed déterministe). Récompenses : XP, titres progressifs, Streak Shields pour protéger les séries. L\'habitude se construit naturellement.',
+          tag:   'Rétention',
+        },
+        {
+          icon:  '⚔️',
+          title: 'Mode duel asynchrone',
+          desc:  'Un code à 6 caractères suffit pour défier un ami ou un parent. Chacun joue quand il veut, le scoring prend en compte le temps de réponse. Historique des 20 derniers défis visible dans l\'app.',
+          tag:   'Social',
+        },
+        {
+          icon:  '📊',
+          title: 'Statistiques personnelles',
+          desc:  'BarChart et PieChart des scores par catégorie, barres de progression CSS, évolution dans le temps. L\'enfant voit ses progrès concrets — pas de classement externe, privacy first.',
+          tag:   'Progression',
+        },
+        {
+          icon:  '🌍',
+          title: 'Bilingue FR / EN intégré',
+          desc:  'L\'interface et les questions sont disponibles en français et en anglais. Le toggle est accessible dès l\'onboarding et dans le profil — pour une immersion linguistique ludique et naturelle.',
+          tag:   'Multilingue',
+        },
+      ],
+    },
   },
 
   // ── Comment ça marche ────────────────────────────────────────
