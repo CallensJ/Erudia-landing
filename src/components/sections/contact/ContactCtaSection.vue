@@ -6,8 +6,10 @@
 import { onMounted, onUnmounted } from 'vue'
 import { RouterLink } from 'vue-router'
 import { useLocale } from '@/composables/useLocale'
+import { useComingSoon } from '@/composables/useComingSoon'
 
 const { t } = useLocale()
+const { openModal } = useComingSoon()
 
 let observer: IntersectionObserver | null = null
 
@@ -43,14 +45,13 @@ onUnmounted(() => observer?.disconnect())
         <p class="contact-cta__sub">{{ t('contact.cta.subline') }}</p>
 
         <div class="contact-cta__actions">
-          <a
-            href="https://app.erudia.app"
+          <button
+            type="button"
             class="contact-cta__btn contact-cta__btn--white"
-            target="_blank"
-            rel="noopener noreferrer"
+            @click="openModal"
           >
             {{ t('contact.cta.btnPrimary') }}
-          </a>
+          </button>
           <RouterLink to="/pricing" class="contact-cta__btn contact-cta__btn--ghost">
             {{ t('contact.cta.btnSecondary') }}
           </RouterLink>

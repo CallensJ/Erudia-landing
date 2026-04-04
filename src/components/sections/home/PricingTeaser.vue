@@ -7,8 +7,10 @@
 import { computed } from 'vue'
 import { RouterLink } from 'vue-router'
 import { useLocale } from '@/composables/useLocale'
+import { useComingSoon } from '@/composables/useComingSoon'
 
 const { t } = useLocale()
+const { openModal } = useComingSoon()
 
 const freePlan = computed(() => ({
   label: t('home.pricingTeaser.freeLabel'),
@@ -23,7 +25,6 @@ const freePlan = computed(() => ({
     t('home.pricingTeaser.freeF6'),
   ],
   cta:  t('home.pricingTeaser.freeCta'),
-  href: 'https://app.erudia.app',
 }))
 
 const premiumPlan = computed(() => ({
@@ -40,7 +41,6 @@ const premiumPlan = computed(() => ({
     t('home.pricingTeaser.premiumF6'),
   ],
   cta:  t('home.pricingTeaser.premiumCta'),
-  href: 'https://app.erudia.app',
 }))
 </script>
 
@@ -69,9 +69,9 @@ const premiumPlan = computed(() => ({
               <span>{{ f }}</span>
             </li>
           </ul>
-          <a :href="freePlan.href" class="btn btn-secondary pricing__cta" target="_blank" rel="noopener">
+          <button type="button" class="btn btn-secondary pricing__cta" @click="openModal">
             {{ freePlan.cta }}
-          </a>
+          </button>
         </div>
 
         <!-- Carte premium (highlighted) -->
@@ -86,9 +86,9 @@ const premiumPlan = computed(() => ({
               <span>{{ f }}</span>
             </li>
           </ul>
-          <a :href="premiumPlan.href" class="btn btn-primary pricing__cta" target="_blank" rel="noopener">
+          <button type="button" class="btn btn-primary pricing__cta" @click="openModal">
             {{ premiumPlan.cta }}
-          </a>
+          </button>
         </div>
 
       </div>

@@ -7,8 +7,10 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useLocale } from '@/composables/useLocale'
+import { useComingSoon } from '@/composables/useComingSoon'
 
 const { t } = useLocale()
+const { openModal } = useComingSoon()
 
 const props = defineProps<{
   isAnnual: boolean
@@ -70,14 +72,13 @@ const premiumFeatures = computed(() => [
           <div class="plan-card__period">{{ t('pricing.cards.freePeriod') }}</div>
           <div class="plan-card__annual-note">&nbsp;</div>
 
-          <a
-            href="https://app.erudia.app"
+          <button
+            type="button"
             class="plan-card__cta plan-card__cta--outline"
-            target="_blank"
-            rel="noopener noreferrer"
+            @click="openModal"
           >
             {{ t('pricing.cards.freeCta') }}
-          </a>
+          </button>
           <p class="plan-card__reassure">{{ t('pricing.cards.freeReassure') }}</p>
 
           <hr class="plan-card__divider" />
@@ -139,14 +140,13 @@ const premiumFeatures = computed(() => [
             <div v-else class="plan-card__annual-note">&nbsp;</div>
           </Transition>
 
-          <a
-            href="https://app.erudia.app"
+          <button
+            type="button"
             class="plan-card__cta plan-card__cta--white"
-            target="_blank"
-            rel="noopener noreferrer"
+            @click="openModal"
           >
             {{ t('pricing.cards.premiumCta') }}
-          </a>
+          </button>
           <p class="plan-card__reassure plan-card__reassure--light">
             {{ t('pricing.cards.premiumReassure') }}
           </p>

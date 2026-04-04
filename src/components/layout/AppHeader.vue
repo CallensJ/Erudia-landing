@@ -7,6 +7,7 @@
 import { ref, computed, onMounted, onUnmounted } from "vue";
 import { RouterLink, useRoute } from "vue-router";
 import { useLocale } from "@/composables/useLocale";
+import { useComingSoon } from "@/composables/useComingSoon";
 
 const route = useRoute();
 
@@ -17,6 +18,7 @@ const isMenuOpen = ref(false);
 const isScrolled = ref(false);
 
 const { locale, t, setLocale } = useLocale();
+const { openModal } = useComingSoon();
 
 function toggleMenu() {
     isMenuOpen.value = !isMenuOpen.value;
@@ -98,14 +100,13 @@ const navLinks = computed(() => [
                     </div>
 
                     <!-- CTA desktop -->
-                    <a
-                        href="https://app.erudia.app"
+                    <button
+                        type="button"
                         class="btn btn--primary btn--sm header__cta"
-                        target="_blank"
-                        rel="noopener"
+                        @click="openModal"
                     >
                         {{ t('nav.cta') }}
-                    </a>
+                    </button>
 
                     <!-- Hamburger mobile -->
                     <button
@@ -139,15 +140,13 @@ const navLinks = computed(() => [
         >
             {{ link.label }}
         </RouterLink>
-        <a
-            href="https://app.erudia.app"
+        <button
+            type="button"
             class="btn btn--primary mobile-menu__cta"
-            target="_blank"
-            rel="noopener"
-            @click="closeMenu"
+            @click="() => { closeMenu(); openModal(); }"
         >
             {{ t('nav.cta') }}
-        </a>
+        </button>
     </nav>
 </template>
 

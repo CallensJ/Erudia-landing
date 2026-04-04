@@ -7,8 +7,10 @@
 import { onMounted, onUnmounted } from 'vue'
 import { RouterLink } from 'vue-router'
 import { useLocale } from '@/composables/useLocale'
+import { useComingSoon } from '@/composables/useComingSoon'
 
 const { t } = useLocale()
+const { openModal } = useComingSoon()
 
 let observer: IntersectionObserver | null = null
 
@@ -50,14 +52,13 @@ onUnmounted(() => observer?.disconnect())
           <RouterLink to="/contact" class="faq-contact__btn faq-contact__btn--white">
             {{ t('faq.contact.cta') }}
           </RouterLink>
-          <a
-            href="https://app.erudia.app"
+          <button
+            type="button"
             class="faq-contact__btn faq-contact__btn--ghost"
-            target="_blank"
-            rel="noopener noreferrer"
+            @click="openModal"
           >
             {{ t('faq.cta.btnPrimary') }}
-          </a>
+          </button>
         </div>
 
       </div>

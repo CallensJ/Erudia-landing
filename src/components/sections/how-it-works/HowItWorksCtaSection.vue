@@ -7,8 +7,10 @@
 import { onMounted, onUnmounted } from 'vue'
 import { RouterLink } from 'vue-router'
 import { useLocale } from '@/composables/useLocale'
+import { useComingSoon } from '@/composables/useComingSoon'
 
 const { t } = useLocale()
+const { openModal } = useComingSoon()
 
 // ── Reveal au scroll ──────────────────────────────────────────
 let observer: IntersectionObserver | null = null
@@ -57,14 +59,13 @@ onUnmounted(() => observer?.disconnect())
 
         <!-- CTAs -->
         <div class="hiw-cta__actions">
-          <a
-            href="https://app.erudia.app"
+          <button
+            type="button"
             class="hiw-cta__btn hiw-cta__btn--primary"
-            target="_blank"
-            rel="noopener noreferrer"
+            @click="openModal"
           >
             {{ t('howItWorks.cta.btnPrimary') }}
-          </a>
+          </button>
           <RouterLink to="/pricing" class="hiw-cta__btn hiw-cta__btn--ghost">
             {{ t('howItWorks.cta.btnSecondary') }}
           </RouterLink>

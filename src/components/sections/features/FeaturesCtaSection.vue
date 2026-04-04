@@ -6,8 +6,10 @@
 import { onMounted, onUnmounted } from 'vue'
 import { RouterLink } from 'vue-router'
 import { useLocale } from '@/composables/useLocale'
+import { useComingSoon } from '@/composables/useComingSoon'
 
 const { t } = useLocale()
+const { openModal } = useComingSoon()
 
 let observer: IntersectionObserver | null = null
 
@@ -44,14 +46,13 @@ onUnmounted(() => observer?.disconnect())
         <p class="feat-cta__sub">{{ t('features.cta.subline') }}</p>
 
         <div class="feat-cta__actions">
-          <a
-            href="https://app.erudia.app"
+          <button
+            type="button"
             class="feat-cta__btn feat-cta__btn--white"
-            target="_blank"
-            rel="noopener noreferrer"
+            @click="openModal"
           >
             {{ t('features.cta.btnPrimary') }}
-          </a>
+          </button>
           <RouterLink to="/pricing" class="feat-cta__btn feat-cta__btn--ghost">
             {{ t('features.cta.btnSecondary') }}
           </RouterLink>

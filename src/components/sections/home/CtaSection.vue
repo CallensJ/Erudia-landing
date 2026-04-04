@@ -5,8 +5,10 @@
 <script setup lang="ts">
 import { RouterLink } from 'vue-router'
 import { useLocale } from '@/composables/useLocale'
+import { useComingSoon } from '@/composables/useComingSoon'
 
 const { t } = useLocale()
+const { openModal } = useComingSoon()
 </script>
 
 <template>
@@ -23,14 +25,13 @@ const { t } = useLocale()
         <p class="cta__subline">{{ t('home.cta.subline') }}</p>
 
         <div class="cta__actions">
-          <a
-            href="https://app.erudia.app"
+          <button
+            type="button"
             class="btn cta__btn-primary"
-            target="_blank"
-            rel="noopener"
+            @click="openModal"
           >
             {{ t('home.cta.btnPrimary') }}
-          </a>
+          </button>
           <RouterLink to="/how-it-works" class="btn cta__btn-ghost">
             {{ t('home.cta.btnSecondary') }}
           </RouterLink>

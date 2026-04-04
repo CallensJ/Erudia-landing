@@ -7,8 +7,10 @@
 <script setup lang="ts">
 import { onMounted, computed } from 'vue'
 import { useLocale } from '@/composables/useLocale'
+import { useComingSoon } from '@/composables/useComingSoon'
 
 const { t } = useLocale()
+const { openModal } = useComingSoon()
 
 // Génération des étoiles en JS pour éviter le HTML statique répétitif
 onMounted(() => {
@@ -75,14 +77,13 @@ const proofItems = computed(() => [
 
           <!-- CTAs -->
           <div class="hero__actions">
-            <a
-              href="https://app.erudia.app"
+            <button
+              type="button"
               class="btn btn--primary btn--lg"
-              target="_blank"
-              rel="noopener"
+              @click="openModal"
             >
               {{ t('home.hero.ctaPrimary') }}
-            </a>
+            </button>
             <RouterLink to="/how-it-works" class="btn btn--ghost btn--lg">
               {{ t('home.hero.ctaSecondary') }}
             </RouterLink>

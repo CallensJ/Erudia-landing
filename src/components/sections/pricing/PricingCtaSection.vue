@@ -7,8 +7,10 @@
 <script setup lang="ts">
 import { onMounted, onUnmounted } from 'vue'
 import { useLocale } from '@/composables/useLocale'
+import { useComingSoon } from '@/composables/useComingSoon'
 
 const { t } = useLocale()
+const { openModal } = useComingSoon()
 
 // ── Reveal au scroll ──────────────────────────────────────────
 let observer: IntersectionObserver | null = null
@@ -56,22 +58,20 @@ onUnmounted(() => observer?.disconnect())
 
         <!-- Boutons -->
         <div class="pricing-cta__actions">
-          <a
-            href="https://app.erudia.app"
+          <button
+            type="button"
             class="pricing-cta__btn pricing-cta__btn--white"
-            target="_blank"
-            rel="noopener noreferrer"
+            @click="openModal"
           >
             {{ t('pricing.cta.btnPrimary') }}
-          </a>
-          <a
-            href="https://app.erudia.app"
+          </button>
+          <button
+            type="button"
             class="pricing-cta__btn pricing-cta__btn--ghost"
-            target="_blank"
-            rel="noopener noreferrer"
+            @click="openModal"
           >
             {{ t('pricing.cta.btnSecondary') }}
-          </a>
+          </button>
         </div>
 
         <!-- Réassurance -->
