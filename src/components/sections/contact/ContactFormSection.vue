@@ -6,12 +6,27 @@
      - Reveal au scroll via IntersectionObserver -->
 <script setup lang="ts">
 import { ref, computed, onMounted, onUnmounted } from 'vue'
+import { z } from 'zod'
 import { useLocale } from '@/composables/useLocale'
 
 const { t, td } = useLocale()
 
 // ── Types ──────────────────────────────────────────────────────
 interface Subject { value: string; label: string }
+
+// ── Schéma Zod — messages réactifs à la locale ─────────────────
+// Le schéma est recréé à chaque appel pour refléter la langue active
+function buildSchema() {
+  return z.object({
+    name:    z.string().min(1, t('contact.form.errors.nameRequired'))
+                       .min(2, t('contact.form.errors.nameMin')),
+    email:   z.string().min(1, t('contact.form.errors.emailRequired'))
+                       .email(t('contact.form.errors.emailInvalid')),
+    subject: z.string().min(1, t('contact.form.errors.subjectRequired')),
+    message: z.string().min(1, t('contact.form.errors.messageRequired'))
+                       .min(10, t('contact.form.errors.messageMin')),
+  })
+}
 
 // ── État du formulaire ─────────────────────────────────────────
 const form = ref({
@@ -21,6 +36,7 @@ const form = ref({
   message: '',
 })
 
+const errors    = ref<Partial<Record<keyof typeof form.value, string>>>({})
 const isSubmitting = ref(false)
 const isSuccess    = ref(false)
 const hasError     = ref(false)
@@ -31,15 +47,44 @@ const subjects = computed(() => td<Subject[]>('contact.subjects'))
 // Topics affichés dans la sidebar (les 7 items sans le placeholder vide)
 const topics = computed(() => subjects.value.slice(1))
 
-// Clic sur un topic → auto-fill le select
+// Clic sur un topic → auto-fill le select + efface l'erreur subject
 function selectTopic(value: string) {
   form.value.subject = value
+  delete errors.value.subject
+}
+
+// Validation d'un champ unique au blur
+function validateField(field: keyof typeof form.value) {
+  const schema = buildSchema()
+  const result = schema.shape[field].safeParse(form.value[field])
+  if (!result.success) {
+    errors.value[field] = result.error.issues[0].message
+  } else {
+    delete errors.value[field]
+  }
+}
+
+// Efface l'erreur d'un champ dès que l'utilisateur retape
+function clearError(field: keyof typeof form.value) {
+  delete errors.value[field]
 }
 
 // ── Soumission ─────────────────────────────────────────────────
 // Simulation — à remplacer par un appel API (Resend / Formspree) en production
 async function handleSubmit() {
-  hasError.value     = false
+  hasError.value = false
+  errors.value   = {}
+
+  // Validation complète Zod avant envoi
+  const result = buildSchema().safeParse(form.value)
+  if (!result.success) {
+    result.error.issues.forEach((issue) => {
+      const field = issue.path[0] as keyof typeof form.value
+      if (!errors.value[field]) errors.value[field] = issue.message
+    })
+    return
+  }
+
   isSubmitting.value = true
 
   try {
@@ -105,10 +150,14 @@ onUnmounted(() => observer?.disconnect())
                   v-model="form.name"
                   type="text"
                   class="cf__input"
+                  :class="{ 'cf__input--error': errors.name }"
                   :placeholder="t('contact.form.namePh')"
-                  required
                   autocomplete="given-name"
+                  :aria-describedby="errors.name ? 'cf-name-error' : undefined"
+                  @blur="validateField('name')"
+                  @input="clearError('name')"
                 />
+                <p v-if="errors.name" id="cf-name-error" class="cf__field-error" role="alert">{{ errors.name }}</p>
               </div>
 
               <div class="cf__field">
@@ -118,10 +167,14 @@ onUnmounted(() => observer?.disconnect())
                   v-model="form.email"
                   type="email"
                   class="cf__input"
+                  :class="{ 'cf__input--error': errors.email }"
                   :placeholder="t('contact.form.emailPh')"
-                  required
                   autocomplete="email"
+                  :aria-describedby="errors.email ? 'cf-email-error' : undefined"
+                  @blur="validateField('email')"
+                  @input="clearError('email')"
                 />
+                <p v-if="errors.email" id="cf-email-error" class="cf__field-error" role="alert">{{ errors.email }}</p>
               </div>
             </div>
 
@@ -133,7 +186,10 @@ onUnmounted(() => observer?.disconnect())
                   id="cf-subject"
                   v-model="form.subject"
                   class="cf__select"
-                  required
+                  :class="{ 'cf__select--error': errors.subject }"
+                  :aria-describedby="errors.subject ? 'cf-subject-error' : undefined"
+                  @blur="validateField('subject')"
+                  @change="clearError('subject')"
                 >
                   <option
                     v-for="opt in subjects"
@@ -150,6 +206,7 @@ onUnmounted(() => observer?.disconnect())
                   </svg>
                 </div>
               </div>
+              <p v-if="errors.subject" id="cf-subject-error" class="cf__field-error" role="alert">{{ errors.subject }}</p>
             </div>
 
             <!-- Message -->
@@ -159,13 +216,17 @@ onUnmounted(() => observer?.disconnect())
                 id="cf-message"
                 v-model="form.message"
                 class="cf__textarea"
+                :class="{ 'cf__textarea--error': errors.message }"
                 :placeholder="t('contact.form.messagePh')"
                 rows="5"
-                required
+                :aria-describedby="errors.message ? 'cf-message-error' : undefined"
+                @blur="validateField('message')"
+                @input="clearError('message')"
               ></textarea>
+              <p v-if="errors.message" id="cf-message-error" class="cf__field-error" role="alert">{{ errors.message }}</p>
             </div>
 
-            <!-- Erreur -->
+            <!-- Erreur serveur -->
             <p v-if="hasError" class="cf__error" role="alert">
               {{ t('contact.form.errorText') }}
               <a href="mailto:contact@johanwebstudio.fr">contact@johanwebstudio.fr</a>.
@@ -175,7 +236,7 @@ onUnmounted(() => observer?.disconnect())
             <button
               type="submit"
               class="cf__submit"
-              :disabled="isSubmitting || !form.name || !form.email || !form.subject || !form.message"
+              :disabled="isSubmitting"
               :aria-busy="isSubmitting"
             >
               <span v-if="isSubmitting" class="cf__spinner" aria-hidden="true"></span>
@@ -357,6 +418,36 @@ onUnmounted(() => observer?.disconnect())
     pointer-events: none;
   }
 
+  // État erreur sur les champs
+  &__input--error,
+  &__select--error,
+  &__textarea--error {
+    border-color: var(--color-error) !important;
+    background: #fff5f5;
+
+    &:focus {
+      border-color: var(--color-error) !important;
+      box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.12) !important;
+    }
+  }
+
+  // Message d'erreur par champ
+  &__field-error {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--color-error);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 2px;
+
+    &::before {
+      content: '⚠';
+      font-size: 0.72rem;
+    }
+  }
+
+  // Erreur serveur globale
   &__error {
     font-size: 0.84rem;
     color: var(--color-error);

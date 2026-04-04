@@ -1034,6 +1034,15 @@ export const fr = {
       privacy:
         "Vos données ne sont utilisées que pour répondre à votre message. Aucune revente, aucun spam.",
       errorText: "Une erreur s'est produite. Écrivez directement à",
+      errors: {
+        nameRequired: "Le prénom est requis.",
+        nameMin: "Le prénom doit contenir au moins 2 caractères.",
+        emailRequired: "L'email est requis.",
+        emailInvalid: "L'adresse email n'est pas valide.",
+        subjectRequired: "Veuillez choisir un sujet.",
+        messageRequired: "Le message est requis.",
+        messageMin: "Le message doit contenir au moins 10 caractères.",
+      },
       successTitle: "Message envoyé !",
       successText:
         "Merci — je vous réponds personnellement dans les 48h. À très vite !",
