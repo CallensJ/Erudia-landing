@@ -80,7 +80,7 @@ const stats = computed(() => [
             class="pedago__card"
           >
             <div class="pedago__num" style="white-space: pre-line">{{ stat.num }}</div>
-            <h4 class="pedago__card-title">{{ stat.title }}</h4>
+            <h3 class="pedago__card-title">{{ stat.title }}</h3>
             <p class="pedago__card-desc">{{ stat.desc }}</p>
           </div>
         </div>

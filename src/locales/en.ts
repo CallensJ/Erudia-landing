@@ -42,8 +42,8 @@ export const en = {
   home: {
     hero: {
       tag:       'MVP 4 in progress · Coming soon',
-      title1:    'Learn by playing,',
-      title2:    'for real.',
+      title1:    'The offline educational quiz',
+      title2:    'your kids will actually love.',
       subline:   'Erudia is the educational quiz designed for children ages 6–11. Offline mode, bilingual FR/EN, built-in parental tracking — and no ads.',
       ctaPrimary:   "🚀 Play now — it's free",
       ctaSecondary: 'See how it works',
@@ -174,7 +174,7 @@ export const en = {
   features: {
     hero: {
       pill:    'Features',
-      title1:  'Everything Erudia',
+      title1:  'Everything the Erudia quiz',
       title2:  'does for your child',
       subline: 'Explore every feature — designed for the child who learns, and the parent who follows along.',
       tabChild:   '🎮 For the child',
@@ -441,7 +441,7 @@ export const en = {
   howItWorks: {
     hero: {
       pill:          '✨ How it works',
-      title:         'Ready in 30 seconds. Simple as can be.',
+      title:         'Play offline with no account needed — simple as can be.',
       subline:       "No email account for the child, no endless sign-up. A username, an avatar — and off they go to learn while having fun.",
       switcherChild:  '🎮 Child journey',
       switcherParent: '👨‍👩‍👧 Parent journey',
@@ -567,7 +567,7 @@ export const en = {
   pricing: {
     hero: {
       pill:          '💳 Pricing',
-      title:         'Simple. Transparent. No surprises.',
+      title:         'An educational quiz with no ads — simple and transparent.',
       subline:       'A fully playable free plan. One premium plan. No hidden tiers, no surprise renewals.',
       billingMonthly: 'Monthly',
       billingAnnual:  'Annual',
@@ -681,9 +681,9 @@ export const en = {
   faq: {
     hero: {
       pill:        '❓ Help & FAQ',
-      title:       'All your questions,',
-      titleAccent: 'answered honestly.',
-      subline:     '33 answers written by Johan — not an AI, not an outsourced support team. If you can\'t find it, write to me.',
+      title:       'Questions about Erudia,',
+      titleAccent: 'the offline quiz app.',
+      subline:     'All the answers about how it works, subscriptions, children\'s data privacy, and offline mode.',
       searchPlaceholder: 'Search a question…',
       resultCount: '{n} result(s) for "{q}"',
       noResult:    'No results for "{q}"',

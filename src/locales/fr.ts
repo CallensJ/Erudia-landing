@@ -44,8 +44,8 @@ export const fr = {
   home: {
     hero: {
       tag: "MVP 4 en cours · Bientôt disponible",
-      title1: "Apprendre en jouant,",
-      title2: "vraiment.",
+      title1: "Le quiz éducatif offline,",
+      title2: "que vos enfants vont adorer.",
       subline:
         "Erudia est le quiz éducatif conçu pour les enfants de 6 à 11 ans. Mode hors ligne, bilingue FR/EN, suivi parental intégré — et sans publicité.",
       ctaPrimary: " Jouer maintenant",
@@ -195,7 +195,7 @@ export const fr = {
   features: {
     hero: {
       pill:    'Fonctionnalités',
-      title1:  "Tout ce qu'Erudia",
+      title1:  "Tout ce que le quiz Erudia",
       title2:  'fait pour votre enfant',
       subline: 'Explorez chaque fonctionnalité — conçue pour l\'enfant qui apprend, et pour le parent qui suit.',
       tabChild:   '🎮 Pour l\'enfant',
@@ -462,7 +462,7 @@ export const fr = {
   howItWorks: {
     hero: {
       pill: "✨ Comment ça marche",
-      title: "Prêt en 30 secondes. Simple comme bonjour.",
+      title: "Jouer sans connexion internet — simple comme bonjour.",
       subline:
         "Pas de compte email pour l'enfant, pas d'inscription interminable. Un pseudo, un avatar — et c'est parti pour apprendre en s'amusant.",
       switcherChild: "🎮 Parcours enfant",
@@ -627,7 +627,7 @@ export const fr = {
   pricing: {
     hero: {
       pill: "💳 Tarifs",
-      title: "Simple. Transparent. Sans surprise.",
+      title: "Un quiz éducatif sans publicité — simple et transparent.",
       subline:
         "Un plan gratuit pleinement jouable. Un seul plan premium. Pas de niveaux cachés, pas de renouvellement surprise.",
       billingMonthly: "Mensuel",
@@ -761,10 +761,10 @@ export const fr = {
   faq: {
     hero: {
       pill: "❓ Aide & FAQ",
-      title: "Toutes vos questions,",
-      titleAccent: "honnêtement.",
+      title: "Questions sur Erudia,",
+      titleAccent: "le quiz éducatif offline.",
       subline:
-        "33 réponses rédigées par Johan — pas une IA, pas un service client externalisé. Si vous ne trouvez pas, écrivez-moi.",
+        "Toutes les réponses sur le fonctionnement, l'abonnement, la confidentialité des données et le mode hors ligne.",
       searchPlaceholder: "Rechercher une question…",
       resultCount: '{n} résultat(s) pour "{q}"',
       noResult: 'Aucun résultat pour "{q}"',
