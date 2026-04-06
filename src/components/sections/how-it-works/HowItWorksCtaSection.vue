@@ -9,7 +9,7 @@ import { RouterLink } from 'vue-router'
 import { useLocale } from '@/composables/useLocale'
 import { useComingSoon } from '@/composables/useComingSoon'
 
-const { t } = useLocale()
+const { t, localePath } = useLocale()
 const { openModal } = useComingSoon()
 
 // ── Reveal au scroll ──────────────────────────────────────────
@@ -66,7 +66,7 @@ onUnmounted(() => observer?.disconnect())
           >
             {{ t('howItWorks.cta.btnPrimary') }}
           </button>
-          <RouterLink to="/pricing" class="hiw-cta__btn hiw-cta__btn--ghost">
+          <RouterLink :to="localePath('/pricing')" class="hiw-cta__btn hiw-cta__btn--ghost">
             {{ t('howItWorks.cta.btnSecondary') }}
           </RouterLink>
         </div>

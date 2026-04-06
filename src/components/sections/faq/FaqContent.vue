@@ -24,7 +24,7 @@ interface Category {
 }
 
 // ── Locale ─────────────────────────────────────────────────────
-const { t, td } = useLocale()
+const { t, td, localePath } = useLocale()
 
 // ── Props ──────────────────────────────────────────────────────
 const props = defineProps<{
@@ -229,7 +229,7 @@ function highlight(text: string): string {
             <p class="faq-empty__text">
               {{ t('faq.empty.noMatch') }}<br>
               {{ t('faq.empty.tryOther') }}
-              <RouterLink to="/contact" class="faq-empty__link">{{ t('faq.empty.contactLink') }}</RouterLink>.
+              <RouterLink :to="localePath('/contact')" class="faq-empty__link">{{ t('faq.empty.contactLink') }}</RouterLink>.
             </p>
           </div>
 

@@ -9,7 +9,7 @@ import { RouterLink } from 'vue-router'
 import { useLocale } from '@/composables/useLocale'
 import { useComingSoon } from '@/composables/useComingSoon'
 
-const { t } = useLocale()
+const { t, localePath } = useLocale()
 const { openModal } = useComingSoon()
 
 const freePlan = computed(() => ({
@@ -98,7 +98,7 @@ const premiumPlan = computed(() => ({
 
       <!-- CTA vers page tarifs complète -->
       <div class="pricing__more">
-        <RouterLink to="/pricing" class="pricing__ghost-btn">
+        <RouterLink :to="localePath('/pricing')" class="pricing__ghost-btn">
           {{ t('home.pricingTeaser.moreLink') }}
         </RouterLink>
       </div>

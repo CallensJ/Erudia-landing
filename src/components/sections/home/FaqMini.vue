@@ -7,7 +7,7 @@
 import { ref, computed } from 'vue'
 import { useLocale } from '@/composables/useLocale'
 
-const { t } = useLocale()
+const { t, localePath } = useLocale()
 
 const faqs = computed(() => [
   { q: t('home.faqMini.q1'), a: t('home.faqMini.a1') },
@@ -37,7 +37,7 @@ function toggle(index: number) {
             {{ t('home.faqMini.title') }}
           </h2>
           <p class="faq-mini__subline subline">{{ t('home.faqMini.subline') }}</p>
-          <RouterLink to="/faq" class="btn btn--secondary faq-mini__cta">
+          <RouterLink :to="localePath('/faq')" class="btn btn--secondary faq-mini__cta">
             {{ t('home.faqMini.cta') }}
           </RouterLink>
         </div>

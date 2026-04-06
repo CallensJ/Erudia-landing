@@ -9,7 +9,7 @@ import { RouterLink } from 'vue-router'
 import { useLocale } from '@/composables/useLocale'
 import { useComingSoon } from '@/composables/useComingSoon'
 
-const { t } = useLocale()
+const { t, localePath } = useLocale()
 const { openModal } = useComingSoon()
 
 let observer: IntersectionObserver | null = null
@@ -49,7 +49,7 @@ onUnmounted(() => observer?.disconnect())
         </div>
 
         <div class="faq-contact__actions">
-          <RouterLink to="/contact" class="faq-contact__btn faq-contact__btn--white">
+          <RouterLink :to="localePath('/contact')" class="faq-contact__btn faq-contact__btn--white">
             {{ t('faq.contact.cta') }}
           </RouterLink>
           <button

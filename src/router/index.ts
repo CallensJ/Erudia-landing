@@ -1,58 +1,86 @@
 // Router Vue — Routes de la landing Erudia
-// Architecture page-par-page, lazy-loading pour les pages secondaires
+// Architecture : /:locale(fr|en)/* — sous-répertoires bilingues pour le SEO hreflang.
+// La racine / redirige vers /${langue_stockée}/ (défaut : /fr/).
+// Navigation guard : synchronise la locale de l'URL → useLocale singleton.
 import { createRouter, createWebHistory } from 'vue-router'
+import { syncLocale, type Locale } from '@/composables/useLocale'
 
 const router = createRouter({
   history: createWebHistory(),
-  // Scroll en haut à chaque navigation
   scrollBehavior: () => ({ top: 0 }),
   routes: [
     {
+      // Redirige / vers la locale persistée ou /fr/ par défaut
       path: '/',
-      name: 'home',
-      component: () => import('@/views/HomeView.vue'),
+      redirect: () => {
+        const stored =
+          typeof localStorage !== 'undefined'
+            ? (localStorage.getItem('erudia_lang') as Locale | null)
+            : null
+        return `/${stored ?? 'fr'}`
+      },
     },
     {
-      path: '/features',
-      name: 'features',
-      component: () => import('@/views/FeaturesView.vue'),
-    },
-    {
-      path: '/how-it-works',
-      name: 'how-it-works',
-      component: () => import('@/views/HowItWorksView.vue'),
-    },
-    {
-      path: '/pricing',
-      name: 'pricing',
-      component: () => import('@/views/PricingView.vue'),
-    },
-    {
-      path: '/faq',
-      name: 'faq',
-      component: () => import('@/views/FaqView.vue'),
-    },
-    {
-      path: '/contact',
-      name: 'contact',
-      component: () => import('@/views/ContactView.vue'),
-    },
-    {
-      path: '/legal/privacy',
-      name: 'privacy',
-      component: () => import('@/views/legal/PrivacyView.vue'),
-    },
-    {
-      path: '/legal/terms',
-      name: 'terms',
-      component: () => import('@/views/legal/TermsView.vue'),
-    },
-    {
-      path: '/legal/mentions',
-      name: 'mentions',
-      component: () => import('@/views/legal/MentionsView.vue'),
+      // Wrapper locale — toutes les pages sont enfants de /:locale
+      path: '/:locale(fr|en)',
+      children: [
+        {
+          path: '',
+          name: 'home',
+          component: () => import('@/views/HomeView.vue'),
+        },
+        {
+          path: 'features',
+          name: 'features',
+          component: () => import('@/views/FeaturesView.vue'),
+        },
+        {
+          path: 'how-it-works',
+          name: 'how-it-works',
+          component: () => import('@/views/HowItWorksView.vue'),
+        },
+        {
+          path: 'pricing',
+          name: 'pricing',
+          component: () => import('@/views/PricingView.vue'),
+        },
+        {
+          path: 'faq',
+          name: 'faq',
+          component: () => import('@/views/FaqView.vue'),
+        },
+        {
+          path: 'contact',
+          name: 'contact',
+          component: () => import('@/views/ContactView.vue'),
+        },
+        {
+          path: 'legal/privacy',
+          name: 'privacy',
+          component: () => import('@/views/legal/PrivacyView.vue'),
+        },
+        {
+          path: 'legal/terms',
+          name: 'terms',
+          component: () => import('@/views/legal/TermsView.vue'),
+        },
+        {
+          path: 'legal/mentions',
+          name: 'mentions',
+          component: () => import('@/views/legal/MentionsView.vue'),
+        },
+      ],
     },
   ],
+})
+
+// Synchronise la locale de l'URL → singleton useLocale
+// Permet à un lien direct /en/features de basculer la locale sans action utilisateur
+router.beforeEach((to) => {
+  const localeParam = to.params.locale
+  if (localeParam && typeof localeParam === 'string') {
+    syncLocale(localeParam as Locale)
+  }
 })
 
 export default router

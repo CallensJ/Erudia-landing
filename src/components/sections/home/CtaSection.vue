@@ -7,7 +7,7 @@ import { RouterLink } from 'vue-router'
 import { useLocale } from '@/composables/useLocale'
 import { useComingSoon } from '@/composables/useComingSoon'
 
-const { t } = useLocale()
+const { t, localePath } = useLocale()
 const { openModal } = useComingSoon()
 </script>
 
@@ -32,7 +32,7 @@ const { openModal } = useComingSoon()
           >
             {{ t('home.cta.btnPrimary') }}
           </button>
-          <RouterLink to="/how-it-works" class="btn cta__btn-ghost">
+          <RouterLink :to="localePath('/how-it-works')" class="btn cta__btn-ghost">
             {{ t('home.cta.btnSecondary') }}
           </RouterLink>
         </div>

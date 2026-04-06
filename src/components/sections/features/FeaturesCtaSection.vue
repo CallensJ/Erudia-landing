@@ -8,7 +8,7 @@ import { RouterLink } from 'vue-router'
 import { useLocale } from '@/composables/useLocale'
 import { useComingSoon } from '@/composables/useComingSoon'
 
-const { t } = useLocale()
+const { t, localePath } = useLocale()
 const { openModal } = useComingSoon()
 
 let observer: IntersectionObserver | null = null
@@ -53,7 +53,7 @@ onUnmounted(() => observer?.disconnect())
           >
             {{ t('features.cta.btnPrimary') }}
           </button>
-          <RouterLink to="/pricing" class="feat-cta__btn feat-cta__btn--ghost">
+          <RouterLink :to="localePath('/pricing')" class="feat-cta__btn feat-cta__btn--ghost">
             {{ t('features.cta.btnSecondary') }}
           </RouterLink>
         </div>

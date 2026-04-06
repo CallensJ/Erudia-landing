@@ -25,14 +25,14 @@ const props = defineProps<{
 }>()
 
 // ── Locale ─────────────────────────────────────────────────────
-const { t, td } = useLocale()
+const { t, td, localePath } = useLocale()
 
 const page     = computed(() => td<LegalPage>(`legal.${props.pageKey}`))
 const sections = computed(() => td<LegalSection[]>(`legal.${props.pageKey}.sections`))
 
 // ── Navigation ─────────────────────────────────────────────────
 const router = useRouter()
-function goHome() { router.push('/') }
+function goHome() { router.push(localePath('/')) }
 </script>
 
 <template>

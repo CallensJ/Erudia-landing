@@ -9,7 +9,7 @@ import { onMounted, computed } from 'vue'
 import { useLocale } from '@/composables/useLocale'
 import { useComingSoon } from '@/composables/useComingSoon'
 
-const { t } = useLocale()
+const { t, localePath } = useLocale()
 const { openModal } = useComingSoon()
 
 // Génération des étoiles en JS pour éviter le HTML statique répétitif
@@ -84,7 +84,7 @@ const proofItems = computed(() => [
             >
               {{ t('home.hero.ctaPrimary') }}
             </button>
-            <RouterLink to="/how-it-works" class="btn btn--ghost btn--lg">
+            <RouterLink :to="localePath('/how-it-works')" class="btn btn--ghost btn--lg">
               {{ t('home.hero.ctaSecondary') }}
             </RouterLink>
           </div>

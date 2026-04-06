@@ -8,7 +8,7 @@ import { ref, computed } from 'vue'
 import { RouterLink } from 'vue-router'
 import { useLocale } from '@/composables/useLocale'
 
-const { t } = useLocale()
+const { t, localePath } = useLocale()
 
 const email = ref('')
 const submitted = ref(false)
@@ -22,17 +22,17 @@ function handleNewsletter() {
 }
 
 const navLinks = computed(() => [
-  { label: t('nav.features'),   to: '/features' },
-  { label: t('nav.howItWorks'), to: '/how-it-works' },
-  { label: t('nav.pricing'),    to: '/pricing' },
-  { label: t('nav.faq'),        to: '/faq' },
-  { label: t('nav.contact'),    to: '/contact' },
+  { label: t('nav.features'),   to: localePath('/features') },
+  { label: t('nav.howItWorks'), to: localePath('/how-it-works') },
+  { label: t('nav.pricing'),    to: localePath('/pricing') },
+  { label: t('nav.faq'),        to: localePath('/faq') },
+  { label: t('nav.contact'),    to: localePath('/contact') },
 ])
 
 const legalLinks = computed(() => [
-  { label: t('footer.links.mentions'), to: '/legal/mentions' },
-  { label: t('footer.links.privacy'),  to: '/legal/privacy' },
-  { label: t('footer.links.terms'),    to: '/legal/terms' },
+  { label: t('footer.links.mentions'), to: localePath('/legal/mentions') },
+  { label: t('footer.links.privacy'),  to: localePath('/legal/privacy') },
+  { label: t('footer.links.terms'),    to: localePath('/legal/terms') },
 ])
 
 const currentYear = new Date().getFullYear()
@@ -47,7 +47,7 @@ const currentYear = new Date().getFullYear()
 
         <!-- Colonne marque -->
         <div class="footer__brand">
-          <RouterLink to="/" class="footer__logo">
+          <RouterLink :to="localePath('/')" class="footer__logo">
             <div class="footer__logo-icon">🦉</div>
             <span>Erudia</span>
           </RouterLink>

@@ -8,7 +8,7 @@
 import { computed } from 'vue'
 import { useLocale } from '@/composables/useLocale'
 
-const { t } = useLocale()
+const { t, localePath } = useLocale()
 
 const features = computed(() => [
   {
@@ -89,7 +89,7 @@ const features = computed(() => [
 
       <!-- CTA secondaire -->
       <div class="features__cta">
-        <RouterLink to="/features" class="btn btn--secondary">
+        <RouterLink :to="localePath('/features')" class="btn btn--secondary">
           {{ t('home.features.cta') }}
         </RouterLink>
       </div>

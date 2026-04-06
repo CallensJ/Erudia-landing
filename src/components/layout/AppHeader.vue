@@ -17,7 +17,7 @@ const isMenuOpen = ref(false);
 // Ombre au scroll
 const isScrolled = ref(false);
 
-const { locale, t, setLocale } = useLocale();
+const { locale, t, setLocale, localePath } = useLocale();
 const { openModal } = useComingSoon();
 
 function toggleMenu() {
@@ -40,13 +40,13 @@ onUnmounted(() => {
     window.removeEventListener("scroll", handleScroll);
 });
 
-// Liens de navigation
+// Liens de navigation — chemins localisés via localePath()
 const navLinks = computed(() => [
-    { label: t("nav.features"),   to: "/features" },
-    { label: t("nav.howItWorks"), to: "/how-it-works" },
-    { label: t("nav.pricing"),    to: "/pricing" },
-    { label: t("nav.faq"),        to: "/faq" },
-    { label: t("nav.contact"),    to: "/contact" },
+    { label: t("nav.features"),   to: localePath("/features") },
+    { label: t("nav.howItWorks"), to: localePath("/how-it-works") },
+    { label: t("nav.pricing"),    to: localePath("/pricing") },
+    { label: t("nav.faq"),        to: localePath("/faq") },
+    { label: t("nav.contact"),    to: localePath("/contact") },
 ]);
 </script>
 
@@ -55,7 +55,7 @@ const navLinks = computed(() => [
         <div class="container">
             <div class="header__inner">
                 <!-- Logo -->
-                <RouterLink to="/" class="header__logo" @click="closeMenu">
+                <RouterLink :to="localePath('/')" class="header__logo" @click="closeMenu">
                     <div class="header__logo-icon">🦉</div>
                     <span>Erudia</span>
                 </RouterLink>

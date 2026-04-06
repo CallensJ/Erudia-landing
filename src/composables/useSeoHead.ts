@@ -1,7 +1,7 @@
 // useSeoHead.ts — Composable SEO pour la landing Erudia
 // Gère dynamiquement : <title>, <meta description>, <meta robots>,
-// <link canonical>, <meta author>, l'attribut lang sur <html>,
-// Open Graph (og:*) et Twitter Cards (twitter:*).
+// <link canonical> localisé, <meta author>, l'attribut lang sur <html>,
+// Open Graph (og:*), Twitter Cards (twitter:*) et balises hreflang.
 // Usage : useSeoHead({ title: { fr, en }, description: { fr, en }, path, noindex? })
 
 import { computed } from 'vue'
@@ -47,12 +47,21 @@ export function useSeoHead(config: SeoConfig) {
     locale.value === 'fr' ? config.description.fr : config.description.en,
   )
 
-  // og:locale suit la locale active — format BCP 47 adapté au standard OG
+  // og:locale suit la locale active — format OG (fr_FR / en_GB)
   const ogLocale = computed(() =>
     locale.value === 'fr' ? 'fr_FR' : 'en_GB',
   )
 
-  const canonical = `${BASE_URL}${config.path}`
+  // Canonical localisé — reflète l'URL réelle avec préfixe langue
+  const canonical = computed(() => {
+    const suffix = config.path === '/' ? '' : config.path
+    return `${BASE_URL}/${locale.value}${suffix}`
+  })
+
+  // URLs absolues pour chaque langue — utilisées dans hreflang
+  const hrefFr = `${BASE_URL}/fr${config.path === '/' ? '' : config.path}`
+  const hrefEn = `${BASE_URL}/en${config.path === '/' ? '' : config.path}`
+
   const robots = config.noindex ? 'noindex, nofollow' : 'index, follow'
 
   useHead({
@@ -86,8 +95,15 @@ export function useSeoHead(config: SeoConfig) {
       { name: 'twitter:image', content: OG_IMAGE },
     ],
     link: [
-      // Canonical absolu — évite le duplicate content FR/EN
+      // Canonical localisé — /fr/features ou /en/features selon locale active
       { rel: 'canonical', href: canonical },
+
+      // ── hreflang — SEO bilingue ───────────────────────────────
+      // Indique aux moteurs de recherche les versions alternatives par langue
+      { rel: 'alternate', hreflang: 'fr', href: hrefFr },
+      { rel: 'alternate', hreflang: 'en', href: hrefEn },
+      // x-default : pointe vers la version FR (langue principale)
+      { rel: 'alternate', hreflang: 'x-default', href: hrefFr },
     ],
   })
 }
