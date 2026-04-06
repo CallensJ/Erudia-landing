@@ -41,7 +41,6 @@ export const en = {
   // ── Home ─────────────────────────────────────────────────────
   home: {
     hero: {
-      tag:       'MVP 4 in progress · Coming soon',
       title1:    'The offline educational quiz',
       title2:    'your kids will actually love.',
       subline:   'Erudia is the educational quiz designed for children ages 6–11. Offline mode, bilingual FR/EN, built-in parental tracking — and no ads.',

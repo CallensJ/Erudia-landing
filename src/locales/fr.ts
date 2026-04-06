@@ -43,7 +43,6 @@ export const fr = {
   // ── Accueil ──────────────────────────────────────────────────
   home: {
     hero: {
-      tag: "MVP 4 en cours · Bientôt disponible",
       title1: "Le quiz éducatif offline,",
       title2: "que vos enfants vont adorer.",
       subline:

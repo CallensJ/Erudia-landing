@@ -60,12 +60,6 @@ const proofItems = computed(() => [
         <!-- ── Colonne texte ── -->
         <div class="hero__text">
 
-          <!-- Tag "bientôt disponible" avec dot pulsant -->
-          <div class="hero__tag">
-            <div class="hero__tag-dot"></div>
-            <span>{{ t('home.hero.tag') }}</span>
-          </div>
-
           <!-- Titre H1 avec mot accent gradient or -->
           <h1 class="hero__title">
             {{ t('home.hero.title1') }}<br />

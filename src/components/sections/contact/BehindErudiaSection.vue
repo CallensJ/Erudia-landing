@@ -121,6 +121,8 @@ onUnmounted(() => observer?.disconnect())
               :src="filleImg"
               :alt="t('contact.bio.filleAlt')"
               class="be-story__photo"
+              width="400"
+              height="400"
               loading="lazy"
             />
             <div class="be-story__photo-caption" aria-hidden="true">

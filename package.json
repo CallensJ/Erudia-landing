@@ -9,6 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@fontsource/nunito": "^5.2.7",
+    "@fontsource/sora": "^5.2.8",
     "@unhead/vue": "^2.1.13",
     "motion": "^12.38.0",
     "vue": "^3.5.30",

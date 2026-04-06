@@ -73,6 +73,8 @@ const activeIndex = ref(0)
               :src="pose.src"
               :alt="`Nova — ${pose.label}`"
               class="nova__pose-img"
+              width="120"
+              height="120"
               loading="lazy"
             />
             <div class="nova__pose-label">{{ pose.label }}</div>
