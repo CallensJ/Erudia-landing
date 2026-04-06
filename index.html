@@ -8,12 +8,27 @@
     <title>Erudia — Le quiz éducatif que les enfants adorent</title>
 
     <!-- Google Fonts : Sora (display/titres) + Nunito (body) -->
+    <!-- preconnect établit la connexion DNS+TLS en avance -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!--
+      Chargement non bloquant : media="print" empêche le blocage du rendu,
+      onload bascule vers media="all" une fois la feuille téléchargée.
+      display=swap évite le FOIT (flash of invisible text).
+      Le <noscript> garantit le chargement si JS est désactivé.
+    -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Nunito:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Nunito:wght@400;500;600;700;800&display=swap"
+      media="print"
+      onload="this.media='all'"
     />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Nunito:wght@400;500;600;700;800&display=swap"
+      />
+    </noscript>
   </head>
   <body>
     <div id="app"></div>
