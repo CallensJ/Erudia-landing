@@ -3,7 +3,20 @@
      L'état audience (child/parent) est géré ici et transmis aux sections concernées. -->
 <script setup lang="ts">
 import { ref } from 'vue'
+import { useSeoHead } from '@/composables/useSeoHead'
 import HowItWorksHero from '@/components/sections/how-it-works/HowItWorksHero.vue'
+
+useSeoHead({
+  title: {
+    fr: 'Comment ça marche – Erudia quiz éducatif enfants',
+    en: 'How it works – Erudia educational quiz for kids',
+  },
+  description: {
+    fr: 'Comment Erudia fonctionne : créez un profil, choisissez une catégorie et jouez même sans connexion. Conçu pour les enfants dès 6 ans.',
+    en: 'How Erudia works: create a profile, pick a category and play even without internet. Designed for kids from age 6.',
+  },
+  path: '/how-it-works',
+})
 import ChildStepsSection from '@/components/sections/how-it-works/ChildStepsSection.vue'
 import ParentJourneySection from '@/components/sections/how-it-works/ParentJourneySection.vue'
 import TipsSection from '@/components/sections/how-it-works/TipsSection.vue'

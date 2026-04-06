@@ -11,7 +11,20 @@
      activeTab : état partagé entre FeaturesHero et les sections ongletées -->
 <script setup lang="ts">
 import { ref } from 'vue'
+import { useSeoHead } from '@/composables/useSeoHead'
 import FeaturesHero      from '@/components/sections/features/FeaturesHero.vue'
+
+useSeoHead({
+  title: {
+    fr: 'Fonctionnalités – Erudia, quiz éducatif enfants',
+    en: 'Features – Erudia, educational quiz for kids',
+  },
+  description: {
+    fr: 'Découvrez toutes les fonctionnalités d\'Erudia : quiz adaptatifs, mode hors ligne, avatars, badges, défis quotidiens et suivi parental.',
+    en: 'Explore Erudia\'s features: adaptive quizzes, offline mode, avatars, badges, daily challenges and parental dashboard.',
+  },
+  path: '/features',
+})
 import ChildFeaturesGrid from '@/components/sections/features/ChildFeaturesGrid.vue'
 import NovaShowcase           from '@/components/sections/features/NovaShowcase.vue'
 import ParentFeaturesSection   from '@/components/sections/features/ParentFeaturesSection.vue'

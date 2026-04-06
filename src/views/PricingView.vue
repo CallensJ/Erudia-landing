@@ -3,7 +3,20 @@
      et transmis en prop aux sections qui en ont besoin (PricingCards). -->
 <script setup lang="ts">
 import { ref } from 'vue'
+import { useSeoHead } from '@/composables/useSeoHead'
 import PricingHero from '@/components/sections/pricing/PricingHero.vue'
+
+useSeoHead({
+  title: {
+    fr: 'Tarifs – Erudia quiz éducatif | 4,99 €/mois',
+    en: 'Pricing – Erudia educational quiz | €4.99/month',
+  },
+  description: {
+    fr: 'Erudia est gratuit pour commencer. Passez Premium à 4,99 €/mois ou 39,99 €/an pour débloquer toutes les catégories et fonctionnalités.',
+    en: 'Erudia is free to start. Go Premium at €4.99/month or €39.99/year to unlock all categories and features.',
+  },
+  path: '/pricing',
+})
 import PricingCards from '@/components/sections/pricing/PricingCards.vue'
 import ValueSection from '@/components/sections/pricing/ValueSection.vue'
 import FaqBillingSection from '@/components/sections/pricing/FaqBillingSection.vue'

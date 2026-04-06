@@ -10,7 +10,20 @@
      - resultCount : compte renvoyé par FaqContent → FaqHero (compteur live) -->
 <script setup lang="ts">
 import { ref } from 'vue'
+import { useSeoHead } from '@/composables/useSeoHead'
 import FaqHero           from '@/components/sections/faq/FaqHero.vue'
+
+useSeoHead({
+  title: {
+    fr: 'Questions fréquentes – Erudia quiz éducatif enfants',
+    en: 'FAQ – Erudia educational quiz for kids',
+  },
+  description: {
+    fr: 'Toutes les réponses à vos questions sur Erudia : fonctionnement, abonnement, données enfants, mode hors ligne et support.',
+    en: 'All your questions about Erudia answered: how it works, subscription, children\'s data, offline mode and support.',
+  },
+  path: '/faq',
+})
 import FaqContent        from '@/components/sections/faq/FaqContent.vue'
 import FaqContactSection from '@/components/sections/faq/FaqContactSection.vue'
 import FaqCtaSection     from '@/components/sections/faq/FaqCtaSection.vue'
