@@ -41,6 +41,8 @@ export function syncLocale(l: Locale) {
 
 // ── Composable ────────────────────────────────────────────────
 export function useLocale() {
+  // useRouter() doit être appelé ici (contexte setup), pas dans setLocale
+  const router = useRouter()
   const messages = computed(() => (locale.value === 'fr' ? fr : en))
 
   /**
@@ -86,7 +88,6 @@ export function useLocale() {
    * Doit être appelé depuis un composant (contexte setup requis pour useRouter).
    */
   function setLocale(l: Locale) {
-    const router = useRouter()
     const currentPath = router.currentRoute.value.path
     // Remplace le préfixe de locale dans l'URL courante
     const newPath = currentPath.replace(/^\/(fr|en)/, `/${l}`)
