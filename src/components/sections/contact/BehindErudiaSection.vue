@@ -7,8 +7,8 @@
 <script setup lang="ts">
 import { computed, onMounted, onUnmounted } from 'vue'
 import { useLocale } from '@/composables/useLocale'
-import founderImg  from '@/assets/johan-portrait.jpg'
-import filleImg    from '@/assets/johan-fille.jpg'
+import founderImg  from '@/assets/johan-portrait.webp'
+import filleImg    from '@/assets/johan-fille.webp'
 
 const { t } = useLocale()
 
@@ -122,7 +122,7 @@ onUnmounted(() => observer?.disconnect())
               :alt="t('contact.bio.filleAlt')"
               class="be-story__photo"
               width="400"
-              height="400"
+              height="533"
               loading="lazy"
             />
             <div class="be-story__photo-caption" aria-hidden="true">
@@ -362,23 +362,25 @@ onUnmounted(() => observer?.disconnect())
     }
   }
 
-  // ── Photo avec fille ──
+  // ── Photo avec fille (portrait) ──
+  // aspect-ratio 3/4 respecte le cadrage portrait sans couper le sujet
   &__photo-wrap {
     position: relative;
     border-radius: var(--radius-lg);
     overflow: hidden;
     box-shadow: var(--shadow-md);
     margin-bottom: 24px;
-    height: 24rem;
+    aspect-ratio: 3 / 4;
+    max-height: 600px;
 
-    @include m.respond-to(md) { height: 30rem; }
+    @include m.respond-to(md) { max-height: 700px; }
   }
 
   &__photo {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center top;
+    object-position: center center;
     display: block;
   }
 
