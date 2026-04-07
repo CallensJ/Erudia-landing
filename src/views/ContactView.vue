@@ -6,7 +6,11 @@
      4. ContactCtaSection  — CTA finale (essayer / voir les tarifs) -->
 <script setup lang="ts">
 import { useSeoHead } from '@/composables/useSeoHead'
+import { useBreadcrumbJsonLd } from '@/composables/useJsonLd'
 import ContactHero        from '@/components/sections/contact/ContactHero.vue'
+
+// 6.5 BreadcrumbList (section 6 SEO checklist)
+useBreadcrumbJsonLd({ label: { fr: 'Contact', en: 'Contact' }, path: '/contact' })
 
 useSeoHead({
   title: {

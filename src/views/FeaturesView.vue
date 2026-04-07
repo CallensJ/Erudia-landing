@@ -12,7 +12,11 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useSeoHead } from '@/composables/useSeoHead'
+import { useBreadcrumbJsonLd } from '@/composables/useJsonLd'
 import FeaturesHero      from '@/components/sections/features/FeaturesHero.vue'
+
+// 6.5 BreadcrumbList (section 6 SEO checklist)
+useBreadcrumbJsonLd({ label: { fr: 'Fonctionnalités', en: 'Features' }, path: '/features' })
 
 useSeoHead({
   title: {

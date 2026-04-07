@@ -3,7 +3,13 @@
      Hero → Problem → Features → Pedago → PricingTeaser → CTA → FaqMini -->
 <script setup lang="ts">
 import { useSeoHead } from '@/composables/useSeoHead'
+import { useWebSiteJsonLd, useOrganizationJsonLd, useSoftwareAppJsonLd } from '@/composables/useJsonLd'
 import HeroSection from '@/components/sections/home/HeroSection.vue'
+
+// 6.1 WebSite + 6.2 Organization + 6.3 SoftwareApplication (section 6 SEO checklist)
+useWebSiteJsonLd()
+useOrganizationJsonLd()
+useSoftwareAppJsonLd()
 
 useSeoHead({
   title: {

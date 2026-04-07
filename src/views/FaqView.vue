@@ -11,7 +11,12 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useSeoHead } from '@/composables/useSeoHead'
+import { useFaqPageJsonLd, useBreadcrumbJsonLd } from '@/composables/useJsonLd'
 import FaqHero           from '@/components/sections/faq/FaqHero.vue'
+
+// 6.4 FAQPage + 6.5 BreadcrumbList (section 6 SEO checklist)
+useFaqPageJsonLd()
+useBreadcrumbJsonLd({ label: { fr: 'FAQ', en: 'FAQ' }, path: '/faq' })
 
 useSeoHead({
   title: {

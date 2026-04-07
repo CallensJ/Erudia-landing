@@ -4,7 +4,11 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useSeoHead } from '@/composables/useSeoHead'
+import { useBreadcrumbJsonLd } from '@/composables/useJsonLd'
 import HowItWorksHero from '@/components/sections/how-it-works/HowItWorksHero.vue'
+
+// 6.5 BreadcrumbList (section 6 SEO checklist)
+useBreadcrumbJsonLd({ label: { fr: 'Comment ça marche', en: 'How it works' }, path: '/how-it-works' })
 
 useSeoHead({
   title: {

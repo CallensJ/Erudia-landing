@@ -4,7 +4,11 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useSeoHead } from '@/composables/useSeoHead'
+import { useBreadcrumbJsonLd } from '@/composables/useJsonLd'
 import PricingHero from '@/components/sections/pricing/PricingHero.vue'
+
+// 6.5 BreadcrumbList (section 6 SEO checklist)
+useBreadcrumbJsonLd({ label: { fr: 'Tarifs', en: 'Pricing' }, path: '/pricing' })
 
 useSeoHead({
   title: {
