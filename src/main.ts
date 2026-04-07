@@ -1,7 +1,7 @@
 // Point d'entrée de l'application Vue
 // Initialise Vue + Vue Router + @unhead/vue (SEO) + styles SCSS globaux
 import { createApp } from 'vue'
-import { createUnhead } from '@unhead/vue'
+import { createHead } from '@unhead/vue/client'
 import App from './App.vue'
 import router from './router'
 
@@ -23,6 +23,6 @@ import '@fontsource/nunito/800.css'
 import './styles/main.scss'
 
 const app = createApp(App)
-const head = createUnhead()
+const head = createHead()
 
 app.use(router).use(head).mount('#app')
