@@ -23,38 +23,23 @@ const pages = [
   { path: 'legal/mentions', priority: 0.4 },
 ]
 
-// Génère les entrées de sitemap avec hreflang pour chaque page
-const sitemapRoutes = pages.map(({ path, priority }) => {
-  const frUrl = `${BASE_URL}/fr${path ? `/${path}` : ''}`
-  const enUrl = `${BASE_URL}/en${path ? `/${path}` : ''}`
-  return {
-    url: frUrl,
-    lastmod: TODAY,
-    priority,
-    changefreq: priority >= 0.9 ? 'weekly' : 'monthly',
-    links: [
-      { lang: 'fr',        url: frUrl },
-      { lang: 'en',        url: enUrl },
-      { lang: 'x-default', url: frUrl },
-    ],
-  }
-})
+// Routes dynamiques explicites pour les deux langues
+const dynamicRoutes = pages.flatMap(({ path }) => [
+  `/fr${path ? `/${path}` : ''}`,
+  `/en${path ? `/${path}` : ''}`,
+])
 
-// Ajoute les versions EN (pointant vers les mêmes hreflang)
+// RoutesOptionMap : route → valeur (pour priority et changefreq)
+const priorityMap: Record<string, number> = {}
+const changefreqMap: Record<string, string> = {}
 pages.forEach(({ path, priority }) => {
-  const frUrl = `${BASE_URL}/fr${path ? `/${path}` : ''}`
-  const enUrl = `${BASE_URL}/en${path ? `/${path}` : ''}`
-  sitemapRoutes.push({
-    url: enUrl,
-    lastmod: TODAY,
-    priority,
-    changefreq: priority >= 0.9 ? 'weekly' : 'monthly',
-    links: [
-      { lang: 'fr',        url: frUrl },
-      { lang: 'en',        url: enUrl },
-      { lang: 'x-default', url: frUrl },
-    ],
-  })
+  const frPath = `/fr${path ? `/${path}` : ''}`
+  const enPath = `/en${path ? `/${path}` : ''}`
+  const freq = priority >= 0.9 ? 'weekly' : 'monthly'
+  priorityMap[frPath] = priority
+  priorityMap[enPath] = priority
+  changefreqMap[frPath] = freq
+  changefreqMap[enPath] = freq
 })
 
 export default defineConfig({
@@ -62,7 +47,16 @@ export default defineConfig({
     vue(),
     sitemap({
       hostname: BASE_URL,
-      routes: sitemapRoutes,
+      dynamicRoutes,
+      priority: priorityMap,
+      changefreq: changefreqMap,
+      lastmod: new Date(TODAY),
+      // i18n : génère les balises hreflang automatiquement (strategy prefix = /fr/ /en/)
+      i18n: {
+        defaultLanguage: 'fr',
+        languages: ['fr', 'en'],
+        strategy: 'prefix',
+      },
     }),
   ],
   resolve: {
