@@ -171,6 +171,15 @@ const premiumFeatures = computed(() => [
 
       </div>
 
+      <!-- Bannière prix garanti à vie -->
+      <div class="pricing-cards__guarantee" role="note">
+        <span class="pricing-cards__guarantee-icon" aria-hidden="true">🔒</span>
+        <div class="pricing-cards__guarantee-text">
+          <strong>{{ t('pricing.cards.priceGuaranteeTitle') }}</strong>
+          <span>{{ t('pricing.cards.priceGuaranteeBody') }}</span>
+        </div>
+      </div>
+
       <!-- Note Stripe en bas de section -->
       <p class="pricing-cards__stripe-note">{{ t('pricing.cards.stripe') }}</p>
 
@@ -199,6 +208,43 @@ const premiumFeatures = computed(() => [
       grid-template-columns: 1fr 1fr;
       // On laisse la card premium se décaler légèrement vers le haut
       align-items: center;
+    }
+  }
+
+  // ── Bannière prix garanti à vie ──
+  &__guarantee {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    max-width: 640px;
+    margin: 32px auto 0;
+    padding: 18px 24px;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.06) 0%, rgba(118, 75, 162, 0.06) 100%);
+    border: 1.5px solid rgba(102, 126, 234, 0.25);
+    border-radius: var(--radius-xl);
+  }
+
+  &__guarantee-icon {
+    font-size: 1.4rem;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  &__guarantee-text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    strong {
+      font-size: 0.92rem;
+      font-weight: 800;
+      color: var(--color-primary-dark);
+    }
+
+    span {
+      font-size: 0.84rem;
+      color: var(--color-text-light);
+      line-height: 1.55;
     }
   }
 

@@ -845,6 +845,9 @@ export const fr = {
       premiumF10: "Support prioritaire",
       stripe:
         "🔒 Paiement sécurisé via Stripe · Remboursement intégral dans les 14 jours · Données hébergées en Europe",
+      priceGuaranteeTitle: "Prix garanti à vie : 4,99 €/mois",
+      priceGuaranteeBody:
+        "Ce tarif est définitif. Peu importe les fonctionnalités que nous ajouterons dans les prochains mois, votre prix ne changera jamais.",
     },
     value: {
       pill: "💎 Ce que vous obtenez",

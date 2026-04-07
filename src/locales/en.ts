@@ -614,6 +614,9 @@ export const en = {
       premiumF9:  'Personalised learning recommendations',
       premiumF10: 'Priority support',
       stripe: '🔒 Secure payment via Stripe · Full refund within 14 days · Data hosted in Europe',
+      priceGuaranteeTitle: 'Price locked for life: €4.99/month',
+      priceGuaranteeBody:
+        'This price is final. No matter what features we add in the coming months, your price will never change.',
     },
     value: {
       pill:    '💎 What you get',
