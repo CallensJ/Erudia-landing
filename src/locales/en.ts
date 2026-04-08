@@ -789,8 +789,8 @@ export const en = {
       subline:
         "A fully playable free plan. One premium plan. No hidden tiers, no surprise renewals.",
       billingMonthly: "Monthly",
-      billingAnnual: "Annual",
-      billingSavings: "🎉 Save 33%",
+      billingAnnual: "6 months",
+      billingSavings: "Save €1.95",
     },
     cards: {
       title: "Our plans",

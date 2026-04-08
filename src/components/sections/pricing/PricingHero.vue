@@ -63,7 +63,7 @@ function toggle() {
             :class="{ 'pricing-hero__switch--annual': isAnnual }"
             role="switch"
             :aria-checked="isAnnual"
-            aria-label="Basculer vers facturation annuelle"
+            aria-label="Basculer vers facturation 6 mois"
             @click="toggle"
             @keydown.space.prevent="toggle"
             @keydown.enter.prevent="toggle"

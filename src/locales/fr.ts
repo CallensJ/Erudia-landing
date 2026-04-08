@@ -798,8 +798,8 @@ export const fr = {
       subline:
         "Un plan gratuit pleinement jouable. Un seul plan premium. Pas de niveaux cachés, pas de renouvellement surprise.",
       billingMonthly: "Mensuel",
-      billingAnnual: "Annuel",
-      billingSavings: " Économisez 33%",
+      billingAnnual: "6 mois",
+      billingSavings: "Économisez 1,95€",
     },
     cards: {
       title: "Nos plans tarifaires",
