@@ -76,7 +76,7 @@ const premiumPlan = computed(() => ({
 
         <!-- Carte premium (highlighted) -->
         <div class="pricing__card pricing__card--highlighted">
-          <div class="pricing__badge">{{ premiumPlan.badge }}</div>
+          <div v-if="premiumPlan.badge" class="pricing__badge">{{ premiumPlan.badge }}</div>
           <div class="pricing__plan-label">{{ premiumPlan.label }}</div>
           <div class="pricing__price">{{ premiumPlan.price }}</div>
           <div class="pricing__price-sub">{{ premiumPlan.sub }}</div>

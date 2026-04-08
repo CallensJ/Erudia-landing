@@ -39,7 +39,6 @@ const proofItems = computed(() => [
   { icon: '📡', label: t('home.hero.proofOffline') },
   { icon: '🔒', label: t('home.hero.proofCoppa') },
   { icon: '🌍', label: t('home.hero.proofBilingual') },
-  { icon: '✨', label: t('home.hero.proofFree') },
 ])
 </script>
 
@@ -103,7 +102,6 @@ const proofItems = computed(() => [
             <!-- Badges flottants autour du mockup -->
             <div class="hero__badge hero__badge--1">{{ t('home.hero.badge1') }}</div>
             <div class="hero__badge hero__badge--2">{{ t('home.hero.badge2') }}</div>
-            <div class="hero__badge hero__badge--3">{{ t('home.hero.badge3') }}</div>
 
             <!-- Téléphone mockup -->
             <div class="hero__phone">
