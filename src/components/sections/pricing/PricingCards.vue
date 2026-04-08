@@ -32,7 +32,6 @@ const freeFeatures = computed(() => [
   { text: t('pricing.cards.freeF7'),  yes: true },
   { text: t('pricing.cards.freeF8'),  yes: true },
   { text: t('pricing.cards.freeF9'),  yes: true },
-  { text: t('pricing.cards.freeF10'), yes: true },
   { text: t('pricing.cards.freeDis1'), yes: false },
   { text: t('pricing.cards.freeDis2'), yes: false },
 ])
@@ -48,7 +47,6 @@ const premiumFeatures = computed(() => [
   { text: t('pricing.cards.premiumF7') },
   { text: t('pricing.cards.premiumF8') },
   { text: t('pricing.cards.premiumF9') },
-  { text: t('pricing.cards.premiumF10') },
 ])
 </script>
 
@@ -107,8 +105,8 @@ const premiumFeatures = computed(() => [
         <!-- ── Plan Erudia+ (highlighted) ── -->
         <article class="plan-card plan-card--premium" aria-label="Plan Erudia+ — recommandé">
 
-          <!-- Badge "Le plus populaire" -->
-          <div class="plan-card__popular-badge">{{ t('pricing.cards.premiumBadge') }}</div>
+          <!-- Badge "Le plus populaire" — masqué si vide -->
+          <div v-if="t('pricing.cards.premiumBadge')" class="plan-card__popular-badge">{{ t('pricing.cards.premiumBadge') }}</div>
 
           <div class="plan-card__label plan-card__label--light">{{ t('pricing.cards.premiumLabel') }}</div>
 

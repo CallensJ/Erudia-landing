@@ -12,12 +12,12 @@ useBreadcrumbJsonLd({ label: { fr: 'Tarifs', en: 'Pricing' }, path: '/pricing' }
 
 useSeoHead({
   title: {
-    fr: 'Tarifs – Erudia quiz éducatif | 4,99 €/mois',
-    en: 'Pricing – Erudia educational quiz | €4.99/month',
+    fr: 'Tarifs – Erudia quiz éducatif | 1,99 €/mois',
+    en: 'Pricing – Erudia educational quiz | €1.99/month',
   },
   description: {
-    fr: 'Erudia est gratuit pour commencer. Passez Premium à 4,99 €/mois ou 39,99 €/an pour débloquer toutes les catégories et fonctionnalités.',
-    en: 'Erudia is free to start. Go Premium at €4.99/month or €39.99/year to unlock all categories and features.',
+    fr: 'Erudia est gratuit pour commencer. Passez Premium à 1,99 €/mois ou 9,99 € / 6 mois pour débloquer toutes les catégories et fonctionnalités.',
+    en: 'Erudia is free to start. Go Premium at €1.99/month or €9.99 / 6 months to unlock all categories and features.',
   },
   path: '/pricing',
 })

@@ -147,20 +147,8 @@ onUnmounted(() => observer?.disconnect())
   background: white;
   border-radius: var(--radius-md);
   border: 1.5px solid var(--color-surface-dark);
-  overflow: hidden;
-  transition:
-    border-color var(--transition),
-    opacity 0.5s ease,
-    translate 0.5s ease;
-
-  // Reveal
-  opacity: 0;
-  translate: 0 20px;
-
-  &.is-visible {
-    opacity: 1;
-    translate: 0 0;
-  }
+  // Pas de overflow:hidden ici pour ne pas masquer le contenu lors des transitions
+  transition: border-color var(--transition);
 
   &[data-delay='0'] { transition-delay: 0s; }
   &[data-delay='1'] { transition-delay: 0.07s; }
