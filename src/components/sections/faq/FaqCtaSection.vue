@@ -8,10 +8,8 @@
 import { onMounted, onUnmounted } from 'vue'
 import { RouterLink } from 'vue-router'
 import { useLocale } from '@/composables/useLocale'
-import { useComingSoon } from '@/composables/useComingSoon'
-
+import AppCtaLink from '@/components/ui/AppCtaLink.vue'
 const { t, localePath } = useLocale()
-const { openModal } = useComingSoon()
 
 let observer: IntersectionObserver | null = null
 
@@ -46,13 +44,9 @@ onUnmounted(() => observer?.disconnect())
         <p class="faq-cta__sub">{{ t('faq.cta.subline') }}</p>
 
         <div class="faq-cta__actions">
-          <button
-            type="button"
-            class="faq-cta__btn faq-cta__btn--white"
-            @click="openModal('faq_cta')"
-          >
+          <AppCtaLink class="faq-cta__btn faq-cta__btn--white">
             {{ t('faq.cta.btnPrimary') }}
-          </button>
+          </AppCtaLink>
           <RouterLink :to="localePath('/pricing')" class="faq-cta__btn faq-cta__btn--ghost">
             {{ t('faq.cta.btnSecondary') }}
           </RouterLink>

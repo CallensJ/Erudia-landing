@@ -7,10 +7,8 @@
 <script setup lang="ts">
 import { onMounted, computed } from 'vue'
 import { useLocale } from '@/composables/useLocale'
-import { useComingSoon } from '@/composables/useComingSoon'
-
+import AppCtaLink from '@/components/ui/AppCtaLink.vue'
 const { t, localePath } = useLocale()
-const { openModal } = useComingSoon()
 
 // Génération des étoiles en JS pour éviter le HTML statique répétitif
 onMounted(() => {
@@ -70,13 +68,9 @@ const proofItems = computed(() => [
 
           <!-- CTAs -->
           <div class="hero__actions">
-            <button
-              type="button"
-              class="btn btn--primary btn--lg"
-              @click="openModal('hero_primary')"
-            >
+            <AppCtaLink class="btn btn--primary btn--lg">
               {{ t('home.hero.ctaPrimary') }}
-            </button>
+            </AppCtaLink>
             <RouterLink :to="localePath('/how-it-works')" class="btn btn--ghost btn--lg">
               {{ t('home.hero.ctaSecondary') }}
             </RouterLink>

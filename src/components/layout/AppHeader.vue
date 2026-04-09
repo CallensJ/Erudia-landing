@@ -7,8 +7,7 @@
 import { ref, computed, onMounted, onUnmounted } from "vue";
 import { RouterLink, useRoute } from "vue-router";
 import { useLocale } from "@/composables/useLocale";
-import { useComingSoon } from "@/composables/useComingSoon";
-
+import AppCtaLink from "@/components/ui/AppCtaLink.vue";
 const route = useRoute();
 
 // État menu mobile
@@ -18,7 +17,6 @@ const isMenuOpen = ref(false);
 const isScrolled = ref(false);
 
 const { locale, t, setLocale, localePath } = useLocale();
-const { openModal } = useComingSoon();
 
 function toggleMenu() {
     isMenuOpen.value = !isMenuOpen.value;
@@ -100,13 +98,9 @@ const navLinks = computed(() => [
                     </div>
 
                     <!-- CTA desktop -->
-                    <button
-                        type="button"
-                        class="btn btn--primary btn--sm header__cta"
-                        @click="openModal('header_cta')"
-                    >
+                    <AppCtaLink class="btn btn--primary btn--sm header__cta">
                         {{ t('nav.cta') }}
-                    </button>
+                    </AppCtaLink>
 
                     <!-- Hamburger mobile -->
                     <button
@@ -140,13 +134,9 @@ const navLinks = computed(() => [
         >
             {{ link.label }}
         </RouterLink>
-        <button
-            type="button"
-            class="btn btn--primary mobile-menu__cta"
-            @click="() => { closeMenu(); openModal(); }"
-        >
+        <AppCtaLink class="btn btn--primary mobile-menu__cta" @click="closeMenu">
             {{ t('nav.cta') }}
-        </button>
+        </AppCtaLink>
     </nav>
 </template>
 

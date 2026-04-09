@@ -5,10 +5,8 @@
 <script setup lang="ts">
 import { RouterLink } from 'vue-router'
 import { useLocale } from '@/composables/useLocale'
-import { useComingSoon } from '@/composables/useComingSoon'
-
+import AppCtaLink from '@/components/ui/AppCtaLink.vue'
 const { t, localePath } = useLocale()
-const { openModal } = useComingSoon()
 </script>
 
 <template>
@@ -25,13 +23,9 @@ const { openModal } = useComingSoon()
         <p class="cta__subline">{{ t('home.cta.subline') }}</p>
 
         <div class="cta__actions">
-          <button
-            type="button"
-            class="btn cta__btn-primary"
-            @click="openModal('home_cta')"
-          >
+          <AppCtaLink class="btn cta__btn-primary">
             {{ t('home.cta.btnPrimary') }}
-          </button>
+          </AppCtaLink>
           <RouterLink :to="localePath('/how-it-works')" class="btn cta__btn-ghost">
             {{ t('home.cta.btnSecondary') }}
           </RouterLink>

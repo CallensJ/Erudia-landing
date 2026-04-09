@@ -7,10 +7,8 @@
 <script setup lang="ts">
 import { onMounted, onUnmounted } from 'vue'
 import { useLocale } from '@/composables/useLocale'
-import { useComingSoon } from '@/composables/useComingSoon'
-
+import AppCtaLink from '@/components/ui/AppCtaLink.vue'
 const { t } = useLocale()
-const { openModal } = useComingSoon()
 
 // ── Reveal au scroll ──────────────────────────────────────────
 let observer: IntersectionObserver | null = null
@@ -58,20 +56,12 @@ onUnmounted(() => observer?.disconnect())
 
         <!-- Boutons -->
         <div class="pricing-cta__actions">
-          <button
-            type="button"
-            class="pricing-cta__btn pricing-cta__btn--white"
-            @click="openModal('pricing_cta')"
-          >
+          <AppCtaLink class="pricing-cta__btn pricing-cta__btn--white">
             {{ t('pricing.cta.btnPrimary') }}
-          </button>
-          <button
-            type="button"
-            class="pricing-cta__btn pricing-cta__btn--ghost"
-            @click="openModal('pricing_cta')"
-          >
+          </AppCtaLink>
+          <AppCtaLink class="pricing-cta__btn pricing-cta__btn--ghost">
             {{ t('pricing.cta.btnSecondary') }}
-          </button>
+          </AppCtaLink>
         </div>
 
         <!-- Réassurance -->

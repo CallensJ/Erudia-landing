@@ -7,10 +7,8 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useLocale } from '@/composables/useLocale'
-import { useComingSoon } from '@/composables/useComingSoon'
-
+import AppCtaLink from '@/components/ui/AppCtaLink.vue'
 const { t } = useLocale()
-const { openModal } = useComingSoon()
 
 const props = defineProps<{
   isAnnual: boolean
@@ -70,13 +68,9 @@ const premiumFeatures = computed(() => [
           <div class="plan-card__period">{{ t('pricing.cards.freePeriod') }}</div>
           <div class="plan-card__annual-note">&nbsp;</div>
 
-          <button
-            type="button"
-            class="plan-card__cta plan-card__cta--outline"
-            @click="openModal('pricing_card_free')"
-          >
+          <AppCtaLink class="plan-card__cta plan-card__cta--outline">
             {{ t('pricing.cards.freeCta') }}
-          </button>
+          </AppCtaLink>
           <p class="plan-card__reassure">{{ t('pricing.cards.freeReassure') }}</p>
 
           <hr class="plan-card__divider" />
@@ -138,13 +132,9 @@ const premiumFeatures = computed(() => [
             <div v-else class="plan-card__annual-note">&nbsp;</div>
           </Transition>
 
-          <button
-            type="button"
-            class="plan-card__cta plan-card__cta--white"
-            @click="openModal('pricing_card_premium')"
-          >
+          <AppCtaLink class="plan-card__cta plan-card__cta--white">
             {{ t('pricing.cards.premiumCta') }}
-          </button>
+          </AppCtaLink>
           <p class="plan-card__reassure plan-card__reassure--light">
             {{ t('pricing.cards.premiumReassure') }}
           </p>

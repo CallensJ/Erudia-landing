@@ -7,10 +7,8 @@
 import { onMounted, onUnmounted } from 'vue'
 import { RouterLink } from 'vue-router'
 import { useLocale } from '@/composables/useLocale'
-import { useComingSoon } from '@/composables/useComingSoon'
-
+import AppCtaLink from '@/components/ui/AppCtaLink.vue'
 const { t, localePath } = useLocale()
-const { openModal } = useComingSoon()
 
 // ── Reveal au scroll ──────────────────────────────────────────
 let observer: IntersectionObserver | null = null
@@ -59,13 +57,9 @@ onUnmounted(() => observer?.disconnect())
 
         <!-- CTAs -->
         <div class="hiw-cta__actions">
-          <button
-            type="button"
-            class="hiw-cta__btn hiw-cta__btn--primary"
-            @click="openModal('how_it_works_cta')"
-          >
+          <AppCtaLink class="hiw-cta__btn hiw-cta__btn--primary">
             {{ t('howItWorks.cta.btnPrimary') }}
-          </button>
+          </AppCtaLink>
           <RouterLink :to="localePath('/pricing')" class="hiw-cta__btn hiw-cta__btn--ghost">
             {{ t('howItWorks.cta.btnSecondary') }}
           </RouterLink>

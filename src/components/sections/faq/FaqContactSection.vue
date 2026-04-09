@@ -7,10 +7,8 @@
 import { onMounted, onUnmounted } from 'vue'
 import { RouterLink } from 'vue-router'
 import { useLocale } from '@/composables/useLocale'
-import { useComingSoon } from '@/composables/useComingSoon'
-
+import AppCtaLink from '@/components/ui/AppCtaLink.vue'
 const { t, localePath } = useLocale()
-const { openModal } = useComingSoon()
 
 let observer: IntersectionObserver | null = null
 
@@ -52,13 +50,9 @@ onUnmounted(() => observer?.disconnect())
           <RouterLink :to="localePath('/contact')" class="faq-contact__btn faq-contact__btn--white">
             {{ t('faq.contact.cta') }}
           </RouterLink>
-          <button
-            type="button"
-            class="faq-contact__btn faq-contact__btn--ghost"
-            @click="openModal('faq_contact_cta')"
-          >
+          <AppCtaLink class="faq-contact__btn faq-contact__btn--ghost">
             {{ t('faq.cta.btnPrimary') }}
-          </button>
+          </AppCtaLink>
         </div>
 
       </div>

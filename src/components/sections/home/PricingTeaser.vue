@@ -7,10 +7,8 @@
 import { computed } from 'vue'
 import { RouterLink } from 'vue-router'
 import { useLocale } from '@/composables/useLocale'
-import { useComingSoon } from '@/composables/useComingSoon'
-
+import AppCtaLink from '@/components/ui/AppCtaLink.vue'
 const { t, localePath } = useLocale()
-const { openModal } = useComingSoon()
 
 const freePlan = computed(() => ({
   label: t('home.pricingTeaser.freeLabel'),
@@ -69,9 +67,9 @@ const premiumPlan = computed(() => ({
               <span>{{ f }}</span>
             </li>
           </ul>
-          <button type="button" class="btn btn-secondary pricing__cta" @click="openModal('pricing_teaser_free')">
+          <AppCtaLink class="btn btn-secondary pricing__cta">
             {{ freePlan.cta }}
-          </button>
+          </AppCtaLink>
         </div>
 
         <!-- Carte premium (highlighted) -->
@@ -86,9 +84,9 @@ const premiumPlan = computed(() => ({
               <span>{{ f }}</span>
             </li>
           </ul>
-          <button type="button" class="btn btn-primary pricing__cta" @click="openModal('pricing_teaser_premium')">
+          <AppCtaLink class="btn btn-primary pricing__cta">
             {{ premiumPlan.cta }}
-          </button>
+          </AppCtaLink>
         </div>
 
       </div>

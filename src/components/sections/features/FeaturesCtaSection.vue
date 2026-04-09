@@ -6,10 +6,8 @@
 import { onMounted, onUnmounted } from 'vue'
 import { RouterLink } from 'vue-router'
 import { useLocale } from '@/composables/useLocale'
-import { useComingSoon } from '@/composables/useComingSoon'
-
+import AppCtaLink from '@/components/ui/AppCtaLink.vue'
 const { t, localePath } = useLocale()
-const { openModal } = useComingSoon()
 
 let observer: IntersectionObserver | null = null
 
@@ -46,13 +44,9 @@ onUnmounted(() => observer?.disconnect())
         <p class="feat-cta__sub">{{ t('features.cta.subline') }}</p>
 
         <div class="feat-cta__actions">
-          <button
-            type="button"
-            class="feat-cta__btn feat-cta__btn--white"
-            @click="openModal('features_cta')"
-          >
+          <AppCtaLink class="feat-cta__btn feat-cta__btn--white">
             {{ t('features.cta.btnPrimary') }}
-          </button>
+          </AppCtaLink>
           <RouterLink :to="localePath('/pricing')" class="feat-cta__btn feat-cta__btn--ghost">
             {{ t('features.cta.btnSecondary') }}
           </RouterLink>
