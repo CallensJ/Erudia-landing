@@ -28,7 +28,7 @@ const { openModal } = useComingSoon()
           <button
             type="button"
             class="btn cta__btn-primary"
-            @click="openModal"
+            @click="openModal('home_cta')"
           >
             {{ t('home.cta.btnPrimary') }}
           </button>

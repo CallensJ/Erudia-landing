@@ -73,7 +73,7 @@ const proofItems = computed(() => [
             <button
               type="button"
               class="btn btn--primary btn--lg"
-              @click="openModal"
+              @click="openModal('hero_primary')"
             >
               {{ t('home.hero.ctaPrimary') }}
             </button>

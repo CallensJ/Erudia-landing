@@ -55,7 +55,7 @@ onUnmounted(() => observer?.disconnect())
           <button
             type="button"
             class="faq-contact__btn faq-contact__btn--ghost"
-            @click="openModal"
+            @click="openModal('faq_contact_cta')"
           >
             {{ t('faq.cta.btnPrimary') }}
           </button>

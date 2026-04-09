@@ -8,8 +8,10 @@
 import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { z } from 'zod'
 import { useLocale } from '@/composables/useLocale'
+import { useAnalytics } from '@/composables/useAnalytics'
 
 const { t, td } = useLocale()
+const { trackFormSubmit } = useAnalytics()
 
 // ── Types ──────────────────────────────────────────────────────
 interface Subject { value: string; label: string }
@@ -91,6 +93,7 @@ async function handleSubmit() {
     await new Promise((resolve) => setTimeout(resolve, 1200))
     isSuccess.value = true
     form.value = { name: '', email: '', subject: '', message: '' }
+    trackFormSubmit('contact')
   } catch {
     hasError.value = true
   } finally {

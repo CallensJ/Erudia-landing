@@ -12,11 +12,21 @@
          Élimine la dépendance Google Fonts CDN et garantit font-display:swap.
          Vite bundle les woff2 + CSS — aucune requête externe au runtime. -->
 
-    <!-- Google Analytics 4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DD0E1Z75GG"></script>
+    <!-- Google Analytics 4 — Consent Mode v2
+         Le consentement par défaut est "denied" (RGPD/CNIL).
+         GA4 ne dépose aucun cookie tant que l'utilisateur n'a pas accepté via CookieConsent.vue.
+         La mise à jour vers "granted" est faite par gtag('consent','update') après acceptation. -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
+      gtag('consent', 'default', {
+        analytics_storage: 'denied',
+        ad_storage: 'denied',
+        wait_for_update: 500
+      });
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DD0E1Z75GG"></script>
+    <script>
       gtag('js', new Date());
       gtag('config', 'G-DD0E1Z75GG');
     </script>

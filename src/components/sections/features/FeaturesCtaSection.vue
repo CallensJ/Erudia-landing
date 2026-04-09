@@ -49,7 +49,7 @@ onUnmounted(() => observer?.disconnect())
           <button
             type="button"
             class="feat-cta__btn feat-cta__btn--white"
-            @click="openModal"
+            @click="openModal('features_cta')"
           >
             {{ t('features.cta.btnPrimary') }}
           </button>

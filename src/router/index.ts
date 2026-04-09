@@ -4,6 +4,7 @@
 // Navigation guard : synchronise la locale de l'URL → useLocale singleton.
 import { createRouter, createWebHistory } from 'vue-router'
 import { syncLocale, type Locale } from '@/composables/useLocale'
+import { useAnalytics } from '@/composables/useAnalytics'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -81,6 +82,13 @@ router.beforeEach((to) => {
   if (localeParam && typeof localeParam === 'string') {
     syncLocale(localeParam as Locale)
   }
+})
+
+// Envoie un page_view GA4 à chaque navigation
+router.afterEach((to) => {
+  const { trackPageView } = useAnalytics()
+  // nextTick simulé via setTimeout(0) : document.title est mis à jour par useSeoHead
+  setTimeout(() => trackPageView(to.fullPath), 0)
 })
 
 export default router

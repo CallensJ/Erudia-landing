@@ -1301,7 +1301,10 @@ export const fr = {
         {
           heading: "Cookies",
           paragraphs: [
-            "Erudia n'utilise pas de cookies de tracking ou publicitaires. Seul le stockage local du navigateur (localStorage, IndexedDB) est utilisé pour la progression de jeu et la préférence de langue.",
+            "La landing page erudia.app utilise Google Analytics 4 (GA4), un outil de mesure d'audience opéré par Google Ireland Ltd. Ce service dépose un cookie analytique uniquement après votre consentement explicite via la bannière affichée à votre première visite.",
+            "Si vous refusez ou ignorez la bannière, aucun cookie analytique n'est déposé et GA4 n'est pas activé. Vous pouvez modifier votre choix à tout moment via le lien « Gestion des cookies » en bas de page.",
+            "Cookies utilisés — _ga (Google Analytics, 13 mois) : distinguer les utilisateurs de manière anonyme. _ga_XXXXXXXX (Google Analytics, 13 mois) : maintenir l'état de session GA4. erudia_consent (first-party, 13 mois) : mémoriser votre choix de consentement.",
+            "L'application app.erudia.app utilise uniquement des cookies de session strictement nécessaires au fonctionnement de l'authentification (Supabase Auth). Ces cookies sont exemptés de consentement.",
           ],
         },
       ],
@@ -1359,8 +1362,10 @@ export const fr = {
         {
           heading: "Cookies et stockage local",
           paragraphs: [
-            "Erudia n'utilise aucun cookie de tracking, de publicité ou d'analyse tiers.",
-            "Le stockage local du navigateur (localStorage, IndexedDB) est utilisé exclusivement pour : la progression de jeu hors ligne, la préférence de langue et le maintien de la session.",
+            "La landing page erudia.app utilise Google Analytics 4 (base légale : consentement, Art. 6.1.a RGPD). GA4 n'est activé qu'après acceptation explicite via la bannière cookie. En cas de refus, aucun cookie tiers n'est déposé.",
+            "Le cookie de consentement erudia_consent (first-party, 13 mois) enregistre votre choix : identifiant anonyme, date, version de la politique. Aucune donnée personnelle identifiable n'y figure.",
+            "L'application app.erudia.app utilise un cookie de session Supabase Auth (strictement nécessaire, exempté de consentement selon la directive ePrivacy) et le stockage local du navigateur (localStorage, IndexedDB) pour la progression de jeu hors ligne et la préférence de langue.",
+            "Aucun cookie publicitaire ou de profilage n'est utilisé sur aucun des deux périmètres.",
           ],
         },
       ],

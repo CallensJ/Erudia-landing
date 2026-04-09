@@ -73,7 +73,7 @@ const premiumFeatures = computed(() => [
           <button
             type="button"
             class="plan-card__cta plan-card__cta--outline"
-            @click="openModal"
+            @click="openModal('pricing_card_free')"
           >
             {{ t('pricing.cards.freeCta') }}
           </button>
@@ -141,7 +141,7 @@ const premiumFeatures = computed(() => [
           <button
             type="button"
             class="plan-card__cta plan-card__cta--white"
-            @click="openModal"
+            @click="openModal('pricing_card_premium')"
           >
             {{ t('pricing.cards.premiumCta') }}
           </button>

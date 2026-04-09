@@ -61,14 +61,14 @@ onUnmounted(() => observer?.disconnect())
           <button
             type="button"
             class="pricing-cta__btn pricing-cta__btn--white"
-            @click="openModal"
+            @click="openModal('pricing_cta')"
           >
             {{ t('pricing.cta.btnPrimary') }}
           </button>
           <button
             type="button"
             class="pricing-cta__btn pricing-cta__btn--ghost"
-            @click="openModal"
+            @click="openModal('pricing_cta')"
           >
             {{ t('pricing.cta.btnSecondary') }}
           </button>

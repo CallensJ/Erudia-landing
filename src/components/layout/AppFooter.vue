@@ -7,8 +7,10 @@
 import { ref, computed } from 'vue'
 import { RouterLink } from 'vue-router'
 import { useLocale } from '@/composables/useLocale'
+import { useCookieConsent } from '@/composables/useCookieConsent'
 
-const { t, localePath } = useLocale()
+const { t, localePath, locale } = useLocale()
+const { openBanner } = useCookieConsent()
 
 const email = ref('')
 const submitted = ref(false)
@@ -84,6 +86,12 @@ const currentYear = new Date().getFullYear()
           <ul class="footer__links">
             <li v-for="link in legalLinks" :key="link.to">
               <RouterLink :to="link.to" class="footer__link">{{ link.label }}</RouterLink>
+            </li>
+            <li>
+              <!-- Rouvre la bannière cookie sans rechargement de page -->
+              <button class="footer__link footer__link--btn" @click="openBanner">
+                {{ locale === 'fr' ? 'Gestion des cookies' : 'Cookie settings' }}
+              </button>
             </li>
           </ul>
         </nav>
@@ -239,6 +247,16 @@ const currentYear = new Date().getFullYear()
 
     &:hover {
       color: white;
+    }
+
+    // Bouton stylé comme un lien (Gestion des cookies)
+    &--btn {
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      font-family: inherit;
+      text-align: left;
     }
   }
 

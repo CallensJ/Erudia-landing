@@ -69,7 +69,7 @@ const premiumPlan = computed(() => ({
               <span>{{ f }}</span>
             </li>
           </ul>
-          <button type="button" class="btn btn-secondary pricing__cta" @click="openModal">
+          <button type="button" class="btn btn-secondary pricing__cta" @click="openModal('pricing_teaser_free')">
             {{ freePlan.cta }}
           </button>
         </div>
@@ -86,7 +86,7 @@ const premiumPlan = computed(() => ({
               <span>{{ f }}</span>
             </li>
           </ul>
-          <button type="button" class="btn btn-primary pricing__cta" @click="openModal">
+          <button type="button" class="btn btn-primary pricing__cta" @click="openModal('pricing_teaser_premium')">
             {{ premiumPlan.cta }}
           </button>
         </div>

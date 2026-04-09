@@ -103,7 +103,7 @@ const navLinks = computed(() => [
                     <button
                         type="button"
                         class="btn btn--primary btn--sm header__cta"
-                        @click="openModal"
+                        @click="openModal('header_cta')"
                     >
                         {{ t('nav.cta') }}
                     </button>

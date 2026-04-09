@@ -1290,7 +1290,10 @@ export const en = {
         {
           heading: "Cookies",
           paragraphs: [
-            "Erudia does not use tracking or advertising cookies. Only browser-local storage (localStorage, IndexedDB) is used for game progress and language preferences.",
+            "The erudia.app landing page uses Google Analytics 4 (GA4), an audience measurement tool operated by Google Ireland Ltd. This service sets an analytics cookie only after your explicit consent via the banner shown on your first visit.",
+            "If you decline or dismiss the banner, no analytics cookie is set and GA4 is not activated. You can change your choice at any time via the \"Cookie settings\" link in the footer.",
+            "Cookies used — _ga (Google Analytics, 13 months): anonymously distinguish users. _ga_XXXXXXXX (Google Analytics, 13 months): maintain GA4 session state. erudia_consent (first-party, 13 months): remember your consent choice.",
+            "The app.erudia.app application uses only strictly necessary session cookies for authentication (Supabase Auth). These cookies are exempt from consent requirements.",
           ],
         },
       ],
@@ -1348,8 +1351,10 @@ export const en = {
         {
           heading: "Cookies and Local Storage",
           paragraphs: [
-            "Erudia uses no tracking, advertising or third-party analytics cookies.",
-            "Browser-local storage (localStorage, IndexedDB) is used exclusively for: offline game progress, language preferences and session maintenance.",
+            "The erudia.app landing page uses Google Analytics 4 (legal basis: consent, Art. 6.1.a GDPR). GA4 is only activated after explicit acceptance via the cookie banner. If declined, no third-party cookie is set.",
+            "The consent cookie erudia_consent (first-party, 13 months) records your choice: anonymous identifier, date, policy version. No personally identifiable information is stored in it.",
+            "The app.erudia.app application uses a Supabase Auth session cookie (strictly necessary, exempt from consent under the ePrivacy directive) and browser-local storage (localStorage, IndexedDB) for offline game progress and language preferences.",
+            "No advertising or profiling cookies are used on either domain.",
           ],
         },
       ],

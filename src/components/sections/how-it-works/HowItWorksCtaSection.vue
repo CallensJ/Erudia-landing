@@ -62,7 +62,7 @@ onUnmounted(() => observer?.disconnect())
           <button
             type="button"
             class="hiw-cta__btn hiw-cta__btn--primary"
-            @click="openModal"
+            @click="openModal('how_it_works_cta')"
           >
             {{ t('howItWorks.cta.btnPrimary') }}
           </button>
