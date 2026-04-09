@@ -57,7 +57,7 @@ const currentYear = new Date().getFullYear()
           <!-- Réseaux sociaux -->
           <div class="footer__socials">
             <a
-              href="https://facebook.com/erudia"
+              href="https://www.facebook.com/profile.php?id=61575407925616&locale=fr_FR"
               class="footer__social"
               target="_blank"
               rel="noopener"
