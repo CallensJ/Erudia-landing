@@ -17,7 +17,7 @@ export const fr = {
   // ── Footer ───────────────────────────────────────────────────
   footer: {
     tagline:
-      "Le quiz éducatif que les enfants aiment — et les parents approuvent.",
+      "Le quiz éducatif que les enfants aiment et les parents approuvent.",
     navTitle: "Application",
     legalTitle: "Légal",
     newsletter: {
@@ -29,9 +29,8 @@ export const fr = {
       success: "✓ Merci ! On vous tiendra au courant.",
       ariaInput: "Votre adresse email",
     },
-    copyright: "© {year} Erudia — Conçu avec ❤️ pour les curieux de 6 à 11 ans. Par",
-    copyrightAuthor: "johanwebstudio",
-    copyrightAuthorUrl: "https://www.johanwebstudio.fr",
+    copyright:
+      "© {year} Erudia — Conçu avec ❤️ pour les curieux de 6 à 11 ans.",
     badgeCoppa: " COPPA compliant",
     badgeOffline: " Offline-first",
     badgeLangs: " FR / EN",
@@ -48,7 +47,7 @@ export const fr = {
       title1: "Le quiz éducatif offline,",
       title2: "que vos enfants vont adorer.",
       subline:
-        "Erudia est le quiz éducatif conçu pour les enfants de 6 à 11 ans. Mode hors ligne, bilingue FR/EN, suivi parental intégré — et sans publicité.",
+        "Erudia est le quiz éducatif conçu pour les enfants de 6 à 11 ans. Mode hors ligne, bilingue FR/EN, suivi parental intégré et sans publicité.",
       ctaPrimary: " Jouer maintenant",
       ctaSecondary: "Voir comment ça marche",
       proofOffline: "Mode hors ligne",
@@ -70,7 +69,7 @@ export const fr = {
       pill: "Conçu pour le quotidien",
       title: "Des situations que tout parent connaît",
       subline:
-        "Erudia est né de ces petits moments du quotidien — et de l'envie de les transformer en occasions d'apprendre.",
+        "Erudia est né de ces petits moments du quotidien et de l'envie de les transformer en occasions d'apprendre.",
       item1Title: "En route, en vacances…",
       item1Problem:
         "Le trajet de 40 minutes, la semaine sans WiFi au chalet, la salle d'attente — autant de moments où l'on voudrait que l'apprentissage continue, naturellement.",
@@ -87,7 +86,7 @@ export const fr = {
       item3Solution:
         "Le tableau de bord parental d'Erudia donne une vue honnête et simple : scores par catégorie, régularité, badges obtenus. Pas de jargon, juste l'essentiel.",
       closing:
-        "Erudia a été pensé par des parents, pour des parents — et surtout pour les enfants.",
+        "Erudia a été pensé par des parents, pour des parents et surtout pour les enfants.",
     },
     features: {
       pill: "Ce qui fait la différence",
@@ -106,7 +105,7 @@ export const fr = {
       card3Tag: "Pour les parents",
       card3Title: "Vous restez aux commandes",
       card3Desc:
-        "Un espace parent, et vous accédez aux progrès de votre enfant. Scores, régularité, objectifs — en un coup d'œil, sans friction.",
+        "Un code PIN, et vous accédez aux progrès de votre enfant. Scores, régularité, objectifs — en un coup d'œil, sans friction.",
       cta: "Voir toutes les fonctionnalités",
     },
     pedago: {
@@ -124,8 +123,7 @@ export const fr = {
       level3Desc: "Culture internationale, programme 6e–4e",
       stat1Num: "700+",
       stat1Title: "Questions / catégorie",
-      stat1Desc:
-        "Alignées sur les programmes FR et international",
+      stat1Desc: "Alignées sur les programmes FR et international",
       stat2Num: "21",
       stat2Title: "Catégories",
       stat2Desc:
@@ -1264,13 +1262,16 @@ export const fr = {
       pill: "Notre histoire",
       title: "Une app née d'un",
       titleAccent: "besoin réel.",
-      subline: "Erudia n'est pas né d'une étude de marché. Il est né d'un papa développeur, d'une petite fille philippine-française, et d'une question simple : pourquoi il n'existe pas une app comme ça ?",
+      subline:
+        "Erudia n'est pas né d'une étude de marché. Il est né d'un papa développeur, d'une petite fille philippine-française, et d'une question simple : pourquoi il n'existe pas une app comme ça ?",
     },
     vision: {
       pill: "Notre conviction pédagogique",
       title: "Pourquoi 500 questions par catégorie ?",
-      subline: "La densité de contenu d'Erudia n'est pas un argument commercial. C'est une conviction.",
-      blockquote: "Un enfant qui joue régulièrement doit finir par acquérir une vraie culture générale — pas une collection d'anecdotes.",
+      subline:
+        "La densité de contenu d'Erudia n'est pas un argument commercial. C'est une conviction.",
+      blockquote:
+        "Un enfant qui joue régulièrement doit finir par acquérir une vraie culture générale — pas une collection d'anecdotes.",
       p1: "C'est pourquoi chaque catégorie vise 500 à 800 questions : suffisamment pour qu'un enfant qui joue plusieurs fois par semaine ne revoie jamais les mêmes questions pendant des mois, et suffisamment pour couvrir en profondeur les thèmes du programme scolaire français (Cycles 2 et 3).",
       p2: "Le niveau de culture générale des enfants baisse. Les écrans passifs occupent le temps autrefois dédié à la lecture, aux jeux de société, aux encyclopédies. Erudia ne prétend pas résoudre ce problème seul — mais il se positionne explicitement comme un outil qui exige de savoir pour avancer, pas seulement de cliquer.",
       stat1Value: "500–800",
@@ -1283,20 +1284,25 @@ export const fr = {
     fle: {
       pill: "Version anglophone",
       title: "La version EN n'est pas une traduction.",
-      subline: "C'est un produit à part entière, conçu pour un profil bien précis.",
+      subline:
+        "C'est un produit à part entière, conçu pour un profil bien précis.",
       p1: "La version anglaise d'Erudia a été pensée pour un enfant anglophone qui doit intégrer le référentiel culturel français — l'histoire de France, la géographie hexagonale, les institutions de la République — parce qu'il va vivre, étudier ou grandir en France.",
       p2: "Ce n'est pas du FLE au sens strict (apprendre la grammaire ou le vocabulaire). C'est une préparation au référentiel culturel et scolaire français, transmise dans la langue que l'enfant maîtrise déjà : l'anglais.",
-      quote: "Cette vision est directement issue de l'expérience du fondateur : préparer sa propre fille à un retour en France après une enfance aux Philippines, en lui donnant les repères culturels et historiques qu'elle n'a pas pu acquérir naturellement.",
+      quote:
+        "Cette vision est directement issue de l'expérience du fondateur : préparer sa propre fille à un retour en France après une enfance aux Philippines, en lui donnant les repères culturels et historiques qu'elle n'a pas pu acquérir naturellement.",
       pillFeature1: "Expliqué en anglais",
       pillFeature2: "Culture française",
       pillFeature3: "Programmes Cycles 2–3",
       pillFeature4: "Différenciateur fort",
       card1Title: "Conçu pour les familles bilingues",
-      card1Text: "Enfants franco-étrangers, familles expatriées, enfants adoptés — Erudia EN leur donne les repères culturels français dans leur langue naturelle.",
+      card1Text:
+        "Enfants franco-étrangers, familles expatriées, enfants adoptés — Erudia EN leur donne les repères culturels français dans leur langue naturelle.",
       card2Title: "Pas une traduction, une adaptation",
-      card2Text: "Chaque catégorie EN est calibrée sur ce que doit savoir un enfant qui arrive en France — depuis le point de vue de quelqu'un qui ne baigne pas encore dans cette culture.",
+      card2Text:
+        "Chaque catégorie EN est calibrée sur ce que doit savoir un enfant qui arrive en France — depuis le point de vue de quelqu'un qui ne baigne pas encore dans cette culture.",
       card3Title: "Un différenciateur fort",
-      card3Text: "Il n'existe pas d'outil équivalent sur le marché anglophone. Erudia se positionne comme la référence pour la préparation au référentiel scolaire français en anglais.",
+      card3Text:
+        "Il n'existe pas d'outil équivalent sur le marché anglophone. Erudia se positionne comme la référence pour la préparation au référentiel scolaire français en anglais.",
     },
     cta: {
       title: "Vous aussi, essayez Erudia.",
