@@ -44,6 +44,7 @@ const navLinks = computed(() => [
     { label: t("nav.howItWorks"), to: localePath("/how-it-works") },
     { label: t("nav.pricing"),    to: localePath("/pricing") },
     { label: t("nav.faq"),        to: localePath("/faq") },
+    { label: t("nav.about"),      to: localePath("/about") },
     { label: t("nav.contact"),    to: localePath("/contact") },
 ]);
 </script>
