@@ -129,6 +129,7 @@ const currentYear = new Date().getFullYear()
       <div class="footer__bottom">
         <p class="footer__copyright">
           {{ t('footer.copyright').replace('{year}', String(currentYear)) }}
+          <a :href="t('footer.copyrightAuthorUrl')" target="_blank" rel="noopener noreferrer" class="footer__copyright-link">{{ t('footer.copyrightAuthor') }}</a>.
         </p>
         <div class="footer__badges">
           <span class="footer__badge">{{ t('footer.badgeCoppa') }}</span>
@@ -331,6 +332,17 @@ const currentYear = new Date().getFullYear()
   &__copyright {
     font-size: 0.82rem;
     color: rgba(255, 255, 255, 0.35);
+
+    &-link {
+      color: rgba(255, 255, 255, 0.5);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: rgba(255, 255, 255, 0.8);
+      }
+    }
   }
 
   &__badges {

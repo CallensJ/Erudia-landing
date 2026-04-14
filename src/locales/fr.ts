@@ -29,8 +29,9 @@ export const fr = {
       success: "✓ Merci ! On vous tiendra au courant.",
       ariaInput: "Votre adresse email",
     },
-    copyright:
-      "© {year} Erudia — Conçu avec ❤️ pour les curieux de 6 à 11 ans.",
+    copyright: "© {year} Erudia — Conçu avec ❤️ pour les curieux de 6 à 11 ans. Par",
+    copyrightAuthor: "johanwebstudio",
+    copyrightAuthorUrl: "https://www.johanwebstudio.fr",
     badgeCoppa: " COPPA compliant",
     badgeOffline: " Offline-first",
     badgeLangs: " FR / EN",
@@ -105,7 +106,7 @@ export const fr = {
       card3Tag: "Pour les parents",
       card3Title: "Vous restez aux commandes",
       card3Desc:
-        "Un code PIN, et vous accédez aux progrès de votre enfant. Scores, régularité, objectifs — en un coup d'œil, sans friction.",
+        "Un espace parent, et vous accédez aux progrès de votre enfant. Scores, régularité, objectifs — en un coup d'œil, sans friction.",
       cta: "Voir toutes les fonctionnalités",
     },
     pedago: {
