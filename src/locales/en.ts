@@ -10,6 +10,7 @@ export const en = {
     faq: "FAQ",
     contact: "Contact",
     about: "About",
+    changelog: "What's new",
     cta: "Play now",
     menu: "Menu",
   },

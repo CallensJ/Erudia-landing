@@ -232,7 +232,7 @@ onUnmounted(() => observer?.disconnect())
             <!-- Erreur serveur -->
             <p v-if="hasError" class="cf__error" role="alert">
               {{ t('contact.form.errorText') }}
-              <a href="mailto:contact@johanwebstudio.fr">contact@johanwebstudio.fr</a>.
+              <a href="mailto:contact@erudia.app">contact@erudia.app</a>.
             </p>
 
             <!-- Submit -->
@@ -294,8 +294,8 @@ onUnmounted(() => observer?.disconnect())
           <!-- Email direct -->
           <div class="contact-direct">
             <div class="contact-direct__title">{{ t('contact.directTitle') }}</div>
-            <a href="mailto:contact@johanwebstudio.fr" class="contact-direct__email">
-              contact@johanwebstudio.fr
+            <a href="mailto:contact@erudia.app" class="contact-direct__email">
+              contact@erudia.app
             </a>
             <p class="contact-direct__note">{{ t('contact.directNote') }}</p>
           </div>

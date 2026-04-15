@@ -30,6 +30,7 @@ const navLinks = computed(() => [
   { label: t('nav.faq'),        to: localePath('/faq') },
   { label: t('nav.about'),      to: localePath('/about') },
   { label: t('nav.contact'),    to: localePath('/contact') },
+  { label: t('nav.changelog'),  to: localePath('/changelog') },
 ])
 
 const legalLinks = computed(() => [
