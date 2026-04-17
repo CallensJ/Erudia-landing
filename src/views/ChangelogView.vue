@@ -6,7 +6,7 @@ import { useLocale } from '@/composables/useLocale'
 import { useSeoHead } from '@/composables/useSeoHead'
 import { useBreadcrumbJsonLd } from '@/composables/useJsonLd'
 
-const { t, locale } = useLocale()
+const { locale } = useLocale()
 
 useSeoHead({
   title: {
