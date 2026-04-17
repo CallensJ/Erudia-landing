@@ -14,7 +14,7 @@ useSeoHead({
     en: "What's new – Erudia",
   },
   description: {
-    fr: 'Toutes les nouveautés, corrections et améliorations d'Erudia, version par version.',
+    fr: "Toutes les nouveautés, corrections et améliorations d'Erudia, version par version.",
     en: 'All updates, fixes, and improvements to Erudia, version by version.',
   },
   path: '/changelog',
@@ -39,7 +39,7 @@ useBreadcrumbJsonLd({
         <p class="changelog__hero-sub">
           {{
             locale === 'fr'
-              ? 'Toutes les mises à jour d'Erudia, version par version.'
+              ? "Toutes les mises à jour d'Erudia, version par version."
               : 'All Erudia updates, version by version.'
           }}
         </p>
