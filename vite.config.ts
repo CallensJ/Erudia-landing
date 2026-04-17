@@ -17,6 +17,8 @@ const pages = [
   { path: '/pricing',            priority: 0.9 },
   { path: '/faq',                priority: 0.8 },
   { path: '/contact',            priority: 0.8 },
+  { path: '/about',              priority: 0.7 },
+  { path: '/changelog',          priority: 0.6 },
   { path: '/legal/privacy',      priority: 0.4 },
   { path: '/legal/terms',        priority: 0.4 },
   { path: '/legal/mentions',     priority: 0.4 },

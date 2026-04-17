@@ -4,15 +4,25 @@
 <script setup lang="ts">
 import { useLocale } from '@/composables/useLocale'
 import { useSeoHead } from '@/composables/useSeoHead'
+import { useBreadcrumbJsonLd } from '@/composables/useJsonLd'
 
 const { t, locale } = useLocale()
 
 useSeoHead({
-  title: locale.value === 'fr' ? 'Nouveautés — Erudia' : "What's new — Erudia",
-  description:
-    locale.value === 'fr'
-      ? 'Toutes les nouveautés, corrections et améliorations d'Erudia, version par version.'
-      : 'All updates, fixes, and improvements to Erudia, version by version.',
+  title: {
+    fr: 'Nouveautés – Erudia',
+    en: "What's new – Erudia",
+  },
+  description: {
+    fr: 'Toutes les nouveautés, corrections et améliorations d'Erudia, version par version.',
+    en: 'All updates, fixes, and improvements to Erudia, version by version.',
+  },
+  path: '/changelog',
+})
+
+useBreadcrumbJsonLd({
+  label: { fr: 'Nouveautés', en: "What's new" },
+  path: '/changelog',
 })
 </script>
 
