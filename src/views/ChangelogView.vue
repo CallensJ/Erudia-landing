@@ -48,9 +48,9 @@ useBreadcrumbJsonLd({
       <!-- ── Liste des versions ── -->
       <div class="changelog__list">
 
-        <!-- ────────────── v1.1.0 ────────────── -->
+        <!-- ────────────── v1.0.1 ────────────── -->
         <article class="changelog__entry">
-          <div class="changelog__version-badge">v1.1.0</div>
+          <div class="changelog__version-badge">v1.0.1</div>
           <div class="changelog__date">
             {{ locale === 'fr' ? '20 avril 2026' : 'April 20, 2026' }}
           </div>
