@@ -48,6 +48,53 @@ useBreadcrumbJsonLd({
       <!-- ── Liste des versions ── -->
       <div class="changelog__list">
 
+        <!-- ────────────── v1.1.0 ────────────── -->
+        <article class="changelog__entry">
+          <div class="changelog__version-badge">v1.1.0</div>
+          <div class="changelog__date">
+            {{ locale === 'fr' ? '20 avril 2026' : 'April 20, 2026' }}
+          </div>
+
+          <!-- Nouveautés -->
+          <section class="changelog__section">
+            <h2 class="changelog__section-title">
+              <span aria-hidden="true">🆕</span>
+              {{ locale === 'fr' ? 'Nouveautés' : 'New features' }}
+            </h2>
+            <ul class="changelog__items">
+              <li v-if="locale === 'fr'">600 questions Éducation Civique en français</li>
+              <li v-else>600 Civics questions in French</li>
+
+              <li v-if="locale === 'fr'">600 questions Éducation Civique en anglais</li>
+              <li v-else>600 Civics questions in English</li>
+            </ul>
+          </section>
+
+          <!-- Corrections -->
+          <section class="changelog__section">
+            <h2 class="changelog__section-title">
+              <span aria-hidden="true">🐛</span>
+              {{ locale === 'fr' ? 'Corrections' : 'Bug fixes' }}
+            </h2>
+            <ul class="changelog__items">
+              <li v-if="locale === 'fr'">Correction de l'affichage des badges déjà obtenus comme nouveaux lors de parties suivantes</li>
+              <li v-else>Fixed already-earned badges incorrectly showing as new in subsequent games</li>
+
+              <li v-if="locale === 'fr'">Ajout de liens "Voir mes badges" et "Retour à l'accueil" dans la notification de badge débloqué</li>
+              <li v-else>Added "See my badges" and "Back to home" links in the badge unlock notification</li>
+
+              <li v-if="locale === 'fr'">Rapport de progression PDF à nouveau disponible dans l'espace parent</li>
+              <li v-else>PDF progress report restored in the parent area</li>
+
+              <li v-if="locale === 'fr'">Correction de l'icône d'édition d'avatar (forme circulaire)</li>
+              <li v-else>Fixed avatar edit icon shape (now correctly circular)</li>
+
+              <li v-if="locale === 'fr'">Correction du bouton de fermeture de la modale badges (forme circulaire)</li>
+              <li v-else>Fixed badge modal close button shape (now correctly circular)</li>
+            </ul>
+          </section>
+        </article>
+
         <!-- ────────────── v1.0.0 ────────────── -->
         <article class="changelog__entry">
           <div class="changelog__version-badge">v1.0.0</div>
