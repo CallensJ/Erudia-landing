@@ -255,7 +255,8 @@ const navLinks = computed(() => [
         border-radius: var(--radius-full);
         font-size: 0.8rem;
         font-weight: 700;
-        color: var(--color-text-light);
+        // #4a4a6a sur #f7f8fc → ratio 7.9:1 (WCAG AA ✓)
+        color: var(--color-text-secondary);
         transition: all var(--transition);
         cursor: pointer;
         border: none;
@@ -264,7 +265,8 @@ const navLinks = computed(() => [
 
         &--active {
             background: white;
-            color: var(--color-primary);
+            // #764ba2 sur blanc → ratio 6.4:1 (WCAG AA ✓), remplace #667eea (ratio 3.66 ✗)
+            color: var(--color-primary-dark);
             box-shadow: var(--shadow-sm);
         }
     }
