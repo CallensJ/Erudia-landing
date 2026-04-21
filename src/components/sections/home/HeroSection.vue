@@ -34,9 +34,9 @@ onMounted(() => {
 
 // Preuve sociale — réactive à la locale
 const proofItems = computed(() => [
-  { icon: '📡', label: t('home.hero.proofOffline') },
-  { icon: '🔒', label: t('home.hero.proofCoppa') },
-  { icon: '🌍', label: t('home.hero.proofBilingual') },
+  { icon: '📡', label: t('home.hero.proofOffline'), href: null },
+  { icon: '🔒', label: t('home.hero.proofCoppa'), href: 'https://www.ftc.gov/rules/coppa' },
+  { icon: '🌍', label: t('home.hero.proofBilingual'), href: null },
 ])
 </script>
 
@@ -84,7 +84,14 @@ const proofItems = computed(() => [
               class="hero__proof-item"
             >
               <span class="hero__proof-icon" aria-hidden="true">{{ item.icon }}</span>
-              <span>{{ item.label }}</span>
+              <a
+                v-if="item.href"
+                :href="item.href"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="hero__proof-link"
+              >{{ item.label }}</a>
+              <span v-else>{{ item.label }}</span>
             </div>
           </div>
         </div>
@@ -320,6 +327,18 @@ const proofItems = computed(() => [
 
   &__proof-icon {
     font-size: 1rem;
+  }
+
+  &__proof-link {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-color: rgba(255, 255, 255, 0.35);
+    text-underline-offset: 2px;
+    transition: text-decoration-color var(--transition);
+
+    &:hover {
+      text-decoration-color: rgba(255, 255, 255, 0.8);
+    }
   }
 
   // ── Colonne visuelle ──

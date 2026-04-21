@@ -170,7 +170,12 @@ const currentYear = new Date().getFullYear()
           <a :href="t('footer.copyrightAuthorUrl')" target="_blank" rel="noopener noreferrer" class="footer__copyright-link">{{ t('footer.copyrightAuthor') }}</a>.
         </p>
         <div class="footer__badges">
-          <span class="footer__badge">{{ t('footer.badgeCoppa') }}</span>
+          <a
+            href="https://www.ftc.gov/rules/coppa"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="footer__badge footer__badge--link"
+          >{{ t('footer.badgeCoppa') }}</a>
           <span class="footer__badge">{{ t('footer.badgeOffline') }}</span>
           <span class="footer__badge">{{ t('footer.badgeLangs') }}</span>
         </div>
@@ -410,6 +415,17 @@ const currentYear = new Date().getFullYear()
     padding: 4px 12px;
     border-radius: var(--radius-full);
     border: 1px solid rgba(255, 255, 255, 0.08);
+
+    &--link {
+      text-decoration: none;
+      cursor: pointer;
+      transition: color var(--transition), background var(--transition);
+
+      &:hover {
+        color: rgba(255, 255, 255, 0.7);
+        background: rgba(255, 255, 255, 0.1);
+      }
+    }
   }
 }
 </style>

@@ -106,7 +106,7 @@ export const en = {
       card3Tag: "For parents",
       card3Title: "You stay in control",
       card3Desc:
-        "A PIN code, and you access your child's progress. Scores, consistency, goals — at a glance, no friction.",
+        "Your parent account gives you access to the dashboard: scores by category, consistency, goals — at a glance. Your child can also view their own statistics from their profile.",
       cta: "See all features",
     },
     pedago: {
@@ -162,7 +162,7 @@ export const en = {
       premiumF5: "Unlimited child profiles",
       premiumF6: "Unlimited cloud history",
       premiumCta: "Upgrade to Erudia+",
-      note: "No credit card required · Cancel anytime · 14-day refund",
+      note: "Cancel anytime · 14-day refund",
       moreLink: "See full plan details →",
     },
     faqMini: {
@@ -175,14 +175,14 @@ export const en = {
       q2: "Can we play without internet?",
       a2: "Yes — that's actually one of Erudia's founding principles. The app works entirely offline once downloaded. Progress syncs automatically when the connection returns.",
       q3: "How do I track my child's progress?",
-      a3: "A discreet PIN in the app gives you access to the parental dashboard: scores by category, consistency, badges earned. No separate account to create.",
+      a3: "Create a free parent account to access the parental dashboard: scores by category, consistency, badges earned. Your child can also view their own statistics from their profile.",
       q4: "Is the free version really complete?",
-      a4: "Yes. Three quiz categories, badges, offline mode, parental tracking — all available for free, with no time limit. Erudia+ unlocks additional categories and content for children who want to go further.",
+      a4: "The free version includes 3 categories (Sciences, History, Heroes), with up to 100 questions per category. Badges, offline mode, and parental tracking are available for everyone. Erudia+ unlocks the remaining 18 categories with no question limit.",
     },
     cta: {
       title: "Ready to start the adventure?",
       subline:
-        "Create a profile in 30 seconds. No credit card, no complicated parent account.",
+        "Create a child profile in 30 seconds. Your parent account is waiting.",
       btnPrimary: "🚀 Create a child profile",
       btnSecondary: "See how it works",
       reassure: "✓ Free · ✓ No ads · ✓ COPPA compliant · ✓ Offline",
@@ -203,7 +203,7 @@ export const en = {
     },
     cta: {
       title: "Convinced? Let's go.",
-      subline: "Create a profile in 30 seconds. Free, no credit card.",
+      subline: "Create a profile in 30 seconds. Free.",
       btnPrimary: "🚀 Create a child profile",
       btnSecondary: "See pricing",
       reassure: "✓ Free · ✓ No ads · ✓ COPPA · ✓ Offline",
@@ -779,7 +779,7 @@ export const en = {
       title: "You know everything.",
       titleAccent: "Go for it.",
       subline:
-        "30 seconds to create a profile. No credit card. No complicated parent account. Just a child who learns while having fun.",
+        "30 seconds to create a child profile. Just a child who learns while having fun.",
       btnPrimary: "🚀 Create a child profile",
       btnSecondary: "See pricing",
       reassure: "✓ Free · ✓ No ads · ✓ COPPA compliant · ✓ Offline",

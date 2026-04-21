@@ -107,7 +107,7 @@ export const fr = {
       card3Tag: "Pour les parents",
       card3Title: "Vous restez aux commandes",
       card3Desc:
-        "Un code PIN, et vous accédez aux progrès de votre enfant. Scores, régularité, objectifs — en un coup d'œil, sans friction.",
+        "Votre compte parent vous donne accès au tableau de bord : scores par catégorie, régularité, objectifs — en un coup d'œil. L'enfant consulte aussi ses propres statistiques depuis son profil.",
       cta: "Voir toutes les fonctionnalités",
     },
     pedago: {
@@ -164,7 +164,7 @@ export const fr = {
       premiumF5: "Profils enfants illimités",
       premiumF6: "Historique cloud illimité",
       premiumCta: "Passer à Erudia+",
-      note: "Pas de carte de crédit requise · Annulation à tout moment · Remboursement 14 jours",
+      note: "Annulation à tout moment · Remboursement 14 jours",
       moreLink: "Voir le détail des plans →",
     },
     faqMini: {
@@ -177,14 +177,14 @@ export const fr = {
       q2: "Peut-on jouer sans internet ?",
       a2: "Oui — c'est même l'un des principes fondateurs d'Erudia. L'app fonctionne entièrement hors ligne une fois téléchargée. Les progrès se synchronisent automatiquement au retour de la connexion.",
       q3: "Comment je suis les progrès de mon enfant ?",
-      a3: "Un code PIN discret dans l'app vous donne accès au tableau de bord parental : scores par catégorie, régularité, badges obtenus. Pas de compte séparé à créer.",
+      a3: "Créez un compte parent gratuit pour accéder au tableau de bord parental : scores par catégorie, régularité, badges obtenus. Votre enfant peut aussi consulter ses propres statistiques depuis son profil.",
       q4: "La version gratuite est-elle vraiment complète ?",
-      a4: "Oui. Trois catégories de quiz, les badges, le mode hors ligne, le suivi parental — tout est disponible gratuitement, sans limite de temps. Erudia+ débloque des catégories et contenus supplémentaires pour les enfants qui veulent aller encore plus loin.",
+      a4: "La version gratuite inclut 3 catégories (Sciences, Histoire, Héros), avec jusqu'à 100 questions par catégorie. Les badges, le mode hors ligne et le suivi parental sont disponibles pour tous. Erudia+ débloque les 18 catégories restantes, sans limite de questions.",
     },
     cta: {
       title: "Prêt à commencer l'aventure ?",
       subline:
-        "Créez un profil en 30 secondes. Pas de carte de crédit, pas de compte parent compliqué.",
+        "Créez un profil enfant en 30 secondes. Votre compte parent vous attend.",
       btnPrimary: "🚀 Créer un profil enfant",
       btnSecondary: "Voir comment ça marche",
       reassure: "✓ Gratuit · ✓ Sans pub · ✓ COPPA compliant · ✓ Hors ligne",
@@ -205,7 +205,7 @@ export const fr = {
     },
     cta: {
       title: "Convaincu ? Commençons.",
-      subline: "Créez un profil en 30 secondes. Gratuit, sans carte de crédit.",
+      subline: "Créez un profil en 30 secondes. Gratuit.",
       btnPrimary: "🚀 Créer un profil enfant",
       btnSecondary: "Voir les tarifs",
       reassure: "✓ Gratuit · ✓ Sans pub · ✓ COPPA · ✓ Hors ligne",
@@ -784,7 +784,7 @@ export const fr = {
       title: "Vous savez tout.",
       titleAccent: "Lancez-vous.",
       subline:
-        "30 secondes pour créer un profil. Pas de carte de crédit. Pas de compte parent compliqué. Juste un enfant qui apprend en s'amusant.",
+        "30 secondes pour créer un profil enfant. Juste un enfant qui apprend en s'amusant.",
       btnPrimary: "Créer un profil enfant",
       btnSecondary: "Voir les tarifs",
       reassure:
