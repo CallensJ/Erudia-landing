@@ -14,12 +14,33 @@ const { openBanner } = useCookieConsent()
 
 const email = ref('')
 const submitted = ref(false)
+const loading = ref(false)
+const error = ref('')
 
-function handleNewsletter() {
-  // TODO MVP 2 : brancher sur un service email (Mailchimp, Resend, etc.)
-  if (email.value) {
-    submitted.value = true
-    email.value = ''
+async function handleNewsletter() {
+  const val = email.value.trim()
+  if (!val || loading.value) return
+
+  loading.value = true
+  error.value = ''
+
+  try {
+    const res = await fetch('/api/newsletter', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: val }),
+    })
+
+    if (res.ok) {
+      submitted.value = true
+      email.value = ''
+    } else {
+      error.value = t('footer.newsletter.error')
+    }
+  } catch {
+    error.value = t('footer.newsletter.error')
+  } finally {
+    loading.value = false
   }
 }
 
@@ -122,18 +143,22 @@ const currentYear = new Date().getFullYear()
               :placeholder="t('footer.newsletter.placeholder')"
               class="footer__newsletter-input"
               :aria-label="t('footer.newsletter.ariaInput')"
+              :disabled="loading"
               @keyup.enter="handleNewsletter"
             />
             <button
               class="footer__newsletter-btn"
+              :class="{ 'footer__newsletter-btn--loading': loading }"
+              :disabled="loading"
               @click="handleNewsletter"
               :aria-label="t('footer.newsletter.subscribe')"
             >
-              →
+              {{ loading ? '…' : '→' }}
             </button>
           </div>
 
-          <p v-else class="footer__newsletter-success">{{ t('footer.newsletter.success') }}</p>
+          <p v-if="error && !submitted" class="footer__newsletter-error">{{ error }}</p>
+          <p v-if="submitted" class="footer__newsletter-success">{{ t('footer.newsletter.success') }}</p>
         </div>
 
       </div>
@@ -321,10 +346,23 @@ const currentYear = new Date().getFullYear()
     }
   }
 
+  &__newsletter-btn {
+    &--loading {
+      opacity: 0.6;
+      cursor: wait;
+    }
+  }
+
   &__newsletter-success {
     font-size: 0.88rem;
     color: #4ade80;
     font-weight: 600;
+  }
+
+  &__newsletter-error {
+    margin-top: 8px;
+    font-size: 0.83rem;
+    color: #f87171;
   }
 
   // ── Bas de footer ────────────────────────────────────────

@@ -94,16 +94,23 @@ export function useSoftwareAppJsonLd() {
             '@context': 'https://schema.org',
             '@type': 'SoftwareApplication',
             name: 'Erudia',
+            url: APP_URL,
             operatingSystem: 'Web, iOS, Android (PWA)',
             applicationCategory: 'EducationalApplication',
+            inLanguage: ['fr', 'en'],
+            description:
+              'Application de quiz éducatifs bilingue FR/EN pour enfants de 6 à 11 ans. Fonctionne hors ligne, sans publicité, conforme RGPD.',
             offers: {
               '@type': 'Offer',
               price: '0',
               priceCurrency: 'EUR',
+              description: 'Version gratuite avec 3 catégories',
             },
-            description:
-              'Application de quiz éducatifs offline pour enfants de 6 à 11 ans, bilingue français/anglais.',
-            url: APP_URL,
+            audience: {
+              '@type': 'EducationalAudience',
+              educationalRole: 'student',
+              audienceType: 'Enfants 6-11 ans',
+            },
             publisher: {
               '@type': 'Organization',
               name: 'JohanWebStudio',

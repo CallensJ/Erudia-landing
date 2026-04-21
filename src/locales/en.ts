@@ -26,6 +26,7 @@ export const en = {
       placeholder: "your@email.com",
       subscribe: "Subscribe",
       success: "✓ Thanks! We'll keep you posted.",
+      error: "Something went wrong. Please try again.",
       ariaInput: "Your email address",
     },
     copyright: "© {year} Erudia — Built with ❤️ for curious minds ages 6–11. By",

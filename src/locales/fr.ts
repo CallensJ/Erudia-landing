@@ -28,6 +28,7 @@ export const fr = {
       placeholder: "votre@email.com",
       subscribe: "S'inscrire à la newsletter",
       success: "✓ Merci ! On vous tiendra au courant.",
+      error: "Une erreur est survenue. Réessayez.",
       ariaInput: "Votre adresse email",
     },
     copyright:
