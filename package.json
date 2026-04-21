@@ -12,6 +12,7 @@
     "@fontsource/nunito": "^5.2.7",
     "@fontsource/sora": "^5.2.8",
     "@unhead/vue": "^2.1.13",
+    "@vercel/analytics": "^2.0.1",
     "motion": "^12.38.0",
     "vue": "^3.5.30",
     "vue-router": "^5.0.3",

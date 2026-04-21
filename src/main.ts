@@ -1,5 +1,6 @@
 // Point d'entrée de l'application Vue
 // Initialise Vue + Vue Router + @unhead/vue (SEO) + styles SCSS globaux
+import { inject } from '@vercel/analytics'
 import { createApp } from 'vue'
 import { createHead } from '@unhead/vue/client'
 import App from './App.vue'
@@ -21,6 +22,8 @@ import '@fontsource/nunito/800.css'
 
 // Import unique des styles globaux (reset, typography, buttons, containers)
 import './styles/main.scss'
+
+inject()
 
 const app = createApp(App)
 const head = createHead()
