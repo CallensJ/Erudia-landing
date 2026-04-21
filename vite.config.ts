@@ -21,7 +21,7 @@ function fontPreloadPlugin(): Plugin {
   return {
     name: 'font-preload',
     transformIndexHtml: {
-      enforce: 'post',
+      order: 'post',
       handler(_html, ctx) {
         if (!ctx.bundle) return []
         return Object.keys(ctx.bundle)
