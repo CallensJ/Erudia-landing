@@ -80,6 +80,9 @@ useBreadcrumbJsonLd({
               <li v-if="locale === 'fr'">Changer de joueur depuis le profil limité aux abonnés Premium (1 profil en gratuit, 4 en Premium)</li>
               <li v-else>Switching players from the profile screen is now limited to Premium subscribers (1 profile free, 4 with Premium)</li>
 
+              <li v-if="locale === 'fr'">600 nouvelles questions ajoutées pour la catégorie Géographie (version anglaise)</li>
+              <li v-else>600 new questions added for the Geography category (English version)</li>
+
               <li v-if="locale === 'fr'">Paiement : activation de Google Pay, Amazon Pay et Cartes Bancaires</li>
               <li v-else>Payment: Google Pay, Amazon Pay and Cartes Bancaires enabled</li>
             </ul>
