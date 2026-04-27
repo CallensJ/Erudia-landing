@@ -11,6 +11,7 @@ export const fr = {
     contact: "Contact",
     about: "À propos",
     changelog: "Nouveautés",
+    explorer: "Explorer",
     cta: "Jouer maintenant",
     menu: "Menu",
   },
@@ -895,7 +896,7 @@ export const fr = {
       q2: "Comment fonctionne la facturation ?",
       a2: "Mensuelle ou annuelle selon votre choix, avec renouvellement automatique. Vous recevez un email de rappel 7 jours avant chaque renouvellement. Vous pouvez annuler à tout moment avant la date de renouvellement.",
       q3: "Et si je ne suis pas satisfait ?",
-      a3: "Remboursement intégral dans les 14 jours suivant votre abonnement — sans question et sans formulaire compliqué. Envoyez simplement un email à support@erudia.app avec votre identifiant de commande Stripe.",
+      a3: "Remboursement intégral dans les 14 jours suivant votre abonnement — sans question et sans formulaire compliqué. Envoyez simplement un email à contact@erudia.app avec votre identifiant de commande Stripe.",
       q4: "Une carte de crédit est-elle requise pour le plan gratuit ?",
       a4: "Non, absolument pas. Le plan gratuit ne nécessite aucune donnée bancaire. Vous créez un profil enfant directement dans l'app sans aucun engagement.",
       q5: "Le plan Erudia+ couvre combien d'enfants ?",
@@ -1117,7 +1118,7 @@ export const fr = {
         category: "billing",
         question: "Puis-je obtenir un remboursement ?",
         answer:
-          "Oui, remboursement intégral dans les 14 jours suivant l'achat, sans condition. Envoyez l'email de confirmation de commande Stripe à support@erudia.app — traitement sous 5 jours ouvrés.",
+          "Oui, remboursement intégral dans les 14 jours suivant l'achat, sans condition. Envoyez l'email de confirmation de commande Stripe à contact@erudia.app — traitement sous 5 jours ouvrés.",
       },
       {
         id: "billing-4",
@@ -1327,13 +1328,13 @@ export const fr = {
         {
           heading: "Éditeur du site",
           paragraphs: [
-            "Le site erudia.app et l'application app.erudia.app sont édités par Johan Barbier, développeur freelance — Johanwebstudio, domicilié dans le sud de la France.",
-            "Contact : support@erudia.app",
+            "Le site erudia.app et l'application app.erudia.app sont édités par Johan Callens, développeur freelance — Johanwebstudio, domicilié dans le sud de la France.",
+            "Contact : contact@erudia.app",
           ],
         },
         {
           heading: "Directeur de la publication",
-          paragraphs: ["Johan Barbier — support@erudia.app"],
+          paragraphs: ["Johan Callens — contact@erudia.app"],
         },
         {
           heading: "Hébergement",
@@ -1345,7 +1346,7 @@ export const fr = {
         {
           heading: "Propriété intellectuelle",
           paragraphs: [
-            "L'ensemble des contenus présents sur Erudia (textes, visuels, questions, logo, mascotte Nova) sont la propriété exclusive de Johan Barbier, sauf mention contraire.",
+            "L'ensemble des contenus présents sur Erudia (textes, visuels, questions, logo, mascotte Nova) sont la propriété exclusive de Johan Callens / Johanwebstudio, sauf mention contraire.",
             "Toute reproduction, distribution ou modification sans autorisation écrite préalable est strictement interdite.",
           ],
         },
@@ -1376,8 +1377,8 @@ export const fr = {
         {
           heading: "Responsable du traitement",
           paragraphs: [
-            "Johan Barbier — Johanwebstudio — Sud de la France",
-            "Contact DPO : support@erudia.app",
+            "Johan Callens — Johanwebstudio — Sud de la France",
+            "Contact DPO : contact@erudia.app",
           ],
         },
         {
@@ -1414,7 +1415,7 @@ export const fr = {
           heading: "Vos droits (RGPD)",
           paragraphs: [
             "Conformément au Règlement Général sur la Protection des Données (RGPD), vous disposez des droits suivants : accès, rectification, suppression, portabilité, opposition et limitation du traitement.",
-            "Pour exercer ces droits, contactez-nous à support@erudia.app. Délai de réponse : 30 jours maximum. En cas de non-réponse, vous pouvez saisir la CNIL (cnil.fr).",
+            "Pour exercer ces droits, contactez-nous à contact@erudia.app. Délai de réponse : 30 jours maximum. En cas de non-réponse, vous pouvez saisir la CNIL (cnil.fr).",
           ],
         },
         {
@@ -1437,7 +1438,7 @@ export const fr = {
         {
           heading: "1. Objet et acceptation",
           paragraphs: [
-            "Les présentes Conditions Générales d'Utilisation (CGU) régissent l'accès et l'utilisation de l'application Erudia, accessible sur app.erudia.app, développée et éditée par Johan Barbier.",
+            "Les présentes Conditions Générales d'Utilisation (CGU) régissent l'accès et l'utilisation de l'application Erudia, accessible sur app.erudia.app, développée et éditée par Johan Callens — Johanwebstudio.",
             "En créant un profil ou en souscrivant à Erudia+, vous acceptez sans réserve les présentes CGU. Si vous n'acceptez pas ces conditions, veuillez ne pas utiliser l'application.",
           ],
         },
@@ -1452,29 +1453,29 @@ export const fr = {
           heading: "3. Compte et accès",
           paragraphs: [
             "La création d'un profil enfant (pseudonyme + avatar) est libre et gratuite. La création d'un compte adulte (email + mot de passe ou connexion Google) est requise pour accéder à l'espace parent et souscrire à Erudia+.",
-            "L'utilisateur est responsable de la confidentialité de ses identifiants. Toute utilisation frauduleuse du compte doit être signalée à support@erudia.app.",
+            "L'utilisateur est responsable de la confidentialité de ses identifiants. Toute utilisation frauduleuse du compte doit être signalée à contact@erudia.app.",
           ],
         },
         {
           heading: "4. Abonnement Erudia+",
           paragraphs: [
-            "L'abonnement Erudia+ est disponible en formule mensuelle (4,99 €/mois) ou annuelle (39,99 €/an). Le paiement est traité de façon sécurisée par Stripe.",
+            "L'abonnement Erudia+ est disponible en formule mensuelle (1,99 €/mois) ou semestrielle (9,99 €/6 mois). Le paiement est traité de façon sécurisée par Stripe.",
             "L'abonnement se renouvelle automatiquement. Un email de rappel est envoyé 7 jours avant le renouvellement. L'utilisateur peut annuler à tout moment depuis l'espace admin — l'accès premium est maintenu jusqu'à la fin de la période payée.",
-            "Erudia garantit un remboursement intégral dans les 14 jours suivant l'achat, sans condition. Demande à envoyer à support@erudia.app avec la confirmation de commande Stripe.",
+            "Erudia garantit un remboursement intégral dans les 14 jours suivant l'achat, sans condition. Demande à envoyer à contact@erudia.app avec la confirmation de commande Stripe.",
           ],
         },
         {
           heading: "5. Propriété intellectuelle",
           paragraphs: [
-            "L'ensemble des contenus d'Erudia (questions, textes, visuels, mascotte Nova, interface, code source) sont protégés par le droit d'auteur et la propriété intellectuelle, au bénéfice de Johan Barbier.",
+            "L'ensemble des contenus d'Erudia (questions, textes, visuels, mascotte Nova, interface, code source) sont protégés par le droit d'auteur et la propriété intellectuelle, au bénéfice de Johan Callens / Johanwebstudio.",
             "Toute reproduction, modification, distribution ou exploitation commerciale non autorisée est interdite.",
           ],
         },
         {
           heading: "6. Limitation de responsabilité",
           paragraphs: [
-            "Erudia est fourni \"en l'état\". Johan Barbier s'efforce de maintenir le service disponible mais ne peut garantir une disponibilité permanente et sans interruption.",
-            "Johan Barbier ne saurait être tenu responsable d'une perte de données de progression stockée localement. Il est recommandé de créer un compte adulte pour activer la synchronisation et sécuriser la progression.",
+            "Erudia est fourni \"en l'état\". Johanwebstudio s'efforce de maintenir le service disponible mais ne peut garantir une disponibilité permanente et sans interruption.",
+            "Johanwebstudio ne saurait être tenu responsable d'une perte de données de progression stockée localement. Il est recommandé de créer un compte adulte pour activer la synchronisation et sécuriser la progression.",
           ],
         },
         {
@@ -1486,7 +1487,7 @@ export const fr = {
         {
           heading: "8. Modification des CGU",
           paragraphs: [
-            "Johan Barbier se réserve le droit de modifier les présentes CGU à tout moment. Les utilisateurs sont informés par email en cas de modification substantielle.",
+            "Johan Callens se réserve le droit de modifier les présentes CGU à tout moment. Les utilisateurs sont informés par email en cas de modification substantielle.",
             "La poursuite de l'utilisation du service après notification vaut acceptation des nouvelles CGU.",
           ],
         },
@@ -1494,7 +1495,7 @@ export const fr = {
           heading: "9. Loi applicable",
           paragraphs: [
             "Les présentes CGU sont soumises au droit français. En cas de litige, et à défaut de résolution amiable, les tribunaux compétents sont ceux du ressort du domicile de l'éditeur.",
-            "Pour toute réclamation ou question : support@erudia.app.",
+            "Pour toute réclamation ou question : contact@erudia.app.",
           ],
         },
       ],

@@ -48,6 +48,62 @@ useBreadcrumbJsonLd({
       <!-- ── Liste des versions ── -->
       <div class="changelog__list">
 
+        <!-- ────────────── v1.2.0 ────────────── -->
+        <article class="changelog__entry">
+          <div class="changelog__version-badge">v1.2.0</div>
+          <div class="changelog__date">
+            {{ locale === 'fr' ? '27 avril 2026' : 'April 27, 2026' }}
+          </div>
+
+          <!-- Nouveautés -->
+          <section class="changelog__section">
+            <h2 class="changelog__section-title">
+              <span aria-hidden="true">🆕</span>
+              {{ locale === 'fr' ? 'Nouveautés' : 'New features' }}
+            </h2>
+            <ul class="changelog__items">
+              <li v-if="locale === 'fr'">Bouton pour quitter un quiz en cours (confirmation avant sortie)</li>
+              <li v-else>Button to exit an ongoing quiz (confirmation before leaving)</li>
+
+              <li v-if="locale === 'fr'">Avancement automatique sur réponse incorrecte — le bouton "Suivant" disparaît</li>
+              <li v-else>Auto-advance on incorrect answer — the "Next" button is gone</li>
+
+              <li v-if="locale === 'fr'">Boutons Statistiques et Accueil déplacés dans la barre latérale desktop</li>
+              <li v-else>Statistics and Home buttons moved to the desktop sidebar</li>
+
+              <li v-if="locale === 'fr'">Cliquer sur une catégorie premium en mode gratuit redirige directement vers la page d'abonnement</li>
+              <li v-else>Clicking a premium category in free mode now redirects directly to the subscription page</li>
+
+              <li v-if="locale === 'fr'">Suppression de profil enfant désormais réservée à l'espace parent</li>
+              <li v-else>Child profile deletion is now restricted to the parent dashboard</li>
+
+              <li v-if="locale === 'fr'">Limite de 4 profils enfants appliquée pour les abonnés Premium (1 en gratuit)</li>
+              <li v-else>4-child profile limit enforced for Premium subscribers (1 for free)</li>
+
+              <li v-if="locale === 'fr'">Paiement : activation de Google Pay, Amazon Pay et Cartes Bancaires</li>
+              <li v-else>Payment: Google Pay, Amazon Pay and Cartes Bancaires enabled</li>
+            </ul>
+          </section>
+
+          <!-- Corrections -->
+          <section class="changelog__section">
+            <h2 class="changelog__section-title">
+              <span aria-hidden="true">🐛</span>
+              {{ locale === 'fr' ? 'Corrections' : 'Bug fixes' }}
+            </h2>
+            <ul class="changelog__items">
+              <li v-if="locale === 'fr'">Correction du bouton "Se déconnecter" dans l'espace parent</li>
+              <li v-else>Fixed the "Sign out" button in the parent dashboard</li>
+
+              <li v-if="locale === 'fr'">Mentions légales et CGU : nom de l'éditeur et email de contact corrigés</li>
+              <li v-else>Legal notices and Terms: publisher name and contact email corrected</li>
+
+              <li v-if="locale === 'fr'">Tarifs de l'abonnement mis à jour dans les CGU (1,99 €/mois ou 9,99 €/6 mois)</li>
+              <li v-else>Subscription pricing updated in Terms (€1.99/month or €9.99/6 months)</li>
+            </ul>
+          </section>
+        </article>
+
         <!-- ────────────── v1.0.1 ────────────── -->
         <article class="changelog__entry">
           <div class="changelog__version-badge">v1.0.1</div>

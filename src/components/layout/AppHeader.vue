@@ -13,6 +13,9 @@ const route = useRoute();
 // État menu mobile
 const isMenuOpen = ref(false);
 
+// Dropdown "Explorer" desktop
+const isExplorerOpen = ref(false);
+
 // Ombre au scroll
 const isScrolled = ref(false);
 
@@ -26,20 +29,54 @@ function closeMenu() {
     isMenuOpen.value = false;
 }
 
+function toggleExplorer() {
+    isExplorerOpen.value = !isExplorerOpen.value;
+}
+
+function closeExplorer() {
+    isExplorerOpen.value = false;
+}
+
 function handleScroll() {
     isScrolled.value = window.scrollY > 10;
+    if (isExplorerOpen.value) isExplorerOpen.value = false;
 }
 
 onMounted(() => {
     window.addEventListener("scroll", handleScroll, { passive: true });
+    document.addEventListener("click", handleOutsideClick);
 });
 
 onUnmounted(() => {
     window.removeEventListener("scroll", handleScroll);
+    document.removeEventListener("click", handleOutsideClick);
 });
 
-// Liens de navigation — chemins localisés via localePath()
+function handleOutsideClick(e: MouseEvent) {
+    const dropdown = document.getElementById("explorer-dropdown");
+    const trigger = document.getElementById("explorer-trigger");
+    if (dropdown && trigger && !dropdown.contains(e.target as Node) && !trigger.contains(e.target as Node)) {
+        isExplorerOpen.value = false;
+    }
+}
+
+// Liens directs dans la navbar
 const navLinks = computed(() => [
+    { label: t("nav.features"),  to: localePath("/features") },
+    { label: t("nav.pricing"),   to: localePath("/pricing") },
+    { label: t("nav.contact"),   to: localePath("/contact") },
+]);
+
+// Liens regroupés dans le dropdown "Explorer"
+const explorerLinks = computed(() => [
+    { label: t("nav.howItWorks"), to: localePath("/how-it-works") },
+    { label: t("nav.faq"),        to: localePath("/faq") },
+    { label: t("nav.about"),      to: localePath("/about") },
+    { label: t("nav.changelog"),  to: localePath("/changelog") },
+]);
+
+// Tous les liens pour le menu mobile (ordre original)
+const mobileLinks = computed(() => [
     { label: t("nav.features"),   to: localePath("/features") },
     { label: t("nav.howItWorks"), to: localePath("/how-it-works") },
     { label: t("nav.pricing"),    to: localePath("/pricing") },
@@ -67,12 +104,45 @@ const navLinks = computed(() => [
                         :key="link.to"
                         :to="link.to"
                         class="header__nav-link"
-                        :class="{
-                            'header__nav-link--active': route.path === link.to,
-                        }"
+                        :class="{ 'header__nav-link--active': route.path === link.to }"
                     >
                         {{ link.label }}
                     </RouterLink>
+
+                    <!-- Dropdown "Explorer" -->
+                    <div class="header__explorer">
+                        <button
+                            id="explorer-trigger"
+                            class="header__nav-link header__explorer-trigger"
+                            :class="{ 'header__nav-link--active': isExplorerOpen }"
+                            :aria-expanded="isExplorerOpen"
+                            aria-controls="explorer-dropdown"
+                            @click="toggleExplorer"
+                        >
+                            {{ t('nav.explorer') }}
+                            <svg class="header__explorer-arrow" :class="{ 'header__explorer-arrow--open': isExplorerOpen }" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                                <path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <div
+                            id="explorer-dropdown"
+                            class="header__dropdown"
+                            :class="{ 'header__dropdown--open': isExplorerOpen }"
+                            role="menu"
+                        >
+                            <RouterLink
+                                v-for="link in explorerLinks"
+                                :key="link.to"
+                                :to="link.to"
+                                class="header__dropdown-link"
+                                :class="{ 'header__dropdown-link--active': route.path === link.to }"
+                                role="menuitem"
+                                @click="closeExplorer"
+                            >
+                                {{ link.label }}
+                            </RouterLink>
+                        </div>
+                    </div>
                 </nav>
 
                 <!-- Droite : langue + CTA + hamburger -->
@@ -128,7 +198,7 @@ const navLinks = computed(() => [
         aria-label="Menu mobile"
     >
         <RouterLink
-            v-for="link in navLinks"
+            v-for="link in mobileLinks"
             :key="link.to"
             :to="link.to"
             class="mobile-menu__link"
@@ -268,6 +338,74 @@ const navLinks = computed(() => [
             // #764ba2 sur blanc → ratio 6.4:1 (WCAG AA ✓), remplace #667eea (ratio 3.66 ✗)
             color: var(--color-primary-dark);
             box-shadow: var(--shadow-sm);
+        }
+    }
+
+    // ── Dropdown Explorer ──────────────────────────────────────
+    &__explorer {
+        position: relative;
+    }
+
+    &__explorer-trigger {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        cursor: pointer;
+        border: none;
+        background: none;
+        font-family: inherit;
+    }
+
+    &__explorer-arrow {
+        transition: transform var(--transition);
+        flex-shrink: 0;
+
+        &--open {
+            transform: rotate(180deg);
+        }
+    }
+
+    &__dropdown {
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 50%;
+        transform: translateX(-50%);
+        background: white;
+        border: 1px solid rgba(102, 126, 234, 0.15);
+        border-radius: var(--radius-md);
+        box-shadow: 0 8px 32px rgba(102, 126, 234, 0.12);
+        padding: 6px;
+        min-width: 180px;
+        z-index: 200;
+
+        // Masqué par défaut
+        opacity: 0;
+        pointer-events: none;
+        transform: translateX(-50%) translateY(-6px);
+        transition: opacity 0.18s ease, transform 0.18s ease;
+
+        &--open {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateX(-50%) translateY(0);
+        }
+    }
+
+    &__dropdown-link {
+        display: block;
+        padding: 9px 14px;
+        border-radius: var(--radius-sm);
+        font-weight: 600;
+        font-size: 0.875rem;
+        color: var(--color-text-secondary);
+        text-decoration: none;
+        transition: all var(--transition);
+        white-space: nowrap;
+
+        &:hover,
+        &--active {
+            color: var(--color-primary);
+            background: rgba(102, 126, 234, 0.08);
         }
     }
 

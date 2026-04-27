@@ -11,6 +11,7 @@ export const en = {
     contact: "Contact",
     about: "About",
     changelog: "What's new",
+    explorer: "Explore",
     cta: "Play now",
     menu: "Menu",
   },
@@ -890,7 +891,7 @@ export const en = {
       q2: "How does billing work?",
       a2: "Monthly or annual depending on your choice, with automatic renewal. You receive a reminder email 7 days before each renewal. You can cancel at any time before the renewal date.",
       q3: "What if I'm not satisfied?",
-      a3: "Full refund within 14 days of subscribing — no questions and no complicated form. Simply send an email to support@erudia.app with your Stripe order ID.",
+      a3: "Full refund within 14 days of subscribing — no questions and no complicated form. Simply send an email to contact@erudia.app with your Stripe order ID.",
       q4: "Is a credit card required for the free plan?",
       a4: "No, absolutely not. The free plan requires no payment information. You create a child profile directly in the app with no commitment whatsoever.",
       q5: "How many children does Erudia+ cover?",
@@ -1111,7 +1112,7 @@ export const en = {
         category: "billing",
         question: "Can I get a refund?",
         answer:
-          "Yes, full refund within 14 days of purchase, no conditions. Send the Stripe order confirmation email to support@erudia.app — processed within 5 business days.",
+          "Yes, full refund within 14 days of purchase, no conditions. Send the Stripe order confirmation email to contact@erudia.app — processed within 5 business days.",
       },
       {
         id: "billing-4",
@@ -1311,13 +1312,13 @@ export const en = {
         {
           heading: "Publisher",
           paragraphs: [
-            "The erudia.app website and app.erudia.app application are published by Johan Barbier, freelance developer — Johanwebstudio, based in the south of France.",
-            "Contact: support@erudia.app",
+            "The erudia.app website and app.erudia.app application are published by Johan Callens, freelance developer — Johanwebstudio, based in the south of France.",
+            "Contact: contact@erudia.app",
           ],
         },
         {
           heading: "Publication Director",
-          paragraphs: ["Johan Barbier — support@erudia.app"],
+          paragraphs: ["Johan Callens — contact@erudia.app"],
         },
         {
           heading: "Hosting",
@@ -1329,7 +1330,7 @@ export const en = {
         {
           heading: "Intellectual Property",
           paragraphs: [
-            "All content on Erudia (texts, visuals, questions, logo, Nova mascot) is the exclusive property of Johan Barbier, unless otherwise stated.",
+            "All content on Erudia (texts, visuals, questions, logo, Nova mascot) is the exclusive property of Johan Callens / Johanwebstudio, unless otherwise stated.",
             "Any reproduction, distribution or modification without prior written authorisation is strictly prohibited.",
           ],
         },
@@ -1360,8 +1361,8 @@ export const en = {
         {
           heading: "Data Controller",
           paragraphs: [
-            "Johan Barbier — Johanwebstudio — South of France",
-            "DPO contact: support@erudia.app",
+            "Johan Callens — Johanwebstudio — South of France",
+            "DPO contact: contact@erudia.app",
           ],
         },
         {
@@ -1398,7 +1399,7 @@ export const en = {
           heading: "Your Rights (GDPR)",
           paragraphs: [
             "Under the General Data Protection Regulation (GDPR), you have the following rights: access, rectification, erasure, portability, objection and restriction of processing.",
-            "To exercise these rights, contact us at support@erudia.app. Response time: maximum 30 days. If no response, you may contact the relevant data protection authority.",
+            "To exercise these rights, contact us at contact@erudia.app. Response time: maximum 30 days. If no response, you may contact the relevant data protection authority.",
           ],
         },
         {
@@ -1421,7 +1422,7 @@ export const en = {
         {
           heading: "1. Purpose and Acceptance",
           paragraphs: [
-            "These Terms of Service govern access to and use of the Erudia application, available at app.erudia.app, developed and published by Johan Barbier.",
+            "These Terms of Service govern access to and use of the Erudia application, available at app.erudia.app, developed and published by Johan Callens — Johanwebstudio.",
             "By creating a profile or subscribing to Erudia+, you unconditionally accept these Terms. If you do not accept, please do not use the application.",
           ],
         },
@@ -1436,29 +1437,29 @@ export const en = {
           heading: "3. Account and Access",
           paragraphs: [
             "Creating a child profile (username + avatar) is free. Creating an adult account (email + password or Google sign-in) is required to access the parent panel and subscribe to Erudia+.",
-            "Users are responsible for keeping their credentials confidential. Any fraudulent account use must be reported to support@erudia.app.",
+            "Users are responsible for keeping their credentials confidential. Any fraudulent account use must be reported to contact@erudia.app.",
           ],
         },
         {
           heading: "4. Erudia+ Subscription",
           paragraphs: [
-            "Erudia+ is available monthly (€4.99/month) or annually (€39.99/year). Payment is processed securely by Stripe.",
+            "Erudia+ is available monthly (€1.99/month) or semi-annually (€9.99/6 months). Payment is processed securely by Stripe.",
             "The subscription renews automatically. A reminder email is sent 7 days before renewal. Users can cancel at any time from the admin panel — premium access is maintained until the end of the paid period.",
-            "Erudia guarantees a full refund within 14 days of purchase, no questions asked. Send your Stripe order confirmation to support@erudia.app.",
+            "Erudia guarantees a full refund within 14 days of purchase, no questions asked. Send your Stripe order confirmation to contact@erudia.app.",
           ],
         },
         {
           heading: "5. Intellectual Property",
           paragraphs: [
-            "All Erudia content (questions, texts, visuals, Nova mascot, interface, source code) is protected by copyright and intellectual property law, for the benefit of Johan Barbier.",
+            "All Erudia content (questions, texts, visuals, Nova mascot, interface, source code) is protected by copyright and intellectual property law, for the benefit of Johan Callens / Johanwebstudio.",
             "Any unauthorised reproduction, modification, distribution or commercial exploitation is prohibited.",
           ],
         },
         {
           heading: "6. Limitation of Liability",
           paragraphs: [
-            'Erudia is provided "as is". Johan Barbier strives to keep the service available but cannot guarantee uninterrupted availability.',
-            "Johan Barbier shall not be liable for loss of progress data stored locally. Creating an adult account is recommended to enable sync and protect progress.",
+            'Erudia is provided "as is". Johanwebstudio strives to keep the service available but cannot guarantee uninterrupted availability.',
+            "Johanwebstudio shall not be liable for loss of progress data stored locally. Creating an adult account is recommended to enable sync and protect progress.",
           ],
         },
         {
@@ -1470,7 +1471,7 @@ export const en = {
         {
           heading: "8. Changes to Terms",
           paragraphs: [
-            "Johan Barbier reserves the right to modify these Terms at any time. Users will be notified by email of any substantial changes.",
+            "Johan Callens reserves the right to modify these Terms at any time. Users will be notified by email of any substantial changes.",
             "Continued use of the service after notification constitutes acceptance of the updated Terms.",
           ],
         },
@@ -1478,7 +1479,7 @@ export const en = {
           heading: "9. Governing Law",
           paragraphs: [
             "These Terms are governed by French law. In the event of a dispute, and failing amicable resolution, the competent courts shall be those of the publisher's place of domicile.",
-            "For any claim or question: support@erudia.app.",
+            "For any claim or question: contact@erudia.app.",
           ],
         },
       ],
