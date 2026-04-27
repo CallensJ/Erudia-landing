@@ -71,14 +71,14 @@ useBreadcrumbJsonLd({
               <li v-if="locale === 'fr'">Boutons Statistiques et Accueil déplacés dans la barre latérale desktop</li>
               <li v-else>Statistics and Home buttons moved to the desktop sidebar</li>
 
-              <li v-if="locale === 'fr'">Cliquer sur une catégorie premium en mode gratuit redirige directement vers la page d'abonnement</li>
-              <li v-else>Clicking a premium category in free mode now redirects directly to the subscription page</li>
+              <li v-if="locale === 'fr'">Modale de conversion Premium : cliquer sur une catégorie verrouillée ou "Changer de joueur" en mode gratuit affiche une modale présentant les avantages avant de rediriger vers l'abonnement</li>
+              <li v-else>Premium conversion modal: clicking a locked category or "Switch player" in free mode shows a modal presenting the benefits before redirecting to the subscription page</li>
 
               <li v-if="locale === 'fr'">Suppression de profil enfant désormais réservée à l'espace parent</li>
               <li v-else>Child profile deletion is now restricted to the parent dashboard</li>
 
-              <li v-if="locale === 'fr'">Limite de 4 profils enfants appliquée pour les abonnés Premium (1 en gratuit)</li>
-              <li v-else>4-child profile limit enforced for Premium subscribers (1 for free)</li>
+              <li v-if="locale === 'fr'">Changer de joueur depuis le profil limité aux abonnés Premium (1 profil en gratuit, 4 en Premium)</li>
+              <li v-else>Switching players from the profile screen is now limited to Premium subscribers (1 profile free, 4 with Premium)</li>
 
               <li v-if="locale === 'fr'">Paiement : activation de Google Pay, Amazon Pay et Cartes Bancaires</li>
               <li v-else>Payment: Google Pay, Amazon Pay and Cartes Bancaires enabled</li>
