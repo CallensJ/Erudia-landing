@@ -36,8 +36,8 @@ const { t } = useLocale()
             <span class="contact-method__icon" aria-hidden="true">📧</span>
             <div class="contact-method__body">
               <div class="contact-method__label">{{ t('contact.hero.emailLabel') }}</div>
-              <a href="mailto:contact@johanwebstudio.fr" class="contact-method__value">
-                contact@johanwebstudio.fr
+              <a href="mailto:contact@erudia.app" class="contact-method__value">
+                contact@erudia.app
               </a>
             </div>
           </div>

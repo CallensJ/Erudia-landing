@@ -36,6 +36,7 @@ const form = ref({
   email: '',
   subject: '',
   message: '',
+  _trap: '', // honeypot anti-spam (caché via CSS)
 })
 
 const errors    = ref<Partial<Record<keyof typeof form.value, string>>>({})
@@ -72,7 +73,6 @@ function clearError(field: keyof typeof form.value) {
 }
 
 // ── Soumission ─────────────────────────────────────────────────
-// Simulation — à remplacer par un appel API (Resend / Formspree) en production
 async function handleSubmit() {
   hasError.value = false
   errors.value   = {}
@@ -90,9 +90,22 @@ async function handleSubmit() {
   isSubmitting.value = true
 
   try {
-    await new Promise((resolve) => setTimeout(resolve, 1200))
+    const res = await fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name:    form.value.name,
+        email:   form.value.email,
+        subject: form.value.subject,
+        message: form.value.message,
+        _trap:   form.value._trap,
+      }),
+    })
+
+    if (!res.ok) throw new Error('send_failed')
+
     isSuccess.value = true
-    form.value = { name: '', email: '', subject: '', message: '' }
+    form.value = { name: '', email: '', subject: '', message: '', _trap: '' }
     trackFormSubmit('contact')
   } catch {
     hasError.value = true
@@ -245,6 +258,11 @@ onUnmounted(() => observer?.disconnect())
               <span v-if="isSubmitting" class="cf__spinner" aria-hidden="true"></span>
               <span>{{ isSubmitting ? t('contact.form.submitting') : t('contact.form.submit') }}</span>
             </button>
+
+            <!-- Honeypot anti-spam (champ caché, ne jamais afficher ni labelliser) -->
+            <div class="cf__honeypot" aria-hidden="true">
+              <input v-model="form._trap" type="text" name="website" tabindex="-1" autocomplete="off" />
+            </div>
 
             <!-- Note RGPD -->
             <p class="cf__privacy">{{ t('contact.form.privacy') }}</p>
@@ -503,6 +521,16 @@ onUnmounted(() => observer?.disconnect())
     color: var(--color-text-light);
     line-height: 1.6;
     text-align: center;
+  }
+
+  // Champ honeypot — invisible pour les humains, piège pour les bots
+  &__honeypot {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    pointer-events: none;
   }
 }
 
