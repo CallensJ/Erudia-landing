@@ -22,8 +22,7 @@ function buildSchema() {
   return z.object({
     name:    z.string().min(1, t('contact.form.errors.nameRequired'))
                        .min(2, t('contact.form.errors.nameMin')),
-    email:   z.string().min(1, t('contact.form.errors.emailRequired'))
-                       .email(t('contact.form.errors.emailInvalid')),
+    email:   z.email({ error: t('contact.form.errors.emailInvalid') }),
     subject: z.string().min(1, t('contact.form.errors.subjectRequired')),
     message: z.string().min(1, t('contact.form.errors.messageRequired'))
                        .min(10, t('contact.form.errors.messageMin')),
@@ -39,7 +38,7 @@ const form = ref({
   _trap: '', // honeypot anti-spam (caché via CSS)
 })
 
-const errors    = ref<Partial<Record<keyof typeof form.value, string>>>({})
+const errors    = ref<Partial<Record<ValidatedField, string>>>({})
 const isSubmitting = ref(false)
 const isSuccess    = ref(false)
 const hasError     = ref(false)
@@ -56,8 +55,10 @@ function selectTopic(value: string) {
   delete errors.value.subject
 }
 
+type ValidatedField = 'name' | 'email' | 'subject' | 'message'
+
 // Validation d'un champ unique au blur
-function validateField(field: keyof typeof form.value) {
+function validateField(field: ValidatedField) {
   const schema = buildSchema()
   const result = schema.shape[field].safeParse(form.value[field])
   if (!result.success) {
@@ -68,7 +69,7 @@ function validateField(field: keyof typeof form.value) {
 }
 
 // Efface l'erreur d'un champ dès que l'utilisateur retape
-function clearError(field: keyof typeof form.value) {
+function clearError(field: ValidatedField) {
   delete errors.value[field]
 }
 
@@ -81,7 +82,7 @@ async function handleSubmit() {
   const result = buildSchema().safeParse(form.value)
   if (!result.success) {
     result.error.issues.forEach((issue) => {
-      const field = issue.path[0] as keyof typeof form.value
+      const field = issue.path[0] as ValidatedField
       if (!errors.value[field]) errors.value[field] = issue.message
     })
     return
