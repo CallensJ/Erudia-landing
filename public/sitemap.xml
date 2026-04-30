@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- Accueil -->
+  <url>
+    <loc>https://erudia.app/fr/</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://erudia.app/fr/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://erudia.app/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://erudia.app/fr/"/>
+  </url>
+  <url>
+    <loc>https://erudia.app/en/</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://erudia.app/fr/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://erudia.app/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://erudia.app/fr/"/>
+  </url>
+
+  <!-- Fonctionnalités -->
+  <url>
+    <loc>https://erudia.app/fr/features</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://erudia.app/fr/features"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://erudia.app/en/features"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://erudia.app/fr/features"/>
+  </url>
+  <url>
+    <loc>https://erudia.app/en/features</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://erudia.app/fr/features"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://erudia.app/en/features"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://erudia.app/fr/features"/>
+  </url>
+
+  <!-- Comment ça marche -->
+  <url>
+    <loc>https://erudia.app/fr/how-it-works</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://erudia.app/fr/how-it-works"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://erudia.app/en/how-it-works"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://erudia.app/fr/how-it-works"/>
+  </url>
+  <url>
+    <loc>https://erudia.app/en/how-it-works</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://erudia.app/fr/how-it-works"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://erudia.app/en/how-it-works"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://erudia.app/fr/how-it-works"/>
+  </url>
+
+  <!-- Tarifs -->
+  <url>
+    <loc>https://erudia.app/fr/pricing</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://erudia.app/fr/pricing"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://erudia.app/en/pricing"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://erudia.app/fr/pricing"/>
+  </url>
+  <url>
+    <loc>https://erudia.app/en/pricing</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://erudia.app/fr/pricing"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://erudia.app/en/pricing"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://erudia.app/fr/pricing"/>
+  </url>
+
+  <!-- FAQ -->
+  <url>
+    <loc>https://erudia.app/fr/faq</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://erudia.app/fr/faq"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://erudia.app/en/faq"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://erudia.app/fr/faq"/>
+  </url>
+  <url>
+    <loc>https://erudia.app/en/faq</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://erudia.app/fr/faq"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://erudia.app/en/faq"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://erudia.app/fr/faq"/>
+  </url>
+
+  <!-- Contact -->
+  <url>
+    <loc>https://erudia.app/fr/contact</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://erudia.app/fr/contact"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://erudia.app/en/contact"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://erudia.app/fr/contact"/>
+  </url>
+  <url>
+    <loc>https://erudia.app/en/contact</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://erudia.app/fr/contact"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://erudia.app/en/contact"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://erudia.app/fr/contact"/>
+  </url>
+
+  <!-- À propos -->
+  <url>
+    <loc>https://erudia.app/fr/about</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://erudia.app/fr/about"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://erudia.app/en/about"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://erudia.app/fr/about"/>
+  </url>
+  <url>
+    <loc>https://erudia.app/en/about</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://erudia.app/fr/about"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://erudia.app/en/about"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://erudia.app/fr/about"/>
+  </url>
+
+  <!-- Changelog -->
+  <url>
+    <loc>https://erudia.app/fr/changelog</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://erudia.app/fr/changelog"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://erudia.app/en/changelog"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://erudia.app/fr/changelog"/>
+  </url>
+  <url>
+    <loc>https://erudia.app/en/changelog</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://erudia.app/fr/changelog"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://erudia.app/en/changelog"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://erudia.app/fr/changelog"/>
+  </url>
+
+</urlset>
