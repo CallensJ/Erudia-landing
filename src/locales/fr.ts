@@ -199,7 +199,7 @@ export const fr = {
       title1: "Tout ce que le quiz Erudia",
       title2: "fait pour votre enfant",
       subline:
-        "Explorez chaque fonctionnalité — conçue pour l'enfant qui apprend, et pour le parent qui suit.",
+        "Explorez chaque fonctionnalité conçue pour l'enfant qui apprend, et pour le parent qui suit.",
       tabChild: "🎮 Pour l'enfant",
       tabParent: "👨‍👩‍👧 Pour le parent",
       tabContent: "📚 Le contenu",
@@ -300,7 +300,7 @@ export const fr = {
       pill: "📚 Le contenu",
       title: "Des questions qui font vraiment apprendre",
       p1: "Erudia ne se contente pas de divertir. Chaque question est validée pédagogiquement, alignée sur les programmes scolaires français (CP→6e) et le curriculum international (Grade 1→Grade 6).",
-      p2: "Le niveau Difficile monte jusqu'au programme de collège — volontairement. Un enfant de 10 ans qui atteint 18/20 en Facile doit encore être challengé. Erudia grandit avec lui.",
+      p2: "Le niveau Difficile monte jusqu'au programme de collège volontairement. Un enfant de 10 ans qui atteint 18/20 en Facile doit encore être challengé. Erudia grandit avec lui.",
       p3: "Les questions Difficile d'Erudia reflètent la réalité des programmes internationaux : culture mondiale, histoire avancée, sciences. Même un adulte peut être surpris.",
       noteStrong: "Un score de 8/20 en mode Difficile n'est pas un échec",
       noteText:
@@ -402,12 +402,12 @@ export const fr = {
       pill: "👨‍👩‍👧 Pour le parent",
       title: "Superviser sans surveiller",
       subline:
-        "Le mode admin est intégré directement dans l'app enfant — protégé par authentification, accessible en 2 clics.",
+        "Le mode admin est intégré directement dans l'app enfant protégé par authentification, accessible en 2 clics.",
       items: [
         {
           icon: "🛡️",
           title: "Mode admin intégré",
-          desc: "Accès protégé par Supabase Auth (email/password ou Google OAuth). Pas de compte parent séparé à créer — le bouton admin est discret dans l'interface enfant.",
+          desc: "Accès protégé par Supabase Auth (email/password ou Google OAuth). Pas de compte parent séparé à créer le bouton admin est discret dans l'interface enfant.",
           list: [],
         },
         {
@@ -467,7 +467,7 @@ export const fr = {
       title1: "Nova, votre guide",
       title2: "émotionnel",
       p1: "Nova est la mascotte hibou d'Erudia. Elle apparaît à chaque moment clé du parcours : onboarding, feedback après réponse, résultats, badges débloqués.",
-      p2: "7 expressions SVG distinctes — joyeuse, concentrée, encourageante, fière, mauvaise réponse, streak, accueil. Nova ne juge jamais, elle accompagne.",
+      p2: "7 expressions SVG distinctes: joyeuse, concentrée, encourageante, fière, mauvaise réponse, streak, accueil. Nova ne juge jamais, elle accompagne.",
       p3: "Ses messages sont toujours bienveillants : après une mauvaise réponse, Nova montre la bonne réponse avec douceur. Après un badge, elle célèbre avec l'enfant.",
       expressions: [
         { emoji: "😊", label: "Joyeuse" },
@@ -514,7 +514,7 @@ export const fr = {
           color: "#667eea",
           title1: "Ça marche",
           title2: "sans internet",
-          desc: "Un enfant apprend partout : en voiture, chez les grands-parents, dans un avion. On ne voulait pas qu'une mauvaise connexion soit un obstacle à l'apprentissage. Erudia est une PWA locale — les quiz se lancent en quelques secondes, même hors ligne. Les progrès se synchronisent automatiquement quand le réseau revient.",
+          desc: "Un enfant apprend partout : en voiture, chez les grands-parents, dans un avion. On ne voulait pas qu'une mauvaise connexion soit un obstacle à l'apprentissage. Erudia est une PWA locale,les quiz se lancent en quelques secondes, même hors ligne. Les progrès se synchronisent automatiquement quand le réseau revient.",
           insightIcon: "📱",
           insightStrong: "Progressive Web App installable",
           insightText:
@@ -526,9 +526,9 @@ export const fr = {
           color: "#4CAF50",
           title1: "Calé sur les",
           title2: "programmes scolaires",
-          desc: "Les quiz Erudia ne sont pas générés au hasard. Chaque question est alignée sur les programmes officiels français (CP → 6e) et le curriculum international (Grade 1 → Grade 6). L'enfant révise ce qu'il voit en classe — avec un angle différent, plus ludique. Le niveau Difficile monte jusqu'au collège pour que l'app grandisse avec lui.",
+          desc: "Les quiz Erudia ne sont pas générés au hasard. Chaque question est alignée sur les programmes officiels français (CP → 6e) et le curriculum international (Grade 1 → Grade 6). L'enfant révise ce qu'il voit en classe, avec un angle différent, plus ludique. Le niveau Difficile monte jusqu'au collège pour que l'app grandisse avec lui.",
           insightIcon: "📐",
-          insightStrong: "Validé pédagogiquement",
+          insightStrong: "",
           insightText:
             "Sciences, Histoire, Héros & Aventures disponibles dès maintenant. Maths, Géographie, Astronomie, Mythologie et Éducation Civique en préparation.",
         },
@@ -538,7 +538,7 @@ export const fr = {
           color: "#FF9800",
           title1: "Français et anglais,",
           title2: "dès le premier jour",
-          desc: "Beaucoup d'apps éducatives démarrent en anglais et ajoutent d'autres langues en option, souvent incomplète. On a fait l'inverse : Erudia est nativement bilingue FR/EN, questions et interface comprises. Un enfant francophone peut basculer en anglais pour une session — et revenir en français sans perdre ses données.",
+          desc: "Beaucoup d'apps éducatives démarrent en anglais et ajoutent d'autres langues en option, souvent incomplète. On a fait l'inverse : Erudia est nativement bilingue FR/EN, questions et interface comprises. Un enfant francophone peut basculer en anglais pour une session et revenir en français sans perdre ses données.",
           insightIcon: "🌍",
           insightStrong: "Un seul toggle",
           insightText:
@@ -632,7 +632,7 @@ export const fr = {
   howItWorks: {
     hero: {
       pill: "✨ Comment ça marche",
-      title: "Jouer sans connexion internet — simple comme bonjour.",
+      title: "Jouer sans connexion internet, simple comme bonjour.",
       subline:
         "Pas de compte email pour l'enfant, pas d'inscription interminable. Un pseudo, un avatar — et c'est parti pour apprendre en s'amusant.",
       switcherChild: "🎮 Parcours enfant",
@@ -642,7 +642,7 @@ export const fr = {
       pill: "🎮 Parcours enfant",
       title: "5 étapes pour jouer",
       subline:
-        "De l'ouverture de l'app au premier badge — en moins de 5 minutes.",
+        "De l'ouverture de l'app au premier badge en moins de 5 minutes.",
       step1Label: "Étape 1",
       step1Title: "Créer son profil",
       step1Desc:
@@ -709,7 +709,7 @@ export const fr = {
       pill: "👨‍👩‍👧 Parcours parent",
       title: "3 étapes pour suivre",
       subline:
-        "Pas de compte séparé. Le mode admin est intégré dans l'app — accès en 2 clics, sécurisé par votre compte Supabase.",
+        "Pas de compte séparé. Le mode admin est intégré dans l'app accès en 2 clics, sécurisé par votre compte Supabase.",
       step1Num: "01",
       step1Title: "Accéder au mode admin",
       step1Desc:
