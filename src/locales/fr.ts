@@ -638,9 +638,9 @@ export const fr = {
       step1Label: "Étape 1",
       step1Title: "Créer son profil",
       step1Desc:
-        "L'enfant choisit un pseudonyme fun et sélectionne son avatar parmi des dizaines de personnages DiceBear. En 30 secondes, il est prêt à jouer — sans email, sans mot de passe.",
-      step1D1: "Pseudonyme unique (suggestions fun si pris)",
-      step1D2: "5 styles d'avatars, des centaines de combinaisons",
+        "L'enfant choisit un pseudonyme fun et sélectionne son avatar parmi des dizaines de personnages DiceBear. En 30 secondes, il est prêt à jouer, sans email, sans mot de passe.",
+      step1D1: "Pseudonyme unique",
+      step1D2: "5 styles d'avatars, 30 en premium",
       step1D3: "Aucune donnée personnelle collectée (COPPA)",
       step2Label: "Étape 2",
       step2Title: "Choisir sa catégorie & difficulté",
@@ -666,7 +666,7 @@ export const fr = {
       step5Label: "Étape 5",
       step5Title: "Consulter son profil",
       step5Desc:
-        "Le profil affiche l'avatar, le pseudo, les statistiques globales et les badges gagnés. Le défi quotidien et le mode duel sont accessibles depuis la navigation. Tout est sauvegardé localement — même hors ligne.",
+        "Le profil affiche l'avatar, le pseudo, les statistiques globales et les badges gagnés. Les défis quotidiens sont accessibles depuis la navigation. Tout est sauvegardé localement même hors ligne.",
       step5D1: "Avatar + pseudo + badges visibles en un coup d'œil",
       step5D2: "Statistiques détaillées par catégorie (Erudia+)",
       step5D3: "Défi quotidien & mode duel accessibles",
@@ -705,9 +705,9 @@ export const fr = {
       step1Num: "01",
       step1Title: "Accéder au mode admin",
       step1Desc:
-        "Un bouton discret en bas du profil enfant. Un clic — une authentification Supabase (email ou Google) est requise. Pas besoin de créer un compte parent séparé.",
+        "Un bouton discret en bas du profil enfant. Un clic ,une authentification est requise. Pas besoin de créer un compte parent séparé.",
       step1D1: "Connexion email ou Google en un clic",
-      step1D2: "PIN 4 chiffres pour les accès rapides suivants",
+      step1D2: "",
       step1D3: "Accessible en 2 clics depuis le profil enfant",
       step2Num: "02",
       step2Title: "Consulter les statistiques",
@@ -748,9 +748,9 @@ export const fr = {
       title: "Ça marche partout.",
       titleAccent: "Vraiment partout.",
       para1:
-        "Erudia est une PWA (Progressive Web App). Une fois visitée, l'app met en cache tout le nécessaire pour fonctionner sans connexion — questions, interface, sons.",
+        "Erudia est une PWA (Progressive Web App). Une fois visitée, l'app met en cache tout le nécessaire pour fonctionner sans connexion questions, interface, sons.",
       para2:
-        "Dans le métro, en voiture, à la montagne, chez des amis sans WiFi — les quiz fonctionnent toujours. Aucune frustration pour votre enfant, aucune interruption.",
+        "Dans le métro, en voiture, à la montagne, chez des amis sans WiFi les quiz fonctionnent toujours. Aucune frustration pour votre enfant, aucune interruption.",
       step1Title: "Première visite avec connexion",
       step1Desc:
         "L'app met en cache les questions et l'interface automatiquement.",
@@ -770,7 +770,7 @@ export const fr = {
       sc3Desc: "Scores sauvegardés localement, synchronisés au retour",
       sc3Status: "⟳ Sync dès connexion",
       sc4Title: "Mode avion",
-      sc4Desc: "Questions mises en cache — disponibles immédiatement",
+      sc4Desc: "Questions mises en cache disponibles immédiatement",
       sc4Status: "📦 Mis en cache",
     },
     cta: {
@@ -828,12 +828,12 @@ export const fr = {
       premiumFeaturesTitle: "Tout du plan gratuit, plus :",
       premiumF1: "Toutes les catégories — 20 au total",
       premiumF2: "Packs thématiques exclusifs (Espace, Mythologie…)",
-      premiumF3: "Avatars premium DiceBear (4 styles supplémentaires)",
+      premiumF3: "Avatars premium DiceBear (20 styles supplémentaires)",
       premiumF4: "Profils enfants illimités",
       premiumF5: "Historique cloud illimité",
       premiumF6: "Dashboard parent avancé (graphiques, tendances)",
       premiumF7: "Objectifs avancés par catégorie / semaine",
-      premiumF8: "Rapports PDF — envoi hebdo / mensuel automatique",
+      premiumF8: "Rapports PDF envoi hebdo / mensuel automatique",
       premiumF9: "Recommandations pédagogiques personnalisées",
       stripe:
         "🔒 Paiement sécurisé via Stripe · Remboursement intégral dans les 14 jours · Données hébergées en Europe",
@@ -852,18 +852,18 @@ export const fr = {
       c1Stat: "∞ parties",
       c2Title: "Toute la famille",
       c2Desc:
-        "Erudia+ couvre des profils enfants illimités. Frères, sœurs, cousins — un seul abonnement suffit pour tout le monde, sans supplément.",
+        "Erudia+ couvre jusqu'a 4 profils supplémentaires. Frères, sœurs, cousins un seul abonnement suffit pour tout le monde, sans supplément.",
       c2Stat: "∞ profils",
       c3Title: "Partout, toujours",
       c3Desc:
-        "Mode hors ligne inclus dès le plan gratuit — pas réservé au premium. Voitures, trains, campings : l'apprentissage ne s'arrête jamais.",
+        "Mode hors ligne inclus dès le plan gratuit,pas réservé au premium. Voitures, trains, campings : Le fun ne s'arrête jamais.",
       c3Stat: "0 coupure",
       c4Title: "Zéro publicité",
       c4Desc:
-        "Pas de pub, ni en gratuit ni en premium. Pas de tracking, pas de données enfants revendues. Erudia, c'est juste le jeu — rien d'autre.",
+        "Pas de pub, ni en gratuit ni en premium. Pas de tracking, pas de données enfants revendues. Erudia, c'est juste le jeu,rien d'autre.",
       c4Stat: "0 pub",
       analogyTitle: "Un mois d'Erudia+, c'est moins cher que…",
-      analogySub: "Et ça dure tout le mois — pas juste le temps d'un goûter 😄",
+      analogySub: "Et ça dure tout le mois pas juste le temps d'un goûter 😄",
       pizzaLabel: "Une pizza",
       pizzaPrice: "~8–12€",
       pizzaDuration: "une soirée",
@@ -948,57 +948,57 @@ export const fr = {
         category: "safety",
         question: "Est-ce que l'app est sûre pour mon enfant ?",
         answer:
-          "Oui. Erudia ne collecte aucune donnée personnelle sur votre enfant — pas de nom réel, pas d'email, pas de photo. L'enfant joue avec un pseudonyme et un avatar choisis par lui. L'app est conçue dans le respect du RGPD et du standard COPPA (États-Unis). Aucune publicité, aucun tracker tiers.",
+          "Oui. Erudia ne collecte aucune donnée personnelle sur votre enfant. Pas de nom réel, pas d'email, pas de photo. L'enfant joue avec un pseudonyme et un avatar choisis par lui. L'app est conçue dans le respect du RGPD et du standard COPPA. Aucune publicité, aucun tracker tiers.",
       },
       {
         id: "safety-2",
         category: "safety",
         question: "Erudia collecte-t-il des données sur mon enfant ?",
         answer:
-          "Non. Le profil enfant contient uniquement un pseudonyme, un avatar (image générée, pas une vraie photo), et les scores/badges en local. Aucun email enfant. L'email adulte n'est utilisé que dans l'espace parent, protégé par authentification Supabase.",
+          "Non. Le profil enfant contient uniquement un pseudonyme, un avatar (image générée, pas une vraie photo), et les scores/badges en local. Aucun email enfant. L'email adulte n'est utilisé que dans l'espace parent, protégé par authentification.",
       },
       {
         id: "safety-3",
         category: "safety",
         question: "Y a-t-il des publicités dans l'app ?",
         answer:
-          "Aucune. Zéro pub, zéro tracker, zéro revente de données. Le modèle économique d'Erudia repose uniquement sur l'abonnement Erudia+ — pas sur la publicité.",
+          "Aucune. Zéro pub, zéro tracker, zéro revente de données. Le modèle économique d'Erudia repose uniquement sur l'abonnement premium. Pas sur la publicité.",
       },
       {
         id: "safety-4",
         category: "safety",
         question: "Mon enfant peut-il interagir avec d'autres utilisateurs ?",
         answer:
-          "Erudia propose un mode duel asynchrone (Erudia+) : votre enfant peut partager un code à 6 caractères avec un proche pour jouer les mêmes questions et comparer les scores. Il n'y a aucun chat, aucune messagerie, aucun réseau social. L'activation de ce mode nécessite la validation d'un parent depuis l'espace admin.",
+          "Non pas pour le moment mais c'est une fonctionnalité en cours de développement",
       },
       {
         id: "content-1",
         category: "content",
         question: "Quelles matières sont couvertes ?",
         answer:
-          "En version gratuite : Sciences (300 questions), Histoire (500 questions), Héros (75 questions). Erudia+ ajoute Sport, Géographie, Culture et Art — soit 7 catégories au total. Toutes les questions sont disponibles en français et en anglais.",
+          "En version gratuite : Sciences (375 questions), Histoire (900 questions), Héros (400 questions). Erudia+ ajoute 18 catégories supplémentaires. Toutes les questions sont disponibles en français et en anglais.",
       },
       {
         id: "content-2",
         category: "content",
         question: "Le contenu est-il adapté à l'âge de mon enfant ?",
         answer:
-          "L'interface est conçue pour les 6–11 ans : gros boutons, icônes, lisibilité maximale. Le contenu propose 3 niveaux (Facile, Moyen, Difficile) — le niveau Hard dépasse volontairement le primaire pour proposer un vrai défi sur le long terme.",
+          " Le contenu propose 3 niveaux (Facile, Moyen, Difficile) le niveau Hard dépasse volontairement le primaire pour proposer un vrai défi sur le long terme.",
       },
       {
         id: "content-3",
         category: "content",
         question:
-          "Les questions sont-elles alignées sur les programmes scolaires ?",
+          "Les questions sont-elles vraiment alignées sur les programmes scolaires ?",
         answer:
-          "Oui. Les questions sont validées pédagogiquement sur les programmes français (CP → 6e) et le curriculum international (Grade 1 → 6). Le niveau Difficile couvre jusqu'en 4e pour offrir un challenge progressif.",
+          "Autant que possible oui, les questions sont générées par IA en se calibrant sur les programmes scolaires français et internationaux.",
       },
       {
         id: "content-4",
         category: "content",
         question: "Combien de questions sont disponibles ?",
         answer:
-          "Plus de 800 questions au lancement, réparties sur 3 catégories gratuites en FR et EN. Le catalogue est enrichi régulièrement. Erudia+ ajoute plusieurs centaines de questions supplémentaires.",
+          "Le nombre de questions varie selon la catégorie. entre 400 et 900 questions par catégorie.b",
       },
       {
         id: "content-5",
@@ -1026,7 +1026,7 @@ export const fr = {
         category: "offline",
         question: "Les scores sont-ils perdus si je joue hors ligne ?",
         answer:
-          "Non. Les scores et badges sont sauvegardés en local (localStorage). Dès que la connexion est rétablie, la synchronisation avec Supabase se fait automatiquement en arrière-plan — aucune action de votre part.",
+          "Non. Les scores et badges sont sauvegardés en local (localStorage). Dès que la connexion est rétablie, la synchronisation se fait automatiquement en arrière-plan. Aucune action de votre part.",
       },
       {
         id: "offline-4",
@@ -1040,7 +1040,7 @@ export const fr = {
         category: "account",
         question: "Faut-il créer un compte pour jouer ?",
         answer:
-          "Non. Il suffit de choisir un pseudonyme et un avatar — pas d'email, pas de mot de passe pour l'enfant. Le profil est stocké localement et synchronisé en arrière-plan avec Supabase si vous êtes connecté.",
+          "Non. Il suffit de choisir un pseudonyme et un avatar. Pas d'email, pas de mot de passe pour l'enfant. Le profil est stocké localement et synchronisé en arrière-plan avec Supabase si vous êtes connecté.",
       },
       {
         id: "account-2",
@@ -1061,14 +1061,14 @@ export const fr = {
         category: "account",
         question: "Que se passe-t-il si je change d'appareil ?",
         answer:
-          "Si la synchronisation Supabase est active (compte adulte créé), tous les scores, badges et le profil sont accessibles depuis n'importe quel appareil. Sans sync, les données restent sur l'appareil d'origine.",
+          "Si la synchronisation est active (compte adulte créé), tous les scores, badges et le profil sont accessibles depuis n'importe quel appareil. Sans sync, les données restent sur l'appareil d'origine.",
       },
       {
         id: "parent-1",
         category: "parent",
         question: "Comment accéder à l'espace parent ?",
         answer:
-          "Un bouton discret « Espace parent » en bas de l'écran Profil permet d'accéder à l'admin. L'accès nécessite une authentification Supabase (email + mot de passe ou Google). Pas besoin de créer un compte parent séparé.",
+          "Un bouton discret « Espace parent » en bas de l'écran Profil permet d'accéder à l'admin. L'accès nécessite une authentification.",
       },
       {
         id: "parent-2",
@@ -1096,28 +1096,28 @@ export const fr = {
         category: "billing",
         question: "L'abonnement se renouvelle-t-il automatiquement ?",
         answer:
-          "Oui, mensuel ou annuel selon votre choix. Un email de rappel est envoyé 7 jours avant le renouvellement. Vous pouvez annuler à tout moment — vous gardez l'accès Erudia+ jusqu'à la fin de la période payée.",
+          "Oui, mensuel ou semi-annuel selon votre choix. Un email de rappel est envoyé 7 jours avant le renouvellement. Vous pouvez annuler à tout moment vous gardez l'accès Erudia+ jusqu'à la fin de la période payée.",
       },
       {
         id: "billing-2",
         category: "billing",
         question: "Comment annuler mon abonnement ?",
         answer:
-          "Dans l'espace admin → section Abonnement → bouton Annuler. L'annulation est instantanée, sans formulaire ni email. Vous conservez l'accès aux fonctionnalités premium jusqu'à la fin du cycle en cours.",
+          "Dans l'espace admin → section Abonnement → bouton Annuler. L'annulation est instantanée. Vous conservez l'accès aux fonctionnalités premium jusqu'à la fin du cycle en cours.",
       },
       {
         id: "billing-3",
         category: "billing",
         question: "Puis-je obtenir un remboursement ?",
         answer:
-          "Oui, remboursement intégral dans les 14 jours suivant l'achat, sans condition. Envoyez l'email de confirmation de commande Stripe à contact@erudia.app — traitement sous 5 jours ouvrés.",
+          "Oui, remboursement intégral dans les 7 jours suivant l'achat, sans condition. Envoyez l'email de confirmation de commande Stripe à contact@erudia.app",
       },
       {
         id: "billing-4",
         category: "billing",
         question: "Mes données de paiement sont-elles sécurisées ?",
         answer:
-          "Erudia utilise Stripe, leader mondial du paiement en ligne. Erudia ne stocke jamais vos coordonnées bancaires. Toutes les transactions sont chiffrées et conformes à la norme PCI DSS.",
+          "Erudia utilise Stripe, leader mondial du paiement en ligne. Erudia ne stocke jamais vos coordonnées bancaires. Toutes les transactions sont chiffrées.",
       },
       {
         id: "technical-1",
@@ -1138,7 +1138,7 @@ export const fr = {
         category: "technical",
         question: "L'app fonctionne-t-elle sur iPhone/iPad ?",
         answer:
-          "Oui, Erudia est optimisée pour Safari iOS 14+. Pour la meilleure expérience, ajoutez l'app à votre écran d'accueil via Safari. Note : iOS a quelques limitations vs Android (notamment les notifications push).",
+          "Tout a . Pour la meilleure expérience, ajoutez l'app à votre écran d'accueil via Safari. Note : iOS a quelques limitations vs Android (notamment les notifications push).",
       },
       {
         id: "technical-4",
@@ -1174,12 +1174,12 @@ export const fr = {
       title: "Une question ?",
       titleAccent: "Je vous réponds.",
       subline:
-        "C'est a moi qu vous parlez,  créateur, développeur et designer d'Erudia. Pas un bot, pas un formulaire automatique.",
+        "C'est a moi qu vous parlez,  créateur, développeur et designer d'Erudia.",
       emailLabel: "Email",
       studioLabel: "Studio",
       locationLabel: "Localisation",
       locationValue: "Sud de la France 🌞",
-      responseNote: "Je répond au plus vites en français ou en anglais.",
+      responseNote: "Je répond au plus vite en français ou en anglais.",
     },
     form: {
       heading: "Écrivez-moi",
@@ -1208,7 +1208,7 @@ export const fr = {
       },
       successTitle: "Message envoyé !",
       successText:
-        "Merci — je vous réponds personnellement dans les 48h. À très vite !",
+        "Merci. Je vous réponds personnellement dans les 48h. À très vite !",
       successAgain: "Envoyer un autre message",
     },
     subjects: [
@@ -1227,17 +1227,17 @@ export const fr = {
     bio: {
       pill: "Qui se cache derrière Erudia ?",
       title: "Une app de papa.",
-      role: "Créateur d'Erudia · Dev freelance",
+      role: "Créateur d'Erudia · développeur freelance",
       tag1: "Papa",
       tag2: "Full-stack dev",
       tag3: "Designer",
       tag4: "Sud de France",
       studioLabel: "Studio freelance",
-      p1: "Ma fille a grandi aux Philippines. Elle parle anglais et tagalog . Le français, c'est encore un peu flou pour elle. On vitNous vivons On vit entre deux cultures, deux langues, deux façons de voir le monde. Et quand j'ai essayé de lui faire découvrir l'histoire de France, la géo de l'Europe, les sciences… les apps que je trouvais étaient soit en anglais uniquement, soit coupées à la moindre absence de wifi, soit bourrées de pubs. Pas terrible pour une gamine de 6 ans.",
+      p1: "Ma fille a grandie aux Philippines. Elle parle anglais et tagalog . Le français, c'est encore un peu flou pour elle. Nous vivons On vit entre deux cultures, deux langues, deux façons de voir le monde. Et quand j'ai essayé de lui faire découvrir l'histoire de France, la géo de l'Europe, les sciences… les apps que je trouvais n'étaient pas conçue pour un apprendre une langue a un public non Francophone,soit bourrées de pubs. Soit extrémement chères Pas terrible pour une gamine de 7 ans.",
       quote:
         "\"Alors j'ai fait ce que font les devs quand ils trouvent pas ce qu'ils cherchent. J'ai développé une application.\"",
       quoteAuthor: "— Johan",
-      p2: 'Erudia, c\'est ce projet-là. Commencé pour elle, fini pour vous aussi — enfin j\'espère. Je suis seul derrière\u00a0: le code, le design, les questions, le support. <a href="https://johanwebstudio.fr" target="_blank" rel="noopener noreferrer">Johanwebstudio</a>, c\'est mon studio freelance dans le sud de la France. Si vous avez un projet web ou app, vous savez où me trouver.',
+      p2: 'Erudia, c\'est ce projet-là. Commencé pour elle, fini pour vous aussi. Enfin j\'espère. Je suis seul derrière\u00a0: le code, le design, les questions, le support. <a href="https://johanwebstudio.fr" target="_blank" rel="noopener noreferrer">Johanwebstudio</a>, c\'est mon studio freelance dans le sud de la France. Si vous avez un projet web ou app, vous savez où me trouver.',
       photoCaption: "On est comme ça, nous deux. 🇵🇭",
       founderAlt: "Johan, fondateur d'Erudia",
       filleAlt: "Johan et sa fille",
@@ -1281,7 +1281,7 @@ export const fr = {
       title: "La version EN n'est pas une traduction.",
       subline:
         "C'est un produit à part entière, conçu pour un profil bien précis.",
-      p1: "La version anglaise d'Erudia a été pensée pour un enfant anglophone qui doit intégrer le référentiel culturel français — l'histoire de France, la géographie hexagonale, les institutions de la République — parce qu'il va vivre, étudier ou grandir en France.",
+      p1: "La version anglaise d'Erudia a été pensée pour un enfant anglophone qui doit intégrer le référentiel culturel français. L'histoire de France, la géographie hexagonale, les institutions de la République. parce qu'il va vivre, étudier ou travailler en France.",
       p2: "Ce n'est pas du FLE au sens strict (apprendre la grammaire ou le vocabulaire). C'est une préparation au référentiel culturel et scolaire français, transmise dans la langue que l'enfant maîtrise déjà : l'anglais.",
       quote:
         "Cette vision est directement issue de l'expérience du fondateur : préparer sa propre fille à un retour en France après une enfance aux Philippines, en lui donnant les repères culturels et historiques qu'elle n'a pas pu acquérir naturellement.",
@@ -1291,13 +1291,13 @@ export const fr = {
       pillFeature4: "Différenciateur fort",
       card1Title: "Conçu pour les familles bilingues",
       card1Text:
-        "Enfants franco-étrangers, familles expatriées, enfants adoptés — Erudia EN leur donne les repères culturels français dans leur langue naturelle.",
+        "Enfants franco-étrangers, familles expatriées, enfants adoptés. Erudia EN leur donne les repères culturels français dans leur langue naturelle.",
       card2Title: "Pas une traduction, une adaptation",
       card2Text:
         "Chaque catégorie EN est calibrée sur ce que doit savoir un enfant qui arrive en France — depuis le point de vue de quelqu'un qui ne baigne pas encore dans cette culture.",
       card3Title: "Un différenciateur fort",
       card3Text:
-        "Il n'existe pas d'outil équivalent sur le marché anglophone. Erudia se positionne comme la référence pour la préparation au référentiel scolaire français en anglais.",
+        "Erudia se positionne pour la préparation au référentiel scolaire français en anglais.",
     },
     cta: {
       title: "Vous aussi, essayez Erudia.",
