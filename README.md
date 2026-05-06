@@ -1,5 +1,90 @@
-# Vue 3 + TypeScript + Vite
+# Erudia — Landing Page
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+> Landing page marketing bilingue de **[Erudia](https://erudia.app/fr)** — plateforme éducative pour enfants 6–11 ans.  
+> Conçue pour convertir les visiteurs en utilisateurs inscrits.
 
-Learn more about the recommended Project Setup and IDE Support in the [Vue Docs TypeScript Guide](https://vuejs.org/guide/typescript/overview.html#project-setup).
+[![Live](https://img.shields.io/badge/Live-erudia.app-4FC08D?style=flat&logo=vercel&logoColor=white)](https://erudia.app/fr)
+![Vue](https://img.shields.io/badge/Vue.js-67.6%25-4FC08D?style=flat&logo=vuedotjs&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-30.9%25-3178C6?style=flat&logo=typescript&logoColor=white)
+![Commits](https://img.shields.io/github/commit-activity/t/CallensJ/Erudia-landing?label=commits&color=88CE02)
+
+---
+
+## 🚀 Stack
+
+| Catégorie | Technologie |
+|-----------|------------|
+| Framework | Vue.js 3 (Composition API, `<script setup>`) |
+| Langage | TypeScript |
+| Build tool | Vite |
+| Styling | SCSS |
+| API | Serverless functions (dossier `/api`) |
+| Déploiement | Vercel |
+
+---
+
+## 📁 Architecture
+
+```
+Erudia-landing/
+├── src/
+│   ├── components/     # Composants Vue (sections, UI)
+│   ├── views/          # Pages de la landing
+│   ├── locales/        # Fichiers i18n (FR / EN)
+│   └── assets/         # Styles SCSS et assets
+├── api/                # Serverless functions Vercel
+├── public/             # Assets statiques
+├── .env.local.example  # Variables d'environnement (template)
+└── vercel.json         # Configuration déploiement
+```
+
+---
+
+## ✨ Features
+
+- **Bilingue FR / EN**: i18n complet, switch de langue en temps réel
+- **Serverless API**: fonctions Vercel pour la gestion des formulaires et webhooks
+- **Sections** : hero · fonctionnalités · tarifs · FAQ · CTA
+- **Responsive mobile-first**
+- **Transitions Vue**: animations de page et d'entrée des sections
+- **SEO optimisé**: balises meta dynamiques par langue
+
+---
+
+## ⚙️ Installation locale
+
+```bash
+git clone https://github.com/CallensJ/Erudia-landing.git
+cd Erudia-landing
+npm install
+```
+
+Copier le fichier d'environnement :
+
+```bash
+cp .env.local.example .env.local
+```
+
+Lancer le serveur de développement :
+
+```bash
+npm run dev
+```
+
+---
+
+## 🔗 Projet lié
+
+| Repo | Description |
+|------|-------------|
+| [quizzly](https://github.com/CallensJ/quizzly) | Application Erudia — Next.js + Stripe + Auth |
+
+---
+
+## 🌐 Live
+
+[erudia.app/fr](https://erudia.app/fr)
+
+---
+
+> Développé par [Johan Callens](https://github.com/CallensJ) · [JohanWebStudio](https://johanwebstudio.fr)
