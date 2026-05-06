@@ -18,8 +18,8 @@
 | Langage | TypeScript |
 | Build tool | Vite |
 | Styling | SCSS |
-| API | Serverless functions (dossier `/api`) |
-| Déploiement | Vercel |
+| Emails | Resend (formulaire de contact + newsletter) |
+| Déploiement | Vercel (Serverless functions) |
 
 ---
 
@@ -32,7 +32,7 @@ Erudia-landing/
 │   ├── views/          # Pages de la landing
 │   ├── locales/        # Fichiers i18n (FR / EN)
 │   └── assets/         # Styles SCSS et assets
-├── api/                # Serverless functions Vercel
+├── api/                # Serverless functions — Resend (contact + newsletter)
 ├── public/             # Assets statiques
 ├── .env.local.example  # Variables d'environnement (template)
 └── vercel.json         # Configuration déploiement
@@ -42,12 +42,13 @@ Erudia-landing/
 
 ## ✨ Features
 
-- **Bilingue FR / EN**: i18n complet, switch de langue en temps réel
-- **Serverless API**: fonctions Vercel pour la gestion des formulaires et webhooks
+- **Bilingue FR / EN** — i18n complet, switch de langue en temps réel
+- **Formulaire de contact** — envoi d'emails via [Resend](https://resend.com)
+- **Inscription newsletter** — gestion des abonnés via Resend
 - **Sections** : hero · fonctionnalités · tarifs · FAQ · CTA
 - **Responsive mobile-first**
-- **Transitions Vue**: animations de page et d'entrée des sections
-- **SEO optimisé**: balises meta dynamiques par langue
+- **Transitions Vue** — animations de page et d'entrée des sections
+- **SEO optimisé** — balises meta dynamiques par langue
 
 ---
 
@@ -63,6 +64,12 @@ Copier le fichier d'environnement :
 
 ```bash
 cp .env.local.example .env.local
+```
+
+Variables requises :
+
+```env
+RESEND_API_KEY=your_resend_api_key
 ```
 
 Lancer le serveur de développement :
