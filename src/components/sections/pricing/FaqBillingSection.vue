@@ -5,7 +5,7 @@
      - Animation max-height CSS pour l'ouverture/fermeture
      - Reveal au scroll via IntersectionObserver -->
 <script setup lang="ts">
-import { ref, computed, onMounted, onUnmounted } from 'vue'
+import { ref, computed, reactive, onMounted, onUnmounted } from 'vue'
 import { useLocale } from '@/composables/useLocale'
 
 const { t } = useLocale()
@@ -29,6 +29,9 @@ function toggle(id: string) {
 }
 
 // ── Reveal au scroll ──────────────────────────────────────────
+// Stocké dans un Set réactif Vue pour éviter que le patch de classe
+// lors d'un re-render (toggle accordéon) supprime is-visible du DOM.
+const visibleIds = reactive(new Set<string>())
 let observer: IntersectionObserver | null = null
 
 onMounted(() => {
@@ -36,7 +39,8 @@ onMounted(() => {
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible')
+          const id = (entry.target as HTMLElement).dataset.revealId
+          if (id) visibleIds.add(id)
           observer?.unobserve(entry.target)
         }
       })
@@ -44,7 +48,7 @@ onMounted(() => {
     { threshold: 0.1 }
   )
 
-  document.querySelectorAll('.faq-reveal').forEach((el) => observer?.observe(el))
+  document.querySelectorAll('[data-reveal-id]').forEach((el) => observer?.observe(el))
 })
 
 onUnmounted(() => observer?.disconnect())
@@ -55,7 +59,11 @@ onUnmounted(() => observer?.disconnect())
     <div class="container">
 
       <!-- En-tête -->
-      <div class="faq-billing__header faq-reveal">
+      <div
+        class="faq-billing__header faq-reveal"
+        data-reveal-id="header"
+        :class="{ 'is-visible': visibleIds.has('header') }"
+      >
         <div class="pill pill--primary label">{{ t('pricing.faqBilling.pill') }}</div>
         <h2 id="faq-billing-title" class="faq-billing__heading">
           {{ t('pricing.faqBilling.title') }}
@@ -68,7 +76,8 @@ onUnmounted(() => observer?.disconnect())
           v-for="(faq, index) in faqs"
           :key="faq.id"
           class="faq-item faq-reveal"
-          :class="{ 'faq-item--open': openId === faq.id }"
+          :class="{ 'faq-item--open': openId === faq.id, 'is-visible': visibleIds.has(faq.id) }"
+          :data-reveal-id="faq.id"
           :data-delay="index % 3"
           role="listitem"
         >
