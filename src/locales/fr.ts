@@ -75,19 +75,19 @@ export const fr = {
         "Erudia est né de ces petits moments du quotidien et de l'envie de les transformer en occasions d'apprendre.",
       item1Title: "En route, en vacances…",
       item1Problem:
-        "Le trajet de 40 minutes, la semaine sans WiFi au chalet, la salle d'attente — autant de moments où l'on voudrait que l'apprentissage continue, naturellement.",
+        "Le trajet de 40 minutes la salle d'attente, autant de moments où l'on voudrait que l'apprentissage continue, naturellement.",
       item1Solution:
-        "Erudia fonctionne sans connexion. On télécharge les contenus une fois, et c'est parti — peu importe où se trouve votre enfant.",
+        "Erudia fonctionne sans connexion. Les contenus se téléchargent une fois, et c'est parti. Peu importe où se trouve votre enfant.",
       item2Title: "Garder le goût d'apprendre",
       item2Problem:
         "Maintenir la curiosité d'un enfant, c'est délicat. Trop facile, il s'ennuie. Trop difficile, il décroche. Le bon équilibre change selon les jours.",
       item2Solution:
-        "Trois niveaux de difficulté, des encouragements à chaque étape, et des défis quotidiens calibrés — pour que chaque session se termine sur une victoire.",
+        "Trois niveaux de difficulté, des encouragements à chaque étape, et des défis quotidiens calibrés pour que chaque session se termine sur une victoire.",
       item3Title: "Savoir où en est son enfant",
       item3Problem:
-        "On sent bien que notre enfant progresse — mais avoir une vision claire de ses points forts, de ce qu'il maîtrise vraiment, c'est souvent flou.",
+        "On sent bien que notre enfant progresse, mais avoir une vision claire de ses points forts, de ce qu'il maîtrise vraiment, c'est souvent flou.",
       item3Solution:
-        "Le tableau de bord parental d'Erudia donne une vue honnête et simple : scores par catégorie, régularité, badges obtenus. Pas de jargon, juste l'essentiel.",
+        "Le tableau de bord parental d'Erudia donne une vue honnête et simple : scores par catégorie, régularité, badges obtenus.",
       closing:
         "Erudia a été pensé par des parents, pour des parents et surtout pour les enfants.",
     },
@@ -99,7 +99,7 @@ export const fr = {
       card1Tag: "Disponible partout",
       card1Title: "Même sans WiFi",
       card1Desc:
-        "Dans le train, au chalet, en vacances — Erudia fonctionne hors ligne. Toujours là, quand vous en avez besoin.",
+        "Dans le train,en vacances Erudia fonctionne hors ligne. Toujours là, quand vous en avez besoin.",
       card2Tag: "Ils vont adorer",
       card2Title: "Apprendre en gagnant",
       card2Desc:
@@ -116,17 +116,17 @@ export const fr = {
       title: "Conçu pour 6–11 ans.",
       titleAccent: "Challengé jusqu'au collège.",
       p1: "L'interface d'Erudia est pensée pour les enfants : boutons larges, icônes expressives, mascotte Nova. Un enfant de 6 ans peut naviguer seul.",
-      p2: "Mais le contenu des questions s'étend jusqu'au niveau collège. Ce n'est pas un accident — c'est un choix pédagogique assumé. Erudia vise à ce que votre enfant apprenne quelque chose à chaque partie, pas seulement confirmer ce qu'il sait déjà.",
-      note: "💡 Un score de 8/20 n'est pas un échec — c'est une invitation à grandir.",
+      p2: "Mais le contenu des questions s'étend jusqu'au niveau collège. Ce n'est pas un accident, c'est un choix pédagogique assumé. Erudia vise à ce que votre enfant apprenne quelque chose à chaque partie, pas seulement confirmer ce qu'il sait déjà.",
+      note: "💡 Un score de 8/20 n'est pas un échec, c'est une invitation à grandir.",
       level1Name: "Facile — Notions fondamentales",
       level1Desc: "Programme primaire, accessible dès 6 ans",
       level2Name: "Moyen — Approfondissement",
       level2Desc: "CM1–CM2, culture générale élargie",
       level3Name: "Difficile — Niveau collège",
       level3Desc: "Culture internationale, programme 6e–4e",
-      stat1Num: "700+",
+      stat1Num: "600+",
       stat1Title: "Questions / catégorie",
-      stat1Desc: "Alignées sur les programmes FR et international",
+      stat1Desc: "Alignées sur les programmes scolaires",
       stat2Num: "21",
       stat2Title: "Catégories",
       stat2Desc:
@@ -186,7 +186,7 @@ export const fr = {
       title: "Prêt à commencer l'aventure ?",
       subline:
         "Créez un profil enfant en 30 secondes. Votre compte parent vous attend.",
-      btnPrimary: "🚀 Créer un profil enfant",
+      btnPrimary: "Créer un profil enfant",
       btnSecondary: "Voir comment ça marche",
       reassure: "✓ Gratuit · ✓ Sans pub · ✓ COPPA compliant · ✓ Hors ligne",
     },

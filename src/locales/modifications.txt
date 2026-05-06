@@ -1,0 +1,10 @@
+GLOBAL
+
+
+les liens "COPPA complient" doivent rediriger vers https://www.ftc.gov/legal-library/browse/rules/childrens-online-privacy-protection-rule-coppa
+
+
+
+PAGE D'ACCUEIL
+
+
