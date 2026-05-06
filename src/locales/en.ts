@@ -30,7 +30,8 @@ export const en = {
       error: "Something went wrong. Please try again.",
       ariaInput: "Your email address",
     },
-    copyright: "© {year} Erudia — Built with ❤️ for curious minds ages 6–11. By",
+    copyright:
+      "© {year} Erudia — Built with ❤️ for curious minds ages 6–11. By",
     copyrightAuthor: "johanwebstudio",
     copyrightAuthorUrl: "https://www.johanwebstudio.fr",
     badgeCoppa: "🔒 COPPA compliant",
@@ -136,7 +137,7 @@ export const en = {
       stat4Num: "FR EN",
       stat4Title: "Bilingual",
       stat4Desc:
-        "Questions and full interface available in both languages from day one",
+        "Questions and full interface in French and English. The English version follows FLE methodology, aligned with the CEFR (Common European Framework of Reference for Languages).",
     },
     pricingTeaser: {
       pill: "Pricing",
@@ -537,11 +538,11 @@ export const en = {
           color: "#FF9800",
           title1: "French and English,",
           title2: "from day one",
-          desc: "Many educational apps start in English and add other languages as an option, often incomplete. We did the opposite: Erudia is natively bilingual FR/EN, questions and interface included. A French-speaking child can switch to English for a session — and return to French without losing their data.",
+          desc: "Many educational apps start in English and add other languages as an option, often incomplete. We did the opposite: Erudia is natively bilingual FR/EN. The English version follows FLE (French as a Foreign Language) methodology and is aligned with the CEFR. So every English session has pedagogical value, not just a translation.",
           insightIcon: "🌍",
-          insightStrong: "A single toggle",
+          insightStrong: "CEFR-aligned English content",
           insightText:
-            "accessible from onboarding and from the profile. No double account, no reinstall. Linguistic immersion begins naturally.",
+            "A single toggle from onboarding or the profile. No double account, no reinstall. Linguistic immersion begins naturally.",
         },
         {
           number: "04",
@@ -1257,13 +1258,16 @@ export const en = {
       pill: "Our story",
       title: "An app born from a",
       titleAccent: "real need.",
-      subline: "Erudia wasn't born from market research. It was born from a developer-dad, a half-Filipino half-French daughter, and one simple question: why doesn't an app like this exist?",
+      subline:
+        "Erudia wasn't born from market research. It was born from a developer-dad, a half-Filipino half-French daughter, and one simple question: why doesn't an app like this exist?",
     },
     vision: {
       pill: "Our pedagogical conviction",
       title: "Why 500 questions per category?",
-      subline: "The depth of Erudia's content isn't a marketing argument. It's a conviction.",
-      blockquote: "A child who plays regularly should end up building real general knowledge — not just a collection of trivia.",
+      subline:
+        "The depth of Erudia's content isn't a marketing argument. It's a conviction.",
+      blockquote:
+        "A child who plays regularly should end up building real general knowledge — not just a collection of trivia.",
       p1: "That's why each category aims for 500 to 800 questions: enough so that a child who plays several times a week never sees the same questions for months, and enough to cover in depth the themes of the French national curriculum (Cycles 2 and 3).",
       p2: "Children's general knowledge is declining. Passive screens take up the time once dedicated to reading, board games, and encyclopedias. Erudia doesn't claim to solve this alone — but it explicitly positions itself as a tool that requires knowing to progress, not just clicking.",
       stat1Value: "500–800",
@@ -1276,20 +1280,25 @@ export const en = {
     fle: {
       pill: "English version",
       title: "The EN version is not a translation.",
-      subline: "It's a standalone product, designed for a very specific profile.",
+      subline:
+        "It's a standalone product, designed for a very specific profile.",
       p1: "Erudia's English version was designed for an English-speaking child who needs to integrate the French cultural reference — the history of France, French geography, the institutions of the Republic — because they are going to live, study or grow up in France.",
       p2: "It's not FLE in the strict sense (learning grammar or vocabulary). It's a preparation for the French cultural and academic framework, delivered in the language the child already masters: English.",
-      quote: "This vision comes directly from the founder's own experience: preparing his daughter for a return to France after a childhood in the Philippines — giving her the cultural and historical references she couldn't acquire naturally.",
+      quote:
+        "This vision comes directly from the founder's own experience: preparing his daughter for a return to France after a childhood in the Philippines — giving her the cultural and historical references she couldn't acquire naturally.",
       pillFeature1: "Explained in English",
       pillFeature2: "French culture",
       pillFeature3: "Cycles 2–3 curriculum",
       pillFeature4: "Strong differentiator",
       card1Title: "Built for bilingual families",
-      card1Text: "Franco-foreign children, expat families, adopted children — Erudia EN gives them French cultural references in their natural language.",
+      card1Text:
+        "Franco-foreign children, expat families, adopted children — Erudia EN gives them French cultural references in their natural language.",
       card2Title: "Not a translation, an adaptation",
-      card2Text: "Every EN category is calibrated for what a child arriving in France needs to know — from the perspective of someone not yet immersed in that culture.",
+      card2Text:
+        "Every EN category is calibrated for what a child arriving in France needs to know — from the perspective of someone not yet immersed in that culture.",
       card3Title: "A strong differentiator",
-      card3Text: "No equivalent tool exists in the English-speaking market. Erudia positions itself as the reference for preparing children for the French academic framework in English.",
+      card3Text:
+        "No equivalent tool exists in the English-speaking market. Erudia positions itself as the reference for preparing children for the French academic framework in English.",
     },
     cta: {
       title: "Try Erudia yourself.",
@@ -1345,7 +1354,7 @@ export const en = {
           heading: "Cookies",
           paragraphs: [
             "The erudia.app landing page uses Google Analytics 4 (GA4), an audience measurement tool operated by Google Ireland Ltd. This service sets an analytics cookie only after your explicit consent via the banner shown on your first visit.",
-            "If you decline or dismiss the banner, no analytics cookie is set and GA4 is not activated. You can change your choice at any time via the \"Cookie settings\" link in the footer.",
+            'If you decline or dismiss the banner, no analytics cookie is set and GA4 is not activated. You can change your choice at any time via the "Cookie settings" link in the footer.',
             "Cookies used — _ga (Google Analytics, 13 months): anonymously distinguish users. _ga_XXXXXXXX (Google Analytics, 13 months): maintain GA4 session state. erudia_consent (first-party, 13 months): remember your consent choice.",
             "The app.erudia.app application uses only strictly necessary session cookies for authentication (Supabase Auth). These cookies are exempt from consent requirements.",
           ],

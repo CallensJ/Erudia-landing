@@ -137,7 +137,7 @@ export const fr = {
       stat4Num: "FR EN",
       stat4Title: "Bilingue",
       stat4Desc:
-        "Questions et interface disponibles dans les deux langues dès le lancement",
+        "Questions et interface complètes en français et en anglais. La version anglaise suit une approche FLE alignée sur le CECRL (Cadre Européen Commun de Référence pour les Langues).",
     },
     pricingTeaser: {
       pill: "Tarifs",
@@ -538,11 +538,11 @@ export const fr = {
           color: "#FF9800",
           title1: "Français et anglais,",
           title2: "dès le premier jour",
-          desc: "Beaucoup d'apps éducatives démarrent en anglais et ajoutent d'autres langues en option, souvent incomplète. On a fait l'inverse : Erudia est nativement bilingue FR/EN, questions et interface comprises. Un enfant francophone peut basculer en anglais pour une session et revenir en français sans perdre ses données.",
+          desc: "Beaucoup d'apps éducatives démarrent en anglais et ajoutent d'autres langues en option, souvent incomplètes. On a fait l'inverse : Erudia est nativement bilingue FR/EN. La version anglaise suit une approche FLE (Français Langue Étrangère) alignée sur le CECRL. Chaque session en anglais a une valeur pédagogique, pas juste une traduction.",
           insightIcon: "🌍",
-          insightStrong: "Un seul toggle",
+          insightStrong: "Contenu anglais aligné sur le CECRL",
           insightText:
-            "accessible dès l'onboarding et depuis le profil. Pas de double compte, pas de réinstallation. L'immersion linguistique commence naturellement.",
+            "Un seul toggle dès l'onboarding ou depuis le profil. Pas de double compte, pas de réinstallation. L'immersion linguistique commence naturellement.",
         },
         {
           number: "04",
