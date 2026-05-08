@@ -48,6 +48,89 @@ useBreadcrumbJsonLd({
       <!-- ── Liste des versions ── -->
       <div class="changelog__list">
 
+        <!-- ────────────── v1.3.0 ────────────── -->
+        <article class="changelog__entry">
+          <div class="changelog__version-badge">v1.3.0</div>
+          <div class="changelog__date">
+            {{ locale === 'fr' ? '8 mai 2026' : 'May 8, 2026' }}
+          </div>
+
+          <!-- Nouveautés -->
+          <section class="changelog__section">
+            <h2 class="changelog__section-title">
+              <span aria-hidden="true">🆕</span>
+              {{ locale === 'fr' ? 'Nouveautés' : 'New features' }}
+            </h2>
+            <ul class="changelog__items">
+              <li v-if="locale === 'fr'">Thèmes de couleur Garçon (bleu) et Fille (rose) — toggle depuis le profil enfant</li>
+              <li v-else>Boy (blue) and Girl (pink) color themes — toggled from the child profile</li>
+            </ul>
+          </section>
+
+          <!-- Améliorations -->
+          <section class="changelog__section">
+            <h2 class="changelog__section-title">
+              <span aria-hidden="true">✨</span>
+              {{ locale === 'fr' ? 'Améliorations' : 'Improvements' }}
+            </h2>
+            <ul class="changelog__items">
+              <li v-if="locale === 'fr'">Quiz : bouton "Suivant →" manuel après chaque réponse — avance automatique de secours à 4 s</li>
+              <li v-else>Quiz: manual "Next →" button after each answer — fallback auto-advance at 4 s</li>
+
+              <li v-if="locale === 'fr'">Accueil : catégories premium en accordéon (5 visibles, bouton "Voir plus")</li>
+              <li v-else>Home: premium categories in an accordion (5 visible, "See more" button)</li>
+
+              <li v-if="locale === 'fr'">Accueil : aide contextuelle sous "Jouer !" quand le bouton est désactivé</li>
+              <li v-else>Home: contextual hint below "Play!" when the button is disabled</li>
+
+              <li v-if="locale === 'fr'">Accueil : spinner animé + texte "Chargement…" et bouton "Réessayer" en cas d'erreur</li>
+              <li v-else>Home: animated spinner + "Loading…" text and "Retry" button on error</li>
+
+              <li v-if="locale === 'fr'">Onboarding : validation du pseudo en temps réel (min. 2 caractères, compteur X/20)</li>
+              <li v-else>Onboarding: real-time username validation (min. 2 chars, X/20 counter)</li>
+
+              <li v-if="locale === 'fr'">Navigation : état actif mis en évidence dans la barre latérale desktop</li>
+              <li v-else>Navigation: active state highlighted in the desktop sidebar</li>
+
+              <li v-if="locale === 'fr'">Navigation : le titre du joueur (Apprenti, Érudit, Sage…) s'affiche dans la langue choisie</li>
+              <li v-else>Navigation: player title (Apprentice, Scholar, Sage…) now displayed in the chosen language</li>
+
+              <li v-if="locale === 'fr'">Résultats : messages de fin adaptés au pourcentage de bonnes réponses</li>
+              <li v-else>Results: end-of-game messages adapted to the percentage of correct answers</li>
+
+              <li v-if="locale === 'fr'">Quiz & Résultats : emoji propre à chaque catégorie (🔬 Sciences, 📜 Histoire, 🌍 Géographie…)</li>
+              <li v-else>Quiz & Results: unique emoji per category (🔬 Science, 📜 History, 🌍 Geography…)</li>
+
+              <li v-if="locale === 'fr'">Survol des boutons plus prononcé (assombrissement) + effet de pression sur mobile</li>
+              <li v-else>Stronger hover effect on buttons (darkening) + press feedback on mobile</li>
+            </ul>
+          </section>
+
+          <!-- Corrections -->
+          <section class="changelog__section">
+            <h2 class="changelog__section-title">
+              <span aria-hidden="true">🐛</span>
+              {{ locale === 'fr' ? 'Corrections' : 'Bug fixes' }}
+            </h2>
+            <ul class="changelog__items">
+              <li v-if="locale === 'fr'">Espace parent : suppression d'un profil enfant possible même s'il est le seul</li>
+              <li v-else>Parent dashboard: child profile deletion now allowed even for the last remaining profile</li>
+
+              <li v-if="locale === 'fr'">Objectifs de la semaine : les noms de catégories s'affichaient en clé brute (ex. stats.geographie) — corrigé</li>
+              <li v-else>Weekly goals: category names were displaying as raw keys (e.g. stats.geographie) — fixed</li>
+
+              <li v-if="locale === 'fr'">Bouton "Jouer" dans les recommandations : rendu du bord arrondi corrigé</li>
+              <li v-else>Recommendations "Play" button: border-radius rendering corrected</li>
+
+              <li v-if="locale === 'fr'">Barre latérale desktop : espacement augmenté entre "Accueil" et "Statistiques"</li>
+              <li v-else>Desktop sidebar: increased spacing between "Home" and "Statistics" buttons</li>
+
+              <li v-if="locale === 'fr'">Espace parent — Profils enfants : mise en page de l'icône corbeille et du bouton "Ajouter" reconstruite</li>
+              <li v-else>Parent dashboard — Child profiles: trash icon and "Add" button layout rebuilt</li>
+            </ul>
+          </section>
+        </article>
+
         <!-- ────────────── v1.2.0 ────────────── -->
         <article class="changelog__entry">
           <div class="changelog__version-badge">v1.2.0</div>
