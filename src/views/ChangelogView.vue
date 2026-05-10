@@ -48,6 +48,50 @@ useBreadcrumbJsonLd({
       <!-- ── Liste des versions ── -->
       <div class="changelog__list">
 
+        <!-- ────────────── v1.3.1 ────────────── -->
+        <article class="changelog__entry">
+          <div class="changelog__version-badge">v1.3.1</div>
+          <div class="changelog__date">
+            {{ locale === 'fr' ? '10 mai 2026' : 'May 10, 2026' }}
+          </div>
+
+          <!-- Nouveautés -->
+          <section class="changelog__section">
+            <h2 class="changelog__section-title">
+              <span aria-hidden="true">🆕</span>
+              {{ locale === 'fr' ? 'Nouveautés' : 'New features' }}
+            </h2>
+            <ul class="changelog__items">
+              <li v-if="locale === 'fr'">Trophées : barre de progression vers le prochain badge dans chaque groupe (catégories, parties jouées, streak, collectionneurs) — avec métrique adaptée (parties jouées, scores parfaits, jours consécutifs)</li>
+              <li v-else>Trophies: progress bar toward the next badge in each group (categories, games played, streak, collectors) — with adapted metric (games played, perfect scores, consecutive days)</li>
+            </ul>
+          </section>
+
+          <!-- Corrections -->
+          <section class="changelog__section">
+            <h2 class="changelog__section-title">
+              <span aria-hidden="true">🐛</span>
+              {{ locale === 'fr' ? 'Corrections' : 'Bug fixes' }}
+            </h2>
+            <ul class="changelog__items">
+              <li v-if="locale === 'fr'">Synchronisation premium : le profil d'un second joueur n'est plus écrasé après reconnexion du parent</li>
+              <li v-else>Premium sync: a second player's profile is no longer overwritten after the parent reconnects</li>
+
+              <li v-if="locale === 'fr'">Synchronisation premium : un profil supprimé ne réapparaît plus après un rafraîchissement (F5)</li>
+              <li v-else>Premium sync: a deleted profile no longer reappears after a page refresh (F5)</li>
+
+              <li v-if="locale === 'fr'">Synchronisation premium : la réinitialisation de progression est désormais aussi appliquée côté serveur</li>
+              <li v-else>Premium sync: progress reset is now also applied server-side</li>
+
+              <li v-if="locale === 'fr'">Espace parent : un message de confirmation s'affiche après "Réinitialiser la progression"</li>
+              <li v-else>Parent dashboard: a confirmation message now appears after "Reset progress"</li>
+
+              <li v-if="locale === 'fr'">Modale "À propos" : le lien vers le changelog pointe désormais vers la version localisée (/fr/changelog ou /en/changelog)</li>
+              <li v-else>About modal: the changelog link now points to the localized version (/fr/changelog or /en/changelog)</li>
+            </ul>
+          </section>
+        </article>
+
         <!-- ────────────── v1.3.0 ────────────── -->
         <article class="changelog__entry">
           <div class="changelog__version-badge">v1.3.0</div>
