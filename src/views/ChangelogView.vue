@@ -48,6 +48,41 @@ useBreadcrumbJsonLd({
       <!-- ── Liste des versions ── -->
       <div class="changelog__list">
 
+        <!-- ────────────── v1.3.2 ────────────── -->
+        <article class="changelog__entry">
+          <div class="changelog__version-badge">v1.3.2</div>
+          <div class="changelog__date">
+            {{ locale === 'fr' ? '15 mai 2026' : 'May 15, 2026' }}
+          </div>
+
+          <!-- Corrections -->
+          <section class="changelog__section">
+            <h2 class="changelog__section-title">
+              <span aria-hidden="true">🐛</span>
+              {{ locale === 'fr' ? 'Corrections' : 'Bug fixes' }}
+            </h2>
+            <ul class="changelog__items">
+              <li v-if="locale === 'fr'">Catégorie Technologie (FR/EN) : doublons supprimés et réponses correctes redistribuées uniformément</li>
+              <li v-else>Technology category (FR/EN): duplicates removed and correct answers redistributed evenly</li>
+
+              <li v-if="locale === 'fr'">Catégorie Mathématique (FR/EN) : questions rééquilibrées entre les niveaux de difficulté</li>
+              <li v-else>Mathematics category (FR/EN): questions rebalanced across difficulty levels</li>
+
+              <li v-if="locale === 'fr'">Catégorie Pop Culture (FR) : 27 doublons supprimés (400 → 373 questions), distribution des réponses rééquilibrée</li>
+              <li v-else>Pop Culture category (FR): 27 duplicates removed (400 → 373 questions), answer distribution rebalanced</li>
+
+              <li v-if="locale === 'fr'">Synchronisation multi-profils (premium) : tous les profils liés au compte parent sont désormais restaurés sur un nouvel appareil</li>
+              <li v-else>Multi-profile sync (premium): all profiles linked to the parent account are now fully restored on a new device</li>
+
+              <li v-if="locale === 'fr'">Sécurité — Espace parent : accès aux paramètres restreint aux comptes authentifiés uniquement</li>
+              <li v-else>Security — Parent dashboard: settings access is now restricted to authenticated accounts only</li>
+
+              <li v-if="locale === 'fr'">Suppression d'un profil enfant : les données associées en base sont désormais supprimées automatiquement</li>
+              <li v-else>Child profile deletion: associated database records are now automatically removed</li>
+            </ul>
+          </section>
+        </article>
+
         <!-- ────────────── v1.3.1 ────────────── -->
         <article class="changelog__entry">
           <div class="changelog__version-badge">v1.3.1</div>
